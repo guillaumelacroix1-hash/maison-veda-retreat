@@ -13,6 +13,7 @@ import Logo from './components/Logo'
 
 function App() {
     const [isScrolled, setIsScrolled] = useState(false)
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,8 +35,10 @@ function App() {
                 }`}>
                 <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
                     <div className="flex items-center">
-                        <Logo className="h-12 w-auto text-veda-gold drop-shadow-sm transition-transform duration-500 hover:scale-105" fill="currentColor" />
+                        <Logo className="h-10 md:h-12 w-auto text-veda-gold drop-shadow-sm transition-transform duration-500 hover:scale-105" fill="currentColor" />
                     </div>
+
+                    {/* Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-8">
                         <div className="flex items-center space-x-8 text-sm font-medium tracking-wide">
                             <a href="#programme" className="hover:text-veda-gold transition-colors duration-300">Programme</a>
@@ -46,6 +49,35 @@ function App() {
                         <a href="#tarifs" className="flex items-center justify-center px-6 py-2.5 text-sm font-semibold tracking-wide text-veda-dark bg-veda-gold rounded-full hover:bg-white transition-colors duration-300 shadow-md hover:shadow-lg">
                             Réserver
                         </a>
+                    </div>
+
+                    {/* Mobile Menu Button & CTA */}
+                    <div className="flex md:hidden items-center space-x-4">
+                        <a href="#tarifs" className="flex items-center justify-center px-4 py-2 text-xs font-semibold tracking-wide text-veda-dark bg-veda-gold rounded-full hover:bg-white transition-colors duration-300 shadow-md">
+                            Réserver
+                        </a>
+                        <button
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                            className="p-2 text-veda-light hover:text-veda-gold transition-colors"
+                            aria-label="Toggle menu"
+                        >
+                            {isMobileMenuOpen ? (
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+                            ) : (
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+                            )}
+                        </button>
+                    </div>
+                </div>
+
+                {/* Mobile Menu Dropdown */}
+                <div className={`md:hidden absolute top-full left-0 w-full bg-veda-dark border-b border-white/10 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    }`}>
+                    <div className="flex flex-col px-6 py-4 space-y-4 text-sm font-medium tracking-wide">
+                        <a href="#programme" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Programme</a>
+                        <a href="#guides" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Vos Guides</a>
+                        <a href="#hebergement" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Hébergement</a>
+                        <a href="#tarifs" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300">Tarifs</a>
                     </div>
                 </div>
             </nav>
