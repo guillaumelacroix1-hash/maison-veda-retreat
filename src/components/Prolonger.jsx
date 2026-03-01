@@ -88,7 +88,7 @@ export default function Prolonger() {
                         {/* Background Image */}
                         <div className="absolute inset-0 z-0">
                             <img
-                                src="/minivan.jpg"
+                                src="minivan.jpg"
                                 alt="Tourisme Sri Lanka Safari"
                                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                             />
