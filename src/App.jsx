@@ -30,12 +30,12 @@ function App() {
         <div className="min-h-screen bg-veda-dark font-sans text-veda-light">
             {/* Dynamic Navbar */}
             <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled
-                ? 'bg-veda-dark/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl py-4'
-                : 'bg-transparent border-b border-transparent py-6'
+                ? 'bg-veda-dark/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl py-3 md:py-4'
+                : 'bg-transparent border-b border-transparent py-4 md:py-6'
                 }`}>
-                <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                    <div className="flex items-center">
-                        <Logo className="h-10 md:h-12 w-auto text-veda-gold drop-shadow-sm transition-transform duration-500 hover:scale-105" fill="currentColor" />
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+                    <div className="flex items-center w-3/4 md:w-auto">
+                        <Logo className="h-8 md:h-12 w-auto max-w-full text-veda-gold drop-shadow-sm transition-transform duration-500 hover:scale-105" fill="currentColor" />
                     </div>
 
                     {/* Desktop Menu */}
@@ -51,11 +51,8 @@ function App() {
                         </a>
                     </div>
 
-                    {/* Mobile Menu Button & CTA */}
-                    <div className="flex md:hidden items-center space-x-4">
-                        <a href="#tarifs" className="flex items-center justify-center px-4 py-2 text-xs font-semibold tracking-wide text-veda-dark bg-veda-gold rounded-full hover:bg-white transition-colors duration-300 shadow-md">
-                            Réserver
-                        </a>
+                    {/* Mobile Menu Button */}
+                    <div className="flex md:hidden items-center">
                         <button
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                             className="p-2 text-veda-light hover:text-veda-gold transition-colors"
@@ -77,7 +74,12 @@ function App() {
                         <a href="#programme" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Programme</a>
                         <a href="#guides" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Vos Guides</a>
                         <a href="#hebergement" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Hébergement</a>
-                        <a href="#tarifs" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300">Tarifs</a>
+                        <a href="#tarifs" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Tarifs</a>
+                        <div className="pt-2 pb-2">
+                            <a href="#tarifs" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-center w-full px-4 py-3 text-sm font-semibold tracking-wide text-veda-dark bg-veda-gold rounded-full hover:bg-white transition-colors duration-300 shadow-md">
+                                Réserver
+                            </a>
+                        </div>
                     </div>
                 </div>
             </nav>
