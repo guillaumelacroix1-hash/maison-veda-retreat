@@ -16,6 +16,13 @@ const lakeLoftImages = [
     "https://www.lamaisonveda.com/wp-content/uploads/2026/01/9bd9bd47-bf33-4438-97ca-8ca9c867f2b5-768x1152.jpeg"
 ];
 
+const jungleBreezeImages = [
+    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/702979837.jpg?k=31baa87a2973b7454671af189371c80244e3e0bf50b93db9dd6e4a956c80e3a5&o=",
+    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/702997003.jpg?k=8f5dba45119ef31b3037b28666e4485e929ec07b3e897d4268df9d44eb2ee5a0&o=",
+    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/702996972.jpg?k=9ccb17379d2da69d1e9d17890dc0306ea6935a1647e304c8ad5a14fdaa7f6646&o=",
+    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/702995352.jpg?k=2606e14c0e5dbb8ec3b4ab8542d21a1f3f7bbe07566e61162bbb6c5cefd490c3&o="
+];
+
 const ImageSlider = ({ images, initialDelay = 0, onImageClick }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -176,6 +183,23 @@ export default function Villas() {
                             <h4 className="text-3xl font-heading mb-2 hover:text-veda-gold transition-colors cursor-pointer">Le 'Lake Loft'</h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
                                 Une villa plus contemporaine, avec son yoga shala perché au dernier étage offrant une vue imprenable sur le lac !
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* Jungle Breeze */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="lg:col-span-2 lg:max-w-xl xl:max-w-2xl lg:mx-auto lg:mt-8 w-full"
+                    >
+                        <ImageSlider images={jungleBreezeImages} initialDelay={4000} onImageClick={setFullscreenImage} />
+                        <div className="mt-6 text-center lg:text-left">
+                            <h4 className="text-3xl font-heading mb-2 hover:text-veda-gold transition-colors cursor-pointer">La Villa 'Jungle Breeze'</h4>
+                            <p className="text-veda-light/70 font-light text-sm line-clamp-2">
+                                Nichée au coeur de la verdure, cette villa offre une parenthèse apaisante, idéale pour se ressourcer en toute tranquillité.
                             </p>
                         </div>
                     </motion.div>
