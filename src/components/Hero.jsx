@@ -34,6 +34,8 @@ export default function Hero() {
                     src="https://www.lamaisonveda.com/wp-content/uploads/2024/04/IMG_0945-scaled.jpg"
                     alt="Retraite Sri Lanka La Maison Veda"
                     className="w-full h-full object-cover object-center"
+                    fetchPriority="high"
+                    loading="eager"
                 />
             </motion.div>
 
