@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, CheckCircle2 } from 'lucide-react'
@@ -6,6 +6,10 @@ import Logo from '../components/Logo'
 import Footer from '../components/Footer'
 
 export default function Reserver() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
     const [formData, setFormData] = useState({
