@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Calendar, Check, Plane } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function Tarifs() {
     return (
@@ -69,7 +70,7 @@ export default function Tarifs() {
                             </div>
                             <h4 className="text-xl font-heading mb-4">Ce qui est inclus</h4>
                             <ul className="space-y-2 text-sm text-veda-dark/80 inline-block text-left">
-                                {["6 nuits d'hébergement", "Pension complète (végétarien)", "Pratiques de Yoga & Méditation", "Activités sélectionnées"].map((item, i) => (
+                                {["6 nuits d'hébergement", "Pension complète (végétarienne)", "2 à 4 pratiques de yoga / jour", "Expériences (Cacao, Kirtan...)", "Activités durant la retraite"].map((item, i) => (
                                     <li key={i} className="flex items-start justify-center gap-2">
                                         <Check className="w-4 h-4 text-veda-gold shrink-0 mt-0.5" />
                                         <span>{item}</span>
@@ -101,11 +102,13 @@ export default function Tarifs() {
                             </div>
 
                             <div className="mt-auto w-full">
-                                <button className="w-full py-4 bg-veda-dark group-hover:bg-black text-veda-light font-medium tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-md">
+                                <Link to="/reserver" className="block text-center w-full py-4 bg-veda-dark group-hover:bg-black text-veda-light font-medium tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-md">
                                     Réserver ma place
-                                </button>
-                                <p className="text-xs text-veda-dark/50 mt-4 font-light">
-                                    Acompte de 500€ à l'inscription
+                                </Link>
+                                <p className="text-xs text-veda-dark/60 mt-4 font-light leading-relaxed">
+                                    <span className="font-medium text-veda-dark">Acompte de 500€</span> par virement.<br /> Preuve à envoyer par email pour valider.<br />
+                                    Solde à régler 1 mois avant (15 janvier).<br />
+                                    <span className="italic">Annulation: Remboursement si remplacement possible.</span>
                                 </p>
                             </div>
                         </div>
@@ -124,11 +127,13 @@ export default function Tarifs() {
                             </div>
 
                             <div className="mt-auto w-full">
-                                <button className="w-full py-4 bg-veda-gold group-hover:bg-white text-veda-dark font-bold tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-lg">
+                                <Link to="/reserver" className="block text-center w-full py-4 bg-veda-gold group-hover:bg-white text-veda-dark font-bold tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-lg">
                                     Réserver ma place
-                                </button>
-                                <p className="text-xs text-veda-gold/70 mt-4 font-light">
-                                    Places très limitées. Acompte de 500€.
+                                </Link>
+                                <p className="text-xs text-veda-gold/80 mt-4 font-light leading-relaxed">
+                                    <span className="font-medium text-white">Acompte de 500€</span> par virement.<br /> Preuve à envoyer par email pour valider.<br />
+                                    Solde à régler 1 mois avant (15 janvier).<br />
+                                    <span className="italic">Annulation: Remboursement si remplacement possible.</span>
                                 </p>
                             </div>
                         </div>

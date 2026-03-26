@@ -1,30 +1,55 @@
 import React, { useState } from 'react';
 
+const getImageUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+
 const galleryImages = [
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0193.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0295.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0292.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0086.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2024/03/IMG_1535-768x432.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_8743-768x576.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2025/08/IMG_7315-768x576.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_1130-768x576.jpeg"
+    getImageUrl("/images/carousels/sur place/58e443fd-7a8a-4171-8043-d62d5425e848.jpg"),
+    getImageUrl("/images/carousels/sur place/7691518e-d834-41c2-b243-3edbf97e7229.jpg"),
+    getImageUrl("/images/carousels/sur place/BB32CCC1-6A37-48F5-BC9D-D2D696669524.jpg"),
+    getImageUrl("/images/carousels/sur place/IMG_1289.JPG"),
+    getImageUrl("/images/carousels/sur place/IMG_1300.JPG"),
+    getImageUrl("/images/carousels/sur place/IMG_1312.JPG"),
+    getImageUrl("/images/carousels/sur place/IMG_1712.JPEG"),
+    getImageUrl("/images/carousels/sur place/IMG_9658.JPEG"),
+    getImageUrl("/images/carousels/sur place/IMG_9905.JPG")
 ];
 
-const visitImages = [
-    "https://www.lamaisonveda.com/wp-content/uploads/2025/08/Stilt-fishermen.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2024/03/IMG_1494.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/18ed7d26-93bc-48a5-ac0c-1eeb91a182ae.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_1126-scaled.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2024/03/IMG_1495.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2024/03/IMG_1490-768x512.jpeg"
-];
+import visitImageNames from '../../public/visites/gallery-images.json';
+
+const visitImages = visitImageNames.map(name => getImageUrl(`/visites/${name}`));
 
 const Gallery = () => {
     const [selectedTab, setSelectedTab] = useState('sur-place');
     const [lightboxImage, setLightboxImage] = useState(null);
 
     const currentImages = selectedTab === 'sur-place' ? galleryImages : visitImages;
+
+    const handleNext = (e) => {
+        if (e) e.stopPropagation();
+        const currentIndex = currentImages.indexOf(lightboxImage);
+        if (currentIndex !== -1) {
+            setLightboxImage(currentImages[(currentIndex + 1) % currentImages.length]);
+        }
+    };
+
+    const handlePrev = (e) => {
+        if (e) e.stopPropagation();
+        const currentIndex = currentImages.indexOf(lightboxImage);
+        if (currentIndex !== -1) {
+            setLightboxImage(currentImages[(currentIndex - 1 + currentImages.length) % currentImages.length]);
+        }
+    };
+
+    React.useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (!lightboxImage) return;
+            if (e.key === 'ArrowRight') handleNext();
+            if (e.key === 'ArrowLeft') handlePrev();
+            if (e.key === 'Escape') setLightboxImage(null);
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [lightboxImage, currentImages]);
 
     return (
         <section id="galerie" className="py-24 bg-veda-dark text-veda-light relative">
@@ -68,7 +93,6 @@ const Gallery = () => {
                 {/* Animated Image Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[250px]">
                     {currentImages.map((src, index) => {
-                        // Create a masonry-like pattern by making some items span rows or columns
                         const isLarge = index === 0 || index === 5;
                         const isWide = index === 2 || index === 7;
 
@@ -113,12 +137,27 @@ const Gallery = () => {
                     >
                         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" /></svg>
                     </button>
+                    
+                    <button
+                        className="absolute left-4 md:left-8 text-white/50 hover:text-white transition-colors z-[101] p-2 hover:bg-white/10 rounded-full"
+                        onClick={handlePrev}
+                    >
+                        <svg className="w-10 h-10 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                    </button>
+
                     <img
                         src={lightboxImage}
                         alt="Enlarged view"
                         className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
                         onClick={(e) => e.stopPropagation()} // Prevent clicking image from closing
                     />
+                    
+                    <button
+                        className="absolute right-4 md:right-8 text-white/50 hover:text-white transition-colors z-[101] p-2 hover:bg-white/10 rounded-full"
+                        onClick={handleNext}
+                    >
+                        <svg className="w-10 h-10 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                    </button>
                 </div>
             )}
         </section>

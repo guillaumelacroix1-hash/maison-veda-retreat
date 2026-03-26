@@ -2,25 +2,42 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
 
+const getImageUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+
 const lakeHouseImages = [
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_1126-scaled.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_1130-768x576.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2025/08/IMG_7315-768x576.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_8743-768x576.jpeg"
+    getImageUrl("/images/carousels/maison-veda/lake-house/17134a43-830c-4499-bba1-31e71e48208f.jpg"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/4d8dfbcf-78b2-4fdc-a1d3-469b7396969f.jpg"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_0343.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_0345.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_0346.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1126.JPEG"),
 ];
 
 const lakeLoftImages = [
-    "https://www.lamaisonveda.com/wp-content/uploads/2025/09/E3572592-5B73-4E32-9040-A9D6F93F58F2.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2025/09/8038665A-9CEC-47A3-B4AE-68B19D90AE02-scaled.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/4d8dfbcf-78b2-4fdc-a1d3-469b7396969f-768x1152.jpeg",
-    "https://www.lamaisonveda.com/wp-content/uploads/2026/01/9bd9bd47-bf33-4438-97ca-8ca9c867f2b5-768x1152.jpeg"
+    getImageUrl("/images/carousels/maison-veda/lake-loft/a8062efe-d3a3-4cb4-a603-925dae2c1ab0.jpg"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_0250.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_0251.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1340.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1341.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1345.JPG"),
 ];
 
 const jungleBreezeImages = [
-    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/702979837.jpg?k=31baa87a2973b7454671af189371c80244e3e0bf50b93db9dd6e4a956c80e3a5&o=",
-    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/702997003.jpg?k=8f5dba45119ef31b3037b28666e4485e929ec07b3e897d4268df9d44eb2ee5a0&o=",
-    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/702996972.jpg?k=9ccb17379d2da69d1e9d17890dc0306ea6935a1647e304c8ad5a14fdaa7f6646&o=",
-    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/702995352.jpg?k=2606e14c0e5dbb8ec3b4ab8542d21a1f3f7bbe07566e61162bbb6c5cefd490c3&o="
+    getImageUrl("/images/carousels/jungle-breeze/IMG_2091.JPG"),
+    getImageUrl("/images/carousels/jungle-breeze/IMG_2096.JPG"),
+    getImageUrl("/images/carousels/jungle-breeze/IMG_2125.JPG"),
+    getImageUrl("/images/carousels/jungle-breeze/IMG_2127.JPG"),
+    getImageUrl("/images/carousels/jungle-breeze/IMG_2128.JPG"),
+    getImageUrl("/images/carousels/jungle-breeze/IMG_2129.JPG"),
+];
+
+const tothupolaImages = [
+    getImageUrl("/images/carousels/tothupola/IMG_1491.JPG"),
+    getImageUrl("/images/carousels/tothupola/IMG_1493.JPG"),
+    getImageUrl("/images/carousels/tothupola/IMG_1497.JPG"),
+    getImageUrl("/images/carousels/tothupola/IMG_1499.JPG"),
+    getImageUrl("/images/carousels/tothupola/IMG_1502.JPG"),
+    getImageUrl("/images/carousels/tothupola/IMG_1510.JPG"),
 ];
 
 const ImageSlider = ({ images, initialDelay = 0, onImageClick }) => {
@@ -46,7 +63,7 @@ const ImageSlider = ({ images, initialDelay = 0, onImageClick }) => {
         <div className="w-full">
             <div
                 className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4 group cursor-zoom-in"
-                onClick={() => onImageClick(images[currentIndex])}
+                onClick={() => onImageClick(images[currentIndex], currentIndex)}
             >
                 <AnimatePresence mode="wait">
                     <motion.img
@@ -82,7 +99,46 @@ const ImageSlider = ({ images, initialDelay = 0, onImageClick }) => {
 
 export default function Villas() {
     const [showMoreVillas, setShowMoreVillas] = useState(false)
-    const [fullscreenImage, setFullscreenImage] = useState(null)
+    const [fullscreenData, setFullscreenData] = useState(null)
+
+    const handleNext = (e) => {
+        if (e) e.stopPropagation();
+        if (fullscreenData) {
+            const nextIndex = (fullscreenData.index + 1) % fullscreenData.images.length;
+            setFullscreenData({
+                url: fullscreenData.images[nextIndex],
+                images: fullscreenData.images,
+                index: nextIndex
+            });
+        }
+    };
+
+    const handlePrev = (e) => {
+        if (e) e.stopPropagation();
+        if (fullscreenData) {
+            const prevIndex = (fullscreenData.index - 1 + fullscreenData.images.length) % fullscreenData.images.length;
+            setFullscreenData({
+                url: fullscreenData.images[prevIndex],
+                images: fullscreenData.images,
+                index: prevIndex
+            });
+        }
+    };
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (!fullscreenData) return;
+            if (e.key === 'ArrowRight') handleNext();
+            if (e.key === 'ArrowLeft') handlePrev();
+            if (e.key === 'Escape') setFullscreenData(null);
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [fullscreenData]);
+
+    const handleImageClick = (url, images, index) => {
+        setFullscreenData({ url, images, index });
+    };
 
     return (
         <section className="py-24 md:py-32 px-6 bg-veda-dark text-veda-light relative">
@@ -161,7 +217,7 @@ export default function Villas() {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
                     >
-                        <ImageSlider images={lakeHouseImages} initialDelay={0} onImageClick={setFullscreenImage} />
+                        <ImageSlider images={lakeHouseImages} initialDelay={0} onImageClick={(url, idx) => handleImageClick(url, lakeHouseImages, idx)} />
                         <div className="mt-6">
                             <h4 className="text-3xl font-heading mb-2 hover:text-veda-gold transition-colors cursor-pointer">La 'Lake House'</h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
@@ -178,7 +234,7 @@ export default function Villas() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="lg:mt-24"
                     >
-                        <ImageSlider images={lakeLoftImages} initialDelay={2000} onImageClick={setFullscreenImage} />
+                        <ImageSlider images={lakeLoftImages} initialDelay={2000} onImageClick={(url, idx) => handleImageClick(url, lakeLoftImages, idx)} />
                         <div className="mt-6">
                             <h4 className="text-3xl font-heading mb-2 hover:text-veda-gold transition-colors cursor-pointer">Le 'Lake Loft'</h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
@@ -193,13 +249,29 @@ export default function Villas() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="lg:col-span-2 lg:max-w-xl xl:max-w-2xl lg:mx-auto lg:mt-8 w-full"
                     >
-                        <ImageSlider images={jungleBreezeImages} initialDelay={4000} onImageClick={setFullscreenImage} />
-                        <div className="mt-6 text-center lg:text-left">
+                        <ImageSlider images={jungleBreezeImages} initialDelay={4000} onImageClick={(url, idx) => handleImageClick(url, jungleBreezeImages, idx)} />
+                        <div className="mt-6 text-left">
                             <h4 className="text-3xl font-heading mb-2 hover:text-veda-gold transition-colors cursor-pointer">La Villa 'Jungle Breeze'</h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
                                 Nichée au coeur de la verdure, cette villa offre une parenthèse apaisante, idéale pour se ressourcer en toute tranquillité.
+                            </p>
+                        </div>
+                    </motion.div>
+                    
+                    {/* Tothupola */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                        className="lg:mt-24"
+                    >
+                        <ImageSlider images={tothupolaImages} initialDelay={6000} onImageClick={(url, idx) => handleImageClick(url, tothupolaImages, idx)} />
+                        <div className="mt-6 text-left">
+                            <h4 className="text-3xl font-heading mb-2 hover:text-veda-gold transition-colors cursor-pointer">Les Chalets 'Tothpola'</h4>
+                            <p className="text-veda-light/70 font-light text-sm line-clamp-2">
+                                De magnifiques chalets en bois avec piscine, offrant un havre de paix pittoresque en pleine nature sri-lankaise.
                             </p>
                         </div>
                     </motion.div>
@@ -210,30 +282,46 @@ export default function Villas() {
 
             {/* Fullscreen Image Modal */}
             <AnimatePresence>
-                {fullscreenImage && (
+                {fullscreenData && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-8 backdrop-blur-sm"
-                        onClick={() => setFullscreenImage(null)}
+                        onClick={() => setFullscreenData(null)}
                     >
                         <button
-                            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
-                            onClick={() => setFullscreenImage(null)}
+                            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[60]"
+                            onClick={() => setFullscreenData(null)}
                         >
                             <X className="w-8 h-8" />
                         </button>
+
+                        <button
+                            className="absolute left-4 md:left-8 text-white/50 hover:text-white transition-colors z-[60] p-2 hover:bg-white/10 rounded-full"
+                            onClick={handlePrev}
+                        >
+                            <svg className="w-10 h-10 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                        </button>
+
                         <motion.img
-                            initial={{ scale: 0.9, opacity: 0 }}
+                            key={fullscreenData.url}
+                            initial={{ scale: 0.95, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
                             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            src={fullscreenImage}
+                            src={fullscreenData.url}
                             alt="Fullscreen Villa"
                             className="max-w-full max-h-full object-contain rounded-lg shadow-2xl cursor-zoom-out"
                             onClick={(e) => e.stopPropagation()} // Prevent clicking the image from closing the modal
                         />
+
+                        <button
+                            className="absolute right-4 md:right-8 text-white/50 hover:text-white transition-colors z-[60] p-2 hover:bg-white/10 rounded-full"
+                            onClick={handleNext}
+                        >
+                            <svg className="w-10 h-10 md:w-14 md:h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>

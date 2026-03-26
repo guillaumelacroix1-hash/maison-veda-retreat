@@ -1,7 +1,10 @@
-import { motion } from 'framer-motion'
-import { Palmtree, Bus } from 'lucide-react'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Palmtree, Bus, ChevronDown } from 'lucide-react'
 
 export default function Prolonger() {
+    const [showMoreTour, setShowMoreTour] = useState(false)
+
     return (
         <section className="py-24 md:py-32 px-6 bg-veda-dark text-veda-light relative z-10 overflow-hidden">
             {/* Background Texture Overlay */}
@@ -88,7 +91,7 @@ export default function Prolonger() {
                         {/* Background Image */}
                         <div className="absolute inset-0 z-0">
                             <img
-                                src="minivan.jpg"
+                                src={`${import.meta.env.BASE_URL}minivan.jpg`}
                                 alt="Tourisme Sri Lanka Safari"
                                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                             />
@@ -106,6 +109,34 @@ export default function Prolonger() {
                             <p className="text-white/80 font-light text-sm sm:text-base leading-relaxed drop-shadow-md">
                                 À la suite de la retraite, nous organisons un tour exclusif de 6 à 15 jours en van/bus (à partir de 5 pers). Inclut les transports, hébergements, repas chauffeur, et petits déjeuners. Détails et itinéraires sur demande.
                             </p>
+
+                            <AnimatePresence>
+                                {showMoreTour && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        className="mt-4 pt-4 border-t border-veda-gold/30 text-white/80 font-light text-sm sm:text-base leading-relaxed drop-shadow-md overflow-hidden"
+                                    >
+                                        Du 13 au 19 février (7 jrs/6 nuits), ou tour personnalisé de 6 à 15 jours en mini van/bus à partir de 5 pers.
+                                        <br/><br/>
+                                        <span className="text-veda-gold font-medium">100€ à 150€ par jour</span> incluant : privatisation minivan/chauffeur, essence, repas et hébergements chauffeur, hébergements pour les passagers, visites au programme et petits déjeuners.
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+
+                            <button
+                                onClick={(e) => { e.stopPropagation(); setShowMoreTour(!showMoreTour) }}
+                                className="mt-6 flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-veda-gold hover:text-white transition-colors duration-300 relative z-20"
+                            >
+                                {showMoreTour ? "Moins de détails" : "En savoir plus"}
+                                <motion.div
+                                    animate={{ rotate: showMoreTour ? 180 : 0 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    <ChevronDown className="w-4 h-4" />
+                                </motion.div>
+                            </button>
                         </div>
                     </motion.div>
 

@@ -6,31 +6,31 @@ export default function Programme() {
         {
             icon: <Sun className="w-6 h-6 text-veda-gold" />,
             title: "Matinées ressourçantes",
-            desc: "Sadhana au lever du soleil face au lac, suivi de pratiques énergisantes (Kundalini, Hatha) pour éveiller le corps et l'esprit.",
+            desc: "Sadhana au lever du soleil face au lac, suivi de cours de yoga Kundalini ou Hatha pour éveiller le corps et l'esprit.",
             image: "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0193.jpeg"
         },
         {
             icon: <Wind className="w-6 h-6 text-veda-gold" />,
             title: "Pratiques profondes",
-            desc: "2 à 3 cours par jour incluant Yin Yoga, Nidra, danse du dragon, méditations et chants de mantras.",
+            desc: "Yin yoga, yoga nidra, danse du dragon, chants de mantras et méditations pour une introspection profonde.",
             image: "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0295.jpeg"
         },
         {
             icon: <Moon className="w-6 h-6 text-veda-gold" />,
-            title: "Soirées d'intégration",
-            desc: "Clôturez vos journées avec des séances de breathwork, sound healing, kirtan ou une cérémonie du Cacao.",
+            title: "Expériences Incluses",
+            desc: "Clôturez vos journées avec des expériences immersives : breathwork, soirée kirtan avec musiciens et Cacao cérémonie.",
             image: "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0292.jpeg"
         },
         {
             icon: <Map className="w-6 h-6 text-veda-gold" />,
             title: "Découverte & Culture",
-            desc: "Visites incluses : refuge des tortues, temple Bouddhiste (cérémonie puja), et la ville de Galle classée à l'UNESCO.",
+            desc: "Visite du refuge et libération des tortues, visite de temple Bouddhiste et cérémonie puja, et visite de la ville de Galle classée UNESCO.",
             image: "https://www.lamaisonveda.com/wp-content/uploads/2025/08/Stilt-fishermen.jpeg"
         },
         {
             icon: <Heart className="w-6 h-6 text-veda-gold" />,
             title: "Temps libre & Farniente",
-            desc: "Profitez des après-midis pour vous reposer au bord de la piscine, surfer, ou explorer la région en tuktuk.",
+            desc: "Après-midi libre : profitez de la plage, de cours de surf, de cours de cuisine, de la visite d'une usine à thé ou d'un safari d'éléphants.",
             image: "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0086.jpeg"
         }
     ]
@@ -96,6 +96,11 @@ export default function Programme() {
                                     {item.icon}
                                 </div>
                                 <h4 className="text-xl font-heading mb-3 group-hover:text-white transition-colors duration-300">{item.title}</h4>
+                                {item.badge && (
+                                    <span className="inline-block mb-3 self-start px-3 py-1 bg-veda-gold/20 text-veda-gold rounded-full text-[10px] font-bold tracking-[0.1em] uppercase group-hover:bg-veda-gold group-hover:text-veda-dark transition-colors duration-300">
+                                        {item.badge}
+                                    </span>
+                                )}
                                 <p className="text-veda-dark/70 group-hover:text-veda-light/90 leading-relaxed font-light text-sm transition-colors duration-300">
                                     {item.desc}
                                 </p>
