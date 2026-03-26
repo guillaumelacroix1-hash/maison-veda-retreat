@@ -53,7 +53,7 @@ export default function Footer() {
                     <div className="space-y-6">
                         <h4 className="text-veda-gold font-semibold tracking-widest uppercase text-sm">Suivez-nous</h4>
                         <div className="flex gap-4">
-                            <a href="#" className="w-10 h-10 rounded-full border border-veda-light/20 flex items-center justify-center hover:bg-veda-gold hover:border-veda-gold hover:text-white transition-all">
+                            <a href="https://www.instagram.com/lamaisonveda/" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-veda-light/20 flex items-center justify-center hover:bg-veda-gold hover:border-veda-gold hover:text-white transition-all">
                                 <Instagram className="w-4 h-4" />
                             </a>
                         </div>

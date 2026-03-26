@@ -42,8 +42,8 @@ function Home() {
                     {/* Desktop Menu */}
                     <div className="hidden md:flex items-center space-x-8">
                         <div className="flex items-center space-x-8 text-sm font-medium tracking-wide">
-                            <a href="#programme" className="hover:text-veda-gold transition-colors duration-300">Programme</a>
                             <a href="#guides" className="hover:text-veda-gold transition-colors duration-300">Vos Guides</a>
+                            <a href="#programme" className="hover:text-veda-gold transition-colors duration-300">Programme</a>
                             <a href="#hebergement" className="hover:text-veda-gold transition-colors duration-300">Hébergement</a>
                             <a href="#tarifs" className="hover:text-veda-gold transition-colors duration-300">Tarifs</a>
                         </div>
@@ -72,8 +72,8 @@ function Home() {
                 <div className={`md:hidden absolute top-full left-0 w-full bg-veda-dark border-b border-white/10 transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     }`}>
                     <div className="flex flex-col px-6 py-4 space-y-4 text-sm font-medium tracking-wide">
-                        <a href="#programme" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Programme</a>
                         <a href="#guides" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Vos Guides</a>
+                        <a href="#programme" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Programme</a>
                         <a href="#hebergement" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Hébergement</a>
                         <a href="#tarifs" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Tarifs</a>
                         <div className="pt-2 pb-2">

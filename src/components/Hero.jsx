@@ -1,8 +1,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Hero() {
+    const navigate = useNavigate()
     const ref = useRef(null)
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -15,7 +17,7 @@ export default function Hero() {
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]) // Text fades out
 
     return (
-        <div ref={ref} className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-veda-dark">
+        <div ref={ref} className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-veda-dark" id="accueil">
 
             {/* Background Image with Parallax & Scale */}
             <motion.div
@@ -75,10 +77,10 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.8 }}
                     className="flex flex-col sm:flex-row gap-4 sm:gap-6"
                 >
-                    <button className="px-10 py-3.5 bg-veda-sand hover:bg-white text-veda-dark text-sm sm:text-base font-semibold tracking-widest uppercase transition-colors duration-300 rounded-full shadow-lg">
+                    <button onClick={() => navigate('/reserver')} className="px-10 py-3.5 bg-veda-sand hover:bg-white text-veda-dark text-sm sm:text-base font-semibold tracking-widest uppercase transition-colors duration-300 rounded-full shadow-lg">
                         Réservation
                     </button>
-                    <button className="px-10 py-3.5 border border-white/50 text-white hover:border-white hover:bg-white/10 text-sm sm:text-base font-semibold tracking-widest uppercase transition-all duration-300 rounded-full backdrop-blur-sm">
+                    <button onClick={() => document.getElementById('programme').scrollIntoView({ behavior: 'smooth' })} className="px-10 py-3.5 border border-white/50 text-white hover:border-white hover:bg-white/10 text-sm sm:text-base font-semibold tracking-widest uppercase transition-all duration-300 rounded-full backdrop-blur-sm">
                         Découvrir
                     </button>
                 </motion.div>
