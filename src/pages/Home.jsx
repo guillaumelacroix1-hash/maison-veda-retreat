@@ -36,7 +36,9 @@ function Home() {
                 }`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
                     <div className="flex items-center w-3/4 md:w-auto">
-                        <Logo className="h-8 md:h-12 w-auto max-w-full text-veda-gold drop-shadow-sm transition-transform duration-500 hover:scale-105" fill="currentColor" />
+                        <a href="#accueil" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="block cursor-pointer">
+                            <Logo className="h-8 md:h-12 w-auto max-w-full text-veda-gold drop-shadow-sm transition-transform duration-500 hover:scale-105" fill="currentColor" />
+                        </a>
                     </div>
 
                     {/* Desktop Menu */}
