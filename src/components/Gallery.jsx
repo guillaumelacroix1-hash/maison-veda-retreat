@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-const getImageUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+const getImageUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}?v=2`;
 
-const galleryImages = [
+const surPlaceImages = [
     getImageUrl("/images/carousels/sur place/58e443fd-7a8a-4171-8043-d62d5425e848.jpg"),
     getImageUrl("/images/carousels/sur place/7691518e-d834-41c2-b243-3edbf97e7229.jpg"),
     getImageUrl("/images/carousels/sur place/BB32CCC1-6A37-48F5-BC9D-D2D696669524.jpg"),
@@ -18,25 +18,28 @@ import visitImageNames from '../../public/visites/gallery-images.json';
 
 const visitImages = visitImageNames.map(name => getImageUrl(`/visites/${name}`));
 
+const allImages = [...surPlaceImages, ...visitImages];
+const INITIAL_COUNT = 20;
+
 const Gallery = () => {
-    const [selectedTab, setSelectedTab] = useState('sur-place');
+    const [showAll, setShowAll] = useState(false);
     const [lightboxImage, setLightboxImage] = useState(null);
 
-    const currentImages = selectedTab === 'sur-place' ? galleryImages : visitImages;
+    const displayedImages = showAll ? allImages : allImages.slice(0, INITIAL_COUNT);
 
     const handleNext = (e) => {
         if (e) e.stopPropagation();
-        const currentIndex = currentImages.indexOf(lightboxImage);
+        const currentIndex = allImages.indexOf(lightboxImage);
         if (currentIndex !== -1) {
-            setLightboxImage(currentImages[(currentIndex + 1) % currentImages.length]);
+            setLightboxImage(allImages[(currentIndex + 1) % allImages.length]);
         }
     };
 
     const handlePrev = (e) => {
         if (e) e.stopPropagation();
-        const currentIndex = currentImages.indexOf(lightboxImage);
+        const currentIndex = allImages.indexOf(lightboxImage);
         if (currentIndex !== -1) {
-            setLightboxImage(currentImages[(currentIndex - 1 + currentImages.length) % currentImages.length]);
+            setLightboxImage(allImages[(currentIndex - 1 + allImages.length) % allImages.length]);
         }
     };
 
@@ -49,10 +52,10 @@ const Gallery = () => {
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [lightboxImage, currentImages]);
+    }, [lightboxImage]);
 
     return (
-        <section id="galerie" className="py-24 bg-veda-dark text-veda-light relative">
+        <section className="py-24 bg-veda-dark text-veda-light relative">
             {/* Background elements */}
             <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-veda-light/5 blur-[120px] rounded-full pointer-events-none"></div>
 
@@ -68,37 +71,15 @@ const Gallery = () => {
                     </p>
                 </div>
 
-                {/* Tabs */}
-                <div className="flex justify-center mb-12 space-x-4">
-                    <button
-                        onClick={() => setSelectedTab('sur-place')}
-                        className={`px-8 py-3 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 ${selectedTab === 'sur-place'
-                                ? 'bg-veda-gold text-veda-dark shadow-lg shadow-veda-gold/20 scale-105'
-                                : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
-                            }`}
-                    >
-                        Sur Place
-                    </button>
-                    <button
-                        onClick={() => setSelectedTab('visites')}
-                        className={`px-8 py-3 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 ${selectedTab === 'visites'
-                                ? 'bg-veda-gold text-veda-dark shadow-lg shadow-veda-gold/20 scale-105'
-                                : 'bg-white/5 text-white/70 hover:bg-white/10 hover:text-white'
-                            }`}
-                    >
-                        Visites
-                    </button>
-                </div>
-
-                {/* Animated Image Grid */}
+                {/* Image Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[250px]">
-                    {currentImages.map((src, index) => {
+                    {displayedImages.map((src, index) => {
                         const isLarge = index === 0 || index === 5;
                         const isWide = index === 2 || index === 7;
 
                         return (
                             <div
-                                key={`${selectedTab}-${index}`}
+                                key={index}
                                 onClick={() => setLightboxImage(src)}
                                 className={`relative group cursor-pointer overflow-hidden rounded-xl animate-fade-in-up
                                     ${isLarge ? 'md:row-span-2 md:col-span-2' : ''}
@@ -109,7 +90,7 @@ const Gallery = () => {
                                 <div className="absolute inset-0 bg-veda-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                                 <img
                                     src={src}
-                                    alt={`Galerie ${selectedTab} ${index + 1}`}
+                                    alt={`Galerie ${index + 1}`}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     loading="lazy"
                                 />
@@ -123,6 +104,18 @@ const Gallery = () => {
                         );
                     })}
                 </div>
+
+                {/* Tout voir / Réduire button */}
+                {allImages.length > INITIAL_COUNT && (
+                    <div className="text-center mt-12">
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="px-10 py-4 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300 bg-white/5 text-white/70 hover:bg-veda-gold hover:text-veda-dark border border-white/10 hover:border-veda-gold"
+                        >
+                            {showAll ? 'Réduire' : `Tout voir (${allImages.length} photos)`}
+                        </button>
+                    </div>
+                )}
             </div>
 
             {/* Lightbox */}
@@ -137,7 +130,7 @@ const Gallery = () => {
                     >
                         <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" /></svg>
                     </button>
-                    
+
                     <button
                         className="absolute left-4 md:left-8 text-white/50 hover:text-white transition-colors z-[101] p-2 hover:bg-white/10 rounded-full"
                         onClick={handlePrev}
@@ -149,9 +142,9 @@ const Gallery = () => {
                         src={lightboxImage}
                         alt="Enlarged view"
                         className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
-                        onClick={(e) => e.stopPropagation()} // Prevent clicking image from closing
+                        onClick={(e) => e.stopPropagation()}
                     />
-                    
+
                     <button
                         className="absolute right-4 md:right-8 text-white/50 hover:text-white transition-colors z-[101] p-2 hover:bg-white/10 rounded-full"
                         onClick={handleNext}

@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
 
-const getImageUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+const getImageUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}?v=2`;
 
 const lakeHouseImages = [
     getImageUrl("/images/carousels/maison-veda/lake-house/17134a43-830c-4499-bba1-31e71e48208f.jpg"),
@@ -11,6 +11,19 @@ const lakeHouseImages = [
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_0345.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_0346.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1126.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1129.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1130.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1414.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1418.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1419.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_7310.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_7315.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9684.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9689.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9690.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9691.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9700.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9772.JPEG"),
 ];
 
 const lakeLoftImages = [
@@ -19,7 +32,30 @@ const lakeLoftImages = [
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_0251.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1340.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1341.JPG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1345.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1352.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1357.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1434.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1454.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1459.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1462.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9725.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9732.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9766.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9770.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9825.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9833.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9837.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9895.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9896.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9897.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9898.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9899.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9902.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9903.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9909.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9910.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9913.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9914.JPG"),
 ];
 
 const jungleBreezeImages = [
@@ -29,6 +65,11 @@ const jungleBreezeImages = [
     getImageUrl("/images/carousels/jungle-breeze/IMG_2127.JPG"),
     getImageUrl("/images/carousels/jungle-breeze/IMG_2128.JPG"),
     getImageUrl("/images/carousels/jungle-breeze/IMG_2129.JPG"),
+    getImageUrl("/images/carousels/jungle-breeze/IMG_2130.JPG"),
+    getImageUrl("/images/carousels/jungle-breeze/IMG_2131.JPG"),
+    getImageUrl("/images/carousels/jungle-breeze/IMG_2132.JPG"),
+    getImageUrl("/images/carousels/jungle-breeze/IMG_2133.JPG"),
+    getImageUrl("/images/carousels/jungle-breeze/IMG_2134.JPG"),
 ];
 
 const tothupolaImages = [
@@ -38,6 +79,11 @@ const tothupolaImages = [
     getImageUrl("/images/carousels/tothupola/IMG_1499.JPG"),
     getImageUrl("/images/carousels/tothupola/IMG_1502.JPG"),
     getImageUrl("/images/carousels/tothupola/IMG_1510.JPG"),
+    getImageUrl("/images/carousels/tothupola/IMG_1516.JPG"),
+    getImageUrl("/images/carousels/tothupola/IMG_1529.JPG"),
+    getImageUrl("/images/carousels/tothupola/IMG_1531.JPG"),
+    getImageUrl("/images/carousels/tothupola/IMG_1535.JPG"),
+    getImageUrl("/images/carousels/tothupola/IMG_1537.JPG"),
 ];
 
 const ImageSlider = ({ images, initialDelay = 0, onImageClick }) => {
