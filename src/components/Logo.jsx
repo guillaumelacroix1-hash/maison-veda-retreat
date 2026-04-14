@@ -7,7 +7,7 @@ const Logo = ({ className = "h-14 w-auto animate-fade-in", fill = "currentColor"
         <div className={`flex items-center gap-3 ${className}`}>
             {/* Sri Yantra Icon */}
             <img
-                src={getImageUrl('/icon-logo-final/logo-lili-maison-veda.svg')}
+                src={getImageUrl('/icon-logo-final/logo-lili-maison-veda-bigger.svg')}
                 alt="La Maison Veda"
                 className="h-full w-auto"
             />
