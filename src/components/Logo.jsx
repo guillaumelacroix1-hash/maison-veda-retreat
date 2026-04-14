@@ -28,7 +28,7 @@ const Logo = ({ className = "h-14 w-auto animate-fade-in", fill = "currentColor"
                 <span
                     style={{
                         fontFamily: "'Inter', system-ui, sans-serif",
-                        fontSize: '0.5em',
+                        fontSize: '0.65em',
                         fontWeight: 300,
                         letterSpacing: '0.35em',
                         color: fill === 'currentColor' ? 'inherit' : fill,
