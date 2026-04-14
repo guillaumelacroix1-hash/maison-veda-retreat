@@ -14,11 +14,22 @@ const surPlaceImages = [
     getImageUrl("/images/carousels/sur place/IMG_9905.JPG")
 ];
 
+const newImages = [
+    getImageUrl("/new_image/ahangama-beach-camp-poe-1367x2048.jpeg"),
+    getImageUrl("/new_image/ahangama-railway-nirbana-sri-lanka-1367x2048.jpeg"),
+    getImageUrl("/new_image/IMG_1494.jpeg"),
+    getImageUrl("/new_image/IMG_6050-1152x1536.jpeg"),
+    getImageUrl("/new_image/stilt-fisherman-ahangama-1536x1026.jpeg"),
+    getImageUrl("/new_image/Stilt-fishermen.jpeg"),
+    getImageUrl("/new_image/yoga.jpg"),
+    getImageUrl("/new_image/yoga2.jpg"),
+];
+
 import visitImageNames from '../../public/visites/gallery-images.json';
 
 const visitImages = visitImageNames.map(name => getImageUrl(`/visites/${name}`));
 
-const allImages = [...surPlaceImages, ...visitImages];
+const allImages = [...surPlaceImages, ...newImages, ...visitImages];
 const INITIAL_COUNT = 20;
 
 const Gallery = () => {

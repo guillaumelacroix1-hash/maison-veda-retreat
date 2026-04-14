@@ -8,22 +8,21 @@ const lakeHouseImages = [
     getImageUrl("/images/carousels/maison-veda/lake-house/17134a43-830c-4499-bba1-31e71e48208f.jpg"),
     getImageUrl("/images/carousels/maison-veda/lake-house/4d8dfbcf-78b2-4fdc-a1d3-469b7396969f.jpg"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_0343.JPEG"),
-    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_0345.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_0346.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1126.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1129.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1130.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1414.JPG"),
-    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1418.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_1419.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_7310.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_7315.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9684.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9689.JPEG"),
-    getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9690.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9691.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9700.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-house/IMG_9772.JPEG"),
+    getImageUrl("/new_image/maison-veda.jpeg"),
+    getImageUrl("/new_image/maison-veda2.jpeg"),
 ];
 
 const lakeLoftImages = [
@@ -207,7 +206,7 @@ export default function Villas() {
                             transition={{ delay: 0.1 }}
                             className="text-4xl md:text-6xl font-heading leading-tight"
                         >
-                            Les Villas <span className="italic text-veda-gold">Maison Veda</span>
+                            Les villas de <span className="italic text-veda-gold">La maison VEDA</span>
                         </motion.h2>
                     </div>
 
@@ -263,13 +262,13 @@ export default function Villas() {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8 }}
                     >
-                        <ImageSlider images={lakeHouseImages} initialDelay={0} onImageClick={(url, idx) => handleImageClick(url, lakeHouseImages, idx)} />
-                        <div className="mt-6">
-                            <h4 className="text-3xl font-heading mb-2 hover:text-veda-gold transition-colors cursor-pointer">La 'Lake House'</h4>
+                        <div className="mb-6">
+                            <h4 className="text-4xl font-heading mb-2">La <span className="text-veda-gold">'Lake House'</span></h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
                                 Une petite maison authentique et traditionnelle sri-lankaise, aux murs en terre et frises en bois, juste au bord du lac.
                             </p>
                         </div>
+                        <ImageSlider images={lakeHouseImages} initialDelay={0} onImageClick={(url, idx) => handleImageClick(url, lakeHouseImages, idx)} />
                     </motion.div>
 
                     {/* Lake Loft */}
@@ -280,13 +279,13 @@ export default function Villas() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="lg:mt-24"
                     >
-                        <ImageSlider images={lakeLoftImages} initialDelay={2000} onImageClick={(url, idx) => handleImageClick(url, lakeLoftImages, idx)} />
-                        <div className="mt-6">
-                            <h4 className="text-3xl font-heading mb-2 hover:text-veda-gold transition-colors cursor-pointer">Le 'Lake Loft'</h4>
+                        <div className="mb-6">
+                            <h4 className="text-4xl font-heading mb-2">Le <span className="text-veda-gold">'Lake Loft'</span></h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
                                 Une villa plus contemporaine, avec son yoga shala perché au dernier étage offrant une vue imprenable sur le lac !
                             </p>
                         </div>
+                        <ImageSlider images={lakeLoftImages} initialDelay={2000} onImageClick={(url, idx) => handleImageClick(url, lakeLoftImages, idx)} />
                     </motion.div>
 
                     {/* Jungle Breeze */}
@@ -296,13 +295,13 @@ export default function Villas() {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        <ImageSlider images={jungleBreezeImages} initialDelay={4000} onImageClick={(url, idx) => handleImageClick(url, jungleBreezeImages, idx)} />
-                        <div className="mt-6 text-left">
-                            <h4 className="text-3xl font-heading mb-2 hover:text-veda-gold transition-colors cursor-pointer">La Villa 'Jungle Breeze'</h4>
+                        <div className="mb-6 text-left">
+                            <h4 className="text-4xl font-heading mb-2">La Villa <span className="text-veda-gold">'Jungle Breeze'</span></h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
                                 Nichée au coeur de la verdure, cette villa offre une parenthèse apaisante, idéale pour se ressourcer en toute tranquillité.
                             </p>
                         </div>
+                        <ImageSlider images={jungleBreezeImages} initialDelay={4000} onImageClick={(url, idx) => handleImageClick(url, jungleBreezeImages, idx)} />
                     </motion.div>
                     
                     {/* Tothupola */}
@@ -313,13 +312,13 @@ export default function Villas() {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="lg:mt-24"
                     >
-                        <ImageSlider images={tothupolaImages} initialDelay={6000} onImageClick={(url, idx) => handleImageClick(url, tothupolaImages, idx)} />
-                        <div className="mt-6 text-left">
-                            <h4 className="text-3xl font-heading mb-2 hover:text-veda-gold transition-colors cursor-pointer">Les Chalets 'Tothpola'</h4>
+                        <div className="mb-6 text-left">
+                            <h4 className="text-4xl font-heading mb-2">Les Chalets <span className="text-veda-gold">'Tothpola'</span></h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
                                 De magnifiques chalets en bois avec piscine, offrant un havre de paix pittoresque en pleine nature sri-lankaise.
                             </p>
                         </div>
+                        <ImageSlider images={tothupolaImages} initialDelay={6000} onImageClick={(url, idx) => handleImageClick(url, tothupolaImages, idx)} />
                     </motion.div>
 
                 </div>
