@@ -31,7 +31,7 @@ export default function Hero() {
                 <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-veda-dark/80 to-transparent z-10" />
 
                 <img
-                    src="https://www.lamaisonveda.com/wp-content/uploads/2024/04/IMG_0945-scaled.jpg"
+                    src={`${import.meta.env.BASE_URL}visites/IMG_0945.jpg`}
                     alt="Retraite Sri Lanka La Maison Veda"
                     className="w-full h-full object-cover object-center"
                     fetchPriority="high"

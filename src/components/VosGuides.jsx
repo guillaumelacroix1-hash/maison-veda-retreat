@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
+import aurelieNatFallback from '../../ressources/maisonveda-aurelie-nat.jpeg'
 
 export default function VosGuides() {
     const containerRef = useRef(null)
@@ -141,8 +142,9 @@ export default function VosGuides() {
 
                                     <div className="overflow-hidden rounded-xl bg-veda-dark shadow-2xl relative z-10">
                                         <img
-                                            src="https://www.lamaisonveda.com/wp-content/uploads/2023/01/DSCF3673-scaled.jpg"
+                                            src={aurelieNatFallback}
                                             alt="Aurélie Dutrey"
+                                            style={{ objectPosition: '22% center' }}
                                             className="w-full h-auto aspect-[3/4] object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700 hover:scale-105"
                                         />
                                     </div>
@@ -164,8 +166,9 @@ export default function VosGuides() {
 
                                     <div className="overflow-hidden rounded-xl bg-veda-dark shadow-2xl relative z-10">
                                         <img
-                                            src="https://www.lamaisonveda.com/wp-content/uploads/2024/03/WhatsApp-Image-2024-03-28-at-07.13.20-1024x913.jpeg"
+                                            src={aurelieNatFallback}
                                             alt="Nathalie Catinaud"
+                                            style={{ objectPosition: '68% center' }}
                                             className="w-full h-auto aspect-[3/4] object-cover grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700 hover:scale-105"
                                         />
                                     </div>

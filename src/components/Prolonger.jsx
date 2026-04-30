@@ -10,7 +10,7 @@ export default function Prolonger() {
             {/* Background Texture Overlay */}
             <div className="absolute inset-0 z-0 opacity-10 pointer-events-none mix-blend-overlay">
                 <img
-                    src="https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0086.jpeg"
+                    src={`${import.meta.env.BASE_URL}new_image/ahangama-railway-nirbana-sri-lanka-1367x2048.jpeg`}
                     alt="Sri Lanka texture"
                     className="w-full h-full object-cover grayscale"
                 />
@@ -59,7 +59,7 @@ export default function Prolonger() {
                         {/* Background Image */}
                         <div className="absolute inset-0 z-0">
                             <img
-                                src="https://www.lamaisonveda.com/wp-content/uploads/2024/03/IMG_1494.jpeg"
+                                src={`${import.meta.env.BASE_URL}new_image/IMG_1494.jpeg`}
                                 alt="Plage du sud Sri Lanka"
                                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                             />

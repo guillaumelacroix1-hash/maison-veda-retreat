@@ -7,31 +7,31 @@ export default function Programme() {
             icon: <Sun className="w-6 h-6 text-veda-gold" />,
             title: "Matinées ressourçantes",
             desc: "Sadhana au lever du soleil face au lac, suivi de cours de yoga Kundalini ou Hatha pour éveiller le corps et l'esprit.",
-            image: "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0193.jpeg"
+            image: `${import.meta.env.BASE_URL}new_image/yoga.jpg`
         },
         {
             icon: <Wind className="w-6 h-6 text-veda-gold" />,
             title: "Pratiques profondes",
             desc: "Yin yoga, yoga nidra, danse du dragon, chants de mantras et méditations pour une introspection profonde.",
-            image: "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0295.jpeg"
+            image: `${import.meta.env.BASE_URL}new_image/yoga2.jpg`
         },
         {
             icon: <Moon className="w-6 h-6 text-veda-gold" />,
             title: "Expériences Incluses",
             desc: "Clôturez vos journées avec des expériences immersives : breathwork, soirée kirtan avec musiciens et Cacao cérémonie.",
-            image: "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0292.jpeg"
+            image: `${import.meta.env.BASE_URL}new_image/maison-veda.jpeg`
         },
         {
             icon: <Map className="w-6 h-6 text-veda-gold" />,
             title: "Découverte & Culture",
             desc: "Visite du refuge et libération des tortues, visite de temple Bouddhiste et cérémonie puja, et visite de la ville de Galle classée UNESCO.",
-            image: "https://www.lamaisonveda.com/wp-content/uploads/2025/08/Stilt-fishermen.jpeg"
+            image: `${import.meta.env.BASE_URL}new_image/Stilt-fishermen.jpeg`
         },
         {
             icon: <Heart className="w-6 h-6 text-veda-gold" />,
             title: "Temps libre & Farniente",
             desc: "Après-midi libre : profitez de la plage, de cours de surf, de cours de cuisine, de la visite d'une usine à thé ou d'un safari d'éléphants.",
-            image: "https://www.lamaisonveda.com/wp-content/uploads/2026/01/IMG_0086.jpeg"
+            image: `${import.meta.env.BASE_URL}new_image/ahangama-beach-camp-poe-1367x2048.jpeg`
         }
     ]
 
