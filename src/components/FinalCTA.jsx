@@ -2,8 +2,10 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import aurelieNatImg from '../../ressources/maisonveda-aurelie-nat.jpeg'
 import { Link } from 'react-router-dom'
+import { useI18n } from '../i18n'
 
 export default function FinalCTA() {
+    const { path } = useI18n()
     return (
         <section className="py-24 md:py-32 px-6 bg-veda-dark text-veda-light relative z-10 overflow-hidden border-t border-white/5">
             <div className="max-w-6xl mx-auto">
@@ -51,7 +53,7 @@ export default function FinalCTA() {
                         </div>
 
                         <div className="pt-8">
-                            <Link to="/reserver" className="group inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-widest text-veda-dark uppercase bg-veda-gold rounded-full transition-all duration-300 hover:bg-white hover:text-veda-dark shadow-lg hover:shadow-xl hover:-translate-y-1">
+                            <Link to={path('book', { slug: 'sri-lanka-2027' })} className="group inline-flex items-center justify-center px-8 py-4 text-sm font-bold tracking-widest text-veda-dark uppercase bg-veda-gold rounded-full transition-all duration-300 hover:bg-white hover:text-veda-dark shadow-lg hover:shadow-xl hover:-translate-y-1">
                                 <span className="relative flex items-center gap-3">
                                     Réserver ma retraite
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />

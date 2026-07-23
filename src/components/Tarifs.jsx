@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion'
 import { Calendar, Check, Plane } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useI18n } from '../i18n'
 
 export default function Tarifs() {
+    const { path } = useI18n()
+    const bookPath = path('book', { slug: 'sri-lanka-2027' })
     return (
         <section className="py-24 md:py-32 px-6 bg-[#fdfbf7] text-veda-dark relative overflow-hidden">
             <div className="max-w-7xl mx-auto">
@@ -102,7 +105,7 @@ export default function Tarifs() {
                             </div>
 
                             <div className="mt-auto w-full">
-                                <Link to="/reserver" className="block text-center w-full py-4 bg-veda-dark group-hover:bg-black text-veda-light font-medium tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-md">
+                                <Link to={bookPath} className="block text-center w-full py-4 bg-veda-dark group-hover:bg-black text-veda-light font-medium tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-md">
                                     Réserver ma place
                                 </Link>
                                 <p className="text-xs text-veda-dark/60 mt-4 font-light leading-relaxed">
@@ -127,7 +130,7 @@ export default function Tarifs() {
                             </div>
 
                             <div className="mt-auto w-full">
-                                <Link to="/reserver" className="block text-center w-full py-4 bg-veda-gold group-hover:bg-white text-veda-dark font-bold tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-lg">
+                                <Link to={bookPath} className="block text-center w-full py-4 bg-veda-gold group-hover:bg-white text-veda-dark font-bold tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-lg">
                                     Réserver ma place
                                 </Link>
                                 <p className="text-xs text-veda-gold/80 mt-4 font-light leading-relaxed">

@@ -1,17 +1,32 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { ArrowLeft, CheckCircle2 } from 'lucide-react'
-import Logo from '../components/Logo'
-import Footer from '../components/Footer'
+import { Link, useParams } from 'react-router-dom'
+import { CheckCircle2 } from 'lucide-react'
+import { useI18n } from '../i18n'
+import PageMeta from '../components/site/PageMeta'
+import ContentGap from '../components/site/ContentGap'
+import NotFound from './NotFound'
+import { getRetreat } from '../data/retreats'
+import { DEPOSIT_RATE } from '../data/site'
+
+/**
+ * Demande d'inscription à une retraite.
+ *
+ * État actuel : la demande part chez Formspree, comme sur la page 2027 en
+ * ligne. Le cahier des charges (section 6) prévoit à la place un paiement
+ * immédiat de 30 % par carte, avec fermeture automatique quand il ne reste
+ * plus de place. Cet écart est signalé à l'écran par <ContentGap id="payment">
+ * tant que Stripe n'est pas branché.
+ */
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdkboow'
 
 export default function Reserver() {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+    const { slug } = useParams()
+    const { t, lang, path } = useI18n()
 
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const [error, setError] = useState('')
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -19,13 +34,20 @@ export default function Reserver() {
         phone: '',
         housingType: 'Single',
         minivanTour: false,
-        message: ''
+        message: '',
     })
-    const [error, setError] = useState('')
+
+    const retreat = getRetreat(slug)
+    if (!retreat) return <NotFound />
+
+    const copy = retreat[lang] ?? retreat.fr
+    const deposit = retreat.pricing?.from
+        ? Math.round(retreat.pricing.from * DEPOSIT_RATE)
+        : null
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target
-        setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }))
+        setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }))
     }
 
     const handleSubmit = async (e) => {
@@ -33,64 +55,39 @@ export default function Reserver() {
         setIsSubmitting(true)
         setError('')
 
-        // Endpoint Formspree pour lamaisonveda@gmail.com
-        const formspreeEndpoint = 'https://formspree.io/f/xzdkboow' 
-
         try {
-            const response = await fetch(formspreeEndpoint, {
+            const response = await fetch(FORMSPREE_ENDPOINT, {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
+                headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...formData, retreat: `${copy.title} (${copy.dates})` }),
             })
 
             if (response.ok) {
                 setIsSubmitted(true)
             } else {
-                // If the user hasn't replaced the Formspree ID, it will fail, we can show a mock success for demonstration
-                // or tell them there was an error. For the demo, if it fails because of invalid ID, let's just simulate success:
-                if (formspreeEndpoint.includes('VOTRE_ID_FORMSPREE')) {
-                    setIsSubmitted(true);
-                    console.log("Demo mode: form submitted successfully");
-                } else {
-                    setError("Une erreur est survenue lors de l'envoi. Veuillez réessayer.")
-                }
+                setError("Une erreur est survenue lors de l'envoi. Veuillez réessayer.")
             }
-        } catch (err) {
-            // Demo fallback if fetch fails completely (CORS/Network)
-            if (formspreeEndpoint.includes('VOTRE_ID_FORMSPREE')) {
-                setIsSubmitted(true);
-            } else {
-                setError("Erreur de connexion. Veuillez vérifier votre réseau.")
-            }
+        } catch {
+            setError('Erreur de connexion. Veuillez vérifier votre réseau.')
         } finally {
             setIsSubmitting(false)
         }
     }
 
+    const fieldClass =
+        'w-full rounded-xl border border-white/10 bg-veda-dark/50 px-4 py-3 font-light text-veda-light ' +
+        'placeholder-white/30 transition-all focus:border-veda-gold/50 focus:outline-none focus:ring-1 focus:ring-veda-gold/50'
+    const labelClass = 'block text-xs font-semibold uppercase tracking-widest text-veda-light/80'
+
     return (
-        <div className="min-h-screen bg-veda-dark font-sans text-veda-light flex flex-col">
-            {/* Simple Navbar */}
-            <nav className="w-full z-50 bg-veda-dark/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl py-4">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
-                    <Link to="/" className="flex items-center w-auto">
-                        <Logo className="h-8 md:h-10 w-auto text-veda-gold drop-shadow-sm transition-transform duration-500 hover:scale-105" fill="currentColor" />
-                    </Link>
-                    <Link to="/" className="flex items-center gap-2 text-sm font-medium hover:text-veda-gold transition-colors duration-300">
-                        <ArrowLeft className="w-4 h-4" />
-                        Retour à l'accueil
-                    </Link>
-                </div>
-            </nav>
+        <>
+            <PageMeta title={`${t('common.book')}, ${copy.title}`} />
 
-            <main className="flex-grow flex items-center justify-center px-4 py-12 md:py-24 relative overflow-hidden">
-                {/* Background decorative elements */}
-                <div className="absolute top-1/4 left-10 w-64 h-64 bg-veda-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
-                <div className="absolute bottom-1/4 right-10 w-80 h-80 bg-veda-light/5 rounded-full blur-[120px] pointer-events-none"></div>
+            <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-32">
+                <div className="pointer-events-none absolute left-10 top-1/4 h-64 w-64 rounded-full bg-veda-gold/5 blur-[100px]" />
+                <div className="pointer-events-none absolute bottom-1/4 right-10 h-80 w-80 rounded-full bg-veda-light/5 blur-[120px]" />
 
-                <div className="w-full max-w-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-8 md:p-12 rounded-[2.5rem] shadow-2xl relative z-10">
+                <div className="relative z-10 w-full max-w-2xl rounded-pill border border-white/10 bg-white/5 p-8 shadow-2xl backdrop-blur-sm md:p-12">
                     <AnimatePresence mode="wait">
                         {!isSubmitted ? (
                             <motion.div
@@ -100,136 +97,116 @@ export default function Reserver() {
                                 exit={{ opacity: 0, scale: 0.95 }}
                                 transition={{ duration: 0.5 }}
                             >
-                                <div className="text-center mb-10">
-                                    <h1 className="text-4xl md:text-5xl font-heading mb-4">Réserver votre <span className="italic text-veda-gold">Retraite</span></h1>
-                                    <p className="text-veda-light/70 font-light text-sm md:text-base">
-                                        Remplissez le formulaire ci-dessous pour effectuer votre demande de réservation. Nous vous recontacterons très vite avec les détails pour finaliser votre inscription.
+                                <div className="mb-10 text-center">
+                                    <h1 className="mb-4 font-heading text-4xl md:text-5xl">
+                                        Réserver votre <span className="italic text-veda-gold">Retraite</span>
+                                    </h1>
+                                    <p className="text-sm font-light text-veda-light/70 md:text-base">
+                                        {copy.title}, {copy.dates}.
                                     </p>
+                                    {deposit && (
+                                        <p className="mt-3 text-sm font-light text-veda-gold">
+                                            Acompte de {deposit} € (30 %) pour bloquer votre place.
+                                        </p>
+                                    )}
                                 </div>
 
+                                <ContentGap id="payment" className="mb-10" />
+
                                 {error && (
-                                    <div className="mb-6 p-4 bg-red-500/10 border border-red-500/50 text-red-200 text-sm rounded-xl text-center">
+                                    <div className="mb-6 rounded-xl border border-red-500/50 bg-red-500/10 p-4 text-center text-sm text-red-200">
                                         {error}
                                     </div>
                                 )}
 
                                 <form onSubmit={handleSubmit} className="space-y-6">
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                         <div className="space-y-2">
-                                            <label htmlFor="firstName" className="block text-xs font-semibold tracking-widest uppercase text-veda-light/80">Prénom *</label>
+                                            <label htmlFor="firstName" className={labelClass}>Prénom *</label>
                                             <input
-                                                type="text"
-                                                id="firstName"
-                                                name="firstName"
-                                                required
-                                                value={formData.firstName}
-                                                onChange={handleChange}
-                                                className="w-full bg-veda-dark/50 border border-white/10 rounded-xl px-4 py-3 text-veda-light focus:outline-none focus:border-veda-gold/50 focus:ring-1 focus:ring-veda-gold/50 transition-all font-light placeholder-white/30"
-                                                placeholder="Votre prénom"
+                                                type="text" id="firstName" name="firstName" required
+                                                value={formData.firstName} onChange={handleChange}
+                                                className={fieldClass} placeholder="Votre prénom"
                                             />
                                         </div>
                                         <div className="space-y-2">
-                                            <label htmlFor="lastName" className="block text-xs font-semibold tracking-widest uppercase text-veda-light/80">Nom *</label>
+                                            <label htmlFor="lastName" className={labelClass}>Nom *</label>
                                             <input
-                                                type="text"
-                                                id="lastName"
-                                                name="lastName"
-                                                required
-                                                value={formData.lastName}
-                                                onChange={handleChange}
-                                                className="w-full bg-veda-dark/50 border border-white/10 rounded-xl px-4 py-3 text-veda-light focus:outline-none focus:border-veda-gold/50 focus:ring-1 focus:ring-veda-gold/50 transition-all font-light placeholder-white/30"
-                                                placeholder="Votre nom"
+                                                type="text" id="lastName" name="lastName" required
+                                                value={formData.lastName} onChange={handleChange}
+                                                className={fieldClass} placeholder="Votre nom"
                                             />
                                         </div>
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                         <div className="space-y-2">
-                                            <label htmlFor="email" className="block text-xs font-semibold tracking-widest uppercase text-veda-light/80">Email *</label>
+                                            <label htmlFor="email" className={labelClass}>Email *</label>
                                             <input
-                                                type="email"
-                                                id="email"
-                                                name="email"
-                                                required
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                className="w-full bg-veda-dark/50 border border-white/10 rounded-xl px-4 py-3 text-veda-light focus:outline-none focus:border-veda-gold/50 focus:ring-1 focus:ring-veda-gold/50 transition-all font-light placeholder-white/30"
-                                                placeholder="votre@email.com"
+                                                type="email" id="email" name="email" required
+                                                value={formData.email} onChange={handleChange}
+                                                className={fieldClass} placeholder="votre@email.com"
                                             />
                                         </div>
                                         <div className="space-y-2">
-                                            <label htmlFor="phone" className="block text-xs font-semibold tracking-widest uppercase text-veda-light/80">Téléphone</label>
+                                            <label htmlFor="phone" className={labelClass}>Téléphone</label>
                                             <input
-                                                type="tel"
-                                                id="phone"
-                                                name="phone"
-                                                value={formData.phone}
-                                                onChange={handleChange}
-                                                className="w-full bg-veda-dark/50 border border-white/10 rounded-xl px-4 py-3 text-veda-light focus:outline-none focus:border-veda-gold/50 focus:ring-1 focus:ring-veda-gold/50 transition-all font-light placeholder-white/30"
-                                                placeholder="Optionnel"
+                                                type="tel" id="phone" name="phone"
+                                                value={formData.phone} onChange={handleChange}
+                                                className={fieldClass} placeholder="Optionnel"
                                             />
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label htmlFor="housingType" className="block text-xs font-semibold tracking-widest uppercase text-veda-light/80">Type d'hébergement *</label>
+                                        <label htmlFor="housingType" className={labelClass}>Type d'hébergement *</label>
                                         <select
-                                            id="housingType"
-                                            name="housingType"
-                                            required
-                                            value={formData.housingType}
-                                            onChange={handleChange}
-                                            className="w-full bg-veda-dark/50 border border-white/10 rounded-xl px-4 py-3 text-veda-light focus:outline-none focus:border-veda-gold/50 focus:ring-1 focus:ring-veda-gold/50 transition-all font-light appearance-none lowercase text-veda-light/90"
+                                            id="housingType" name="housingType" required
+                                            value={formData.housingType} onChange={handleChange}
+                                            className={`${fieldClass} appearance-none`}
                                         >
-                                            <option value="Single" className="bg-veda-dark text-veda-light">Single</option>
-                                            <option value="Partagé" className="bg-veda-dark text-veda-light">Partagé</option>
+                                            <option value="Single" className="bg-veda-dark">Chambre individuelle</option>
+                                            <option value="Partagé" className="bg-veda-dark">Chambre partagée</option>
                                         </select>
                                     </div>
 
                                     <div className="flex items-center gap-3 pt-2">
                                         <input
-                                            type="checkbox"
-                                            id="minivanTour"
-                                            name="minivanTour"
-                                            checked={formData.minivanTour}
-                                            onChange={handleChange}
-                                            className="w-5 h-5 rounded border-white/10 bg-veda-dark/50 text-veda-gold focus:ring-veda-gold/50 cursor-pointer accent-veda-gold"
+                                            type="checkbox" id="minivanTour" name="minivanTour"
+                                            checked={formData.minivanTour} onChange={handleChange}
+                                            className="h-5 w-5 cursor-pointer rounded border-white/10 bg-veda-dark/50 accent-veda-gold"
                                         />
-                                        <label htmlFor="minivanTour" className="text-sm font-light text-veda-light/90 cursor-pointer select-none">
-                                            Je suis intéressé.e par l'excursion en minivane
+                                        <label htmlFor="minivanTour" className="cursor-pointer select-none text-sm font-light text-veda-light/90">
+                                            Je suis intéressé·e par le voyage VEDA Travel après la retraite
                                         </label>
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label htmlFor="message" className="block text-xs font-semibold tracking-widest uppercase text-veda-light/80">Message *</label>
+                                        <label htmlFor="message" className={labelClass}>Message *</label>
                                         <textarea
-                                            id="message"
-                                            name="message"
-                                            required
-                                            rows="4"
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                            className="w-full bg-veda-dark/50 border border-white/10 rounded-xl px-4 py-3 text-veda-light focus:outline-none focus:border-veda-gold/50 focus:ring-1 focus:ring-veda-gold/50 transition-all font-light resize-none placeholder-white/30"
+                                            id="message" name="message" required rows="4"
+                                            value={formData.message} onChange={handleChange}
+                                            className={`${fieldClass} resize-none`}
                                             placeholder="Avez-vous des questions, ou des particularités (allergies, santé) dont nous devrions être informés ?"
-                                        ></textarea>
+                                        />
                                     </div>
 
                                     <div className="pt-4">
                                         <button
                                             type="submit"
                                             disabled={isSubmitting}
-                                            className="w-full bg-veda-gold text-veda-dark font-bold tracking-widest uppercase py-4 rounded-xl hover:bg-white transition-colors duration-300 shadow-md flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                                            className="flex w-full items-center justify-center gap-2 rounded-xl bg-veda-gold py-4 font-bold uppercase tracking-widest text-veda-dark shadow-md transition-colors duration-300 hover:bg-white disabled:cursor-not-allowed disabled:opacity-70"
                                         >
                                             {isSubmitting ? (
                                                 <>
-                                                    <div className="w-5 h-5 border-2 border-veda-dark border-r-transparent rounded-full animate-spin"></div>
+                                                    <span className="h-5 w-5 animate-spin rounded-full border-2 border-veda-dark border-r-transparent" />
                                                     Envoi en cours...
                                                 </>
                                             ) : (
-                                                "Envoyer ma demande"
+                                                'Envoyer ma demande'
                                             )}
                                         </button>
-                                        <p className="text-center mt-4 text-xs font-light text-veda-light/50">
+                                        <p className="mt-4 text-center text-xs font-light text-veda-light/50">
                                             Aucun paiement n'est requis à cette étape.
                                         </p>
                                     </div>
@@ -241,25 +218,29 @@ export default function Reserver() {
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.6 }}
-                                className="text-center py-10 flex flex-col items-center"
+                                className="flex flex-col items-center py-10 text-center"
                             >
-                                <div className="w-20 h-20 bg-veda-gold/10 rounded-full flex items-center justify-center mb-6 text-veda-gold">
-                                    <CheckCircle2 className="w-10 h-10" />
+                                <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-veda-gold/10 text-veda-gold">
+                                    <CheckCircle2 className="h-10 w-10" />
                                 </div>
-                                <h2 className="text-3xl md:text-4xl font-heading mb-4">Merci, {formData.firstName} !</h2>
-                                <p className="text-veda-light/70 font-light mb-10 max-w-md mx-auto">
-                                    Votre demande de réservation a bien été envoyée. Nous avons hâte de vous compter parmi nous et nous vous contacterons très prochainement pour valider votre inscription.
+                                <h2 className="mb-4 font-heading text-3xl md:text-4xl">
+                                    Merci, {formData.firstName} !
+                                </h2>
+                                <p className="mx-auto mb-10 max-w-md font-light text-veda-light/70">
+                                    Votre demande a bien été envoyée. Nous vous recontactons sous 48 h pour
+                                    valider votre inscription.
                                 </p>
-                                <Link to="/" className="inline-block px-8 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-sm font-medium transition-colors">
-                                    Retour à l'accueil
+                                <Link
+                                    to={path('home')}
+                                    className="inline-block rounded-full border border-white/20 bg-white/10 px-8 py-3 text-sm font-medium transition-colors hover:bg-white/20"
+                                >
+                                    {t('nav.home')}
                                 </Link>
                             </motion.div>
                         )}
                     </AnimatePresence>
                 </div>
-            </main>
-            
-            <Footer />
-        </div>
+            </section>
+        </>
     )
 }
