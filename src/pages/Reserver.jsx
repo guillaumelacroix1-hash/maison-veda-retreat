@@ -65,10 +65,10 @@ export default function Reserver() {
             if (response.ok) {
                 setIsSubmitted(true)
             } else {
-                setError("Une erreur est survenue lors de l'envoi. Veuillez réessayer.")
+                setError(t('booking.errorSend'))
             }
         } catch {
-            setError('Erreur de connexion. Veuillez vérifier votre réseau.')
+            setError(t('booking.errorNetwork'))
         } finally {
             setIsSubmitting(false)
         }
@@ -99,14 +99,14 @@ export default function Reserver() {
                             >
                                 <div className="mb-10 text-center">
                                     <h1 className="mb-4 font-heading text-4xl md:text-5xl">
-                                        Réserver votre <span className="italic text-veda-gold">Retraite</span>
+                                        {t('booking.title')} <span className="italic text-veda-gold">{t('booking.titleAccent')}</span>
                                     </h1>
                                     <p className="text-sm font-light text-veda-light/70 md:text-base">
                                         {copy.title}, {copy.dates}.
                                     </p>
                                     {deposit && (
                                         <p className="mt-3 text-sm font-light text-veda-gold">
-                                            Acompte de {deposit} € (30 %) pour bloquer votre place.
+                                            {t('booking.depositLine', { amount: deposit })}
                                         </p>
                                     )}
                                 </div>
@@ -122,26 +122,26 @@ export default function Reserver() {
                                 <form onSubmit={handleSubmit} className="space-y-6">
                                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                         <div className="space-y-2">
-                                            <label htmlFor="firstName" className={labelClass}>Prénom *</label>
+                                            <label htmlFor="firstName" className={labelClass}>{t('booking.firstName')} *</label>
                                             <input
                                                 type="text" id="firstName" name="firstName" required
                                                 value={formData.firstName} onChange={handleChange}
-                                                className={fieldClass} placeholder="Votre prénom"
+                                                className={fieldClass} placeholder=""
                                             />
                                         </div>
                                         <div className="space-y-2">
-                                            <label htmlFor="lastName" className={labelClass}>Nom *</label>
+                                            <label htmlFor="lastName" className={labelClass}>{t('booking.lastName')} *</label>
                                             <input
                                                 type="text" id="lastName" name="lastName" required
                                                 value={formData.lastName} onChange={handleChange}
-                                                className={fieldClass} placeholder="Votre nom"
+                                                className={fieldClass} placeholder=""
                                             />
                                         </div>
                                     </div>
 
                                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                         <div className="space-y-2">
-                                            <label htmlFor="email" className={labelClass}>Email *</label>
+                                            <label htmlFor="email" className={labelClass}>{t('contact.fields.email')} *</label>
                                             <input
                                                 type="email" id="email" name="email" required
                                                 value={formData.email} onChange={handleChange}
@@ -149,24 +149,24 @@ export default function Reserver() {
                                             />
                                         </div>
                                         <div className="space-y-2">
-                                            <label htmlFor="phone" className={labelClass}>Téléphone</label>
+                                            <label htmlFor="phone" className={labelClass}>{t('contact.fields.phone')}</label>
                                             <input
                                                 type="tel" id="phone" name="phone"
                                                 value={formData.phone} onChange={handleChange}
-                                                className={fieldClass} placeholder="Optionnel"
+                                                className={fieldClass} placeholder=""
                                             />
                                         </div>
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label htmlFor="housingType" className={labelClass}>Type d'hébergement *</label>
+                                        <label htmlFor="housingType" className={labelClass}>{t('booking.housing')} *</label>
                                         <select
                                             id="housingType" name="housingType" required
                                             value={formData.housingType} onChange={handleChange}
                                             className={`${fieldClass} appearance-none`}
                                         >
-                                            <option value="Single" className="bg-veda-dark">Chambre individuelle</option>
-                                            <option value="Partagé" className="bg-veda-dark">Chambre partagée</option>
+                                            <option value="Single" className="bg-veda-dark">{t('booking.housingSingle')}</option>
+                                            <option value="Partagé" className="bg-veda-dark">{t('booking.housingShared')}</option>
                                         </select>
                                     </div>
 
@@ -177,17 +177,17 @@ export default function Reserver() {
                                             className="h-5 w-5 cursor-pointer rounded border-white/10 bg-veda-dark/50 accent-veda-gold"
                                         />
                                         <label htmlFor="minivanTour" className="cursor-pointer select-none text-sm font-light text-veda-light/90">
-                                            Je suis intéressé·e par le voyage VEDA Travel après la retraite
+                                            {t('booking.travelOption')}
                                         </label>
                                     </div>
 
                                     <div className="space-y-2">
-                                        <label htmlFor="message" className={labelClass}>Message *</label>
+                                        <label htmlFor="message" className={labelClass}>{t('contact.fields.message')} *</label>
                                         <textarea
                                             id="message" name="message" required rows="4"
                                             value={formData.message} onChange={handleChange}
                                             className={`${fieldClass} resize-none`}
-                                            placeholder="Avez-vous des questions, ou des particularités (allergies, santé) dont nous devrions être informés ?"
+                                            placeholder={t('booking.messagePlaceholder')}
                                         />
                                     </div>
 
@@ -200,14 +200,14 @@ export default function Reserver() {
                                             {isSubmitting ? (
                                                 <>
                                                     <span className="h-5 w-5 animate-spin rounded-full border-2 border-veda-dark border-r-transparent" />
-                                                    Envoi en cours...
+                                                    {t('booking.submitting')}
                                                 </>
                                             ) : (
-                                                'Envoyer ma demande'
+                                                t('booking.submit')
                                             )}
                                         </button>
                                         <p className="mt-4 text-center text-xs font-light text-veda-light/50">
-                                            Aucun paiement n'est requis à cette étape.
+                                            {t('booking.noPayment')}
                                         </p>
                                     </div>
                                 </form>
@@ -224,11 +224,10 @@ export default function Reserver() {
                                     <CheckCircle2 className="h-10 w-10" />
                                 </div>
                                 <h2 className="mb-4 font-heading text-3xl md:text-4xl">
-                                    Merci, {formData.firstName} !
+                                    {t('booking.thanks', { name: formData.firstName })}
                                 </h2>
                                 <p className="mx-auto mb-10 max-w-md font-light text-veda-light/70">
-                                    Votre demande a bien été envoyée. Nous vous recontactons sous 48 h pour
-                                    valider votre inscription.
+                                    {t('booking.confirmation')}
                                 </p>
                                 <Link
                                     to={path('home')}

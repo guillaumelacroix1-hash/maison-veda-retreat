@@ -204,6 +204,26 @@ export default {
         },
     },
 
+    booking: {
+        title: 'Réserver votre',
+        titleAccent: 'Retraite',
+        depositLine: 'Acompte de {amount} € (30 %) pour bloquer votre place.',
+        firstName: 'Prénom',
+        lastName: 'Nom',
+        housing: 'Type d\'hébergement',
+        housingSingle: 'Chambre individuelle',
+        housingShared: 'Chambre partagée',
+        travelOption: 'Je suis intéressé·e par le voyage VEDA Travel après la retraite',
+        messagePlaceholder: 'Avez-vous des questions, ou des particularités (allergies, santé) dont nous devrions être informés ?',
+        submit: 'Envoyer ma demande',
+        submitting: 'Envoi en cours...',
+        noPayment: 'Aucun paiement n\'est requis à cette étape.',
+        thanks: 'Merci, {name} !',
+        confirmation: 'Votre demande a bien été envoyée. Nous vous recontactons sous 48 h pour valider votre inscription.',
+        errorSend: 'Une erreur est survenue lors de l\'envoi. Veuillez réessayer.',
+        errorNetwork: 'Erreur de connexion. Veuillez vérifier votre réseau.',
+    },
+
     footer: {
         tagline: 'Retraites de yoga et villas face au lac sacré de Koggala, dans le sud du Sri Lanka.',
         navTitle: 'Le site',

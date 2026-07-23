@@ -204,6 +204,26 @@ export default {
         },
     },
 
+    booking: {
+        title: 'Book your',
+        titleAccent: 'Retreat',
+        depositLine: 'A €{amount} deposit (30%) secures your place.',
+        firstName: 'First name',
+        lastName: 'Last name',
+        housing: 'Room type',
+        housingSingle: 'Single room',
+        housingShared: 'Shared room',
+        travelOption: 'I am interested in the VEDA Travel journey after the retreat',
+        messagePlaceholder: 'Any questions, or anything we should know (allergies, health)?',
+        submit: 'Send my request',
+        submitting: 'Sending...',
+        noPayment: 'No payment is required at this stage.',
+        thanks: 'Thank you, {name}!',
+        confirmation: 'Your request has been sent. We will get back to you within 48 hours to confirm your booking.',
+        errorSend: 'Something went wrong while sending. Please try again.',
+        errorNetwork: 'Connection error. Please check your network.',
+    },
+
     footer: {
         tagline: 'Yoga retreats and lake villas facing the sacred Koggala Lake, in southern Sri Lanka.',
         navTitle: 'The site',

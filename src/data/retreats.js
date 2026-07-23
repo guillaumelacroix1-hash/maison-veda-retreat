@@ -31,7 +31,8 @@ export const RETREATS = [
             summary: 'Full board, vegetarian meals, facing Koggala Lake.',
         },
         guides: ['Aurélie Dutrey (Radha Navjot Kaur)', 'Nathalie Catinaud'],
-        image: '/images/hero-lake.jpg',
+        // Même visuel que le hero de la page retraite, pour la continuité.
+        image: '/visites/IMG_0945.jpg',
         pricing: {
             currency: 'EUR',
             from: 1280,
