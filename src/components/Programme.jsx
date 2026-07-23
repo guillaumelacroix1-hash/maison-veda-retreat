@@ -1,39 +1,26 @@
 import { motion } from 'framer-motion'
 import { Sun, Moon, Wind, Heart, Map } from 'lucide-react'
+import { useI18n } from '../i18n'
+import { retreatContent } from '../data/retreat2027'
+
+/** Icône et visuel de chaque bloc, dans l'ordre du contenu (retreat2027.js). */
+const DECOR = [
+    { icon: Sun, image: 'new_image/yoga.jpg' },
+    { icon: Wind, image: 'new_image/yoga2.jpg' },
+    { icon: Moon, image: 'new_image/maison-veda.jpeg' },
+    { icon: Map, image: 'new_image/Stilt-fishermen.jpeg' },
+    { icon: Heart, image: 'new_image/ahangama-beach-camp-poe-1367x2048.jpeg' },
+]
 
 export default function Programme() {
-    const items = [
-        {
-            icon: <Sun className="w-6 h-6 text-veda-gold" />,
-            title: "Matinées ressourçantes",
-            desc: "Sadhana au lever du soleil face au lac, suivi de cours de yoga Kundalini ou Hatha pour éveiller le corps et l'esprit.",
-            image: `${import.meta.env.BASE_URL}new_image/yoga.jpg`
-        },
-        {
-            icon: <Wind className="w-6 h-6 text-veda-gold" />,
-            title: "Pratiques profondes",
-            desc: "Des pratiques douces et profondes, rythmées par les chants de mantras et la méditation, pour une introspection en pleine conscience.",
-            image: `${import.meta.env.BASE_URL}new_image/yoga2.jpg`
-        },
-        {
-            icon: <Moon className="w-6 h-6 text-veda-gold" />,
-            title: "Expériences Incluses",
-            desc: "Clôturez vos journées avec des expériences immersives : soirée kirtan (cercle de chant avec musiciens), séance de breathwork, cacao cérémonie, bain de gong ou autre soin sonore… et parfois une surprise ! Aurélie teste elle-même chaque pratique avant de vous la faire découvrir.",
-            image: `${import.meta.env.BASE_URL}new_image/maison-veda.jpeg`
-        },
-        {
-            icon: <Map className="w-6 h-6 text-veda-gold" />,
-            title: "Découverte & Culture",
-            desc: "Nagez avec les tortues sur une plage paradisiaque, visitez le refuge et participez à la libération des tortues, découvrez un temple Bouddhiste lors d'une cérémonie puja, et flânez dans les rues de Galle, classée UNESCO.",
-            image: `${import.meta.env.BASE_URL}new_image/Stilt-fishermen.jpeg`
-        },
-        {
-            icon: <Heart className="w-6 h-6 text-veda-gold" />,
-            title: "Temps libre & Farniente",
-            desc: "Un après-midi libre, à vous de choisir : profitez de la plage, d'un cours de surf, d'un cours de cuisine, de la visite d'une usine à thé, ou partez en safari éléphant (organisable sur la journée, en partant tôt le matin).",
-            image: `${import.meta.env.BASE_URL}new_image/ahangama-beach-camp-poe-1367x2048.jpeg`
-        }
-    ]
+    const { lang } = useI18n()
+    const c = retreatContent(lang).programme
+
+    const items = c.items.map((item, i) => ({
+        ...item,
+        icon: DECOR[i]?.icon,
+        image: `${import.meta.env.BASE_URL}${DECOR[i]?.image ?? ''}`,
+    }))
 
     return (
         <section className="py-24 md:py-32 px-6 bg-[#fdfbf7] text-veda-dark relative overflow-hidden">
@@ -46,7 +33,7 @@ export default function Programme() {
                         viewport={{ once: true }}
                         className="text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
                     >
-                        L'Expérience
+                        {c.eyebrow}
                     </motion.h3>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -55,7 +42,7 @@ export default function Programme() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-6xl font-heading leading-tight"
                     >
-                        Le Programme de <span className="italic text-veda-gold">Votre Retraite</span>
+                        {c.title} <span className="italic text-veda-gold">{c.titleAccent}</span>
                     </motion.h2>
                     <motion.div
                         initial={{ scaleX: 0 }}
@@ -71,7 +58,7 @@ export default function Programme() {
                         transition={{ delay: 0.4 }}
                         className="text-veda-dark/70 font-light mt-8 text-sm sm:text-base leading-relaxed"
                     >
-                        Imaginez vos journées rythmées par le yoga Hatha & Kundalini, de vrais moments de repos pour vous ressourcer pleinement, des visites touristiques organisées pour explorer la région, et chaque soir, une expérience transformatrice qui nourrit le corps et l’âme. Et vos temps libres n’appartiennent qu’à vous : si l’envie d’explorer les environs se fait sentir, un tuktuk vous attend pour partir à l’aventure, en groupe ou en solo — libre à vous d’en profiter comme bon vous semble.
+                        {c.intro}
                     </motion.p>
                 </div>
 
@@ -93,7 +80,7 @@ export default function Programme() {
 
                             <div className="relative z-10 w-full h-full flex flex-col">
                                 <div className="w-14 h-14 rounded-full bg-veda-gold/10 flex items-center justify-center mb-6 border border-transparent group-hover:border-veda-gold/30 transition-colors">
-                                    {item.icon}
+                                    {item.icon && <item.icon className="w-6 h-6 text-veda-gold" />}
                                 </div>
                                 <h4 className="text-xl font-heading mb-3 group-hover:text-white transition-colors duration-300">{item.title}</h4>
                                 {item.badge && (
@@ -117,12 +104,12 @@ export default function Programme() {
                         className="bg-veda-dark text-white p-10 rounded-2xl shadow-xl relative overflow-hidden"
                     >
                         <div className="absolute top-0 right-0 w-32 h-32 bg-veda-gold rounded-bl-full -mr-16 -mt-16 pointer-events-none opacity-80" />
-                        <h4 className="text-xl font-heading mb-3 text-veda-gold">Pension Complète</h4>
+                        <h4 className="text-xl font-heading mb-3 text-veda-gold">{c.board.title}</h4>
                         <p className="text-veda-light/90 leading-relaxed font-light text-sm mb-6">
-                            Savourez 3 repas végétariens par jour (petit-déjeuner, lunch et dîner) préparés avec soin par notre équipe srilankaise locale.
+                            {c.board.desc}
                         </p>
                         <span className="inline-block px-4 py-1.5 bg-veda-gold rounded-full text-[10px] font-bold tracking-[0.1em] uppercase text-veda-dark">
-                            Inclus
+                            {c.board.badge}
                         </span>
                     </motion.div>
                 </div>
@@ -135,13 +122,13 @@ export default function Programme() {
                     className="max-w-2xl mx-auto text-center mt-16 pt-12 border-t border-veda-gold/20"
                 >
                     <p className="text-veda-dark/70 font-light text-sm sm:text-base leading-relaxed">
-                        On tisse de tels liens, on vit tant d'amour au sein du groupe pendant la retraite, qu'on n'a souvent pas envie de se quitter ! C'est bien souvent la totalité du groupe qui s'inscrit pour poursuivre <span className="italic text-veda-gold">l'aventure à travers le pays</span>, en van ou en bus selon le nombre de participants.
+                        {c.outro} <span className="italic text-veda-gold">{c.outroAccent}</span>{c.outroEnd}
                     </p>
                     <a
                         href="#prolonger"
                         className="inline-block mt-6 text-veda-gold text-xs uppercase tracking-widest font-semibold hover:text-veda-dark transition-colors"
                     >
-                        + Découvrir le voyage
+                        {c.outroLink}
                     </a>
                 </motion.div>
 

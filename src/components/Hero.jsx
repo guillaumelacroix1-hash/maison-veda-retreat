@@ -3,10 +3,12 @@ import { ArrowDown } from 'lucide-react'
 import { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useI18n } from '../i18n'
+import { retreatContent } from '../data/retreat2027'
 
 export default function Hero() {
     const navigate = useNavigate()
-    const { path } = useI18n()
+    const { path, lang } = useI18n()
+    const c = retreatContent(lang).hero
     const ref = useRef(null)
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -52,7 +54,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="px-6 py-1.5 border border-veda-gold/40 rounded-full text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase mb-8 text-veda-light bg-veda-dark/30 backdrop-blur-md"
                 >
-                    7 AU 13 FÉVRIER 2027
+                    {c.badge}
                 </motion.span>
 
                 <motion.h1
@@ -61,9 +63,9 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="text-7xl md:text-[7rem] leading-[1.1] mb-6 font-heading"
                 >
-                    Retraite
+                    {c.title}
                     <br />
-                    <span className="font-heading italic font-light text-veda-gold drop-shadow-lg">Sri Lanka</span>
+                    <span className="font-heading italic font-light text-veda-gold drop-shadow-lg">{c.accent}</span>
                 </motion.h1>
 
                 <motion.p
@@ -72,7 +74,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.6 }}
                     className="text-lg md:text-xl font-light text-veda-light max-w-2xl mx-auto mb-12 drop-shadow-md"
                 >
-                    Immersion Hatha & Kundalini au cœur de la jungle, face au lac sacré de Koggala.
+                    {c.lead}
                 </motion.p>
 
                 <motion.div
@@ -82,10 +84,10 @@ export default function Hero() {
                     className="flex flex-col sm:flex-row gap-4 sm:gap-6"
                 >
                     <button onClick={() => navigate(path('book', { slug: 'sri-lanka-2027' }))} className="px-10 py-3.5 bg-veda-sand hover:bg-white text-veda-dark text-sm sm:text-base font-semibold tracking-widest uppercase transition-colors duration-300 rounded-full shadow-lg">
-                        Réservation
+                        {c.book}
                     </button>
                     <button onClick={() => document.getElementById('programme').scrollIntoView({ behavior: 'smooth' })} className="px-10 py-3.5 border border-white/50 text-white hover:border-white hover:bg-white/10 text-sm sm:text-base font-semibold tracking-widest uppercase transition-all duration-300 rounded-full backdrop-blur-sm">
-                        Découvrir
+                        {c.discover}
                     </button>
                 </motion.div>
             </motion.div>

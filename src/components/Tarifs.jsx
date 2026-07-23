@@ -2,10 +2,23 @@ import { motion } from 'framer-motion'
 import { Calendar, Check, Plane } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useI18n } from '../i18n'
+import { retreatContent } from '../data/retreat2027'
 
 export default function Tarifs() {
-    const { path } = useI18n()
+    const { path, lang } = useI18n()
+    const c = retreatContent(lang).tarifs
     const bookPath = path('book', { slug: 'sri-lanka-2027' })
+
+    /** Conditions de paiement, identiques sur les deux formules. */
+    const terms = (tone) => (
+        <p className={`text-xs mt-4 font-light leading-relaxed ${tone}`}>
+            <span className="font-medium">{c.depositLabel}</span>{' '}
+            <span className="whitespace-pre-line">{c.depositTerms}</span>
+            <br />
+            <span className="italic">{c.cancellation}</span>
+        </p>
+    )
+
     return (
         <section className="py-24 md:py-32 px-6 bg-[#fdfbf7] text-veda-dark relative overflow-hidden">
             <div className="max-w-7xl mx-auto">
@@ -16,7 +29,7 @@ export default function Tarifs() {
                         viewport={{ once: true }}
                         className="text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
                     >
-                        Rejoignez-nous
+                        {c.eyebrow}
                     </motion.h3>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -25,7 +38,7 @@ export default function Tarifs() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-6xl font-heading leading-tight mb-8"
                     >
-                        Dates & <span className="italic text-veda-gold">Tarifs</span>
+                        {c.title} <span className="italic text-veda-gold">{c.titleAccent}</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0 }}
@@ -34,7 +47,7 @@ export default function Tarifs() {
                         transition={{ delay: 0.2 }}
                         className="text-veda-dark/70 font-light max-w-2xl mx-auto"
                     >
-                        Préparez votre voyage vers une immersion totale au cœur du Sri Lanka. Retrouvez ici toutes les informations pratiques et nos différentes formules d'hébergement.
+                        {c.intro}
                     </motion.p>
                 </div>
 
@@ -52,18 +65,18 @@ export default function Tarifs() {
                             <div className="p-4 bg-veda-gold/5 rounded-full text-veda-gold mb-6 inline-flex">
                                 <Calendar className="w-8 h-8" />
                             </div>
-                            <h4 className="text-xl font-heading mb-3">Dates du séjour</h4>
-                            <p className="font-medium text-veda-dark mb-2">7 au 13 février 2027</p>
-                            <p className="text-sm text-veda-dark/60">Arrivée le dimanche à 14h<br />Départ le samedi à 11h</p>
+                            <h4 className="text-xl font-heading mb-3">{c.datesTitle}</h4>
+                            <p className="font-medium text-veda-dark mb-2">{c.datesValue}</p>
+                            <p className="text-sm text-veda-dark/60 whitespace-pre-line">{c.datesDetail}</p>
                         </div>
 
                         <div className="bg-white p-8 rounded-3xl shadow-sm border border-veda-gold/10 text-center flex flex-col items-center transform transition-transform duration-500 hover:-translate-y-2">
                             <div className="p-4 bg-veda-gold/5 rounded-full text-veda-gold mb-6 inline-flex">
                                 <Plane className="w-8 h-8" />
                             </div>
-                            <h4 className="text-xl font-heading mb-3">Transport</h4>
+                            <h4 className="text-xl font-heading mb-3">{c.transportTitle}</h4>
                             <p className="text-sm text-veda-dark/70 leading-relaxed">
-                                Vol pour Colombo (pensez au décalage horaire +1j). Navette aéroport-hôtel partageable avec le groupe.
+                                {c.transportDesc}
                             </p>
                         </div>
 
@@ -71,9 +84,9 @@ export default function Tarifs() {
                             <div className="p-4 bg-veda-gold/5 rounded-full text-veda-gold mb-6 inline-flex">
                                 <Check className="w-8 h-8" />
                             </div>
-                            <h4 className="text-xl font-heading mb-4">Ce qui est inclus</h4>
+                            <h4 className="text-xl font-heading mb-4">{c.includedTitle}</h4>
                             <ul className="space-y-2 text-sm text-veda-dark/80 inline-block text-left">
-                                {["6 nuits d'hébergement", "Pension complète (végétarienne)", "2 à 4 pratiques de yoga / jour", "Expériences (Cacao, Kirtan...)", "Activités durant la retraite"].map((item, i) => (
+                                {c.included.map((item, i) => (
                                     <li key={i} className="flex items-start justify-center gap-2">
                                         <Check className="w-4 h-4 text-veda-gold shrink-0 mt-0.5" />
                                         <span>{item}</span>
@@ -93,11 +106,11 @@ export default function Tarifs() {
                     >
                         <div className="bg-white border border-veda-gold/20 rounded-[2.5rem] p-10 relative shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col items-center text-center group">
                             <div className="absolute -top-4 bg-veda-dark text-white text-[10px] sm:text-xs font-bold tracking-widest uppercase py-2 px-6 rounded-full shadow-md">
-                                Standard
+                                {c.sharedBadge}
                             </div>
 
-                            <h4 className="text-3xl font-heading mb-3 mt-4">Chambre Partagée</h4>
-                            <p className="text-sm text-veda-dark/60 mb-10 font-light">Pour 2, 3 ou 4 personnes. L'idéal pour partager l'expérience.</p>
+                            <h4 className="text-3xl font-heading mb-3 mt-4">{c.sharedTitle}</h4>
+                            <p className="text-sm text-veda-dark/60 mb-10 font-light">{c.sharedDesc}</p>
 
                             <div className="flex items-baseline gap-2 mb-10 justify-center">
                                 <span className="text-6xl font-heading text-veda-gold">1<span className="tracking-tight">280</span></span>
@@ -106,23 +119,19 @@ export default function Tarifs() {
 
                             <div className="mt-auto w-full">
                                 <Link to={bookPath} className="block text-center w-full py-4 bg-veda-dark group-hover:bg-black text-veda-light font-medium tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-md">
-                                    Réserver ma place
+                                    {c.cta}
                                 </Link>
-                                <p className="text-xs text-veda-dark/60 mt-4 font-light leading-relaxed">
-                                    <span className="font-medium text-veda-dark">Acompte de 500€</span> par virement.<br /> Preuve à envoyer par email pour valider.<br />
-                                    Solde à régler 1 mois avant (15 janvier).<br />
-                                    <span className="italic">Annulation: Remboursement si remplacement possible.</span>
-                                </p>
+                                {terms('text-veda-dark/60')}
                             </div>
                         </div>
 
                         <div className="bg-veda-dark text-white rounded-[2.5rem] p-10 relative shadow-2xl hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] transition-all duration-500 border border-veda-gold/20 flex flex-col items-center text-center group">
                             <div className="absolute -top-4 bg-veda-gold text-veda-dark text-[10px] sm:text-xs font-bold tracking-widest uppercase py-2 px-6 rounded-full shadow-md">
-                                Premium
+                                {c.singleBadge}
                             </div>
 
-                            <h4 className="text-3xl font-heading mb-3 mt-4 text-veda-gold">Chambre Single</h4>
-                            <p className="text-sm text-veda-light/60 mb-10 font-light">Profitez de votre espace privé pour un repos total.</p>
+                            <h4 className="text-3xl font-heading mb-3 mt-4 text-veda-gold">{c.singleTitle}</h4>
+                            <p className="text-sm text-veda-light/60 mb-10 font-light">{c.singleDesc}</p>
 
                             <div className="flex items-baseline gap-2 mb-10 justify-center">
                                 <span className="text-6xl font-heading text-white">1<span className="tracking-tight">480</span></span>
@@ -131,13 +140,9 @@ export default function Tarifs() {
 
                             <div className="mt-auto w-full">
                                 <Link to={bookPath} className="block text-center w-full py-4 bg-veda-gold group-hover:bg-white text-veda-dark font-bold tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-lg">
-                                    Réserver ma place
+                                    {c.cta}
                                 </Link>
-                                <p className="text-xs text-veda-gold/80 mt-4 font-light leading-relaxed">
-                                    <span className="font-medium text-white">Acompte de 500€</span> par virement.<br /> Preuve à envoyer par email pour valider.<br />
-                                    Solde à régler 1 mois avant (15 janvier).<br />
-                                    <span className="italic">Annulation: Remboursement si remplacement possible.</span>
-                                </p>
+                                {terms('text-veda-gold/80')}
                             </div>
                         </div>
                     </motion.div>
