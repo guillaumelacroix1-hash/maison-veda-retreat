@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useI18n } from '../i18n';
+import { retreatContent } from '../data/retreat2027';
 
 const getImageUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}?v=2`;
 
@@ -33,6 +35,8 @@ const allImages = [...surPlaceImages, ...newImages, ...visitImages];
 const INITIAL_COUNT = 20;
 
 const Gallery = () => {
+    const { lang } = useI18n();
+    const c = retreatContent(lang).gallery;
     const [showAll, setShowAll] = useState(false);
     const [lightboxImage, setLightboxImage] = useState(null);
 
@@ -75,10 +79,10 @@ const Gallery = () => {
                 {/* Header */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-heading mb-6 tracking-wide uppercase">
-                        Découvrez <span className="text-veda-gold italic tabular-nums">l'Expérience</span>
+                        {c.title} <span className="text-veda-gold italic tabular-nums">{c.titleAccent}</span>
                     </h2>
                     <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto font-light leading-relaxed">
-                        Plongez dans l'univers de La Maison Veda, entre retraite paisible au bord du lac et découvertes inoubliables au Sri Lanka.
+                        {c.lead}
                     </p>
                 </div>
 
@@ -101,7 +105,7 @@ const Gallery = () => {
                                 <div className="absolute inset-0 bg-veda-dark/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                                 <img
                                     src={src}
-                                    alt={`Galerie ${index + 1}`}
+                                    alt={`${c.imageAlt} ${index + 1}`}
                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     loading="lazy"
                                 />

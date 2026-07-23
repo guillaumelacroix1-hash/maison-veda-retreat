@@ -22,6 +22,37 @@ export const RETREAT_2027 = {
             discover: 'Découvrir',
         },
 
+        guides: {
+            eyebrow: 'Vos guides',
+            titleStart: 'L\'union du',
+            titleAccent1: 'Hatha',
+            titleMiddle: '& du',
+            titleAccent2: 'Kundalini',
+            more: '+ En savoir plus',
+            less: '- Lire moins',
+            people: [
+                {
+                    name: 'Aurélie Dutrey',
+                    intro: 'Aurélie, Radha Navjot Kaur, est la fondatrice de La maison VEDA, studio de yoga et centre de retraites à St-Simon en Charente et à Habaraduwa dans le sud du Sri Lanka.',
+                    more: [
+                        'Elle transmet la pratique du yoga Kundalini selon les enseignements de Gurmukh Kaur Khalsa (Golden Bridge, USA). Aurélie est également certifiée en yoga Hatha (Aryoga, Rishikesh, Inde) et praticienne en ayurvéda, formée comme thérapeute ayurvédique à la clinique Ayuskama de Dharamshala, en Inde.',
+                        'Ses 5 années de résidence au Sri Lanka lui permettent aujourd\'hui d\'organiser des séjours sur cette île magnifique, et elle a très à cœur de partager ses plus belles expériences et découvertes avec vous.',
+                        'Elle sera votre professeure de Kundalini et méditation, et votre coordinatrice sur place, de votre inscription jusqu\'à votre départ.',
+                    ],
+                },
+                {
+                    name: 'Nathalie Catinaud',
+                    intro: 'Originaire de Charente, Nathalie a rencontré le yoga il y a une quinzaine d\'années lors d\'un long voyage au Canada. Elle y a découvert différentes pratiques qui lui ont permis de faire de merveilleuses rencontres humaines et spirituelles.',
+                    more: [
+                        'Très vite, le yoga a pris une place importante dans sa vie : une aide précieuse pour apprivoiser ses émotions et, plus largement, un accompagnement vers un meilleur équilibre.',
+                        'De retour en France, sa passion pour la discipline l\'a poussée à se former à l\'ENPY, l\'école nationale des professeurs de yoga. Depuis 2016, elle enseigne avec joie le Hatha et le Nidra, des moments de détente corporelle qui invitent au lâcher-prise et à laisser aller le stress.',
+                        'Nathalie travaille également avec son conjoint sur l\'exploitation viticole, où elle s\'occupe principalement de l\'administratif et de la gestion du personnel. Ce pied toujours en entreprise l\'a amenée à se former comme intervenante en méditation et en yoga sur chaise, dans le cadre de la qualité de vie au travail.',
+                    ],
+                    quote: '« Je remercie chaque jour l\'univers de m\'avoir guidée sur la voie du yoga. »',
+                },
+            ],
+        },
+
         programme: {
             eyebrow: 'L\'expérience',
             title: 'Le Programme de',
@@ -94,6 +125,87 @@ export const RETREAT_2027 = {
             cancellation: 'Annulation : remboursement si remplacement possible.',
         },
 
+        villas: {
+            eyebrow: 'Votre hébergement',
+            title: 'Les villas de',
+            titleAccent: 'La maison VEDA',
+            intro: [
+                'À seulement 2 h 15 de l\'aéroport de Colombo, au bord du mythique lac de Koggala et nichée au cœur de la jungle, La maison VEDA est à proximité des plus belles plages de surf du sud du Sri Lanka : Kabalana Beach, Habaraduwa, Unawatuna.',
+                'Levers de soleil à couper le souffle sur le lac, faune et flore luxuriantes, la plage à 5 minutes en tuk-tuk. Un lieu propice à la pratique du yoga et de la méditation, dédié à la détente et au lâcher-prise.',
+                'La maison VEDA se compose de 2 villas aux identités complémentaires :',
+            ],
+            villaList: [
+                'Une petite maison authentique et traditionnelle sri-lankaise, la Lake House, aux murs en terre et frises en bois, juste au bord du lac, en parfaite harmonie avec son environnement naturel.',
+                'Et une seconde villa plus contemporaine, pensée comme un loft, mêlant modernité et tradition.',
+            ],
+            intro2: [
+                'Le yoga shala est perché au dernier étage de la villa Lake Loft, avec sa vue imprenable sur le lac et la jungle.',
+                'Une équipe sri-lankaise est à nos petits soins pour le service de restauration et le service en chambre. Vous serez frappé·e par la gentillesse et la générosité des Sri-Lankais, un fait marquant pour chaque voyageur.',
+                'Selon la taille du groupe, nous mettons à disposition 3 villas supplémentaires, connectées à La maison VEDA ou situées à 2 minutes à pied :',
+            ],
+            extraList: [
+                'Les chalets en bois Tothupola et la piscine',
+                'La Villa Jungle Breeze',
+            ],
+            lodgings: [
+                {
+                    prefix: 'La',
+                    name: '\'Lake House\'',
+                    desc: 'Une petite maison authentique et traditionnelle sri-lankaise, aux murs en terre et frises en bois, juste au bord du lac.',
+                },
+                {
+                    prefix: 'Le',
+                    name: '\'Lake Loft\'',
+                    desc: 'Une villa plus contemporaine, avec son yoga shala perché au dernier étage offrant une vue imprenable sur le lac.',
+                },
+                {
+                    prefix: 'La Villa',
+                    name: '\'Jungle Breeze\'',
+                    desc: 'Nichée au cœur de la verdure, cette villa offre une parenthèse apaisante, idéale pour se ressourcer en toute tranquillité.',
+                },
+                {
+                    prefix: 'Les Chalets',
+                    name: '\'Tothupola\'',
+                    desc: 'De magnifiques chalets en bois avec piscine, offrant un havre de paix pittoresque en pleine nature sri-lankaise.',
+                },
+            ],
+        },
+
+        gallery: {
+            title: 'Découvrez',
+            titleAccent: 'l\'expérience',
+            lead: 'Plongez dans l\'univers de La Maison VEDA, entre retraite paisible au bord du lac et découvertes inoubliables au Sri Lanka.',
+            imageAlt: 'Galerie',
+        },
+
+        finalCta: {
+            hostsTitle: 'Les filles',
+            hostsSubtitle: 'Vos hôtes pour cette retraite inoubliable.',
+            eyebrow: 'Prêt·e pour le départ ?',
+            title: 'Réservez votre',
+            titleAccent: 'Retraite.',
+            lead: 'Les places sont limitées pour garantir une expérience intimiste et personnalisée. Rejoignez-nous au Sri Lanka pour une parenthèse de bien-être absolu.',
+            cta: 'Réserver ma retraite',
+            note: 'Acompte de réservation par virement, avec preuve à envoyer par email.',
+        },
+
+        prolonger: {
+            eyebrow: 'L\'aventure continue',
+            title: 'Prolongez votre',
+            titleAccent: 'séjour',
+            intro: 'Nous vous recommandons de prendre 2 à 3 semaines de disponibilité pour ce voyage. Le vol dure en moyenne de 10 à 23 h, et le décalage horaire se fait sentir généralement les 2 premiers jours.',
+            chillTitle: 'Chill & farniente',
+            chillDesc: 'Restez à proximité de notre lieu de retraite dans le sud du Sri Lanka pour profiter des plages et du surf. Nous pouvons vous recommander quelques adresses secrètes où séjourner et des activités incontournables.',
+            tourTitle: 'Tour en mini-van',
+            tourDesc: 'À la suite de la retraite, nous organisons un tour exclusif de 6 à 15 jours en van ou en bus, à partir de 5 personnes. Il comprend les transports, les hébergements, les repas du chauffeur et les petits déjeuners. Détails et itinéraires sur demande.',
+            tourMore: 'Du 13 au 19 février, 7 jours et 6 nuits, ou tour personnalisé de 6 à 15 jours en mini-van ou en bus à partir de 5 personnes.',
+            tourPrice: '100 € à 150 € par jour',
+            tourIncludes: 'incluant la privatisation du minivan et du chauffeur, l\'essence, les repas et hébergements du chauffeur, les hébergements des passagers, les visites au programme et les petits déjeuners.',
+            tourMoreLabel: 'En savoir plus',
+            tourLessLabel: 'Moins de détails',
+            tripsLink: 'Voir nos voyages types',
+        },
+
         faq: {
             eyebrow: 'Recommandations',
             title: 'Préparer',
@@ -147,6 +259,37 @@ export const RETREAT_2027 = {
             lead: 'A Hatha & Kundalini immersion in the heart of the jungle, facing the sacred Koggala Lake.',
             book: 'Book now',
             discover: 'Discover',
+        },
+
+        guides: {
+            eyebrow: 'Your guides',
+            titleStart: 'Where',
+            titleAccent1: 'Hatha',
+            titleMiddle: 'meets',
+            titleAccent2: 'Kundalini',
+            more: '+ Read more',
+            less: '- Read less',
+            people: [
+                {
+                    name: 'Aurélie Dutrey',
+                    intro: 'Aurélie, Radha Navjot Kaur, is the founder of La maison VEDA, a yoga studio and retreat centre in St-Simon, Charente, and in Habaraduwa, southern Sri Lanka.',
+                    more: [
+                        'She teaches Kundalini yoga in the lineage of Gurmukh Kaur Khalsa (Golden Bridge, USA). Aurélie is also certified in Hatha yoga (Aryoga, Rishikesh, India) and trained as an Ayurvedic therapist at the Ayuskama clinic in Dharamshala, India.',
+                        'Her five years living in Sri Lanka now allow her to organise stays on this beautiful island, and she deeply enjoys sharing her finest experiences and discoveries with you.',
+                        'She will be your Kundalini and meditation teacher, and your coordinator on site, from your booking through to your departure.',
+                    ],
+                },
+                {
+                    name: 'Nathalie Catinaud',
+                    intro: 'Born in Charente, Nathalie discovered yoga some fifteen years ago during a long journey through Canada, where she encountered practices that led to wonderful human and spiritual encounters.',
+                    more: [
+                        'Yoga quickly took an important place in her life: a precious help in navigating her emotions and, more broadly, a path towards better balance.',
+                        'Back in France, her passion for the discipline led her to train at the ENPY, the French national school for yoga teachers. Since 2016 she has taught Hatha and Nidra with joy, moments of physical release that invite letting go and shedding stress.',
+                        'Nathalie also works with her partner on their vineyard, where she handles administration and staff management. Keeping one foot in the working world led her to train as a meditation and chair-yoga facilitator, within the framework of wellbeing at work.',
+                    ],
+                    quote: '"Every day I thank the universe for guiding me onto the path of yoga."',
+                },
+            ],
         },
 
         programme: {
@@ -215,6 +358,87 @@ export const RETREAT_2027 = {
             depositLabel: '€500 deposit',
             depositTerms: 'by bank transfer. Send us the proof by email to confirm.\nBalance due one month before, on 15 January.',
             cancellation: 'Cancellation: refunded if a replacement can be found.',
+        },
+
+        villas: {
+            eyebrow: 'Your accommodation',
+            title: 'The villas of',
+            titleAccent: 'La maison VEDA',
+            intro: [
+                'Just 2 hours 15 from Colombo airport, on the shore of the legendary Koggala Lake and nestled in the heart of the jungle, La maison VEDA sits close to the finest surf beaches of southern Sri Lanka: Kabalana Beach, Habaraduwa, Unawatuna.',
+                'Breathtaking sunrises over the lake, lush wildlife and vegetation, the beach 5 minutes away by tuk-tuk. A place made for yoga and meditation, devoted to rest and letting go.',
+                'La maison VEDA is made up of 2 villas with complementary characters:',
+            ],
+            villaList: [
+                'A small, authentic traditional Sri Lankan house, the Lake House, with earthen walls and wooden friezes, right on the lakeshore, in perfect harmony with its natural surroundings.',
+                'And a second, more contemporary villa, conceived as a loft, blending modernity and tradition.',
+            ],
+            intro2: [
+                'The yoga shala sits on the top floor of the Lake Loft villa, with sweeping views over the lake and the jungle.',
+                'A Sri Lankan team looks after us for catering and room service. You will be struck by the kindness and generosity of Sri Lankan people, something every traveller remembers.',
+                'Depending on the size of the group, we can offer 3 additional villas, connected to La maison VEDA or a 2-minute walk away:',
+            ],
+            extraList: [
+                'The Tothupola wooden chalets and the pool',
+                'Villa Jungle Breeze',
+            ],
+            lodgings: [
+                {
+                    prefix: 'The',
+                    name: '\'Lake House\'',
+                    desc: 'A small, authentic traditional Sri Lankan house with earthen walls and wooden friezes, right on the lakeshore.',
+                },
+                {
+                    prefix: 'The',
+                    name: '\'Lake Loft\'',
+                    desc: 'A more contemporary villa, with its yoga shala on the top floor offering sweeping views over the lake.',
+                },
+                {
+                    prefix: 'Villa',
+                    name: '\'Jungle Breeze\'',
+                    desc: 'Nestled in the greenery, this villa offers a soothing pause, ideal for restoring yourself in complete peace.',
+                },
+                {
+                    prefix: 'The',
+                    name: '\'Tothupola\' Chalets',
+                    desc: 'Beautiful wooden chalets with a pool, a picturesque haven of peace in the heart of Sri Lankan nature.',
+                },
+            ],
+        },
+
+        gallery: {
+            title: 'Discover',
+            titleAccent: 'the experience',
+            lead: 'Step into the world of La Maison VEDA, between a peaceful retreat by the lake and unforgettable discoveries across Sri Lanka.',
+            imageAlt: 'Gallery',
+        },
+
+        finalCta: {
+            hostsTitle: 'The girls',
+            hostsSubtitle: 'Your hosts for this unforgettable retreat.',
+            eyebrow: 'Ready to go?',
+            title: 'Book your',
+            titleAccent: 'Retreat.',
+            lead: 'Places are limited to keep the experience intimate and personal. Join us in Sri Lanka for a moment of complete wellbeing.',
+            cta: 'Book my retreat',
+            note: 'Booking deposit by bank transfer, with proof to be sent by email.',
+        },
+
+        prolonger: {
+            eyebrow: 'The adventure continues',
+            title: 'Extend your',
+            titleAccent: 'stay',
+            intro: 'We recommend allowing 2 to 3 weeks for this trip. The flight takes on average 10 to 23 hours, and the time difference is usually felt over the first two days.',
+            chillTitle: 'Chill & idleness',
+            chillDesc: 'Stay near our retreat house in southern Sri Lanka to enjoy the beaches and the surf. We can recommend a few secret places to stay and the activities not to miss.',
+            tourTitle: 'Minivan tour',
+            tourDesc: 'After the retreat, we organise an exclusive 6 to 15 day tour by van or coach, from 5 people. It includes transport, accommodation, the driver\'s meals and breakfasts. Details and itineraries on request.',
+            tourMore: 'From 13 to 19 February, 7 days and 6 nights, or a tailor-made 6 to 15 day tour by minivan or coach, from 5 people.',
+            tourPrice: '€100 to €150 per day',
+            tourIncludes: 'including private minivan and driver, fuel, the driver\'s meals and accommodation, accommodation for passengers, scheduled visits and breakfasts.',
+            tourMoreLabel: 'Read more',
+            tourLessLabel: 'Fewer details',
+            tripsLink: 'See our signature journeys',
         },
 
         faq: {

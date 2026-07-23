@@ -1,9 +1,14 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Palmtree, Bus, ChevronDown } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Palmtree, Bus, ChevronDown, ArrowRight } from 'lucide-react'
+import { useI18n } from '../i18n'
+import { retreatContent } from '../data/retreat2027'
 
 export default function Prolonger() {
     const [showMoreTour, setShowMoreTour] = useState(false)
+    const { lang, path } = useI18n()
+    const c = retreatContent(lang).prolonger
 
     return (
         <section className="py-24 md:py-32 px-6 bg-veda-dark text-veda-light relative z-10 overflow-hidden">
@@ -24,7 +29,7 @@ export default function Prolonger() {
                         viewport={{ once: true }}
                         className="text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
                     >
-                        L'Aventure Continue
+                        {c.eyebrow}
                     </motion.h3>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -33,7 +38,7 @@ export default function Prolonger() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-6xl font-heading leading-tight"
                     >
-                        Prolongez votre <span className="italic text-veda-gold">séjour !</span>
+                        {c.title} <span className="italic text-veda-gold">{c.titleAccent}</span>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0 }}
@@ -42,7 +47,7 @@ export default function Prolonger() {
                         transition={{ delay: 0.2 }}
                         className="max-w-2xl mx-auto text-veda-light/70 font-light mt-6 text-sm sm:text-base leading-relaxed"
                     >
-                        Nous vous recommandons de prendre 2 à 3 semaines de disponibilité pour ce voyage. Le vol dure en moyenne de 10 à 23h, et le décalage horaire se fait sentir généralement les 2 premiers jours.
+                        {c.intro}
                     </motion.p>
                 </div>
 
@@ -73,9 +78,9 @@ export default function Prolonger() {
                             <div className="w-12 h-12 rounded-full bg-veda-gold/20 backdrop-blur-md flex items-center justify-center mb-6 text-veda-gold border border-veda-gold/30">
                                 <Palmtree className="w-5 h-5" />
                             </div>
-                            <h4 className="text-3xl font-heading text-white mb-4 drop-shadow-lg">Chill & Farniente</h4>
+                            <h4 className="text-3xl font-heading text-white mb-4 drop-shadow-lg">{c.chillTitle}</h4>
                             <p className="text-white/80 font-light text-sm sm:text-base leading-relaxed drop-shadow-md">
-                                Restez à proximité de notre lieu de retraites dans le sud du Sri-Lanka pour profiter des plages, du surf. Nous pouvons vous recommander quelques adresses secrètes où séjourner et des activités incontournables.
+                                {c.chillDesc}
                             </p>
                         </div>
                     </motion.div>
@@ -105,9 +110,9 @@ export default function Prolonger() {
                             <div className="w-12 h-12 rounded-full bg-veda-gold/20 backdrop-blur-md flex items-center justify-center mb-6 text-veda-gold border border-veda-gold/30">
                                 <Bus className="w-5 h-5" />
                             </div>
-                            <h4 className="text-3xl font-heading text-white mb-4 drop-shadow-lg">Tour en mini-van</h4>
+                            <h4 className="text-3xl font-heading text-white mb-4 drop-shadow-lg">{c.tourTitle}</h4>
                             <p className="text-white/80 font-light text-sm sm:text-base leading-relaxed drop-shadow-md">
-                                À la suite de la retraite, nous organisons un tour exclusif de 6 à 15 jours en van/bus (à partir de 5 pers). Inclut les transports, hébergements, repas chauffeur, et petits déjeuners. Détails et itinéraires sur demande.
+                                {c.tourDesc}
                             </p>
 
                             <AnimatePresence>
@@ -118,9 +123,17 @@ export default function Prolonger() {
                                         exit={{ opacity: 0, height: 0 }}
                                         className="mt-4 pt-4 border-t border-veda-gold/30 text-white/80 font-light text-sm sm:text-base leading-relaxed drop-shadow-md overflow-hidden"
                                     >
-                                        Du 13 au 19 février (7 jrs/6 nuits), ou tour personnalisé de 6 à 15 jours en mini van/bus à partir de 5 pers.
-                                        <br/><br/>
-                                        <span className="text-veda-gold font-medium">100€ à 150€ par jour</span> incluant : privatisation minivan/chauffeur, essence, repas et hébergements chauffeur, hébergements pour les passagers, visites au programme et petits déjeuners.
+                                        {c.tourMore}
+                                        <br /><br />
+                                        <span className="text-veda-gold font-medium">{c.tourPrice}</span> {c.tourIncludes}
+                                        <Link
+                                            to={path('travel')}
+                                            onClick={(e) => e.stopPropagation()}
+                                            className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-veda-gold hover:text-white transition-colors"
+                                        >
+                                            {c.tripsLink}
+                                            <ArrowRight className="w-4 h-4" />
+                                        </Link>
                                     </motion.div>
                                 )}
                             </AnimatePresence>
@@ -129,7 +142,7 @@ export default function Prolonger() {
                                 onClick={(e) => { e.stopPropagation(); setShowMoreTour(!showMoreTour) }}
                                 className="mt-6 flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-bold text-veda-gold hover:text-white transition-colors duration-300 relative z-20"
                             >
-                                {showMoreTour ? "Moins de détails" : "En savoir plus"}
+                                {showMoreTour ? c.tourLessLabel : c.tourMoreLabel}
                                 <motion.div
                                     animate={{ rotate: showMoreTour ? 180 : 0 }}
                                     transition={{ duration: 0.3 }}

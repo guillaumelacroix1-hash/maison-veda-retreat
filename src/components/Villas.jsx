@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { X } from 'lucide-react'
+import { useI18n } from '../i18n'
+import { retreatContent } from '../data/retreat2027'
 
 const getImageUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}?v=2`;
 
@@ -136,6 +138,13 @@ const ImageSlider = ({ images, initialDelay = 0, onImageClick }) => {
 };
 
 export default function Villas() {
+    const { lang } = useI18n()
+    const content = retreatContent(lang)
+    const c = content.villas
+    // Les libellés « en savoir plus » et « lire moins » sont partagés avec la
+    // section des professeures : une seule paire de clés pour toute la page.
+    const guides = content.guides
+
     const [showMoreVillas, setShowMoreVillas] = useState(false)
     const [fullscreenData, setFullscreenData] = useState(null)
 
@@ -190,7 +199,7 @@ export default function Villas() {
                             viewport={{ once: true }}
                             className="text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
                         >
-                            Votre Hébergement
+                            {c.eyebrow}
                         </motion.h3>
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
@@ -199,7 +208,7 @@ export default function Villas() {
                             transition={{ delay: 0.1 }}
                             className="text-4xl md:text-6xl font-heading leading-tight"
                         >
-                            Les villas de <span className="italic text-veda-gold">La maison VEDA</span>
+                            {c.title} <span className="italic text-veda-gold">{c.titleAccent}</span>
                         </motion.h2>
                     </div>
 
@@ -210,9 +219,7 @@ export default function Villas() {
                         transition={{ delay: 0.3 }}
                         className="text-veda-light/80 font-light max-w-lg lg:max-w-2xl space-y-4 text-sm sm:text-base leading-relaxed"
                     >
-                        <p>
-                            A seulement 2h15 de l’aéroport de Colombo, au bord du mythique lac de Koggala, niché au coeur de la jungle, la maison VEDA est à proximité des plus belles plages de surf du sud du Sri-Lanka, ‘Kabalana Beach’, Habaraduwa, Unaatuna…
-                        </p>
+                        <p>{c.intro[0]}</p>
                         <AnimatePresence>
                             {showMoreVillas && (
                                 <motion.div
@@ -221,18 +228,21 @@ export default function Villas() {
                                     exit={{ height: 0, opacity: 0 }}
                                     className="overflow-hidden space-y-4"
                                 >
-                                    <p>Levés de soleil sur le lac à couper le souffle, faune et flore luxuriante, à 5 mn en tuktuk de la plage ! Un lieu propice à la pratique du yoga et de la méditation, dédié à la détente et au lâcher-prise.</p>
-                                    <p>La maison VEDA se compose de 2 villas aux identités complémentaires :</p>
+                                    {c.intro.slice(1).map((paragraph) => (
+                                        <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                                    ))}
                                     <ul className="list-disc pl-5 space-y-2">
-                                        <li>Une petite maison authentique et traditionnelle sri-lankaise ‘Lake house’, aux murs en terre et frises en bois, juste au bord du lac, en parfaite harmonie avec son environnement naturel.</li>
-                                        <li>Et une seconde villa plus contemporaine, pensée comme un loft, mêlant modernité et tradition.</li>
+                                        {c.villaList.map((item) => (
+                                            <li key={item.slice(0, 40)}>{item}</li>
+                                        ))}
                                     </ul>
-                                    <p>Le yoga shala est perché au dernier étage de la villa ‘Lake Loft’ avec sa vue imprenable sur le lac et la jungle !</p>
-                                    <p>Une équipe Sri-Lankais est à nos petits soins pour le service restauration et le service en chambre, vous serez frappé(e)s par la gentillesse et la générosité des Sri-lankais, c’est un fait marquant pour chaque voyageur.</p>
-                                    <p>Selon la taille du groupe, nous mettons a disposition 3 villas supplémentaires connectées a La maison VEDA ou très proche á 2 minute â pied :</p>
+                                    {c.intro2.map((paragraph) => (
+                                        <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                                    ))}
                                     <ul className="list-disc pl-5 space-y-2">
-                                        <li>Les Chalets en bois Tothpola et la piscine</li>
-                                        <li>La Villa Jungle Breeze.</li>
+                                        {c.extraList.map((item) => (
+                                            <li key={item.slice(0, 40)}>{item}</li>
+                                        ))}
                                     </ul>
                                 </motion.div>
                             )}
@@ -241,7 +251,7 @@ export default function Villas() {
                             onClick={() => setShowMoreVillas(!showMoreVillas)}
                             className="text-veda-gold text-xs uppercase tracking-widest font-semibold hover:text-white transition-colors mt-2"
                         >
-                            {showMoreVillas ? '- Lire moins' : '+ En savoir plus'}
+                            {showMoreVillas ? guides.less : guides.more}
                         </button>
                     </motion.div>
                 </div>
@@ -256,9 +266,9 @@ export default function Villas() {
                         transition={{ duration: 0.8 }}
                     >
                         <div className="mb-6">
-                            <h4 className="text-4xl font-heading mb-2">La <span className="text-veda-gold">'Lake House'</span></h4>
+                            <h4 className="text-4xl font-heading mb-2">{c.lodgings[0].prefix} <span className="text-veda-gold">{c.lodgings[0].name}</span></h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
-                                Une petite maison authentique et traditionnelle sri-lankaise, aux murs en terre et frises en bois, juste au bord du lac.
+                                {c.lodgings[0].desc}
                             </p>
                         </div>
                         <ImageSlider images={lakeHouseImages} initialDelay={0} onImageClick={(url, idx) => handleImageClick(url, lakeHouseImages, idx)} />
@@ -273,9 +283,9 @@ export default function Villas() {
                         className="lg:mt-24"
                     >
                         <div className="mb-6">
-                            <h4 className="text-4xl font-heading mb-2">Le <span className="text-veda-gold">'Lake Loft'</span></h4>
+                            <h4 className="text-4xl font-heading mb-2">{c.lodgings[1].prefix} <span className="text-veda-gold">{c.lodgings[1].name}</span></h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
-                                Une villa plus contemporaine, avec son yoga shala perché au dernier étage offrant une vue imprenable sur le lac !
+                                {c.lodgings[1].desc}
                             </p>
                         </div>
                         <ImageSlider images={lakeLoftImages} initialDelay={2000} onImageClick={(url, idx) => handleImageClick(url, lakeLoftImages, idx)} />
@@ -289,9 +299,9 @@ export default function Villas() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
                         <div className="mb-6 text-left">
-                            <h4 className="text-4xl font-heading mb-2">La Villa <span className="text-veda-gold">'Jungle Breeze'</span></h4>
+                            <h4 className="text-4xl font-heading mb-2">{c.lodgings[2].prefix} <span className="text-veda-gold">{c.lodgings[2].name}</span></h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
-                                Nichée au coeur de la verdure, cette villa offre une parenthèse apaisante, idéale pour se ressourcer en toute tranquillité.
+                                {c.lodgings[2].desc}
                             </p>
                         </div>
                         <ImageSlider images={jungleBreezeImages} initialDelay={4000} onImageClick={(url, idx) => handleImageClick(url, jungleBreezeImages, idx)} />
@@ -306,9 +316,9 @@ export default function Villas() {
                         className="lg:mt-24"
                     >
                         <div className="mb-6 text-left">
-                            <h4 className="text-4xl font-heading mb-2">Les Chalets <span className="text-veda-gold">'Tothpola'</span></h4>
+                            <h4 className="text-4xl font-heading mb-2">{c.lodgings[3].prefix} <span className="text-veda-gold">{c.lodgings[3].name}</span></h4>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
-                                De magnifiques chalets en bois avec piscine, offrant un havre de paix pittoresque en pleine nature sri-lankaise.
+                                {c.lodgings[3].desc}
                             </p>
                         </div>
                         <ImageSlider images={tothupolaImages} initialDelay={6000} onImageClick={(url, idx) => handleImageClick(url, tothupolaImages, idx)} />
