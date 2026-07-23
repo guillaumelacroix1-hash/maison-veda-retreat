@@ -1,8 +1,8 @@
 # Voyage type n°4 — Sri Lanka en Famille : l'île en douceur (circuit slow)
 
-> **Statut : brouillon fidèle à un circuit réellement vendu** (proposition faite par Aurélie à une famille de 3 personnes — 2 adultes + 1 enfant de 9 ans — pour 17 nuits en février 2026), généralisé et anonymisé. **À confirmer : le tarif du circuit** (la grille selon le véhicule ne figurait pas dans le document transmis), **le nom** (proposition) et la durée type affichée.
+> **Statut : brouillon fidèle à un circuit réellement vendu** (proposition faite par Aurélie à une famille de 3 personnes — 2 adultes + 1 enfant de 9 ans — pour 17 nuits en février 2026), généralisé et anonymisé. Grille tarifaire de référence récupérée dans la proposition d'origine (Drive, dossier VEDA Travel). **À confirmer : le nom** (proposition) et la durée type affichée.
 >
-> ⚠️ **Point à harmoniser** : sur ce circuit, les activités se règlent sur place (~1 050 € pour 3 personnes, budget flexible) alors que les voyages types 1 à 3 les incluent dans le prix. À trancher : soit on harmonise, soit on assume que la formule famille est « activités à la carte » (c'est un vrai argument de souplesse avec des enfants).
+> **Décision d'Aurélie (23/07/2026)** : les deux formules tarifaires coexistent volontairement — voyages 1 à 3 (groupes) tout inclus billets compris ; voyage 4 (familles) avec **activités à la carte réglées sur place**, argument de souplesse avec des enfants. Chaque fiche affiche « inclus / non inclus » de la même façon.
 
 ## Fiche voyage (résumé pour la page VEDA Travel)
 
@@ -13,7 +13,7 @@
 - **Rythme** : jamais deux grosses journées d'affilée, des pauses piscine, des montées douces, de longues étapes-camps de base
 - **Inclus** : hébergements sélectionnés avec petits-déjeuners · chauffeur privé anglophone expérimenté pour toute la partie itinérante (véhicule privatisé, essence, péages, stationnement, hébergement et repas du chauffeur)
 - **Non inclus** : déjeuners et dîners · activités, réglées sur place (~350 €/personne à titre indicatif, budget entièrement flexible selon les envies, le rythme et la météo)
-- **Tarif du circuit** : sur devis selon le véhicule (voiture ou van) et la taille de la famille *(grille à fournir par Aurélie)*
+- **Tarif du circuit** : sur devis selon le véhicule et la taille de la famille. Référence réelle (3 personnes, 17 nuits, 2026) : **van privatif 4 380 €** ou **voiture privée 3 950 €**, tout compris avec le budget activités (~1 050 €) réglé sur place — acompte à la réservation de 1 380 € (van) ou 1 330 € (voiture), solde avant le départ ou en liquide le jour 1
 - **Bon à savoir** : un guide francophone est possible sur demande (rare et onéreux dans la région — nous privilégions un chauffeur anglophone fiable, habitué aux familles françaises)
 
 ## Texte de présentation (proposition)
@@ -107,7 +107,7 @@ Février est chaud et ensoleillé (28–32 °C). À prévoir : vêtements léger
 - **Pace**: never two heavy days in a row, pool breaks, gentle climbs, long base-camp stays
 - **Included**: selected accommodation with breakfast · experienced English-speaking private driver for the touring section (private vehicle, fuel, tolls, parking, driver's board and lodging)
 - **Not included**: lunches and dinners · activities, paid on site (~€350 per person as a guide — a fully flexible budget, adapted to your wishes, pace and the weather)
-- **Trip price**: on request, depending on vehicle (car or van) and family size
+- **Trip price**: on request, depending on vehicle and family size. Real reference (3 people, 17 nights, 2026): **private van €4,380** or **private car €3,950**, all-in including the on-site activities budget (~€1,050) — booking deposit €1,380 (van) or €1,330 (car), balance before departure or in cash on day 1
 - **Good to know**: a French-speaking guide is possible on request (rare and costly in the region — we favour a reliable English-speaking driver, used to accompanying French families)
 
 ## Introduction (proposal)
