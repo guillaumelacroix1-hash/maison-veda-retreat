@@ -128,7 +128,7 @@ Chaque page existe en FR et EN. Format : objectif — blocs de contenu — bouto
 |---|---|
 | Montants des tarifs haute/basse saison des nuitées | Aurélie |
 | Échéance de paiement du solde des retraites (ex. 60 jours avant le début) | Aurélie |
-| Contenu des 3 voyages types VEDA Travel (itinéraires, durées, fourchettes) | Aurélie (aide Claude) |
+| Contenu des 3 voyages types VEDA Travel — le n°1 « Les Sentiers du Sri Lanka » est rédigé (voir `nouveau-site/voyages-types/`), reste sa fourchette de prix + les voyages n°2 et n°3 | Aurélie (aide Claude) |
 | Planning du studio et tarifs des cours — un brouillon détaillé existe (doc « MaisonVEDA_Collaboration_Anna_2027_v8 » sur le Drive, 23/07/2026) ; à valider avec Anna | Aurélie + Anna |
 | Périodes déjà réservées / libres pour la saison | Aurélie |
 | Sélection des avis Airbnb + Google et des témoignages de retraites | Aurélie (aide Claude) |
