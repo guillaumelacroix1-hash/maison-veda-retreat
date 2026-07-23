@@ -34,6 +34,10 @@ export const TRIPS = [
         slug: 'sentiers-du-sri-lanka',
         image: '/new_image/ahangama-railway-nirbana-sri-lanka-1367x2048.jpeg',
         status: 'validated',
+        // La fiche note que le « par personne » du tarif reste une interprétation.
+        // Tant que ce n'est pas tranché, ne pas l'afficher comme un prix ferme.
+        pendingFr: 'Le tarif est bien annoncé « par personne » ? Cette lecture reste à confirmer par Aurélie.',
+        pendingEn: 'Is the price indeed "per person"? This reading is still to be confirmed by Aurélie.',
         fr: {
             name: 'Les Sentiers du Sri Lanka',
             subtitle: 'Safari, montagnes et mystères sacrés',
