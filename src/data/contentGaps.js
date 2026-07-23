@@ -28,10 +28,10 @@ export const CONTENT_GAPS = {
         ref: '§12',
     },
     'retreat-balance': {
-        fr: 'Échéance de paiement du solde des retraites (par exemple 60 jours avant le début).',
-        en: 'Due date for the retreat balance (for example 60 days before arrival).',
+        fr: 'Conditions de paiement à trancher : la page retraite annonce un acompte de 500 € par virement, un solde au 15 janvier et un remboursement si un remplacement est trouvé. Le cahier des charges prévoit un acompte de 30 % payé en ligne, non remboursable mais transférable. Les deux ne peuvent pas coexister.',
+        en: 'Payment terms to settle: the retreat page announces a €500 deposit by bank transfer, a balance due on 15 January and a refund if a replacement is found. The brief provides for a 30% deposit paid online, non-refundable but transferable. The two cannot coexist.',
         owner: OWNERS.aurelie,
-        ref: '§12',
+        ref: '§6, §12',
     },
     'studio-schedule': {
         fr: 'Planning du studio et tarifs des cours. Un brouillon détaillé existe (document « MaisonVEDA_Collaboration_Anna_2027_v8 » sur le Drive, 23/07/2026), à valider avec Anna avant publication.',
