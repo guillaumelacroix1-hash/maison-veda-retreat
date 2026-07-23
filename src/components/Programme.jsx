@@ -12,25 +12,25 @@ export default function Programme() {
         {
             icon: <Wind className="w-6 h-6 text-veda-gold" />,
             title: "Pratiques profondes",
-            desc: "Yin yoga, yoga nidra, danse du dragon, chants de mantras et méditations pour une introspection profonde.",
+            desc: "Des pratiques douces et profondes, rythmées par les chants de mantras et la méditation, pour une introspection en pleine conscience.",
             image: `${import.meta.env.BASE_URL}new_image/yoga2.jpg`
         },
         {
             icon: <Moon className="w-6 h-6 text-veda-gold" />,
             title: "Expériences Incluses",
-            desc: "Clôturez vos journées avec des expériences immersives : breathwork, soirée kirtan avec musiciens et Cacao cérémonie.",
+            desc: "Clôturez vos journées avec des expériences immersives : soirée kirtan (cercle de chant avec musiciens), séance de breathwork, cacao cérémonie, bain de gong ou autre soin sonore… et parfois une surprise ! Aurélie teste elle-même chaque pratique avant de vous la faire découvrir.",
             image: `${import.meta.env.BASE_URL}new_image/maison-veda.jpeg`
         },
         {
             icon: <Map className="w-6 h-6 text-veda-gold" />,
             title: "Découverte & Culture",
-            desc: "Visite du refuge et libération des tortues, visite de temple Bouddhiste et cérémonie puja, et visite de la ville de Galle classée UNESCO.",
+            desc: "Nagez avec les tortues sur une plage paradisiaque, visitez le refuge et participez à la libération des tortues, découvrez un temple Bouddhiste lors d'une cérémonie puja, et flânez dans les rues de Galle, classée UNESCO.",
             image: `${import.meta.env.BASE_URL}new_image/Stilt-fishermen.jpeg`
         },
         {
             icon: <Heart className="w-6 h-6 text-veda-gold" />,
             title: "Temps libre & Farniente",
-            desc: "Après-midi libre : profitez de la plage, de cours de surf, de cours de cuisine, de la visite d'une usine à thé ou d'un safari d'éléphants.",
+            desc: "Un après-midi libre, à vous de choisir : profitez de la plage, d'un cours de surf, d'un cours de cuisine, de la visite d'une usine à thé, ou partez en safari éléphant (organisable sur la journée, en partant tôt le matin).",
             image: `${import.meta.env.BASE_URL}new_image/ahangama-beach-camp-poe-1367x2048.jpeg`
         }
     ]
@@ -71,7 +71,7 @@ export default function Programme() {
                         transition={{ delay: 0.4 }}
                         className="text-veda-dark/70 font-light mt-8 text-sm sm:text-base leading-relaxed"
                     >
-                        Durant la retraite, il y a quelques sorties touristiques planifiées, mais l’idée est de privilégier le repos et l’introspection entre les cours. Vous disposerez d’une liste de recommandations pour vos visites touristiques dans la région. Libre à vous de réserver un tuktuk et de vous organiser en groupe ou solo pour partir à l’aventure !
+                        Imaginez vos journées rythmées par le yoga Hatha & Kundalini, de vrais moments de repos pour vous ressourcer pleinement, des visites touristiques organisées pour explorer la région, et chaque soir, une expérience transformatrice qui nourrit le corps et l’âme. Et vos temps libres n’appartiennent qu’à vous : si l’envie d’explorer les environs se fait sentir, un tuktuk vous attend pour partir à l’aventure, en groupe ou en solo — libre à vous d’en profiter comme bon vous semble.
                     </motion.p>
                 </div>
 
@@ -126,6 +126,24 @@ export default function Programme() {
                         </span>
                     </motion.div>
                 </div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                    className="max-w-2xl mx-auto text-center mt-16 pt-12 border-t border-veda-gold/20"
+                >
+                    <p className="text-veda-dark/70 font-light text-sm sm:text-base leading-relaxed">
+                        On tisse de tels liens, on vit tant d'amour au sein du groupe pendant la retraite, qu'on n'a souvent pas envie de se quitter ! C'est bien souvent la totalité du groupe qui s'inscrit pour poursuivre <span className="italic text-veda-gold">l'aventure à travers le pays</span>, en van ou en bus selon le nombre de participants.
+                    </p>
+                    <a
+                        href="#prolonger"
+                        className="inline-block mt-6 text-veda-gold text-xs uppercase tracking-widest font-semibold hover:text-veda-dark transition-colors"
+                    >
+                        + Découvrir le voyage
+                    </a>
+                </motion.div>
 
             </div>
         </section>

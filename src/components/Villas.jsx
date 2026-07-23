@@ -26,24 +26,15 @@ const lakeHouseImages = [
 ];
 
 const lakeLoftImages = [
-    getImageUrl("/images/carousels/maison-veda/lake-loft/a8062efe-d3a3-4cb4-a603-925dae2c1ab0.jpg"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_0250.JPEG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_0251.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1357.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1340.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1341.JPG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1352.JPG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1357.JPG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1434.JPG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1454.JPG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1459.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1345.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_1462.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9725.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9732.JPEG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9766.JPEG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9770.JPEG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9825.JPEG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9833.JPEG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9837.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9894.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9895.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9896.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9897.JPG"),
@@ -54,7 +45,9 @@ const lakeLoftImages = [
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9909.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9910.JPG"),
     getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9913.JPG"),
-    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_9914.JPG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/a8062efe-d3a3-4cb4-a603-925dae2c1ab0.jpg"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_0250.JPEG"),
+    getImageUrl("/images/carousels/maison-veda/lake-loft/IMG_0251.JPEG"),
 ];
 
 const jungleBreezeImages = [

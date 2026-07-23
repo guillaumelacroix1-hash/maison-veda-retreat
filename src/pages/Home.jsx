@@ -48,6 +48,7 @@ function Home() {
                             <a href="#programme" className="hover:text-veda-gold transition-colors duration-300">Programme</a>
                             <a href="#hebergement" className="hover:text-veda-gold transition-colors duration-300">Hébergement</a>
                             <a href="#tarifs" className="hover:text-veda-gold transition-colors duration-300">Tarifs</a>
+                            <a href="#prolonger" className="hover:text-veda-gold transition-colors duration-300">Prolonger</a>
                         </div>
                         <Link to="/reserver" className="flex items-center justify-center px-6 py-2.5 text-sm font-semibold tracking-wide text-veda-dark bg-veda-gold rounded-full hover:bg-white transition-colors duration-300 shadow-md hover:shadow-lg">
                             Réserver
@@ -78,6 +79,7 @@ function Home() {
                         <a href="#programme" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Programme</a>
                         <a href="#hebergement" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Hébergement</a>
                         <a href="#tarifs" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Tarifs</a>
+                        <a href="#prolonger" onClick={() => setIsMobileMenuOpen(false)} className="block py-2 hover:text-veda-gold transition-colors duration-300 border-b border-white/5">Prolonger</a>
                         <div className="pt-2 pb-2">
                             <Link to="/reserver" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-center w-full px-4 py-3 text-sm font-semibold tracking-wide text-veda-dark bg-veda-gold rounded-full hover:bg-white transition-colors duration-300 shadow-md">
                                 Réserver
