@@ -21,7 +21,7 @@ export default function Contact() {
                 <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
                     <div>
                         <h2 className="font-heading text-3xl md:text-4xl">{t('contact.formTitle')}</h2>
-                        <Form endpoint="/api/contact" className="mt-9">
+                        <Form formType="contact" className="mt-9">
                             <div className="grid gap-6 sm:grid-cols-2">
                                 <Field label={t('contact.fields.name')} name="name" required />
                                 <Field label={t('contact.fields.email')} name="email" type="email" required />

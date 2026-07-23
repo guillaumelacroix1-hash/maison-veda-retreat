@@ -61,7 +61,7 @@ export default function VedaTravel() {
 
             <Section title={t('travel.customTitle')} lead={t('travel.customLead')}>
                 <div className="max-w-2xl rounded-3xl bg-veda-dark p-8 text-veda-light md:p-12">
-                    <Form endpoint="/api/quote-travel" submitLabel={t('common.quote')}>
+                    <Form formType="quote-travel" submitLabel={t('common.quote')}>
                         <div className="grid gap-6 sm:grid-cols-2">
                             <Field label={t('contact.fields.name')} name="name" required />
                             <Field label={t('contact.fields.email')} name="email" type="email" required />

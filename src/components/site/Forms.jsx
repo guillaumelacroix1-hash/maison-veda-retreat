@@ -1,16 +1,19 @@
 import { useState } from 'react'
-import { AlertCircle } from 'lucide-react'
+import { AlertCircle, CheckCircle2 } from 'lucide-react'
 import { useI18n } from '../../i18n'
 
 /**
- * Briques de formulaire partagées par les quatre formulaires du site
- * (inscription retraite, devis location, devis VEDA Travel, contact).
+ * Briques de formulaire partagées par les formulaires du site
+ * (devis location, devis VEDA Travel, contact, newsletter).
  *
- * Les envois ne sont pas encore branchés : les fonctions serverless Vercel
- * (Resend pour l'email, Stripe pour l'acompte) arrivent à l'étape suivante.
- * En attendant, la soumission n'invente pas un succès, elle le dit.
+ * Les envois passent par la fonction serverless api/form.js, qui relaie par
+ * email via Resend. Elle a besoin de RESEND_API_KEY et FORM_TO dans
+ * l'environnement Vercel : sans elles, l'endpoint répond 500 et le formulaire
+ * affiche une erreur plutôt qu'un faux succès.
+ *
+ * Le paiement de l'acompte (Stripe) reste à part, il n'est pas encore en place.
  */
-export const FORMS_WIRED = false
+const ENDPOINT = '/api/form'
 
 const baseField =
     'w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3 text-sm font-light text-veda-light ' +
@@ -41,49 +44,38 @@ export function TextareaField({ label, name, required = false, rows = 5, placeho
     )
 }
 
-/** Bandeau discret rappelant que l'envoi n'est pas encore actif. */
-export function FormNotice() {
-    if (FORMS_WIRED) return null
-    return (
-        <p className="mt-5 flex items-start gap-2.5 text-xs font-light leading-relaxed text-veda-light/40">
-            <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-veda-gold/60" />
-            Envoi non branché. Les fonctions serverless (Resend pour l'email, Stripe pour l'acompte)
-            sont à mettre en place sur Vercel.
-        </p>
-    )
+/** Envoie les champs du formulaire à la fonction serverless. */
+async function submitForm(formType, form) {
+    const response = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ formType, ...Object.fromEntries(new FormData(form)) }),
+    })
+    if (!response.ok) throw new Error(`Envoi refusé (${response.status})`)
 }
 
 /**
  * Enveloppe de formulaire : gère la soumission et l'état visuel.
- * `endpoint` sera l'URL de la fonction Vercel une fois FORMS_WIRED passé à true.
+ * `formType` doit correspondre à une entrée de FORM_TYPES dans api/form.js.
  */
-export function Form({ endpoint, submitLabel, children, className = '' }) {
-    const { t } = useI18n()
+export function Form({ formType, submitLabel, children, className = '' }) {
+    const { t, lang } = useI18n()
     const [state, setState] = useState('idle')
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        if (!FORMS_WIRED) {
-            setState('unwired')
-            return
-        }
-
         setState('sending')
         try {
-            const response = await fetch(endpoint, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(Object.fromEntries(new FormData(event.target))),
-            })
-            setState(response.ok ? 'sent' : 'error')
-            if (response.ok) event.target.reset()
+            await submitForm(formType, event.target)
+            event.target.reset()
+            setState('sent')
         } catch {
             setState('error')
         }
     }
 
     return (
-        <form onSubmit={handleSubmit} className={className} noValidate={false}>
+        <form onSubmit={handleSubmit} className={className}>
             {children}
 
             <div className="mt-8 flex flex-wrap items-center gap-5">
@@ -98,51 +90,75 @@ export function Form({ endpoint, submitLabel, children, className = '' }) {
             </div>
 
             {state === 'sent' && (
-                <p className="mt-4 text-sm font-light text-veda-gold">{t('common.responseTime')}</p>
-            )}
-            {state === 'error' && (
-                <p className="mt-4 text-sm font-light text-red-300">
-                    L'envoi a échoué. Écrivez-nous directement par email ou sur WhatsApp.
+                <p className="mt-4 flex items-center gap-2 text-sm font-light text-veda-gold">
+                    <CheckCircle2 className="h-4 w-4 shrink-0" />
+                    {lang === 'en'
+                        ? 'Message sent. We reply within 48 hours.'
+                        : 'Message envoyé. Nous vous répondons sous 48 h.'}
                 </p>
             )}
-            {state === 'unwired' && <FormNotice />}
+            {state === 'error' && (
+                <p className="mt-4 flex items-start gap-2 text-sm font-light text-red-300">
+                    <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                    {lang === 'en'
+                        ? 'Sending failed. Please write to us directly by email or on WhatsApp.'
+                        : "L'envoi a échoué. Écrivez-nous directement par email ou sur WhatsApp."}
+                </p>
+            )}
         </form>
     )
 }
 
 /** Capture d'email de la newsletter (section 10 du cahier des charges). */
 export function NewsletterForm() {
-    const { t } = useI18n()
+    const { t, lang } = useI18n()
     const [state, setState] = useState('idle')
 
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        setState('sending')
+        try {
+            await submitForm('newsletter', event.target)
+            event.target.reset()
+            setState('sent')
+        } catch {
+            setState('error')
+        }
+    }
+
     return (
-        <form
-            onSubmit={(event) => {
-                event.preventDefault()
-                setState('unwired')
-            }}
-            className="flex w-full max-w-md flex-col gap-3 sm:flex-row"
-        >
-            <label className="sr-only" htmlFor="newsletter-email">
-                {t('home.newsletterPlaceholder')}
-            </label>
-            <input
-                id="newsletter-email"
-                type="email"
-                name="email"
-                required
-                placeholder={t('home.newsletterPlaceholder')}
-                className={`${baseField} flex-1`}
-            />
-            <button
-                type="submit"
-                className="shrink-0 rounded-full bg-veda-gold px-7 py-3 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
-            >
-                {t('home.newsletterCta')}
-            </button>
-            {state === 'unwired' && (
-                <p className="sr-only">Envoi non branché</p>
+        <div className="w-full max-w-md">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
+                <label className="sr-only" htmlFor="newsletter-email">
+                    {t('home.newsletterPlaceholder')}
+                </label>
+                <input
+                    id="newsletter-email"
+                    type="email"
+                    name="email"
+                    required
+                    placeholder={t('home.newsletterPlaceholder')}
+                    className={`${baseField} flex-1`}
+                />
+                <button
+                    type="submit"
+                    disabled={state === 'sending'}
+                    className="shrink-0 rounded-full bg-veda-gold px-7 py-3 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white disabled:opacity-50"
+                >
+                    {t('home.newsletterCta')}
+                </button>
+            </form>
+
+            {state === 'sent' && (
+                <p className="mt-3 text-sm font-light text-veda-gold">
+                    {lang === 'en' ? 'Thank you, you are on the list.' : 'Merci, vous êtes inscrit·e.'}
+                </p>
             )}
-        </form>
+            {state === 'error' && (
+                <p className="mt-3 text-sm font-light text-red-300">
+                    {lang === 'en' ? 'Sign-up failed. Please try again.' : "L'inscription a échoué. Réessayez."}
+                </p>
+            )}
+        </div>
     )
 }

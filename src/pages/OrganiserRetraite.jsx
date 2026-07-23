@@ -69,7 +69,7 @@ export default function OrganiserRetraite() {
 
             <Section tone="light" title={t('host.formTitle')} lead={t('host.formLead')}>
                 <div className="max-w-2xl rounded-3xl bg-veda-dark p-8 text-veda-light md:p-12">
-                    <Form endpoint="/api/quote-venue" submitLabel={t('common.quote')}>
+                    <Form formType="quote-venue" submitLabel={t('common.quote')}>
                         <div className="grid gap-6 sm:grid-cols-2">
                             <Field label={t('contact.fields.name')} name="name" required />
                             <Field label={t('contact.fields.email')} name="email" type="email" required />
