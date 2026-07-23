@@ -10,7 +10,7 @@ Le site actuel (une seule très longue page en anglais sur lamaisonveda.com) est
 ## 2. Cibles et priorités
 
 - **Priorité n°1 — Les retraites** (plus gros chiffre d'affaires, réservations ~1 an à l'avance, saison dès novembre 2026). Deux sous-cibles servies ensemble : les **participants** aux retraites La Maison VEDA (vitrine) et les **organisateurs** — professeurs et agences — qui louent le lieu pour leurs propres retraites.
-- **Priorité n°2 — Le studio de yoga et l'hébergement.** Le studio est ouvert à tous, même quand la maison est louée : Kundalini 2×/jour toute la semaine, kirtans, breathwork, bains de gong, workshops. Deux professeurs le gèrent à partir d'octobre 2026.
+- **Priorité n°2 — Le studio de yoga et l'hébergement.** Le studio — nommé **« Maison VEDA Lake Studio »** — est ouvert à tous, même quand la maison est louée : Kundalini quotidien, kirtans, breathwork, bains de gong, workshops. Il est co-géré à égalité par Lilie (Aurélie) et Anna à partir d'octobre 2026, avec des professeurs invités ponctuels. L'activité est très saisonnière : démarrage doux en novembre (1 cours/jour), pic de décembre à mi-mars (3 cours/jour), redescente en avril.
 - **Mise en avant transversale — VEDA Travel** : voyages sur mesure avec chauffeur privé, itinéraires tout inclus, groupes de 1 à 17 personnes (voiture, van ou bus). Trois voyages types seront créés.
 - **Présence légère — Les séjours vacances** : le site les montre et renvoie vers les plateformes ; il n'a pas besoin de les pousser.
 
@@ -28,7 +28,7 @@ Chaque page existe en FR et EN. Format : objectif — blocs de contenu — bouto
   - CTA : « Prochaine retraite ».
 - **Retraites** (listing)
   - Objectif : vendre les retraites à venir.
-  - Blocs : retraites à venir (cartes avec dates, places restantes) · section « Retraites passées » (photos + témoignages, pas de pages dédiées) · bandeau newsletter « Soyez informé·e des prochaines retraites ».
+  - Blocs : retraites à venir (cartes avec dates, places restantes) · mini-retraites de 2 nuits du studio (animées par Lilie & Anna, max 7 participants — projet à confirmer) · section « Retraites passées » (photos + témoignages, pas de pages dédiées) · bandeau newsletter « Soyez informé·e des prochaines retraites ».
   - CTA : vers chaque page de retraite.
   - **Pages enfants : une par retraite** (la première : Sri Lanka, 7–13 février 2027 — reprend la maquette existante)
     - Objectif : convertir en réservation payée.
@@ -38,13 +38,13 @@ Chaque page existe en FR et EN. Format : objectif — blocs de contenu — bouto
   - Objectif : générer des demandes de devis qualifiées de professeurs et d'agences.
   - Blocs : argumentaire du lieu · capacités (7 personnes sur place, 15 avec les villas voisines) · liste des périodes libres/réservées par saison (mise à jour manuelle) · Info Pack Organisateurs en PDF téléchargeable · mention du kit média photos fourni avec le devis · formulaire de devis détaillé (dates, effectif, services : repas, cours, transferts).
   - CTA : « Demander un devis ».
-- **Le Studio de yoga**
+- **Le Studio de yoga** (« Maison VEDA Lake Studio »)
   - Objectif : remplir les cours et événements.
-  - Blocs : planning hebdomadaire (aussi publié sur Instagram) · types de cours (Kundalini 2×/jour, kirtan, breathwork, bains de gong, workshops) · les professeurs · tarifs des cours · événements à venir.
+  - Blocs : planning hebdomadaire (aussi publié sur Instagram), qui varie selon la saison (1 cours/jour en basse saison novembre et avril, jusqu'à 3/jour en pic décembre–mi-mars) · types de cours (Kundalini quotidien, Celestial Communication, Mantras & Méditation, Breathwork, Japa, Kirtan avec musiciens, bains de gong, workshops gong) · Sadhana mensuelle à 5h15, gratuite et ouverte à tous · les professeures (Lilie & Anna) et les professeurs invités · tarifs des cours (brouillon : LKR 3 000/cours visiteurs, 2 500 résidents, événements 4 000–5 000, forfaits à définir) · le café & pâtisseries maison au jardin · événements à venir.
   - CTA : « Réserver par WhatsApp » (+ lien Instagram).
 - **Le Lieu & Hébergements**
   - Objectif : donner envie de séjourner, tout montrer sur une seule page.
-  - Blocs : la Lake House · le Lake Loft · le Yoga Shala · hébergements complémentaires (chalets Tothupola, Villa Jungle Breeze) · galerie · tarifs par nuit haute/basse saison · mention « Réservez en direct par WhatsApp : meilleur tarif garanti » · boutons Airbnb et Booking.
+  - Blocs : la Lake House · le Lake Loft · le Yoga Shala · le café & pâtisseries maison au jardin · hébergements complémentaires (chalets Tothupola, Villa Jungle Breeze) · galerie · tarifs par nuit haute/basse saison · mention « Réservez en direct par WhatsApp : meilleur tarif garanti » · boutons Airbnb et Booking.
   - CTA : « Réserver un séjour » (WhatsApp) + liens plateformes.
 - **VEDA Travel**
   - Objectif : vendre les voyages accompagnés, aux clients des retraites comme aux particuliers.
@@ -119,6 +119,8 @@ Chaque page existe en FR et EN. Format : objectif — blocs de contenu — bouto
 - La formule « meilleur tarif garanti » pour la réservation directe — à confirmer.
 - Le format d'affichage des avis (prénom + pays) — à confirmer.
 - L'hypothèse sur les publics (retraites plutôt francophones, studio plutôt anglophone) n'a pas été formellement confirmée ; elle ne change rien à la décision du bilingue intégral.
+- Le mode de réservation des cours du studio : le cahier des charges retient WhatsApp/Instagram, mais le projet de collaboration avec Anna évoque une « plateforme de réservation partagée » — à trancher avec Anna.
+- Tous les éléments du studio issus du projet de collaboration avec Anna (nom, planning, tarifs, mini-retraites, café) proviennent d'un brouillon (« first draft ») — à confirmer avec Anna avant rédaction des pages.
 
 ## 12. Questions ouvertes et éléments manquants
 
@@ -127,7 +129,7 @@ Chaque page existe en FR et EN. Format : objectif — blocs de contenu — bouto
 | Montants des tarifs haute/basse saison des nuitées | Aurélie |
 | Échéance de paiement du solde des retraites (ex. 60 jours avant le début) | Aurélie |
 | Contenu des 3 voyages types VEDA Travel (itinéraires, durées, fourchettes) | Aurélie (aide Claude) |
-| Planning du studio et tarifs des cours (à partir d'octobre 2026) | Aurélie + les 2 professeurs |
+| Planning du studio et tarifs des cours — un brouillon détaillé existe (doc « MaisonVEDA_Collaboration_Anna_2027_v8 » sur le Drive, 23/07/2026) ; à valider avec Anna | Aurélie + Anna |
 | Périodes déjà réservées / libres pour la saison | Aurélie |
 | Sélection des avis Airbnb + Google et des témoignages de retraites | Aurélie (aide Claude) |
 | Fusion des deux PDF en un Info Pack Organisateurs (FR + EN) | Aurélie + Claude |
