@@ -45,6 +45,8 @@ export function I18nProvider({ lang: requestedLang, children }) {
             t,
             /** URL vers une page du site, dans la langue courante par défaut. */
             path: (key, params, targetLang = lang) => buildPath(key, targetLang, params),
+            /** Le français insère une espace avant les deux-points, pas l'anglais. */
+            colon: lang === 'fr' ? ' : ' : ': ',
         }
     }, [lang])
 

@@ -4,9 +4,11 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import Section from '../components/site/Section'
 import RetreatCard from '../components/site/RetreatCard'
+import TripCard from '../components/site/TripCard'
 import ContentGap from '../components/site/ContentGap'
 import { NewsletterForm } from '../components/site/Forms'
 import { upcomingRetreats } from '../data/retreats'
+import { TRIPS } from '../data/trips'
 import { MEDIA } from '../data/media'
 
 /** Accueil. Enchaînement des sections repris de la section 5 du cahier des charges. */
@@ -137,7 +139,11 @@ export default function Accueil() {
 
             {/* 6. VEDA Travel */}
             <Section eyebrow={t('nav.travel')} title={t('home.travelTitle')} lead={t('home.travelLead')}>
-                <ContentGap id="travel-trips" className="max-w-3xl" />
+                <div className="grid gap-8 md:grid-cols-3">
+                    {TRIPS.slice(0, 3).map((trip) => (
+                        <TripCard key={trip.slug} trip={trip} />
+                    ))}
+                </div>
                 <Link
                     to={path('travel')}
                     className="mt-12 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-veda-gold transition-colors hover:text-white"

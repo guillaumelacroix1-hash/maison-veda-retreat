@@ -9,6 +9,7 @@ import OrganiserRetraite from './pages/OrganiserRetraite'
 import Studio from './pages/Studio'
 import LieuHebergements from './pages/LieuHebergements'
 import VedaTravel from './pages/VedaTravel'
+import VoyageDetail from './pages/VoyageDetail'
 import NotreHistoire from './pages/NotreHistoire'
 import Contact from './pages/Contact'
 import Reserver from './pages/Reserver'
@@ -35,6 +36,7 @@ function App() {
                         <Route path={ROUTES.studio[lang]} element={<Studio />} />
                         <Route path={ROUTES.venue[lang]} element={<LieuHebergements />} />
                         <Route path={ROUTES.travel[lang]} element={<VedaTravel />} />
+                        <Route path={ROUTES.trip[lang]} element={<VoyageDetail />} />
                         <Route path={ROUTES.story[lang]} element={<NotreHistoire />} />
                         <Route path={ROUTES.contact[lang]} element={<Contact />} />
                         <Route path={ROUTES.book[lang]} element={<Reserver />} />

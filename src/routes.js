@@ -19,6 +19,7 @@ export const ROUTES = {
     studio: { fr: 'studio', en: 'studio' },
     venue: { fr: 'le-lieu-et-hebergements', en: 'the-venue-and-stays' },
     travel: { fr: 'veda-travel', en: 'veda-travel' },
+    trip: { fr: 'veda-travel/:slug', en: 'veda-travel/:slug' },
     story: { fr: 'notre-histoire', en: 'our-story' },
     contact: { fr: 'contact', en: 'contact' },
     book: { fr: 'reserver/:slug', en: 'book/:slug' },

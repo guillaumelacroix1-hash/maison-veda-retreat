@@ -33,12 +33,6 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelie,
         ref: '§12',
     },
-    'travel-trips': {
-        fr: 'Contenu des 3 voyages types VEDA Travel : itinéraires, durées, fourchettes de prix par jour.',
-        en: 'The 3 signature VEDA Travel journeys: itineraries, durations, daily price ranges.',
-        owner: OWNERS.aurelieClaude,
-        ref: '§12',
-    },
     'studio-schedule': {
         fr: 'Planning du studio et tarifs des cours. Un brouillon détaillé existe (document « MaisonVEDA_Collaboration_Anna_2027_v8 » sur le Drive, 23/07/2026), à valider avec Anna avant publication.',
         en: 'Studio schedule and class rates. A detailed draft exists (document "MaisonVEDA_Collaboration_Anna_2027_v8" on the Drive, 23/07/2026), to be confirmed with Anna before publishing.',

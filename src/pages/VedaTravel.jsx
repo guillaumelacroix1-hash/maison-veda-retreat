@@ -4,7 +4,9 @@ import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
 import ContentGap from '../components/site/ContentGap'
+import TripCard from '../components/site/TripCard'
 import { Form, Field, TextareaField } from '../components/site/Forms'
+import { TRIPS } from '../data/trips'
 import { MEDIA } from '../data/media'
 
 /** VEDA Travel : voyages accompagnés, vendus aux participants comme aux particuliers. */
@@ -36,15 +38,28 @@ export default function VedaTravel() {
                 </div>
             </Section>
 
-            <Section tone="light" title={t('travel.tripsTitle')}>
-                <ContentGap id="travel-trips" className="max-w-3xl" />
+            <Section id="voyages" title={t('travel.tripsTitle')} lead={t('travel.tripsLead')}>
+                <div className="grid gap-8 md:grid-cols-2">
+                    {TRIPS.map((trip) => (
+                        <TripCard key={trip.slug} trip={trip} />
+                    ))}
+                </div>
             </Section>
 
-            <Section title={t('travel.pricingTitle')} lead={t('travel.pricingNote')}>
-                <ContentGap id="travel-trips" className="max-w-3xl" />
+            <Section tone="light" title={t('travel.pricingTitle')} lead={t('travel.pricingNote')}>
+                <ul className="max-w-3xl space-y-4 text-base font-light leading-relaxed text-veda-dark/70">
+                    <li className="border-l-2 border-veda-gold/40 pl-5">
+                        Voyages en groupe : 100 à 150 € par jour et par personne, tout inclus, billets
+                        d'entrée compris. Le tarif dépend de la taille du groupe, donc du véhicule.
+                    </li>
+                    <li className="border-l-2 border-veda-gold/40 pl-5">
+                        Voyage en famille : sur devis, avec les activités réglées sur place pour garder
+                        la souplesse au jour le jour.
+                    </li>
+                </ul>
             </Section>
 
-            <Section tone="light" title={t('travel.customTitle')} lead={t('travel.customLead')}>
+            <Section title={t('travel.customTitle')} lead={t('travel.customLead')}>
                 <div className="max-w-2xl rounded-3xl bg-veda-dark p-8 text-veda-light md:p-12">
                     <Form endpoint="/api/quote-travel" submitLabel={t('common.quote')}>
                         <div className="grid gap-6 sm:grid-cols-2">
@@ -63,7 +78,7 @@ export default function VedaTravel() {
                 </div>
             </Section>
 
-            <Section title={t('travel.testimonialsTitle')}>
+            <Section tone="light" title={t('travel.testimonialsTitle')}>
                 <ContentGap id="reviews" className="max-w-3xl" />
             </Section>
         </>

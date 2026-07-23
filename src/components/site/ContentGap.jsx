@@ -11,7 +11,7 @@ import { CONTENT_GAPS } from '../../data/contentGaps'
  * VITE_HIDE_CONTENT_GAPS=true dans l'environnement de build.
  */
 export default function ContentGap({ id, className = '' }) {
-    const { t, lang } = useI18n()
+    const { t, lang, colon } = useI18n()
 
     if (import.meta.env.VITE_HIDE_CONTENT_GAPS === 'true') return null
 
@@ -20,9 +20,6 @@ export default function ContentGap({ id, className = '' }) {
         if (import.meta.env.DEV) console.error(`[ContentGap] id inconnu : "${id}"`)
         return null
     }
-
-    // L'espace avant les deux-points est une règle typographique française.
-    const colon = lang === 'fr' ? ' : ' : ': '
 
     return (
         <div

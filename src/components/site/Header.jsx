@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import Logo from '../Logo'
@@ -17,6 +17,47 @@ export default function Header() {
     const { pathname } = useLocation()
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const headerRef = useRef(null)
+
+    /**
+     * Publie la hauteur de l'en-tête dans --header-h. Elle change au défilement
+     * (le bandeau se rétracte), à la fin du chargement des polices et selon la
+     * largeur d'écran : les éléments qui se collent dessous, comme <SectionNav>,
+     * doivent la mesurer, pas la deviner.
+     *
+     * Le ResizeObserver seul s'est révélé insuffisant, il manquait des
+     * changements de hauteur. On republie donc aussi sur les événements qui
+     * peuvent la modifier, et à la fin de la transition du bandeau.
+     */
+    useEffect(() => {
+        const element = headerRef.current
+        if (!element) return
+
+        let frame = 0
+        const publishHeight = () => {
+            cancelAnimationFrame(frame)
+            frame = requestAnimationFrame(() => {
+                document.documentElement.style.setProperty('--header-h', `${element.offsetHeight}px`)
+            })
+        }
+
+        publishHeight()
+
+        const observer = new ResizeObserver(publishHeight)
+        observer.observe(element)
+        window.addEventListener('resize', publishHeight)
+        window.addEventListener('scroll', publishHeight, { passive: true })
+        element.addEventListener('transitionend', publishHeight)
+        document.fonts?.ready.then(publishHeight)
+
+        return () => {
+            cancelAnimationFrame(frame)
+            observer.disconnect()
+            window.removeEventListener('resize', publishHeight)
+            window.removeEventListener('scroll', publishHeight)
+            element.removeEventListener('transitionend', publishHeight)
+        }
+    }, [])
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 50)
@@ -42,6 +83,7 @@ export default function Header() {
 
     return (
         <header
+            ref={headerRef}
             className={`fixed top-0 z-50 w-full transition-all duration-500 ${
                 isScrolled || isMenuOpen
                     ? 'border-b border-white/10 bg-veda-dark/95 py-3 shadow-2xl backdrop-blur-2xl md:py-4'
@@ -90,9 +132,10 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Panneau mobile */}
+            {/* Panneau mobile. En absolu : il se superpose au contenu plutôt que
+                d'allonger l'en-tête, ce qui garderait --header-h instable. */}
             <div
-                className={`overflow-hidden border-white/10 bg-veda-dark transition-all duration-300 lg:hidden ${
+                className={`absolute left-0 top-full w-full overflow-hidden border-white/10 bg-veda-dark transition-all duration-300 lg:hidden ${
                     isMenuOpen ? 'max-h-[80vh] border-t opacity-100' : 'max-h-0 opacity-0'
                 }`}
             >

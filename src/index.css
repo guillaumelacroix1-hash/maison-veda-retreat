@@ -7,6 +7,13 @@
     text-wrap: balance;
   }
 
+  /* Décale l'ancre d'une section pour qu'elle ne passe pas sous l'en-tête fixe
+     et la barre de navigation interne. Les deux hauteurs sont mesurées à
+     l'exécution par Header.jsx et SectionNav.jsx. */
+  .scroll-offset > * {
+    scroll-margin-top: calc(var(--header-h, 84px) + var(--section-nav-h, 48px) + 0.5rem);
+  }
+
   /* Hide scrollbar for Chrome, Safari and Opera */
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
