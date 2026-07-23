@@ -1,0 +1,37 @@
+<!-- @dsCard group="Type" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: #fff; padding: 28px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .lbl { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--veda-gold); margin-bottom: 12px; }
+  .big-serif { font-family: var(--font-heading); font-size: 58px; line-height: 1; color: var(--veda-dark); font-weight: 400; }
+  .big-sans { font-family: var(--font-sans); font-size: 44px; line-height: 1.05; color: var(--veda-dark); font-weight: 300; }
+  .meta { font-size: 12px; color: var(--fg-on-light-muted); margin-top: 14px; line-height: 1.6; font-weight: 300; }
+  .meta b { font-weight: 600; color: var(--veda-dark); }
+  .weights { font-family: var(--font-sans); margin-top: 8px; display:flex; gap:14px; flex-wrap:wrap; }
+  .weights span { font-size: 14px; color: var(--veda-dark); }
+</style>
+</head>
+<body>
+  <div>
+    <div class="lbl">Headings — Playfair Display</div>
+    <div class="big-serif">Aa <span style="font-style:italic;color:var(--veda-gold)">Retraite</span></div>
+    <div class="meta"><b>Playfair Display</b>, serif · poids 400 par défaut.<br>Italique + or pour les mots accentués.</div>
+  </div>
+  <div>
+    <div class="lbl">Body — Inter</div>
+    <div class="big-sans">Aa Veda</div>
+    <div class="weights">
+      <span style="font-weight:300">Light 300</span>
+      <span style="font-weight:400">Regular 400</span>
+      <span style="font-weight:500">Medium 500</span>
+      <span style="font-weight:600">Semibold 600</span>
+    </div>
+    <div class="meta"><b>Inter</b>, sans-serif · poids 300 (light) par défaut, leading-relaxed.</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: var(--paper-cream); padding: 30px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .price { border-radius: var(--radius-pill); padding: 36px 30px; text-align: center; position: relative; display: flex; flex-direction: column; align-items: center; }
+  .standard { background: #fff; border: 1px solid var(--border-gold-20); box-shadow: var(--shadow-xl); }
+  .premium { background: var(--veda-dark); border: 1px solid var(--border-gold-20); box-shadow: var(--shadow-2xl); }
+  .tab { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); padding: 7px 22px; border-radius: var(--radius-full); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+  .standard .tab { background: var(--veda-dark); color: #fff; }
+  .premium .tab { background: var(--veda-gold); color: var(--veda-dark); }
+  h4 { font-family: var(--font-heading); font-weight: 400; font-size: 26px; margin: 14px 0 8px; }
+  .standard h4 { color: var(--veda-dark); }
+  .premium h4 { color: var(--veda-gold); }
+  .sub { font-size: 12px; font-weight: 300; margin-bottom: 26px; }
+  .standard .sub { color: var(--fg-on-light-subtle); }
+  .premium .sub { color: rgba(245,245,245,.6); }
+  .amt { font-family: var(--font-heading); font-size: 54px; line-height: 1; }
+  .standard .amt { color: var(--veda-gold); }
+  .premium .amt { color: #fff; }
+  .cur { font-size: 22px; font-weight: 500; vertical-align: top; }
+  .premium .cur { color: var(--veda-gold); }
+</style>
+</head>
+<body>
+  <div class="price standard">
+    <div class="tab">Standard</div>
+    <h4>Chambre Partagée</h4>
+    <div class="sub">Pour 2, 3 ou 4 personnes.</div>
+    <div class="amt">1280<span class="cur"> €</span></div>
+  </div>
+  <div class="price premium">
+    <div class="tab">Premium</div>
+    <h4>Chambre Single</h4>
+    <div class="sub">Votre espace privé pour un repos total.</div>
+    <div class="amt">1480<span class="cur"> €</span></div>
+  </div>
+</body>
+</html>

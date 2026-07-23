@@ -1,0 +1,25 @@
+<!-- @dsCard group="Spacing" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: var(--paper-cream); padding: 34px 32px; }
+  .row { display: flex; gap: 22px; align-items: flex-end; justify-content: space-between; }
+  .item { text-align: center; flex: 1; }
+  .box { background: #fff; height: 78px; border-radius: var(--radius-2xl); margin: 0 6px; }
+  .nm { font-size: 12px; font-weight: 600; color: var(--veda-dark); margin-top: 16px; }
+  .px { font-size: 11px; color: var(--fg-on-light-subtle); margin-top: 2px; line-height:1.4; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-card)"></div><div class="nm">card</div><div class="px">repos · 0.04</div></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-card-hover)"></div><div class="nm">card-hover</div><div class="px">survol · 0.20</div></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-xl)"></div><div class="nm">xl</div><div class="px">élévation</div></div>
+    <div class="item"><div class="box" style="box-shadow:var(--shadow-2xl)"></div><div class="nm">2xl</div><div class="px">premium</div></div>
+  </div>
+</body>
+</html>

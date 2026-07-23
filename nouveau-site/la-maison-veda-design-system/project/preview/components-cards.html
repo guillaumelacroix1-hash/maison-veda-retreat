@@ -1,0 +1,38 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: var(--paper-cream); padding: 26px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .card { background: #fff; padding: 30px; border-radius: var(--radius-2xl); box-shadow: var(--shadow-card); border: 1px solid var(--border-gold-10); }
+  .pastille { width: 56px; height: 56px; border-radius: var(--radius-full); background: var(--gold-tint-10); display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+  .pastille svg { width: 24px; height: 24px; color: var(--veda-gold); }
+  h4 { font-family: var(--font-heading); font-weight: 400; font-size: 20px; color: var(--veda-dark); margin-bottom: 10px; }
+  p { font-size: 13px; font-weight: 300; line-height: 1.6; color: var(--fg-on-light-muted); }
+  /* dark highlight variant */
+  .card.dark { background: var(--veda-dark); position: relative; overflow: hidden; }
+  .card.dark h4 { color: var(--veda-gold); }
+  .card.dark p { color: rgba(245,245,245,.9); }
+  .corner { position: absolute; top: 0; right: 0; width: 128px; height: 128px; background: var(--veda-gold); border-bottom-left-radius: 9999px; margin: -64px -64px 0 0; opacity: .8; }
+  .badge { display: inline-block; margin-top: 22px; padding: 6px 16px; background: var(--veda-gold); border-radius: var(--radius-full); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--veda-dark); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="pastille"><i data-lucide="sun"></i></div>
+    <h4>Matinées ressourçantes</h4>
+    <p>Sadhana au lever du soleil face au lac, suivi de cours de yoga Kundalini ou Hatha pour éveiller le corps et l'esprit.</p>
+  </div>
+  <div class="card dark">
+    <div class="corner"></div>
+    <h4>Pension Complète</h4>
+    <p>Savourez 3 repas végétariens par jour, préparés avec soin par notre équipe srilankaise locale.</p>
+    <span class="badge">Inclus</span>
+  </div>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: var(--veda-dark); padding: 30px 34px; }
+  .field { margin-bottom: 18px; }
+  label { display: block; font-size: 11px; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: rgba(245,245,245,.8); margin-bottom: 8px; }
+  input, select { width: 100%; background: rgba(0,45,44,.5); border: 1px solid rgba(255,255,255,.1); border-radius: var(--radius-xl); padding: 13px 16px; color: var(--veda-light); font-family: var(--font-sans); font-weight: 300; font-size: 14px; }
+  input::placeholder { color: rgba(255,255,255,.3); }
+  input:focus, .focused { outline: none; border-color: rgba(185,155,100,.5); box-shadow: 0 0 0 1px rgba(185,155,100,.5); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="field"><label>Prénom *</label><input class="focused" value="Aurélie"></div>
+    <div class="field"><label>Nom *</label><input placeholder="Votre nom"></div>
+  </div>
+  <div class="field"><label>Email *</label><input placeholder="votre@email.com"></div>
+  <div class="field" style="margin-bottom:0"><label>Type d'hébergement *</label><input value="Single" readonly></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!-- @dsCard group="Colors" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); padding: 0; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; }
+  .pane { padding: 26px 30px; }
+  .dark { background: var(--veda-dark); }
+  .light { background: var(--paper-cream); }
+  .lbl { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--veda-gold); margin-bottom: 16px; }
+  .line { font-size: 15px; margin-bottom: 9px; font-weight: 300; }
+  .dark .l100 { color: #f5f5f5; } .dark .l70 { color: rgba(245,245,245,.7); } .dark .l60 { color: rgba(245,245,245,.6); } .dark .l50 { color: rgba(245,245,245,.5); }
+  .light .d100 { color: #002d2c; } .light .d70 { color: rgba(0,45,44,.7); } .light .d60 { color: rgba(0,45,44,.6); } .light .gold { color: var(--veda-gold); }
+  .tag { font-size: 11px; opacity: .55; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+  <div class="split">
+    <div class="pane dark">
+      <div class="lbl">Texte sur sombre</div>
+      <div class="line l100">Titre / texte fort <span class="tag">light</span></div>
+      <div class="line l70">Paragraphe courant <span class="tag">light/70</span></div>
+      <div class="line l60">Texte tertiaire <span class="tag">light/60</span></div>
+      <div class="line l50">Mentions fines <span class="tag">light/50</span></div>
+    </div>
+    <div class="pane light">
+      <div class="lbl">Texte sur crème</div>
+      <div class="line d100">Titre / texte fort <span class="tag">dark</span></div>
+      <div class="line d70">Paragraphe courant <span class="tag">dark/70</span></div>
+      <div class="line d60">Texte tertiaire <span class="tag">dark/60</span></div>
+      <div class="line gold">Accent doré <span class="tag">veda-gold</span></div>
+    </div>
+  </div>
+</body>
+</html>

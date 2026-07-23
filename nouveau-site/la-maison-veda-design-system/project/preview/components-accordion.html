@@ -1,0 +1,32 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: #fff; padding: 26px 32px; }
+  .acc { border-radius: var(--radius-2xl); margin-bottom: 12px; overflow: hidden; }
+  .open { border: 1px solid var(--veda-gold); background: var(--paper-cream); }
+  .closed { border: 1px solid #e5e5e5; }
+  .head { display: flex; align-items: center; justify-content: space-between; padding: 17px 22px; cursor: pointer; }
+  .q { font-family: var(--font-heading); font-weight: 400; font-size: 18px; color: var(--veda-dark); }
+  .chev svg { width: 20px; height: 20px; color: var(--veda-gold); transition: transform .3s; }
+  .open .chev svg { transform: rotate(180deg); }
+  .body { padding: 4px 22px 20px; border-top: 1px solid var(--border-gold-10); margin-top: 2px; }
+  .a { font-size: 13px; font-weight: 300; line-height: 1.6; color: var(--fg-on-light-muted); padding-top: 14px; }
+</style>
+</head>
+<body>
+  <div class="acc open">
+    <div class="head"><span class="q">Formalités (Passeport, Visa)</span><span class="chev"><i data-lucide="chevron-down"></i></span></div>
+    <div class="body"><div class="a">Faites votre demande d'ETA sur le site eta.gov.lk 1 mois avant le départ, obtention en 24h (Tarif : 50$).</div></div>
+  </div>
+  <div class="acc closed">
+    <div class="head"><span class="q">Climat & tenue</span><span class="chev"><i data-lucide="chevron-down"></i></span></div>
+  </div>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "ui_kits/site-retraite/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Inter|Playfair Display))/i]",
+        "message": "Font not provided by the design system. Available: Inter, Playfair Display."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--black",
+      "--border-gold-10",
+      "--border-gold-20",
+      "--border-gold-60",
+      "--border-on-dark",
+      "--border-on-dark-strong",
+      "--container-max",
+      "--dur-fast",
+      "--dur-image",
+      "--dur-medium",
+      "--dur-slow",
+      "--ease-soft",
+      "--fg-accent",
+      "--fg-on-dark",
+      "--fg-on-dark-muted",
+      "--fg-on-dark-subtle",
+      "--fg-on-light",
+      "--fg-on-light-muted",
+      "--fg-on-light-subtle",
+      "--font-heading",
+      "--font-sans",
+      "--gold-tint-05",
+      "--gold-tint-10",
+      "--gold-tint-20",
+      "--grid-gap",
+      "--hairline-dark",
+      "--leading-relaxed",
+      "--leading-snug",
+      "--leading-tight",
+      "--page-x",
+      "--paper-cream",
+      "--radius-2xl",
+      "--radius-3xl",
+      "--radius-full",
+      "--radius-lg",
+      "--radius-pill",
+      "--radius-xl",
+      "--section-y",
+      "--section-y-sm",
+      "--shadow-2xl",
+      "--shadow-card",
+      "--shadow-card-hover",
+      "--shadow-premium",
+      "--shadow-xl",
+      "--surface-white",
+      "--text-body",
+      "--text-display",
+      "--text-eyebrow",
+      "--text-h2-sm",
+      "--text-h4",
+      "--text-hero",
+      "--text-lead",
+      "--text-micro",
+      "--text-sm",
+      "--text-villa",
+      "--tracking-eyebrow",
+      "--tracking-sub",
+      "--tracking-widest",
+      "--tracking-wordmark",
+      "--veda-dark",
+      "--veda-gold",
+      "--veda-light",
+      "--weight-bold",
+      "--weight-light",
+      "--weight-medium",
+      "--weight-regular",
+      "--weight-semibold"
+    ],
+    "tokenKinds": {
+      "--veda-dark": "color",
+      "--veda-gold": "color",
+      "--veda-light": "color",
+      "--paper-cream": "color",
+      "--surface-white": "color",
+      "--black": "color",
+      "--fg-on-dark": "color",
+      "--fg-on-dark-muted": "color",
+      "--fg-on-dark-subtle": "color",
+      "--fg-on-light": "color",
+      "--fg-on-light-muted": "color",
+      "--fg-on-light-subtle": "color",
+      "--fg-accent": "color",
+      "--border-gold-10": "color",
+      "--border-gold-20": "color",
+      "--border-gold-60": "color",
+      "--gold-tint-05": "color",
+      "--gold-tint-10": "color",
+      "--gold-tint-20": "color",
+      "--border-on-dark": "color",
+      "--border-on-dark-strong": "color",
+      "--hairline-dark": "color",
+      "--font-heading": "font",
+      "--font-sans": "font",
+      "--text-hero": "font",
+      "--text-display": "font",
+      "--text-h2-sm": "font",
+      "--text-villa": "font",
+      "--text-h4": "font",
+      "--text-lead": "font",
+      "--text-body": "font",
+      "--text-sm": "font",
+      "--text-eyebrow": "font",
+      "--text-micro": "font",
+      "--weight-light": "font",
+      "--weight-regular": "font",
+      "--weight-medium": "font",
+      "--weight-semibold": "font",
+      "--weight-bold": "font",
+      "--tracking-eyebrow": "font",
+      "--tracking-widest": "font",
+      "--tracking-wordmark": "font",
+      "--tracking-sub": "font",
+      "--leading-tight": "font",
+      "--leading-snug": "font",
+      "--leading-relaxed": "font",
+      "--radius-lg": "radius",
+      "--radius-xl": "radius",
+      "--radius-2xl": "radius",
+      "--radius-3xl": "radius",
+      "--radius-pill": "radius",
+      "--radius-full": "radius",
+      "--shadow-card": "shadow",
+      "--shadow-card-hover": "shadow",
+      "--shadow-xl": "shadow",
+      "--shadow-2xl": "shadow",
+      "--shadow-premium": "shadow",
+      "--section-y": "spacing",
+      "--section-y-sm": "spacing",
+      "--page-x": "spacing",
+      "--container-max": "spacing",
+      "--grid-gap": "spacing",
+      "--ease-soft": "other",
+      "--dur-fast": "other",
+      "--dur-medium": "other",
+      "--dur-slow": "other",
+      "--dur-image": "other"
+    },
+    "fontFamilies": [
+      "Inter",
+      "Playfair Display"
+    ]
+  }
+}

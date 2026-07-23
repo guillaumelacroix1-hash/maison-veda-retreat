@@ -1,0 +1,33 @@
+<!-- @dsCard group="Components" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: #fff; padding: 28px 32px; }
+  .lbl { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--veda-gold); margin-bottom: 20px; }
+  .row { display: flex; gap: 26px; flex-wrap: wrap; }
+  .ic { text-align: center; }
+  .pastille { width: 56px; height: 56px; border-radius: var(--radius-full); background: var(--gold-tint-10); display: flex; align-items: center; justify-content: center; margin: 0 auto; }
+  .pastille svg { width: 24px; height: 24px; color: var(--veda-gold); stroke-width: 2; }
+  .nm { font-size: 11px; color: var(--fg-on-light-muted); margin-top: 9px; }
+</style>
+</head>
+<body>
+  <div class="lbl">Iconographie — lucide, posée en pastille gold/10</div>
+  <div class="row">
+    <div class="ic"><div class="pastille"><i data-lucide="sun"></i></div><div class="nm">sun</div></div>
+    <div class="ic"><div class="pastille"><i data-lucide="moon"></i></div><div class="nm">moon</div></div>
+    <div class="ic"><div class="pastille"><i data-lucide="wind"></i></div><div class="nm">wind</div></div>
+    <div class="ic"><div class="pastille"><i data-lucide="heart"></i></div><div class="nm">heart</div></div>
+    <div class="ic"><div class="pastille"><i data-lucide="map"></i></div><div class="nm">map</div></div>
+    <div class="ic"><div class="pastille"><i data-lucide="calendar"></i></div><div class="nm">calendar</div></div>
+    <div class="ic"><div class="pastille"><i data-lucide="plane"></i></div><div class="nm">plane</div></div>
+    <div class="ic"><div class="pastille"><i data-lucide="check"></i></div><div class="nm">check</div></div>
+  </div>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

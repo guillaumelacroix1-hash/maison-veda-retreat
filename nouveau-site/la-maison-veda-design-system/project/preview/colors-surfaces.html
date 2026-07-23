@@ -1,0 +1,26 @@
+<!-- @dsCard group="Colors" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: #fff; padding: 28px 32px; }
+  .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .sw { border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-card); border: 1px solid #eee; }
+  .chip { height: 96px; }
+  .meta { padding: 12px 14px; }
+  .name { font-weight: 600; font-size: 13px; color: var(--veda-dark); }
+  .hex { font-size: 12px; color: var(--fg-on-light-subtle); font-variant-numeric: tabular-nums; margin-top: 2px; text-transform: uppercase; }
+  .use { font-size: 11px; color: var(--fg-on-light-subtle); margin-top: 6px; font-weight: 300; line-height: 1.4; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:var(--paper-cream)"></div><div class="meta"><div class="name">paper-cream</div><div class="hex">#fdfbf7</div><div class="use">Fond sections claires</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--surface-white)"></div><div class="meta"><div class="name">white</div><div class="hex">#ffffff</div><div class="use">Cartes sur crème</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--black)"></div><div class="meta"><div class="name">black</div><div class="hex">#000000</div><div class="use">Hover CTA sombre</div></div></div>
+  </div>
+</body>
+</html>

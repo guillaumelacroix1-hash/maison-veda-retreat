@@ -1,0 +1,33 @@
+<!-- @dsCard group="Brand" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: var(--veda-dark); padding: 30px 36px; display: flex; gap: 40px; align-items: center; min-height: 230px; }
+  .demo { display: flex; gap: 30px; }
+  .frame { position: relative; width: 150px; }
+  .frame .offset { position: absolute; inset: 0; border: 1px solid var(--border-gold-60); border-radius: var(--radius-xl); transform: translate(18px, -18px); }
+  .frame.b .offset { transform: translate(-18px, 18px); }
+  .frame .img { position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-2xl); aspect-ratio: 3/4; }
+  .frame img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); opacity: .9; }
+  .frame.b img { filter: grayscale(0); opacity: 1; }
+  .txt { max-width: 220px; }
+  .lbl { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--veda-gold); margin-bottom: 12px; }
+  p { font-size: 13px; font-weight: 300; line-height: 1.65; color: rgba(245,245,245,.7); }
+  .state { font-size: 11px; color: rgba(245,245,245,.45); text-align: center; margin-top: 12px; }
+</style>
+</head>
+<body>
+  <div class="demo">
+    <div class="frame a"><div class="offset"></div><div class="img"><img src="../assets/images/guides-aurelie-nathalie.jpeg" alt="repos"></div><div class="state">repos · N&B</div></div>
+    <div class="frame b"><div class="offset"></div><div class="img"><img src="../assets/images/guides-aurelie-nathalie.jpeg" alt="survol"></div><div class="state">survol · couleur</div></div>
+  </div>
+  <div class="txt">
+    <div class="lbl">Traitement image</div>
+    <p>Portraits en N&amp;B par défaut, couleur au survol (700ms) + scale-105. Filet doré décalé « en quinconce ».</p>
+  </div>
+</body>
+</html>

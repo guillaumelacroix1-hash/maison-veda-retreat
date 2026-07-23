@@ -1,0 +1,39 @@
+<!-- @dsCard group="Colors" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: var(--paper-cream); padding: 26px 32px; }
+  .grp { margin-bottom: 22px; }
+  .grp:last-child { margin-bottom: 0; }
+  .lbl { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; color: var(--fg-on-light-subtle); margin-bottom: 12px; }
+  .row { display: flex; gap: 14px; }
+  .item { flex: 1; }
+  .chip { height: 48px; border-radius: var(--radius-xl); border: 1px solid rgba(0,0,0,.06); }
+  .fill { display: flex; align-items: center; justify-content: center; }
+  .nm { font-size: 11px; color: var(--fg-on-light-muted); margin-top: 7px; font-variant-numeric: tabular-nums; }
+  .border-demo { border-width: 1px; border-style: solid; background: #fff; }
+</style>
+</head>
+<body>
+  <div class="grp">
+    <div class="lbl">Tints de fond — gold/5 · /10 · /20</div>
+    <div class="row">
+      <div class="item"><div class="chip" style="background:var(--gold-tint-05)"></div><div class="nm">gold/5</div></div>
+      <div class="item"><div class="chip" style="background:var(--gold-tint-10)"></div><div class="nm">gold/10</div></div>
+      <div class="item"><div class="chip" style="background:var(--gold-tint-20)"></div><div class="nm">gold/20</div></div>
+    </div>
+  </div>
+  <div class="grp">
+    <div class="lbl">Bordures dorées — gold/10 · /20 · /60</div>
+    <div class="row">
+      <div class="item"><div class="chip border-demo" style="border-color:var(--border-gold-10)"></div><div class="nm">gold/10</div></div>
+      <div class="item"><div class="chip border-demo" style="border-color:var(--border-gold-20)"></div><div class="nm">gold/20</div></div>
+      <div class="item"><div class="chip border-demo" style="border-color:var(--border-gold-60)"></div><div class="nm">gold/60</div></div>
+    </div>
+  </div>
+</body>
+</html>

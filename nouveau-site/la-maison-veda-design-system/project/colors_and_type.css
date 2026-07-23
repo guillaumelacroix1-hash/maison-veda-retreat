@@ -1,0 +1,194 @@
+/* ============================================================
+   LA MAISON VEDA — Design Tokens
+   Lake villas & yoga · Sri Lanka
+   Colors + Typography foundations, extracted from the
+   maison-veda-retreat codebase (Tailwind config + components).
+   ============================================================ */
+
+/* Fonts — both available on Google Fonts; the live site loads them
+   from the Google Fonts CDN (no self-hosted files):
+   Playfair Display: ital,wght@0,400;0,600;0,700;1,400;1,600
+   Inter:            wght@300;400;500;600
+   @import is included so this file is drop-in usable. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
+:root {
+    /* ---------- BRAND PALETTE (Tailwind `veda` tokens) ---------- */
+    --veda-dark:  #002d2c;   /* deep forest green — primary background */
+    --veda-gold:  #b99b64;   /* accent — italics, primary CTA, eyebrows */
+    --veda-light: #f5f5f5;   /* light text on dark surfaces */
+
+    /* ---------- SURFACES ---------- */
+    --paper-cream: #fdfbf7;  /* warm off-white light section background */
+    --surface-white: #ffffff;/* cards sitting on cream */
+    --black: #000000;        /* deepest hover on dark CTAs */
+
+    /* ---------- SEMANTIC TEXT ---------- */
+    --fg-on-dark:        var(--veda-light);
+    --fg-on-dark-muted:  rgba(245, 245, 245, 0.7);  /* light/70 */
+    --fg-on-dark-subtle: rgba(245, 245, 245, 0.5);  /* light/50 */
+    --fg-on-light:       var(--veda-dark);
+    --fg-on-light-muted: rgba(0, 45, 44, 0.7);       /* dark/70 */
+    --fg-on-light-subtle:rgba(0, 45, 44, 0.6);       /* dark/60 */
+    --fg-accent:         var(--veda-gold);
+
+    /* ---------- BORDERS & GOLD TINTS ---------- */
+    --border-gold-10:  rgba(185, 155, 100, 0.10);
+    --border-gold-20:  rgba(185, 155, 100, 0.20);
+    --border-gold-60:  rgba(185, 155, 100, 0.60);
+    --gold-tint-05:    rgba(185, 155, 100, 0.05);
+    --gold-tint-10:    rgba(185, 155, 100, 0.10);
+    --gold-tint-20:    rgba(185, 155, 100, 0.20);
+    --border-on-dark:  rgba(255, 255, 255, 0.10);
+    --border-on-dark-strong: rgba(255, 255, 255, 0.50);
+    --hairline-dark:   rgba(255, 255, 255, 0.05);
+
+    /* ---------- TYPE FAMILIES ---------- */
+    --font-heading: 'Playfair Display', 'Merriweather', Georgia, serif;
+    --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
+
+    /* ---------- TYPE SCALE (px @ desktop) ---------- */
+    --text-hero:    7rem;     /* 112px — hero h1 */
+    --text-display: 3.75rem;  /* 60px  — section h2 (md:text-6xl) */
+    --text-h2-sm:   2.25rem;  /* 36px  — h2 mobile (text-4xl) */
+    --text-villa:   2.25rem;  /* 36px  — villa names (text-4xl) */
+    --text-h4:      1.25rem;  /* 20px  — card titles (text-xl) */
+    --text-lead:    1.125rem; /* 18px  — hero / lead paragraph */
+    --text-body:    1rem;     /* 16px  — base body (text-base) */
+    --text-sm:      0.875rem; /* 14px  — small body (text-sm) */
+    --text-eyebrow: 0.75rem;  /* 12px  — eyebrow label (text-xs) */
+    --text-micro:   0.625rem; /* 10px  — badges / fine print */
+
+    /* ---------- WEIGHTS ---------- */
+    --weight-light:    300;   /* default body weight */
+    --weight-regular:  400;   /* default heading weight */
+    --weight-medium:   500;
+    --weight-semibold: 600;   /* eyebrows, nav, buttons */
+    --weight-bold:     700;   /* primary CTA label */
+
+    /* ---------- TRACKING ---------- */
+    --tracking-eyebrow: 0.2em;   /* uppercase eyebrow labels */
+    --tracking-widest:  0.1em;   /* button labels */
+    --tracking-wordmark:0.08em;  /* LA MAISON VEDA wordmark */
+    --tracking-sub:     0.35em;  /* LAKE VILLAS & YOGA sub-wordmark */
+
+    /* ---------- LINE HEIGHT ---------- */
+    --leading-tight:   1.1;   /* display headings */
+    --leading-snug:    1.25;
+    --leading-relaxed: 1.625; /* body copy */
+
+    /* ---------- RADII ---------- */
+    --radius-lg:   0.5rem;    /* 8px  — thumbnails */
+    --radius-xl:   0.75rem;   /* 12px — framed images */
+    --radius-2xl:  1rem;      /* 16px — standard cards */
+    --radius-3xl:  1.5rem;    /* 24px — info cards */
+    --radius-pill: 2.5rem;    /* 40px — pricing cards (rounded-[2.5rem]) */
+    --radius-full: 9999px;    /* buttons, badges, avatars */
+
+    /* ---------- SHADOWS ---------- */
+    --shadow-card:        0 8px 30px rgba(0, 0, 0, 0.04);  /* resting card on cream */
+    --shadow-card-hover:  0 8px 30px rgba(0, 0, 0, 0.20);  /* hovered card */
+    --shadow-xl:          0 20px 25px -5px rgba(0, 0, 0, 0.10), 0 8px 10px -6px rgba(0, 0, 0, 0.10);
+    --shadow-2xl:         0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-premium:     0 20px 50px rgba(0, 0, 0, 0.50);  /* dark pricing card hover */
+
+    /* ---------- SPACING ---------- */
+    --section-y:       8rem;    /* py-32 desktop section rhythm */
+    --section-y-sm:    6rem;    /* py-24 mobile */
+    --page-x:          1.5rem;  /* px-6 page gutter */
+    --container-max:   80rem;   /* max-w-7xl */
+    --grid-gap:        2rem;    /* gap-8 */
+
+    /* ---------- MOTION ---------- */
+    --ease-soft:    cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+    --dur-fast:     300ms;  /* @kind other */ /* color / hover transitions */
+    --dur-medium:   500ms;  /* @kind other */ /* shadow / opacity reveals */
+    --dur-slow:     700ms;  /* @kind other */ /* image grayscale + scale */
+    --dur-image:    1000ms; /* @kind other */ /* slow zoom on hero/CTA images */
+}
+
+/* ============================================================
+   SEMANTIC TYPE CLASSES
+   ============================================================ */
+.veda-eyebrow {
+    font-family: var(--font-sans);
+    font-size: var(--text-eyebrow);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--veda-gold);
+}
+
+.veda-h1 {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-regular);
+    font-size: var(--text-hero);
+    line-height: var(--leading-tight);
+}
+
+.veda-h2 {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-regular);
+    font-size: var(--text-display);
+    line-height: var(--leading-tight);
+}
+
+.veda-h4 {
+    font-family: var(--font-heading);
+    font-weight: var(--weight-regular);
+    font-size: var(--text-h4);
+    line-height: var(--leading-snug);
+}
+
+/* Accented words inside a heading — italic + gold */
+.veda-accent {
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--veda-gold);
+}
+
+.veda-body {
+    font-family: var(--font-sans);
+    font-weight: var(--weight-light);
+    font-size: var(--text-body);
+    line-height: var(--leading-relaxed);
+}
+
+.veda-lead {
+    font-family: var(--font-sans);
+    font-weight: var(--weight-light);
+    font-size: var(--text-lead);
+    line-height: var(--leading-relaxed);
+}
+
+/* ============================================================
+   BUTTON RECIPES
+   ============================================================ */
+.veda-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    border-radius: var(--radius-full);
+    padding: 0.875rem 2.5rem;            /* py-3.5 px-10 */
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color var(--dur-fast), color var(--dur-fast),
+                border-color var(--dur-fast), transform var(--dur-fast);
+}
+.veda-btn--primary { background: var(--veda-gold); color: var(--veda-dark); }
+.veda-btn--primary:hover { background: #fff; }
+.veda-btn--ghost {
+    background: rgba(0, 45, 44, 0.30);
+    color: var(--veda-light);
+    border-color: var(--border-on-dark-strong);
+    backdrop-filter: blur(8px);
+}
+.veda-btn--ghost:hover { background: rgba(255, 255, 255, 0.10); border-color: #fff; }
+.veda-btn--dark { background: var(--veda-dark); color: var(--veda-light); }
+.veda-btn--dark:hover { background: var(--black); }

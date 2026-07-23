@@ -1,0 +1,23 @@
+<!-- @dsCard group="Brand" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); display: grid; grid-template-columns: 1fr 1fr; }
+  .pane { padding: 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; min-height: 200px; }
+  .dark { background: var(--veda-dark); }
+  .cream { background: var(--paper-cream); }
+  img { height: 120px; width: auto; }
+  .nm { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; font-weight: 600; }
+  .dark .nm { color: var(--veda-gold); }
+  .cream .nm { color: var(--fg-on-light-subtle); }
+</style>
+</head>
+<body>
+  <div class="pane dark"><img src="../assets/logo-veda-mandala-gold.svg" alt="mandala gold"><div class="nm">gold sur dark</div></div>
+  <div class="pane cream"><img src="../assets/logo-veda-mandala-dark.svg" alt="mandala dark"><div class="nm">dark sur crème</div></div>
+</body>
+</html>

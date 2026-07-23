@@ -1,0 +1,26 @@
+<!-- @dsCard group="Colors" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: #fff; padding: 28px 32px; }
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .sw { border-radius: var(--radius-2xl); overflow: hidden; box-shadow: var(--shadow-card); }
+  .chip { height: 96px; }
+  .meta { padding: 12px 14px; }
+  .name { font-weight: 600; font-size: 13px; color: var(--veda-dark); }
+  .hex { font-size: 12px; color: var(--fg-on-light-subtle); font-variant-numeric: tabular-nums; margin-top: 2px; text-transform: uppercase; }
+  .use { font-size: 11px; color: var(--fg-on-light-subtle); margin-top: 6px; font-weight: 300; line-height: 1.4; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:var(--veda-dark)"></div><div class="meta"><div class="name">veda-dark</div><div class="hex">#002d2c</div><div class="use">Fond principal · vert forêt</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--veda-gold)"></div><div class="meta"><div class="name">veda-gold</div><div class="hex">#b99b64</div><div class="use">Accent · CTA · italiques</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--veda-light);border:1px solid #eee"></div><div class="meta"><div class="name">veda-light</div><div class="hex">#f5f5f5</div><div class="use">Texte sur fond sombre</div></div></div>
+  </div>
+</body>
+</html>

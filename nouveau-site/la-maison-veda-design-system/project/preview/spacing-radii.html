@@ -1,0 +1,27 @@
+<!-- @dsCard group="Spacing" -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin: 0; box-sizing: border-box; }
+  body { font-family: var(--font-sans); background: var(--paper-cream); padding: 26px 32px; }
+  .row { display: flex; gap: 16px; align-items: flex-end; }
+  .item { flex: 1; text-align: center; }
+  .box { background: #fff; border: 1px solid var(--border-gold-20); box-shadow: var(--shadow-card); height: 84px; }
+  .nm { font-size: 12px; font-weight: 600; color: var(--veda-dark); margin-top: 10px; }
+  .px { font-size: 11px; color: var(--fg-on-light-subtle); margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="item"><div class="box" style="border-radius:var(--radius-lg)"></div><div class="nm">lg</div><div class="px">8px · thumbs</div></div>
+    <div class="item"><div class="box" style="border-radius:var(--radius-xl)"></div><div class="nm">xl</div><div class="px">12px · images</div></div>
+    <div class="item"><div class="box" style="border-radius:var(--radius-2xl)"></div><div class="nm">2xl</div><div class="px">16px · cards</div></div>
+    <div class="item"><div class="box" style="border-radius:var(--radius-3xl)"></div><div class="nm">3xl</div><div class="px">24px · info</div></div>
+    <div class="item"><div class="box" style="border-radius:var(--radius-pill)"></div><div class="nm">[2.5rem]</div><div class="px">40px · pricing</div></div>
+    <div class="item"><div class="box" style="border-radius:var(--radius-full)"></div><div class="nm">full</div><div class="px">btns · pills</div></div>
+  </div>
+</body>
+</html>
