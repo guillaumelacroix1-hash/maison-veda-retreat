@@ -11,7 +11,7 @@ Le site actuel (une seule très longue page en anglais sur lamaisonveda.com) est
 
 - **Priorité n°1 — Les retraites** (plus gros chiffre d'affaires, réservations ~1 an à l'avance, saison dès novembre 2026). Deux sous-cibles servies ensemble : les **participants** aux retraites La Maison VEDA (vitrine) et les **organisateurs** — professeurs et agences — qui louent le lieu pour leurs propres retraites.
 - **Priorité n°2 — Le studio de yoga et l'hébergement.** Le studio — nommé **« Maison VEDA Lake Studio »** — est ouvert à tous, même quand la maison est louée : Kundalini quotidien, kirtans, breathwork, bains de gong, workshops. Il est co-géré à égalité par Lilie (Aurélie) et Anna à partir d'octobre 2026, avec des professeurs invités ponctuels. L'activité est très saisonnière : démarrage doux en novembre (1 cours/jour), pic de décembre à mi-mars (3 cours/jour), redescente en avril.
-- **Mise en avant transversale — VEDA Travel** : voyages sur mesure avec chauffeur privé, itinéraires tout inclus, groupes de 1 à 17 personnes (voiture, van ou bus). Trois voyages types seront créés.
+- **Mise en avant transversale — VEDA Travel** : voyages sur mesure avec chauffeur privé, itinéraires tout inclus, groupes de 1 à 17 personnes (voiture, van ou bus). Quatre voyages types sont proposés (dont un circuit « slow » spécial familles se terminant par 5 à 7 nuits à La Maison VEDA).
 - **Présence légère — Les séjours vacances** : le site les montre et renvoie vers les plateformes ; il n'a pas besoin de les pousser.
 
 ## 3. Langue(s) du site
@@ -48,7 +48,7 @@ Chaque page existe en FR et EN. Format : objectif — blocs de contenu — bouto
   - CTA : « Réserver un séjour » (WhatsApp) + liens plateformes.
 - **VEDA Travel**
   - Objectif : vendre les voyages accompagnés, aux clients des retraites comme aux particuliers.
-  - Blocs : présentation (chauffeur privé, tout inclus, 1 à 17 personnes, voiture/van/bus, expérience d'organisation d'Aurélie) · les 3 voyages types (à créer) · le sur-mesure · fourchette de tarif par jour (le tarif final dépend de la taille du groupe) · témoignages.
+  - Blocs : présentation (chauffeur privé, tout inclus, 1 à 17 personnes, voiture/van/bus, expérience d'organisation d'Aurélie) · les 4 voyages types (rédigés, voir `voyages-types/`) · le sur-mesure · fourchette de tarif par jour (le tarif final dépend de la taille du groupe) · témoignages.
   - CTA : « Demander un devis ».
 - **Notre histoire**
   - Objectif : incarner le lieu et créer la confiance.
@@ -68,7 +68,7 @@ Chaque page existe en FR et EN. Format : objectif — blocs de contenu — bouto
 3. **Le lieu en images** : villas + shala, lien vers Le Lieu & Hébergements.
 4. **Le studio** : planning de la semaine, lien WhatsApp/Instagram.
 5. **Organiser votre retraite ici** : bloc organisateurs, bouton devis.
-6. **VEDA Travel** : les 3 voyages types en teaser.
+6. **VEDA Travel** : les 4 voyages types en teaser.
 7. **Témoignages** : sélection d'avis (retraites, Airbnb, Google).
 8. **Notre histoire en bref** + newsletter + contact (footer).
 
@@ -128,7 +128,7 @@ Chaque page existe en FR et EN. Format : objectif — blocs de contenu — bouto
 |---|---|
 | Montants des tarifs haute/basse saison des nuitées | Aurélie |
 | Échéance de paiement du solde des retraites (ex. 60 jours avant le début) | Aurélie |
-| Les 3 voyages types VEDA Travel sont rédigés FR + EN (voir `nouveau-site/voyages-types/`) : n°1 « Les Sentiers du Sri Lanka » validé (6 j/5 n, 100–150 €/j/pers.) ; n°2 « Cités Royales et Route du Nord » (7 j/6 n) et n°3 « Le Grand Tour de l'Île » (13 j/12 n) validés dans leurs grandes lignes — restent à confirmer leurs tarifs, leurs noms, et les hébergements de la partie nord | Aurélie (aide Claude) |
+| Les 4 voyages types VEDA Travel sont rédigés FR + EN (voir `nouveau-site/voyages-types/`) : n°1 « Les Sentiers du Sri Lanka » validé (6 j/5 n, 100–150 €/j/pers.) ; n°2 « Cités Royales et Route du Nord » (7 j/6 n, Sigiriya 2 nuits) ; n°3 « Le Grand Tour de l'Île » (13 j/12 n — en attente : passage à 14 j avec Trincomalee + Sigiriya 2 nuits) ; n°4 « Sri Lanka en Famille » (18 j/17 n, slow, fin 6 nuits à La Maison VEDA). À confirmer : tarifs des n°2-3-4, noms, hébergements du nord, harmonisation activités incluses (n°1-3) vs sur place (n°4) | Aurélie (aide Claude) |
 | Planning du studio et tarifs des cours — un brouillon détaillé existe (doc « MaisonVEDA_Collaboration_Anna_2027_v8 » sur le Drive, 23/07/2026) ; à valider avec Anna | Aurélie + Anna |
 | Périodes déjà réservées / libres pour la saison | Aurélie |
 | Sélection des avis Airbnb + Google et des témoignages de retraites | Aurélie (aide Claude) |
