@@ -48,7 +48,7 @@ Chaque page existe en FR et EN. Format : objectif — blocs de contenu — bouto
   - CTA : « Réserver un séjour » (WhatsApp) + liens plateformes.
 - **VEDA Travel**
   - Objectif : vendre les voyages accompagnés, aux clients des retraites comme aux particuliers.
-  - Blocs : présentation (chauffeur privé, tout inclus, 1 à 17 personnes, voiture/van/bus, expérience d'organisation d'Aurélie) · les 4 voyages types (rédigés, voir `voyages-types/`) · le sur-mesure · fourchette de tarif par jour (le tarif final dépend de la taille du groupe) · témoignages.
+  - Blocs : présentation (chauffeur privé, tout inclus, 1 à 17 personnes, voiture/van/bus, expérience d'organisation d'Aurélie) · les 4 voyages types (rédigés, voir `voyages-types/`) · le sur-mesure · fourchette de tarif par jour (le tarif final dépend de la taille du groupe) · témoignages. **Principe transversal : chaque voyage type propose de commencer ou terminer le séjour par des nuits à La Maison VEDA** (pont vers l'hébergement et le studio).
   - CTA : « Demander un devis ».
 - **Notre histoire**
   - Objectif : incarner le lieu et créer la confiance.

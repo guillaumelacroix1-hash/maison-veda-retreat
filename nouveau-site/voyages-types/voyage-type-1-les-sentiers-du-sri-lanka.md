@@ -45,6 +45,10 @@ En option, lever de soleil au sommet de Pidurangala face au Rocher du Lion. Puis
 - Balade en char à bœufs + cours de cuisine (jour 5, ~20 €)
 - Lever de soleil à Pidurangala (jour 6, ~5 €)
 
+## Commencer ou terminer à La Maison VEDA (option recommandée)
+
+Ce circuit part de La Maison VEDA : ajoutez quelques nuits avant le départ ou au retour pour profiter du lac de Koggala, du studio de yoga, de la plage et des massages. Sur demande, l'itinéraire s'adapte pour se terminer à Habaraduwa plutôt qu'à l'aéroport.
+
 ---
 
 # English version — Trip n°1: The Trails of Sri Lanka — Safari, Mountains & Sacred Mysteries
@@ -89,6 +93,10 @@ Optional sunrise hike up Pidurangala, facing the Lion Rock. Then drive to Colomb
 - Tea factory visit (~€4)
 - Bullock cart ride + cooking class (day 5, ~€20)
 - Pidurangala sunrise (day 6, ~€5)
+
+## Start or finish at La Maison VEDA (recommended option)
+
+This journey departs from La Maison VEDA: add a few nights before or after to enjoy Koggala Lake, the yoga studio, the beach and massages. On request, the itinerary can be adapted to end in Habaraduwa rather than at the airport.
 
 ---
 

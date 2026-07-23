@@ -41,6 +41,10 @@ Journée dans les petites îles du bout de l'île : Nainativu et son temple sacr
 **Jour 7 — Retour vers Colombo**
 Grande journée de route retour (avec pauses), arrivée à Colombo en fin de journée.
 
+## Terminer à La Maison VEDA (option recommandée)
+
+Prolongez le voyage par quelques nuits dans nos villas au bord du lac de Koggala (Habaraduwa) : yoga au studio, plage, tortues, massages. Sur demande, l'itinéraire s'adapte pour redescendre vers le sud et se terminer à La Maison VEDA plutôt qu'à Colombo.
+
 ---
 
 # English version — Trip n°2: Royal Cities & the Northern Road (cultural journey)
@@ -81,3 +85,7 @@ A day among the small islands at the island's edge: Nainativu and its sacred tem
 
 **Day 7 — Return to Colombo**
 A long return drive (with stops), arriving in Colombo at the end of the day.
+
+## Finish at La Maison VEDA (recommended option)
+
+Extend your journey with a few nights in our lakeside villas on Koggala Lake (Habaraduwa): yoga at the studio, beach, turtles, massages. On request, the itinerary can be adapted to head south and end at La Maison VEDA rather than Colombo.

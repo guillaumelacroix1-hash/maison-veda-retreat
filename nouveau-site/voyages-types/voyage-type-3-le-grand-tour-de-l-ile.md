@@ -65,6 +65,10 @@ Route retour le long de la côte sud avec une pause baignade et déjeuner à la 
 - Visite d'une fabrique de thé (jour 9, ~4 €)
 - Ascension d'Ella Rock (jour 11, selon météo) — gratuit
 
+## Prolonger à La Maison VEDA (option recommandée)
+
+Le circuit se termine chez nous, au bord du lac de Koggala : ajoutez autant de nuits que vous le souhaitez dans les villas Lake House ou Lake Loft — yoga au studio, plage, tortues, massages, ou simplement le lac.
+
 ---
 
 # English version — Trip n°3: The Grand Island Tour (culture, mountains & safaris)
@@ -129,3 +133,7 @@ Return along the south coast with a swim and lunch stop at Hiriketiya beach, one
 - Pidurangala sunrise (day 2, ~€5)
 - Tea factory visit (day 9, ~€4)
 - Ella Rock climb (day 11, weather permitting) — free
+
+## Extend at La Maison VEDA (recommended option)
+
+The journey ends at our home on Koggala Lake: add as many nights as you wish in the Lake House or Lake Loft villas — yoga at the studio, beach, turtles, massages, or simply the lake.
