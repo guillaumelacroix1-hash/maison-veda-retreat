@@ -157,6 +157,23 @@ export default function VedaTravel() {
             </Section>
 
             <Section tone="light" title={t('travel.customTitle')} lead={t('travel.customLead')}>
+                {/* Bloc « Request Our Brochure » de la page source */}
+                <div className="mb-14 max-w-3xl rounded-3xl border border-veda-dark/10 bg-white p-8 shadow-card">
+                    <h3 className="font-heading text-2xl">{c.brochureTitle}</h3>
+                    <p className="mt-3 text-sm font-light leading-relaxed text-veda-dark/70">
+                        {c.brochureText}
+                    </p>
+                    <a
+                        href={SRILANKA_LINKS.retreatRatesPdf}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-6 inline-flex items-center gap-3 rounded-full border border-veda-dark/30 px-7 py-3 text-xs font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-veda-dark hover:text-veda-light"
+                    >
+                        <Download className="h-4 w-4" />
+                        {c.brochureCta}
+                    </a>
+                </div>
+
                 <div className="max-w-2xl rounded-3xl bg-veda-dark p-8 text-veda-light md:p-12">
                     <Form formType="quote-travel" submitLabel={t('common.quote')}>
                         <div className="grid gap-6 sm:grid-cols-2">

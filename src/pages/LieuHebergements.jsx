@@ -114,6 +114,17 @@ export default function LieuHebergements() {
 
             {/* Les trois espaces */}
             <Section tone="light" title={c.offer.title}>
+                {SRILANKA_MEDIA.accueil?.[0] && (
+                    <div className="mb-16 aspect-[21/9] overflow-hidden rounded-3xl">
+                        <img
+                            src={SRILANKA_MEDIA.accueil[0].src}
+                            alt={SRILANKA_MEDIA.accueil[0].alt || ''}
+                            loading="lazy"
+                            className="h-full w-full object-cover"
+                        />
+                    </div>
+                )}
+
                 <Lodging
                     copy={c.lodgings.lakeHouse}
                     images={SRILANKA_MEDIA['lake-house']}
@@ -168,6 +179,17 @@ export default function LieuHebergements() {
                 </div>
 
                 <p className="mt-6 text-sm font-light italic text-veda-light/60">{c.prices.note}</p>
+
+                {SRILANKA_MEDIA.tarifs?.[0] && (
+                    <div className="mt-12 aspect-[21/9] overflow-hidden rounded-3xl">
+                        <img
+                            src={SRILANKA_MEDIA.tarifs[0].src}
+                            alt={SRILANKA_MEDIA.tarifs[0].alt || ''}
+                            loading="lazy"
+                            className="h-full w-full object-cover"
+                        />
+                    </div>
+                )}
 
                 <ContentGap id="season-rates" className="mt-10 max-w-3xl" />
             </Section>

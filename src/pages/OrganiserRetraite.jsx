@@ -102,6 +102,16 @@ export default function OrganiserRetraite() {
             </Section>
 
             <Section title={t('host.packTitle')} lead={t('host.packLead')}>
+                {/* Couverture du pack, récupérée du site source */}
+                {SRILANKA_MEDIA.retraites?.[0] && (
+                    <img
+                        src={SRILANKA_MEDIA.retraites[0].src}
+                        alt={SRILANKA_MEDIA.retraites[0].alt || ''}
+                        loading="lazy"
+                        className="mb-10 w-full max-w-xs rounded-2xl border border-veda-gold/20"
+                    />
+                )}
+
                 {/* Les deux PDF existants du site source, en attendant leur fusion. */}
                 <div className="flex flex-wrap gap-4">
                     <a
