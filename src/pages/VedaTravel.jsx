@@ -6,6 +6,7 @@ import Section from '../components/site/Section'
 import ContentGap from '../components/site/ContentGap'
 import TripCard from '../components/site/TripCard'
 import MediaGallery from '../components/site/MediaGallery'
+import SectionNav from '../components/site/SectionNav'
 import { Form, Field, TextareaField } from '../components/site/Forms'
 import { TRIPS } from '../data/trips'
 import { srilanka, SRILANKA_LINKS } from '../data/srilankaContent'
@@ -25,6 +26,16 @@ export default function VedaTravel() {
                 title={t('travel.title')}
                 lead={t('travel.lead')}
                 image={MEDIA.travel}
+            />
+
+            <SectionNav
+                items={[
+                    { id: 'agences', label: t('travel.navAgencies') },
+                    { id: 'particuliers', label: t('travel.navIndividual') },
+                    { id: 'voyages', label: t('travel.navTrips') },
+                    { id: 'tarifs', label: t('travel.navRates') },
+                    { id: 'devis', label: t('travel.navQuote') },
+                ]}
             />
 
             <Section>
@@ -65,7 +76,7 @@ export default function VedaTravel() {
             </Section>
 
             {/* Pour les agences */}
-            <Section tone="light" title={c.agenciesTitle}>
+            <Section id="agences" tone="light" title={c.agenciesTitle}>
                 <p className="max-w-3xl text-base font-light leading-relaxed text-veda-dark/70">{c.agenciesText}</p>
 
                 <div className="mt-14 grid gap-12 lg:grid-cols-2">
@@ -119,7 +130,7 @@ export default function VedaTravel() {
             </Section>
 
             {/* Pour les voyageurs individuels */}
-            <Section title={c.individualTitle}>
+            <Section id="particuliers" title={c.individualTitle}>
                 <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">{c.individualText}</p>
                 <ul className="mt-8 grid max-w-3xl gap-3">
                     {c.individual.map((item) => (
@@ -143,14 +154,14 @@ export default function VedaTravel() {
                 </div>
             </Section>
 
-            <Section title={t('travel.pricingTitle')} lead={t('travel.pricingNote')}>
+            <Section id="tarifs" title={t('travel.pricingTitle')} lead={t('travel.pricingNote')}>
                 <ul className="max-w-3xl space-y-4 text-base font-light leading-relaxed text-veda-light/70">
                     <li className="border-l-2 border-veda-gold/40 pl-5">{t('travel.pricingGroups')}</li>
                     <li className="border-l-2 border-veda-gold/40 pl-5">{t('travel.pricingFamily')}</li>
                 </ul>
             </Section>
 
-            <Section tone="light" title={t('travel.customTitle')} lead={t('travel.customLead')}>
+            <Section id="devis" tone="light" title={t('travel.customTitle')} lead={t('travel.customLead')}>
                 {/* Bloc « Request Our Brochure » de la page source */}
                 <div className="mb-14 max-w-3xl rounded-3xl border border-veda-dark/10 bg-white p-8 shadow-card">
                     <h3 className="font-heading text-2xl">{c.brochureTitle}</h3>

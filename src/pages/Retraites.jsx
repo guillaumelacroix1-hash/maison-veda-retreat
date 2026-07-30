@@ -27,14 +27,31 @@ export default function Retraites() {
                 image={SRILANKA_MEDIA.retraites?.[1]?.src ?? MEDIA.retreats}
             />
 
-            {/* Introduction reprise de la page source */}
+            {/* Introduction reprise de la page source, avec une image pour l'habiller */}
             <Section title={t('retreats.upcoming')}>
-                <div className="mb-14 max-w-3xl space-y-4">
-                    {c.retreats.upcomingText.map((p) => (
-                        <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
-                            {p}
-                        </p>
-                    ))}
+                <div className="mb-16 grid items-center gap-12 lg:grid-cols-[1.3fr,1fr]">
+                    <div className="space-y-4">
+                        {c.retreats.upcomingText.map((p) => (
+                            <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
+                                {p}
+                            </p>
+                        ))}
+                    </div>
+
+                    {SRILANKA_MEDIA.nav?.[1] && (
+                        <div className="relative">
+                            <div className="aspect-[4/5] overflow-hidden rounded-3xl">
+                                <img
+                                    src={SRILANKA_MEDIA.nav[1].src}
+                                    alt={SRILANKA_MEDIA.nav[1].alt || ''}
+                                    loading="lazy"
+                                    className="h-full w-full object-cover"
+                                />
+                            </div>
+                            {/* Cadre doré décalé, écho au traitement des portraits de la page retraite */}
+                            <div className="pointer-events-none absolute inset-0 -z-10 translate-x-5 -translate-y-5 rounded-3xl border border-veda-gold/50 hidden sm:block" />
+                        </div>
+                    )}
                 </div>
 
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

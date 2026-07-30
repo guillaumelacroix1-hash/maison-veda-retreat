@@ -1,5 +1,7 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { ArrowRight, ArrowDown } from 'lucide-react'
 import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import Section from '../components/site/Section'
@@ -21,22 +23,32 @@ export default function Accueil() {
     const upcoming = upcomingRetreats()
     const next = upcoming[0]
 
+    const heroRef = useRef(null)
+    const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
+    const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15])
+    const heroY = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
+    const heroOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
+
     return (
         <>
             <PageMeta title={t('home.metaTitle')} description={t('home.promise')} />
 
-            {/* 1. Hero */}
-            <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-                <img
-                    src={MEDIA.home}
-                    alt=""
-                    className="absolute inset-0 h-full w-full object-cover"
-                    loading="eager"
-                />
-                <div className="absolute inset-0 bg-veda-dark/60" />
-                <div className="absolute inset-0 bg-gradient-to-t from-veda-dark via-transparent to-veda-dark/40" />
+            {/* 1. Hero. L'image s'agrandit et le texte s'efface au défilement,
+                   comme sur la page retraite : la profondeur vient du mouvement. */}
+            <section ref={heroRef} className="relative flex min-h-screen items-center justify-center overflow-hidden">
+                <motion.div style={{ scale: heroScale, y: heroY }} className="absolute inset-0 origin-top">
+                    <img
+                        src={MEDIA.home}
+                        alt=""
+                        className="h-full w-full object-cover"
+                        loading="eager"
+                        fetchPriority="high"
+                    />
+                    <div className="absolute inset-0 bg-veda-dark/60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-veda-dark via-transparent to-veda-dark/40" />
+                </motion.div>
 
-                <div className="relative mx-auto max-w-4xl px-6 text-center">
+                <motion.div style={{ opacity: heroOpacity }} className="relative mx-auto max-w-4xl px-6 text-center">
                     <p className="mb-6 text-xs font-semibold uppercase tracking-[0.35em] text-veda-gold">
                         {t('common.brandSub')}
                     </p>
@@ -57,7 +69,20 @@ export default function Accueil() {
                             <ArrowRight className="h-4 w-4" />
                         </Link>
                     )}
-                </div>
+                </motion.div>
+
+                {/* Invitation à descendre, la page ne s'arrête pas là */}
+                <motion.div
+                    style={{ opacity: heroOpacity }}
+                    className="pointer-events-none absolute bottom-8 z-10"
+                >
+                    <motion.div
+                        animate={{ y: [0, 8, 0] }}
+                        transition={{ repeat: Infinity, duration: 2, ease: 'easeInOut' }}
+                    >
+                        <ArrowDown className="h-6 w-6 text-white/50" />
+                    </motion.div>
+                </motion.div>
             </section>
 
             {/* 2. Cartes-portails vers les grandes sections, comme sur le site source.

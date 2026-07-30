@@ -4,6 +4,7 @@ import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
 import ContentGap from '../components/site/ContentGap'
+import MediaGallery from '../components/site/MediaGallery'
 import { srilanka } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
@@ -31,25 +32,49 @@ export default function Studio() {
                 image={MEDIA.studio}
             />
 
+            {/* Le shala en pleine largeur : c'est le lieu dont parle toute la page */}
+            <Section id="shala" className="pb-0">
+                <MediaGallery images={SRILANKA_MEDIA['yoga-shala']} initial={6} />
+            </Section>
+
             <Section title={t('studio.scheduleTitle')} lead={t('studio.scheduleNote')}>
                 {/* Le planning affiché sur le site source est une image, donc ni
                     traduisible ni lisible par un lecteur d'écran. Il faudra le
                     ressaisir en texte : voir le ContentGap ci-dessous. */}
-                {schedule && (
-                    <figure className="max-w-2xl">
-                        <img
-                            src={schedule.src}
-                            alt={c.studio.scheduleAlt}
-                            loading="lazy"
-                            className="w-full rounded-2xl border border-veda-gold/20"
-                        />
-                        <figcaption className="mt-3 text-xs font-light text-veda-light/50">
-                            {c.studio.title}
-                        </figcaption>
-                    </figure>
-                )}
+                <div className="grid gap-12 lg:grid-cols-[1fr,1.2fr]">
+                    {schedule && (
+                        <figure>
+                            <img
+                                src={schedule.src}
+                                alt={c.studio.scheduleAlt}
+                                loading="lazy"
+                                className="w-full rounded-2xl border border-veda-gold/20"
+                            />
+                            <figcaption className="mt-3 text-xs font-light text-veda-light/50">
+                                {c.studio.title}
+                            </figcaption>
+                        </figure>
+                    )}
 
-                <ContentGap id="studio-schedule" className="mt-10 max-w-3xl" />
+                    <div>
+                        {/* Les pratiques annoncées, en attendant le planning ressaisi */}
+                        <ul className="flex flex-wrap gap-2">
+                            {(lang === 'en'
+                                ? ['Daily Kundalini', 'Celestial Communication', 'Mantras & Meditation', 'Breathwork', 'Japa', 'Kirtan with musicians', 'Gong bath', 'Gong workshops']
+                                : ['Kundalini quotidien', 'Celestial Communication', 'Mantras & méditation', 'Breathwork', 'Japa', 'Kirtan avec musiciens', 'Bain de gong', 'Ateliers gong']
+                            ).map((p) => (
+                                <li
+                                    key={p}
+                                    className="rounded-full border border-veda-gold/30 px-4 py-2 text-xs font-light text-veda-light/80"
+                                >
+                                    {p}
+                                </li>
+                            ))}
+                        </ul>
+
+                        <ContentGap id="studio-schedule" className="mt-10" />
+                    </div>
+                </div>
             </Section>
 
             <Section tone="light" title={t('studio.sadhanaTitle')} lead={t('studio.sadhanaLead')}>
@@ -69,8 +94,20 @@ export default function Studio() {
                 <ContentGap id="studio-prices" className="max-w-3xl" />
             </Section>
 
-            <Section title={t('studio.cafeTitle')} lead={t('studio.cafeLead')}>
-                <div className="flex flex-wrap gap-5">
+            {/* Appel à l'action final, posé sur une photo du lieu */}
+            <Section title={t('studio.cafeTitle')} lead={t('studio.cafeLead')} className="relative overflow-hidden">
+                {SRILANKA_MEDIA.nav?.[3] && (
+                    <>
+                        <img
+                            src={SRILANKA_MEDIA.nav[3].src}
+                            alt=""
+                            loading="lazy"
+                            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-veda-dark via-veda-dark/90 to-veda-dark/60" />
+                    </>
+                )}
+                <div className="relative flex flex-wrap gap-5">
                     <a
                         href={CONTACT.whatsappHref}
                         target="_blank"

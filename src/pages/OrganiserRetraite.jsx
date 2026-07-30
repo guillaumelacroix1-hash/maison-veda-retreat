@@ -1,4 +1,4 @@
-import { Download, Users, Home, Check } from 'lucide-react'
+import { Download, Users, Home, Check, Maximize } from 'lucide-react'
 import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
@@ -38,19 +38,34 @@ export default function OrganiserRetraite() {
                     ))}
                 </div>
 
-                <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:max-w-3xl">
-                    {[
-                        { icon: Home, label: t('host.capacityOnSite') },
-                        { icon: Users, label: t('host.capacityExtended') },
-                    ].map(({ icon: Icon, label }) => (
-                        <div
-                            key={label}
-                            className="rounded-3xl border border-veda-gold/20 bg-white/[0.03] p-8"
-                        >
-                            <Icon className="h-6 w-6 text-veda-gold" />
-                            <p className="mt-5 font-heading text-2xl leading-snug">{label}</p>
+                {/* Capacités et argument du lieu, côte à côte avec une photo */}
+                <div className="mt-16 grid gap-12 lg:grid-cols-[1fr,1.1fr]">
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+                        {[
+                            { icon: Home, label: t('host.capacityOnSite') },
+                            { icon: Users, label: t('host.capacityExtended') },
+                            { icon: Maximize, label: lang === 'en' ? '80 m² rooftop yoga shala' : '80 m² de shala sur le toit' },
+                        ].map(({ icon: Icon, label }) => (
+                            <div
+                                key={label}
+                                className="flex items-start gap-5 rounded-3xl border border-veda-gold/20 bg-white/[0.03] p-7 transition-colors duration-500 hover:border-veda-gold/50"
+                            >
+                                <Icon className="mt-1 h-6 w-6 shrink-0 text-veda-gold" />
+                                <p className="font-heading text-xl leading-snug">{label}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    {SRILANKA_MEDIA['yoga-shala']?.[0] && (
+                        <div className="overflow-hidden rounded-3xl">
+                            <img
+                                src={SRILANKA_MEDIA['yoga-shala'][0].src}
+                                alt={SRILANKA_MEDIA['yoga-shala'][0].alt || ''}
+                                loading="lazy"
+                                className="h-full min-h-[320px] w-full object-cover"
+                            />
                         </div>
-                    ))}
+                    )}
                 </div>
             </Section>
 

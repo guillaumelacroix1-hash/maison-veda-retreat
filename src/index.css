@@ -7,10 +7,14 @@
     text-wrap: balance;
   }
 
-  /* Décale l'ancre d'une section pour qu'elle ne passe pas sous l'en-tête fixe
-     et la barre de navigation interne. Les deux hauteurs sont mesurées à
-     l'exécution par Header.jsx et SectionNav.jsx. */
-  .scroll-offset > * {
+  /* Décale l'ancre pour qu'elle ne passe pas sous l'en-tête fixe et la barre de
+     navigation interne. Les deux hauteurs sont mesurées à l'exécution par
+     Header.jsx et SectionNav.jsx.
+     `.scroll-offset > *` s'applique aux enfants d'un conteneur (page retraite,
+     dont les sections sont des div) ; `.scroll-anchor` à l'élément lui-même
+     (composant Section, qui pose son ancre directement). */
+  .scroll-offset > *,
+  .scroll-anchor {
     scroll-margin-top: calc(var(--header-h, 84px) + var(--section-nav-h, 48px) + 0.5rem);
   }
 

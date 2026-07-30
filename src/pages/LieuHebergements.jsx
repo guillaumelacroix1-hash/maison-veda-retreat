@@ -104,7 +104,6 @@ export default function LieuHebergements() {
                 ]}
             />
 
-            <div className="scroll-offset">
             {/* Présentation du lieu : le texte tient sur deux colonnes, la troisième
                 laisse respirer une image verticale. */}
             <Section id="le-lieu" title={c.welcome.title}>
@@ -376,7 +375,6 @@ export default function LieuHebergements() {
             <Section id="galerie" title={c.gallery.title}>
                 <MediaGallery images={SRILANKA_MEDIA.galerie} initial={8} />
             </Section>
-            </div>
         </>
     )
 }

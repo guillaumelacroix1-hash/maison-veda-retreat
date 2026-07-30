@@ -18,7 +18,9 @@ export default function Section({
     return (
         <section
             id={id}
-            className={`px-6 py-24 md:py-32 ${
+            // Une section porteuse d'ancre se décale d'elle-même sous l'en-tête fixe
+            // et la barre de navigation interne, sans que la page ait à s'en occuper.
+            className={`px-6 py-24 md:py-32 ${id ? 'scroll-anchor' : ''} ${
                 isLight ? 'bg-veda-cream text-veda-dark' : 'bg-veda-dark text-veda-light'
             } ${className}`}
         >
