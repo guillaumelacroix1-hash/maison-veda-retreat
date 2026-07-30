@@ -64,7 +64,7 @@ export default function RetraiteDetail() {
             </Section>
 
             <Section tone="light" title={t('retreats.programme')}>
-                <ContentGap id="story-text" className="max-w-3xl" />
+                <ContentGap id="retreat-programme" className="max-w-3xl" />
             </Section>
 
             <Section title={t('retreats.pricing')}>

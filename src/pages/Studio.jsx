@@ -4,6 +4,8 @@ import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
 import ContentGap from '../components/site/ContentGap'
+import { srilanka } from '../data/srilankaContent'
+import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 import { CONTACT, SOCIAL } from '../data/site'
 
@@ -15,7 +17,9 @@ import { CONTACT, SOCIAL } from '../data/site'
  * cahier des charges : à confirmer avec elle avant publication.
  */
 export default function Studio() {
-    const { t } = useI18n()
+    const { t, lang } = useI18n()
+    const c = srilanka(lang)
+    const schedule = SRILANKA_MEDIA.studio?.[0]
 
     return (
         <>
@@ -28,7 +32,24 @@ export default function Studio() {
             />
 
             <Section title={t('studio.scheduleTitle')} lead={t('studio.scheduleNote')}>
-                <ContentGap id="studio-schedule" className="max-w-3xl" />
+                {/* Le planning affiché sur le site source est une image, donc ni
+                    traduisible ni lisible par un lecteur d'écran. Il faudra le
+                    ressaisir en texte : voir le ContentGap ci-dessous. */}
+                {schedule && (
+                    <figure className="max-w-2xl">
+                        <img
+                            src={schedule.src}
+                            alt={c.studio.scheduleAlt}
+                            loading="lazy"
+                            className="w-full rounded-2xl border border-veda-gold/20"
+                        />
+                        <figcaption className="mt-3 text-xs font-light text-veda-light/50">
+                            {c.studio.title}
+                        </figcaption>
+                    </figure>
+                )}
+
+                <ContentGap id="studio-schedule" className="mt-10 max-w-3xl" />
             </Section>
 
             <Section tone="light" title={t('studio.sadhanaTitle')} lead={t('studio.sadhanaLead')}>
@@ -41,7 +62,7 @@ export default function Studio() {
             </Section>
 
             <Section title={t('studio.teachersTitle')} lead={t('studio.teachersLead')}>
-                <ContentGap id="story-text" className="max-w-3xl" />
+                <ContentGap id="team" className="max-w-3xl" />
             </Section>
 
             <Section tone="light" title={t('studio.pricesTitle')}>

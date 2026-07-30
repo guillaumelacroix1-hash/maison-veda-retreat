@@ -34,8 +34,8 @@ export const CONTENT_GAPS = {
         ref: '§6, §12',
     },
     'studio-schedule': {
-        fr: 'Planning du studio et tarifs des cours. Un brouillon détaillé existe (document « MaisonVEDA_Collaboration_Anna_2027_v8 » sur le Drive, 23/07/2026), à valider avec Anna avant publication.',
-        en: 'Studio schedule and class rates. A detailed draft exists (document "MaisonVEDA_Collaboration_Anna_2027_v8" on the Drive, 23/07/2026), to be confirmed with Anna before publishing.',
+        fr: 'Le planning ci-dessus est l\'image récupérée du site actuel : elle n\'est ni traduisible, ni lisible par un lecteur d\'écran, ni référençable. Il faut le ressaisir en texte. Un brouillon détaillé existe (document « MaisonVEDA_Collaboration_Anna_2027_v8 » sur le Drive, 23/07/2026), à valider avec Anna avant publication.',
+        en: 'The schedule above is the image taken from the current site: it cannot be translated, read by a screen reader, or indexed. It needs to be retyped as text. A detailed draft exists (document "MaisonVEDA_Collaboration_Anna_2027_v8" on the Drive, 23/07/2026), to be confirmed with Anna before publishing.',
         owner: OWNERS.aurelieAnna,
         ref: '§11, §12',
     },
@@ -69,11 +69,29 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelie,
         ref: '§12',
     },
-    'story-text': {
-        fr: 'Récit de l\'histoire d\'Aurélie et du lieu, présentation de l\'équipe et des valeurs.',
-        en: 'The story of Aurélie and of the house, the team and the values.',
-        owner: OWNERS.aurelieClaudeGuillaume,
+    'retreat-programme': {
+        fr: 'Programme détaillé de cette retraite : le déroulé des journées, les pratiques et les activités incluses. À fournir par le professeur ou l\'organisateur qui l\'animera.',
+        en: 'Detailed programme for this retreat: how the days unfold, the practices and the activities included. To be supplied by the teacher or organiser leading it.',
+        owner: OWNERS.aurelie,
+        ref: '§4',
+    },
+    'story-rest': {
+        fr: 'Le récit repris du site s\'arrête à la découverte du Kundalini en Inde. Il manque la suite : comment La Maison VEDA est née au Sri Lanka, l\'installation à Habaraduwa, et le lien avec le studio de St-Simon en Charente.',
+        en: 'The story taken from the site stops at discovering Kundalini in India. The rest is missing: how La Maison VEDA came to be in Sri Lanka, settling in Habaraduwa, and the link with the St-Simon studio in Charente.',
+        owner: OWNERS.aurelieClaude,
         ref: '§8, §12',
+    },
+    'team': {
+        fr: 'Présentation de l\'équipe : Aurélie, Anna pour le studio, et l\'équipe sri-lankaise qui assure la restauration et le service en chambre. Visages, prénoms et rôles. Le site source ne présente aucune équipe.',
+        en: 'The team: Aurélie, Anna for the studio, and the Sri Lankan team handling catering and room service. Faces, first names and roles. The source site presents no team.',
+        owner: OWNERS.aurelie,
+        ref: '§4, §12',
+    },
+    'values': {
+        fr: 'Les valeurs du lieu. Le site source les évoque en filigrane (petits groupes, tourisme responsable, hospitalité sincère, cuisine végétarienne ayurvédique) mais ne les formule jamais explicitement.',
+        en: 'The values of the house. The source site hints at them (small groups, responsible tourism, sincere hospitality, Ayurvedic vegetarian food) but never states them explicitly.',
+        owner: OWNERS.aurelieClaude,
+        ref: '§4, §12',
     },
     'faq': {
         fr: 'FAQ en trois familles : logistique du voyage (visa, vols, transferts, sécurité, saison), vie sur place (repas, wifi, moustiques, argent, langue), pratique (niveau requis, venir seul·e, âge, matériel).',

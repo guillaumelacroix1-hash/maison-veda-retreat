@@ -24,8 +24,8 @@ const FORM_TYPES = {
     },
     'quote-venue': {
         subject: 'Demande de devis, location du lieu',
-        fields: ['name', 'email', 'phone', 'groupSize', 'dates', 'services', 'message'],
-        required: ['name', 'email', 'groupSize', 'dates'],
+        fields: ['firstName', 'lastName', 'email', 'phone', 'guests', 'dates', 'practice', 'food', 'message'],
+        required: ['firstName', 'lastName', 'email', 'guests', 'dates'],
     },
     'quote-travel': {
         subject: 'Demande de devis, VEDA Travel',
@@ -41,12 +41,17 @@ const FORM_TYPES = {
 
 const LABELS = {
     name: 'Nom',
+    firstName: 'Prénom',
+    lastName: 'Nom',
     email: 'Email',
     phone: 'Téléphone',
     subject: 'Sujet',
     message: 'Message',
     dates: 'Dates souhaitées',
     groupSize: 'Nombre de participants',
+    guests: 'Personnes, chambres, lits',
+    practice: 'Pratique du yoga',
+    food: 'Préférences alimentaires',
     services: 'Services souhaités',
 }
 

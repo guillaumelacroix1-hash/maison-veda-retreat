@@ -9,11 +9,14 @@ import ContentGap from '../components/site/ContentGap'
 import { NewsletterForm } from '../components/site/Forms'
 import { upcomingRetreats } from '../data/retreats'
 import { TRIPS } from '../data/trips'
+import { srilanka } from '../data/srilankaContent'
+import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 
 /** Accueil. Enchaînement des sections repris de la section 5 du cahier des charges. */
 export default function Accueil() {
-    const { t, path } = useI18n()
+    const { t, lang, path } = useI18n()
+    const c = srilanka(lang)
     const upcoming = upcomingRetreats()
     const next = upcoming[0]
 
@@ -79,15 +82,19 @@ export default function Accueil() {
             <Section
                 tone="light"
                 eyebrow={t('nav.venue')}
-                title={t('home.venueTitle')}
-                lead={t('home.venueLead')}
+                title={c.welcome.title}
+                lead={c.welcome.paragraphs[0]}
             >
                 <div className="grid gap-4 md:grid-cols-3">
-                    {[MEDIA.lakeHouse[0], MEDIA.lakeLoft[0], MEDIA.studio].map((src) => (
-                        <div key={src} className="aspect-[4/5] overflow-hidden rounded-2xl">
+                    {[
+                        SRILANKA_MEDIA['lake-house'][0],
+                        SRILANKA_MEDIA['lake-loft'][0],
+                        SRILANKA_MEDIA['yoga-shala'][0],
+                    ].map((image) => (
+                        <div key={image.src} className="aspect-[4/5] overflow-hidden rounded-2xl">
                             <img
-                                src={src}
-                                alt=""
+                                src={image.src}
+                                alt={image.alt || ''}
                                 loading="lazy"
                                 className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
                             />
@@ -159,7 +166,20 @@ export default function Accueil() {
 
             {/* 8. Notre histoire + newsletter */}
             <Section eyebrow={t('nav.story')} title={t('home.storyTitle')}>
-                <ContentGap id="story-text" className="max-w-3xl" />
+                <div className="max-w-3xl space-y-5">
+                    <p className="text-lg font-light italic leading-relaxed text-veda-gold">
+                        {c.story.paragraphs[0]}
+                    </p>
+                    <p className="text-base font-light leading-relaxed text-veda-light/70">
+                        {c.story.paragraphs[1]}
+                    </p>
+                </div>
+                <Link
+                    to={path('story')}
+                    className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-veda-gold transition-colors hover:text-white"
+                >
+                    {t('common.learnMore')} <ArrowRight className="h-4 w-4" />
+                </Link>
 
                 <div className="mt-20 border-t border-white/10 pt-14">
                     <h3 className="font-heading text-2xl md:text-3xl">{t('home.newsletterTitle')}</h3>
