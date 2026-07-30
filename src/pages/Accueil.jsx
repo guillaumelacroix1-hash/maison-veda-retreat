@@ -5,6 +5,7 @@ import { ArrowRight, ArrowDown } from 'lucide-react'
 import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import Section from '../components/site/Section'
+import CtaSection from '../components/site/CtaSection'
 import RetreatCard from '../components/site/RetreatCard'
 import RetreatFeature from '../components/site/RetreatFeature'
 import TripCard from '../components/site/TripCard'
@@ -13,7 +14,7 @@ import { NewsletterForm } from '../components/site/Forms'
 import { upcomingRetreats } from '../data/retreats'
 import { TRIPS } from '../data/trips'
 import { srilanka } from '../data/srilankaContent'
-import { SOCIAL } from '../data/site'
+import { SOCIAL, CONTACT } from '../data/site'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 
@@ -370,6 +371,22 @@ export default function Accueil() {
                     </div>
                 </div>
             </Section>
+
+            {/* Invitation finale : la prochaine retraite, ou le contact direct */}
+            <CtaSection
+                eyebrow={t('cta.eyebrow')}
+                title={t('cta.retreatsTitle')}
+                accent={t('cta.retreatsAccent')}
+                lead={t('cta.retreatsLead')}
+                primary={
+                    next
+                        ? { label: t('cta.seeRetreat'), to: path('retreat', { slug: next.slug }) }
+                        : { label: t('common.seeRetreats'), to: path('retreats') }
+                }
+                secondary={{ label: t('common.whatsapp'), href: CONTACT.whatsappHref }}
+                image={SRILANKA_MEDIA.nav[1]}
+            />
+
         </>
     )
 }

@@ -3,9 +3,11 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
 import { Form, Field, TextareaField } from '../components/site/Forms'
+import { CONTACT } from '../data/site'
 import { srilanka, SRILANKA_LINKS } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
@@ -159,9 +161,17 @@ export default function OrganiserRetraite() {
                 <ContentGap id="media-kit" className="mt-6 max-w-3xl" />
             </Section>
 
-            {/* Champs repris du formulaire « Book Your Yoga Retreat Venue » de la source */}
-            <Section tone="light" title={c.venueForm.title} lead={t('host.formLead')}>
-                <div className="max-w-2xl rounded-3xl bg-veda-dark p-8 text-veda-light md:p-12">
+            {/* Champs repris du formulaire « Book Your Yoga Retreat Venue » de la source.
+                Section sombre sur photo : le formulaire n'est plus un bloc posé
+                sur du crème, il fait corps avec la page. */}
+            <Section
+                id="devis"
+                title={c.venueForm.title}
+                lead={t('host.formLead')}
+                background={SRILANKA_MEDIA['lake-loft']?.[0]}
+            >
+                <div className="grid gap-12 lg:grid-cols-[1.4fr,1fr] lg:items-start">
+                <div className="rounded-3xl border border-white/10 bg-veda-dark/60 p-8 backdrop-blur-md md:p-12">
                     <Form formType="quote-venue" submitLabel={t('common.quote')}>
                         <div className="grid gap-6 sm:grid-cols-2">
                             <Field label={c.venueForm.fields.firstName} name="firstName" required />
@@ -190,7 +200,50 @@ export default function OrganiserRetraite() {
                         </div>
                     </Form>
                 </div>
+
+                    {/* Colonne de réassurance : la moitié droite restait vide */}
+                    <aside className="space-y-8 rounded-3xl border border-veda-gold/20 bg-veda-dark/40 p-8 backdrop-blur-md">
+                        <div>
+                            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                                {c.capacityTitleShort}
+                            </h3>
+                            <ul className="mt-5 space-y-3">
+                                {c.hostReassurance.map((item) => (
+                                    <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-light/80">
+                                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-veda-gold" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="border-t border-white/10 pt-8">
+                            <p className="text-sm font-light leading-relaxed text-veda-light/70">
+                                {c.hostDirect}
+                            </p>
+                            <a
+                                href={CONTACT.whatsappHref}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="mt-5 inline-flex items-center gap-3 rounded-full border border-veda-gold/50 px-7 py-3 text-xs font-bold uppercase tracking-widest text-veda-gold transition-colors duration-300 hover:bg-veda-gold hover:text-veda-dark"
+                            >
+                                {t('common.whatsapp')}
+                            </a>
+                        </div>
+                    </aside>
+                </div>
             </Section>
+
+            <CtaSection
+                eyebrow={t('cta.eyebrow')}
+                title={t('cta.hostTitle')}
+                accent={t('cta.hostAccent')}
+                lead={t('cta.hostLead')}
+                primary={{ label: t('common.quote'), to: '#devis' }}
+                secondary={{ label: t('common.whatsapp'), href: CONTACT.whatsappHref }}
+                image={SRILANKA_MEDIA['yoga-shala'][1]}
+            />
+
         </>
     )
 }

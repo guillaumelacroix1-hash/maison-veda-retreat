@@ -2,17 +2,19 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import CtaSection from '../components/site/CtaSection'
 import RetreatCard from '../components/site/RetreatCard'
 import ContentGap from '../components/site/ContentGap'
 import { NewsletterForm } from '../components/site/Forms'
 import { upcomingRetreats, pastRetreats } from '../data/retreats'
+import { CONTACT } from '../data/site'
 import { srilanka } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 
 /** Listing des retraites. Chaque carte mène à sa page enfant. */
 export default function Retraites() {
-    const { t, lang } = useI18n()
+    const { t, lang, path } = useI18n()
     const c = srilanka(lang)
     const upcoming = upcomingRetreats()
     const past = pastRetreats()
@@ -83,6 +85,17 @@ export default function Retraites() {
                     </div>
                 </div>
             </Section>
+
+            <CtaSection
+                eyebrow={t('cta.eyebrow')}
+                title={t('cta.retreatsTitle')}
+                accent={t('cta.retreatsAccent')}
+                lead={t('cta.retreatsLead')}
+                primary={upcoming[0] ? { label: t('cta.seeRetreat'), to: path('retreat', { slug: upcoming[0].slug }) } : { label: t('common.whatsapp'), href: CONTACT.whatsappHref }}
+                secondary={{ label: t('common.whatsapp'), href: CONTACT.whatsappHref }}
+                image={SRILANKA_MEDIA.nav[1]}
+            />
+
         </>
     )
 }

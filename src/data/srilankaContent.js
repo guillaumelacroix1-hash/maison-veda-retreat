@@ -25,6 +25,15 @@ export const SRILANKA = {
             ],
         },
 
+        capacityTitleShort: 'Ce que comprend la privatisation',
+        hostReassurance: [
+            'La propriété entière : deux villas, 7 lits, jusqu\'à 15 personnes avec les villas voisines',
+            'Le yoga shala de 80 m² sur le toit, avec ses 15 tapis',
+            'Yoga et méditation quotidiens inclus dans chaque programme',
+            'Une équipe sri-lankaise pour la restauration et le service en chambre',
+            'Séjour minimum de 3 nuits',
+        ],
+        hostDirect: 'Vous préférez en parler de vive voix ? Écrivez-nous directement, nous répondons sous 48 h.',
         groups: {
             title: 'Pour les petits groupes, les retraites et les agences',
             paragraphs: [
@@ -273,6 +282,15 @@ export const SRILANKA = {
             ],
         },
 
+        capacityTitleShort: 'What privatization includes',
+        hostReassurance: [
+            'The whole property: two villas, 7 beds, up to 15 guests with the villas nearby',
+            'The 80 m² rooftop yoga shala, with its 15 mats',
+            'Daily yoga and meditation included in every programme',
+            'A Sri Lankan team for catering and room service',
+            'Minimum stay of 3 nights',
+        ],
+        hostDirect: 'Would you rather talk it through? Write to us directly, we reply within 48 hours.',
         groups: {
             title: 'For small Groups, Retreats & Agencies',
             paragraphs: [

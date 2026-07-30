@@ -3,6 +3,7 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
 import { srilanka } from '../data/srilankaContent'
@@ -120,6 +121,17 @@ export default function Studio() {
                     </a>
                 </div>
             </Section>
+
+            <CtaSection
+                eyebrow={t('cta.eyebrow')}
+                title={t('cta.studioTitle')}
+                accent={t('cta.studioAccent')}
+                lead={t('cta.studioLead')}
+                primary={{ label: t('studio.bookCta'), href: CONTACT.whatsappHref }}
+                secondary={{ label: 'Instagram', href: SOCIAL.instagram }}
+                image={SRILANKA_MEDIA['yoga-shala'][6]}
+            />
+
         </>
     )
 }

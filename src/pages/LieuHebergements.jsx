@@ -3,6 +3,7 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
 import SectionNav from '../components/site/SectionNav'
@@ -368,6 +369,17 @@ export default function LieuHebergements() {
             <Section id="galerie" title={c.gallery.title}>
                 <MediaGallery images={SRILANKA_MEDIA.galerie} initial={8} />
             </Section>
+
+            <CtaSection
+                eyebrow={t('cta.eyebrow')}
+                title={t('cta.venueTitle')}
+                accent={t('cta.venueAccent')}
+                lead={t('cta.venueLead')}
+                primary={{ label: t('cta.bookStay'), href: CONTACT.whatsappHref }}
+                secondary={{ label: t('venue.onAirbnb'), href: SOCIAL.airbnb }}
+                image={SRILANKA_MEDIA['lake-house'][2]}
+            />
+
         </>
     )
 }

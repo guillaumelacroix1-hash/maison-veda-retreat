@@ -3,7 +3,9 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
+import { CONTACT } from '../data/site'
 import { srilanka } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
@@ -63,6 +65,17 @@ export default function NotreHistoire() {
                     {t('common.seeRetreats')}
                 </Link>
             </Section>
+
+            <CtaSection
+                eyebrow={t('cta.eyebrow')}
+                title={t('cta.storyTitle')}
+                accent={t('cta.storyAccent')}
+                lead={t('cta.storyLead')}
+                primary={{ label: t('common.seeRetreats'), to: path('retreats') }}
+                secondary={{ label: t('common.whatsapp'), href: CONTACT.whatsappHref }}
+                image={SRILANKA_MEDIA.nav[4]}
+            />
+
         </>
     )
 }

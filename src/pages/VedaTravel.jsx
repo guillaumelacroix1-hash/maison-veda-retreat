@@ -3,12 +3,14 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import TripCard from '../components/site/TripCard'
 import MediaGallery from '../components/site/MediaGallery'
 import SectionNav from '../components/site/SectionNav'
 import { Form, Field, TextareaField } from '../components/site/Forms'
 import { TRIPS } from '../data/trips'
+import { CONTACT } from '../data/site'
 import { srilanka, SRILANKA_LINKS } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
@@ -201,25 +203,30 @@ export default function VedaTravel() {
                 </div>
             </Section>
 
-            <Section id="devis" tone="light" title={t('travel.customTitle')} lead={t('travel.customLead')}>
+            <Section
+                id="devis"
+                title={t('travel.customTitle')}
+                lead={t('travel.customLead')}
+                background={SRILANKA_MEDIA['veda-travel']?.[3]}
+            >
                 {/* Bloc « Request Our Brochure » de la page source */}
-                <div className="mb-14 max-w-3xl rounded-3xl border border-veda-dark/10 bg-white p-8 shadow-card">
+                <div className="mb-14 max-w-3xl rounded-3xl border border-white/10 bg-veda-dark/60 p-8 backdrop-blur-md">
                     <h3 className="font-heading text-2xl">{c.brochureTitle}</h3>
-                    <p className="mt-3 text-sm font-light leading-relaxed text-veda-dark/70">
+                    <p className="mt-3 text-sm font-light leading-relaxed text-veda-light/70">
                         {c.brochureText}
                     </p>
                     <a
                         href={SRILANKA_LINKS.retreatRatesPdf}
                         target="_blank"
                         rel="noreferrer"
-                        className="mt-6 inline-flex items-center gap-3 rounded-full border border-veda-dark/30 px-7 py-3 text-xs font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-veda-dark hover:text-veda-light"
+                        className="mt-6 inline-flex items-center gap-3 rounded-full border border-veda-gold/50 px-7 py-3 text-xs font-bold uppercase tracking-widest text-veda-gold transition-colors duration-300 hover:bg-veda-gold hover:text-veda-dark"
                     >
                         <Download className="h-4 w-4" />
                         {c.brochureCta}
                     </a>
                 </div>
 
-                <div className="max-w-2xl rounded-3xl bg-veda-dark p-8 text-veda-light md:p-12">
+                <div className="max-w-2xl rounded-3xl border border-white/10 bg-veda-dark/60 p-8 backdrop-blur-md md:p-12">
                     <Form formType="quote-travel" submitLabel={t('common.quote')}>
                         <div className="grid gap-6 sm:grid-cols-2">
                             <Field label={t('contact.fields.name')} name="name" required />
@@ -240,6 +247,17 @@ export default function VedaTravel() {
             <Section title={t('travel.testimonialsTitle')}>
                 <ContentGap id="reviews" className="max-w-3xl" />
             </Section>
+
+            <CtaSection
+                eyebrow={t('cta.eyebrow')}
+                title={t('cta.travelTitle')}
+                accent={t('cta.travelAccent')}
+                lead={t('cta.travelLead')}
+                primary={{ label: t('common.quote'), to: '#devis' }}
+                secondary={{ label: t('common.whatsapp'), href: CONTACT.whatsappHref }}
+                image={SRILANKA_MEDIA['veda-travel'][2]}
+            />
+
         </>
     )
 }

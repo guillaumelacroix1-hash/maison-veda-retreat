@@ -3,9 +3,11 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import { Form, Field, TextareaField } from '../components/site/Forms'
 import { srilanka, SRILANKA_ADDRESS } from '../data/srilankaContent'
+import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 import { CONTACT } from '../data/site'
 
@@ -114,6 +116,17 @@ export default function Contact() {
                     ))}
                 </div>
             </Section>
+
+            <CtaSection
+                eyebrow={t('cta.eyebrow')}
+                title={t('cta.contactTitle')}
+                accent={t('cta.contactAccent')}
+                lead={t('cta.contactLead')}
+                primary={{ label: t('common.whatsapp'), href: SRILANKA_ADDRESS.whatsappHref }}
+                secondary={{ label: CONTACT.email, href: `mailto:${CONTACT.email}` }}
+                image={SRILANKA_MEDIA.galerie[4]}
+            />
+
         </>
     )
 }
