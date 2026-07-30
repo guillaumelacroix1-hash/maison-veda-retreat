@@ -5,6 +5,7 @@ import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
+import SectionNav from '../components/site/SectionNav'
 import { srilanka, SRILANKA_LINKS } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
@@ -92,28 +93,69 @@ export default function LieuHebergements() {
                 image={MEDIA.venue}
             />
 
-            {/* Présentation du lieu, reprise de la page source */}
-            <Section title={c.welcome.title}>
-                <div className="grid gap-12 lg:grid-cols-2">
-                    <div className="space-y-5">
-                        {c.welcome.paragraphs.slice(0, 3).map((p) => (
-                            <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
-                                {p}
-                            </p>
-                        ))}
+            <SectionNav
+                items={[
+                    { id: 'le-lieu', label: t('venue.navPlace') },
+                    { id: 'hebergements', label: t('venue.navLodgings') },
+                    { id: 'tarifs', label: t('venue.navRates') },
+                    { id: 'reserver', label: t('venue.navBooking') },
+                    { id: 'alentours', label: t('venue.navAround') },
+                    { id: 'galerie', label: t('venue.navGallery') },
+                ]}
+            />
+
+            <div className="scroll-offset">
+            {/* Présentation du lieu : le texte tient sur deux colonnes, la troisième
+                laisse respirer une image verticale. */}
+            <Section id="le-lieu" title={c.welcome.title}>
+                <div className="grid gap-12 lg:grid-cols-[2fr,1fr]">
+                    <div className="grid gap-10 sm:grid-cols-2">
+                        <div className="space-y-5">
+                            {c.welcome.paragraphs.slice(0, 3).map((p) => (
+                                <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
+                                    {p}
+                                </p>
+                            ))}
+                        </div>
+                        <div className="space-y-5">
+                            {c.welcome.paragraphs.slice(3).map((p) => (
+                                <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
+                                    {p}
+                                </p>
+                            ))}
+                        </div>
                     </div>
-                    <div className="space-y-5">
-                        {c.welcome.paragraphs.slice(3).map((p) => (
-                            <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
-                                {p}
-                            </p>
-                        ))}
-                    </div>
+
+                    {SRILANKA_MEDIA.nav?.[4] && (
+                        <div className="hidden overflow-hidden rounded-3xl lg:block">
+                            <img
+                                src={SRILANKA_MEDIA.nav[4].src}
+                                alt={SRILANKA_MEDIA.nav[4].alt || ''}
+                                loading="lazy"
+                                className="h-full w-full object-cover"
+                            />
+                        </div>
+                    )}
                 </div>
+
+                {/* Bandeau de chiffres clés : la page annonce ce qu'elle est en un coup d'œil */}
+                <dl className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-veda-gold/20 bg-veda-gold/20 sm:grid-cols-4">
+                    {[
+                        { n: '2', l: lang === 'en' ? 'villas' : 'villas' },
+                        { n: '7', l: lang === 'en' ? 'beds on site' : 'lits sur place' },
+                        { n: '15', l: lang === 'en' ? 'guests with the villas nearby' : 'personnes avec les villas voisines' },
+                        { n: '80 m²', l: lang === 'en' ? 'rooftop yoga shala' : 'de shala sur le toit' },
+                    ].map((s) => (
+                        <div key={s.l} className="bg-veda-dark px-6 py-8 text-center">
+                            <dt className="font-heading text-4xl text-veda-gold">{s.n}</dt>
+                            <dd className="mt-2 text-xs font-light leading-snug text-veda-light/60">{s.l}</dd>
+                        </div>
+                    ))}
+                </dl>
             </Section>
 
             {/* Les trois espaces */}
-            <Section tone="light" title={c.offer.title}>
+            <Section id="hebergements" tone="light" title={c.offer.title}>
                 {SRILANKA_MEDIA.accueil?.[0] && (
                     <div className="mb-16 aspect-[21/9] overflow-hidden rounded-3xl">
                         <img
@@ -143,59 +185,63 @@ export default function LieuHebergements() {
                 />
             </Section>
 
-            {/* Tarifs réels relevés sur la page source */}
-            <Section title={c.prices.title} lead={c.prices.subtitle}>
-                <div className="overflow-x-auto">
-                    <table className="w-full min-w-[560px] border-collapse text-left">
-                        <thead>
-                            <tr className="border-b border-veda-gold/30">
-                                <th className="pb-4 pr-6 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                                    {c.prices.colAccommodation}
-                                </th>
-                                <th className="pb-4 text-right text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                                    {c.prices.colPrice}
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {c.prices.rows.map((row) => (
-                                <tr key={row.name} className="border-b border-white/10">
-                                    <td className="py-6 pr-6">
-                                        <p className="font-heading text-xl">{row.name}</p>
-                                        <p className="mt-2 max-w-lg text-sm font-light leading-relaxed text-veda-light/60">
-                                            {row.detail}
-                                        </p>
-                                    </td>
-                                    <td className="py-6 text-right align-top">
-                                        <span className="font-heading text-3xl text-veda-gold">{row.price} €</span>
-                                        <span className="mt-1 block text-xs font-light text-veda-light/50">
-                                            {t('common.perNight')}
-                                        </span>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-
-                <p className="mt-6 text-sm font-light italic text-veda-light/60">{c.prices.note}</p>
-
+            {/* Tarifs : un tableau se lisait mal et n'avait aucun relief. Trois cartes
+                superposées à une photo de la maison, la formule complète mise en avant. */}
+            <Section id="tarifs" title={c.prices.title} lead={c.prices.subtitle} className="relative overflow-hidden">
                 {SRILANKA_MEDIA.tarifs?.[0] && (
-                    <div className="mt-12 aspect-[21/9] overflow-hidden rounded-3xl">
+                    <>
                         <img
                             src={SRILANKA_MEDIA.tarifs[0].src}
-                            alt={SRILANKA_MEDIA.tarifs[0].alt || ''}
+                            alt=""
                             loading="lazy"
-                            className="h-full w-full object-cover"
+                            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20"
                         />
-                    </div>
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-veda-dark via-veda-dark/85 to-veda-dark" />
+                    </>
                 )}
 
-                <ContentGap id="season-rates" className="mt-10 max-w-3xl" />
+                <div className="relative grid gap-6 lg:grid-cols-3">
+                    {c.prices.rows.map((row, index) => {
+                        const isFull = index === c.prices.rows.length - 1
+                        return (
+                            <article
+                                key={row.name}
+                                className={`group relative flex flex-col rounded-3xl border p-8 backdrop-blur-sm transition-all duration-500 ${
+                                    isFull
+                                        ? 'border-veda-gold/60 bg-veda-gold/10 lg:-translate-y-3'
+                                        : 'border-white/10 bg-white/[0.04] hover:border-veda-gold/40'
+                                }`}
+                            >
+                                {isFull && (
+                                    <span className="absolute -top-3 left-8 rounded-full bg-veda-gold px-4 py-1 text-[10px] font-bold uppercase tracking-[0.15em] text-veda-dark">
+                                        {lang === 'en' ? 'Whole house' : 'Toute la maison'}
+                                    </span>
+                                )}
+
+                                <h3 className="font-heading text-2xl">{row.name}</h3>
+
+                                <div className="mt-6 flex items-baseline gap-2">
+                                    <span className="font-heading text-5xl text-veda-gold">{row.price}</span>
+                                    <span className="font-heading text-2xl text-veda-gold">€</span>
+                                    <span className="ml-1 text-xs font-light text-veda-light/50">
+                                        {t('common.perNight')}
+                                    </span>
+                                </div>
+
+                                <p className="mt-6 flex-1 text-sm font-light leading-relaxed text-veda-light/60">
+                                    {row.detail}
+                                </p>
+                            </article>
+                        )
+                    })}
+                </div>
+
+                <p className="relative mt-10 text-sm font-light italic text-veda-light/60">{c.prices.note}</p>
+                <ContentGap id="season-rates" className="relative mt-8 max-w-3xl" />
             </Section>
 
             {/* Les trois façons de réserver */}
-            <Section tone="light" title={t('venue.bookCta')}>
+            <Section id="reserver" tone="light" title={t('venue.bookCta')}>
                 <div className="grid gap-8 md:grid-cols-3">
                     {c.prices.booking.map((option, index) => {
                         const href = [SRILANKA_LINKS.revolut, SOCIAL.airbnb, SOCIAL.booking][index]
@@ -283,7 +329,7 @@ export default function LieuHebergements() {
             </Section>
 
             {/* Que faire autour, avec les 11 activités de la page source */}
-            <Section tone="light" title={c.around.title}>
+            <Section id="alentours" tone="light" title={c.around.title}>
                 <div className="grid gap-10 lg:grid-cols-2">
                     <div className="space-y-5">
                         {c.around.paragraphs.slice(0, 2).map((p) => (
@@ -327,9 +373,10 @@ export default function LieuHebergements() {
             </Section>
 
             {/* Galerie générale */}
-            <Section title={c.gallery.title}>
+            <Section id="galerie" title={c.gallery.title}>
                 <MediaGallery images={SRILANKA_MEDIA.galerie} initial={8} />
             </Section>
+            </div>
         </>
     )
 }

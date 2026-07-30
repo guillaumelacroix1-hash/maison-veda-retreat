@@ -5,6 +5,7 @@ import PageMeta from '../components/site/PageMeta'
 import Section from '../components/site/Section'
 import RetreatCard from '../components/site/RetreatCard'
 import TripCard from '../components/site/TripCard'
+import SectionCards from '../components/site/SectionCards'
 import ContentGap from '../components/site/ContentGap'
 import { NewsletterForm } from '../components/site/Forms'
 import { upcomingRetreats } from '../data/retreats'
@@ -59,7 +60,51 @@ export default function Accueil() {
                 </div>
             </section>
 
-            {/* 2. Prochaines retraites */}
+            {/* 2. Cartes-portails vers les grandes sections, comme sur le site source.
+                   Fond crème pour trancher franchement avec le hero sombre. */}
+            <Section
+                tone="light"
+                eyebrow={t('home.exploreEyebrow')}
+                title={t('home.exploreTitle')}
+                accent={t('home.exploreAccent')}
+            >
+                <SectionCards
+                    items={[
+                        {
+                            to: path('venue'),
+                            label: t('home.cards.vacations'),
+                            caption: t('home.cards.vacationsCaption'),
+                            image: SRILANKA_MEDIA.nav[0],
+                        },
+                        {
+                            to: path('retreats'),
+                            label: t('home.cards.retreats'),
+                            caption: t('home.cards.retreatsCaption'),
+                            image: SRILANKA_MEDIA.nav[1],
+                        },
+                        {
+                            to: path('travel'),
+                            label: t('home.cards.travel'),
+                            caption: t('home.cards.travelCaption'),
+                            image: SRILANKA_MEDIA.nav[2],
+                        },
+                        {
+                            to: path('studio'),
+                            label: t('home.cards.studio'),
+                            caption: t('home.cards.studioCaption'),
+                            image: SRILANKA_MEDIA.nav[3],
+                        },
+                        {
+                            to: path('story'),
+                            label: t('home.cards.story'),
+                            caption: t('home.cards.storyCaption'),
+                            image: SRILANKA_MEDIA.nav[4],
+                        },
+                    ]}
+                />
+            </Section>
+
+            {/* 3. Prochaines retraites */}
             <Section
                 eyebrow={t('nav.retreats')}
                 title={t('home.upcomingTitle')}

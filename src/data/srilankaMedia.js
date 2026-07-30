@@ -15,6 +15,20 @@
  */
 
 export const SRILANKA_MEDIA = {
+    /**
+     * Visuels des cartes de navigation du site source. Ils étaient portés par un
+     * attribut data-nectar-img-src sur une div, pas par une balise <img> :
+     * la première extraction les avait manqués.
+     */
+    'nav': [
+        { src: '/srilanka/nav/eb72a713-56a3-4d18-a631-9563e78c7c12.jpg', alt: 'Le jardin et le hamac de la Lake House' },
+        { src: '/srilanka/nav/whatsapp-image-2025-08-09-at-08.57.09-1.jpg', alt: 'Pratique de yoga face au lac' },
+        { src: '/srilanka/nav/6ac6fabf-9afd-4169-8884-6a4508a71375.jpg', alt: 'Pirogues sur une plage du sud du Sri Lanka' },
+        { src: '/srilanka/nav/d7ae569d-2e97-49d9-9185-63a2a5245e55.jpg', alt: 'Cours de Kundalini au shala' },
+        { src: '/srilanka/nav/a4889f9f-518b-4890-83f2-56395aec4694.jpg', alt: 'La maison au bord du lac de Koggala' },
+        { src: '/srilanka/nav/80d77856-e8dd-42ad-946d-2ec7236215fb.jpg' },
+        { src: '/srilanka/nav/f3f86797-af61-477a-9953-02a180cc687c.jpg' },
+    ],
     'entete': [
         { src: '/srilanka/entete/logo-veda-sri-lanka.jpg' },
     ],

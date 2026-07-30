@@ -33,12 +33,11 @@ export default function Header() {
         const element = headerRef.current
         if (!element) return
 
-        let frame = 0
+        // Publication synchrone : requestAnimationFrame ne s'exécute pas dans un
+        // onglet en arrière-plan, et la variable resterait alors absente pour une
+        // page ouverte dans un nouvel onglet.
         const publishHeight = () => {
-            cancelAnimationFrame(frame)
-            frame = requestAnimationFrame(() => {
-                document.documentElement.style.setProperty('--header-h', `${element.offsetHeight}px`)
-            })
+            document.documentElement.style.setProperty('--header-h', `${element.offsetHeight}px`)
         }
 
         publishHeight()
@@ -51,7 +50,6 @@ export default function Header() {
         document.fonts?.ready.then(publishHeight)
 
         return () => {
-            cancelAnimationFrame(frame)
             observer.disconnect()
             window.removeEventListener('resize', publishHeight)
             window.removeEventListener('scroll', publishHeight)
