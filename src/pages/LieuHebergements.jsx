@@ -186,20 +186,13 @@ export default function LieuHebergements() {
 
             {/* Tarifs : un tableau se lisait mal et n'avait aucun relief. Trois cartes
                 superposées à une photo de la maison, la formule complète mise en avant. */}
-            <Section id="tarifs" title={c.prices.title} lead={c.prices.subtitle} className="relative overflow-hidden">
-                {SRILANKA_MEDIA.tarifs?.[0] && (
-                    <>
-                        <img
-                            src={SRILANKA_MEDIA.tarifs[0].src}
-                            alt=""
-                            loading="lazy"
-                            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20"
-                        />
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-veda-dark via-veda-dark/85 to-veda-dark" />
-                    </>
-                )}
-
-                <div className="relative grid gap-6 lg:grid-cols-3">
+            <Section
+                id="tarifs"
+                title={c.prices.title}
+                lead={c.prices.subtitle}
+                background={SRILANKA_MEDIA.tarifs?.[0]}
+            >
+                <div className="grid gap-6 lg:grid-cols-3">
                     {c.prices.rows.map((row, index) => {
                         const isFull = index === c.prices.rows.length - 1
                         return (
@@ -235,8 +228,8 @@ export default function LieuHebergements() {
                     })}
                 </div>
 
-                <p className="relative mt-10 text-sm font-light italic text-veda-light/60">{c.prices.note}</p>
-                <ContentGap id="season-rates" className="relative mt-8 max-w-3xl" />
+                <p className="mt-10 text-sm font-light italic text-veda-light/60">{c.prices.note}</p>
+                <ContentGap id="season-rates" className="mt-8 max-w-3xl" />
             </Section>
 
             {/* Les trois façons de réserver */}

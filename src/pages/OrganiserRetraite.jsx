@@ -38,9 +38,11 @@ export default function OrganiserRetraite() {
                     ))}
                 </div>
 
-                {/* Capacités et argument du lieu, côte à côte avec une photo */}
-                <div className="mt-16 grid gap-12 lg:grid-cols-[1fr,1.1fr]">
-                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+                {/* Capacités et argument du lieu, côte à côte avec une photo.
+                    `content-start` empêche les blocs de s'étirer sur la hauteur de
+                    l'image : ils gardaient sinon un grand vide sous leur texte. */}
+                <div className="mt-16 grid items-start gap-12 lg:grid-cols-[1fr,1.1fr]">
+                    <div className="grid content-start gap-4 sm:grid-cols-2 lg:grid-cols-1">
                         {[
                             { icon: Home, label: t('host.capacityOnSite') },
                             { icon: Users, label: t('host.capacityExtended') },
@@ -48,21 +50,21 @@ export default function OrganiserRetraite() {
                         ].map(({ icon: Icon, label }) => (
                             <div
                                 key={label}
-                                className="flex items-start gap-5 rounded-3xl border border-veda-gold/20 bg-white/[0.03] p-7 transition-colors duration-500 hover:border-veda-gold/50"
+                                className="flex items-center gap-5 rounded-2xl border border-veda-gold/20 bg-white/[0.03] px-6 py-5 transition-colors duration-500 hover:border-veda-gold/50"
                             >
-                                <Icon className="mt-1 h-6 w-6 shrink-0 text-veda-gold" />
+                                <Icon className="h-6 w-6 shrink-0 text-veda-gold" />
                                 <p className="font-heading text-xl leading-snug">{label}</p>
                             </div>
                         ))}
                     </div>
 
-                    {SRILANKA_MEDIA['yoga-shala']?.[0] && (
-                        <div className="overflow-hidden rounded-3xl">
+                    {SRILANKA_MEDIA['yoga-shala']?.[4] && (
+                        <div className="aspect-[4/3] overflow-hidden rounded-3xl">
                             <img
-                                src={SRILANKA_MEDIA['yoga-shala'][0].src}
-                                alt={SRILANKA_MEDIA['yoga-shala'][0].alt || ''}
+                                src={SRILANKA_MEDIA['yoga-shala'][4].src}
+                                alt={SRILANKA_MEDIA['yoga-shala'][4].alt || ''}
                                 loading="lazy"
-                                className="h-full min-h-[320px] w-full object-cover"
+                                className="h-full w-full object-cover"
                             />
                         </div>
                     )}

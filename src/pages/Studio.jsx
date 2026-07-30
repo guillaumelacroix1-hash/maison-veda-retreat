@@ -95,19 +95,12 @@ export default function Studio() {
             </Section>
 
             {/* Appel à l'action final, posé sur une photo du lieu */}
-            <Section title={t('studio.cafeTitle')} lead={t('studio.cafeLead')} className="relative overflow-hidden">
-                {SRILANKA_MEDIA.nav?.[3] && (
-                    <>
-                        <img
-                            src={SRILANKA_MEDIA.nav[3].src}
-                            alt=""
-                            loading="lazy"
-                            className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
-                        />
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-veda-dark via-veda-dark/90 to-veda-dark/60" />
-                    </>
-                )}
-                <div className="relative flex flex-wrap gap-5">
+            <Section
+                title={t('studio.cafeTitle')}
+                lead={t('studio.cafeLead')}
+                background={SRILANKA_MEDIA.nav?.[3]}
+            >
+                <div className="flex flex-wrap gap-5">
                     <a
                         href={CONTACT.whatsappHref}
                         target="_blank"

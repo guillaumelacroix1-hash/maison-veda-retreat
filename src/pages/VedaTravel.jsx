@@ -149,16 +149,56 @@ export default function VedaTravel() {
             <Section id="voyages" tone="light" title={t('travel.tripsTitle')} lead={t('travel.tripsLead')}>
                 <div className="grid gap-8 md:grid-cols-2">
                     {TRIPS.map((trip) => (
-                        <TripCard key={trip.slug} trip={trip} />
+                        <TripCard key={trip.slug} trip={trip} tone="light" />
                     ))}
                 </div>
             </Section>
 
-            <Section id="tarifs" title={t('travel.pricingTitle')} lead={t('travel.pricingNote')}>
-                <ul className="max-w-3xl space-y-4 text-base font-light leading-relaxed text-veda-light/70">
-                    <li className="border-l-2 border-veda-gold/40 pl-5">{t('travel.pricingGroups')}</li>
-                    <li className="border-l-2 border-veda-gold/40 pl-5">{t('travel.pricingFamily')}</li>
-                </ul>
+            {/* Deux formules en cartes sur une photo de fond : la section n'était
+                qu'un titre et deux lignes perdus dans une pleine hauteur. */}
+            <Section
+                id="tarifs"
+                title={t('travel.pricingTitle')}
+                lead={t('travel.pricingNote')}
+                background={SRILANKA_MEDIA['veda-travel']?.[1]}
+            >
+                <div className="grid gap-6 lg:grid-cols-2">
+                    <article className="rounded-3xl border border-veda-gold/50 bg-veda-gold/10 p-8 backdrop-blur-sm">
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                            {lang === 'en' ? 'Group journeys' : 'Voyages en groupe'}
+                        </p>
+                        <div className="mt-5 flex items-baseline gap-2">
+                            <span className="font-heading text-5xl text-veda-gold">100</span>
+                            <span className="font-heading text-2xl text-veda-gold">à</span>
+                            <span className="font-heading text-5xl text-veda-gold">150 €</span>
+                        </div>
+                        <p className="mt-2 text-xs font-light text-veda-light/60">
+                            {lang === 'en' ? 'per day, per person' : 'par jour et par personne'}
+                        </p>
+                        <p className="mt-6 text-sm font-light leading-relaxed text-veda-light/70">
+                            {lang === 'en'
+                                ? 'All inclusive, entrance tickets included. The rate depends on group size, and therefore on the vehicle.'
+                                : 'Tout inclus, billets d\'entrée compris. Le tarif dépend de la taille du groupe, donc du véhicule.'}
+                        </p>
+                    </article>
+
+                    <article className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm">
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                            {lang === 'en' ? 'Family journey' : 'Voyage en famille'}
+                        </p>
+                        <div className="mt-5">
+                            <span className="font-heading text-4xl text-veda-light">{t('common.onQuote')}</span>
+                        </div>
+                        <p className="mt-2 text-xs font-light text-veda-light/60">
+                            {lang === 'en' ? 'depending on vehicle and family size' : 'selon le véhicule et la taille de la famille'}
+                        </p>
+                        <p className="mt-6 text-sm font-light leading-relaxed text-veda-light/70">
+                            {lang === 'en'
+                                ? 'Activities are paid on site, to keep day-to-day flexibility with children.'
+                                : 'Les activités sont réglées sur place, pour garder la souplesse au jour le jour avec des enfants.'}
+                        </p>
+                    </article>
+                </div>
             </Section>
 
             <Section id="devis" tone="light" title={t('travel.customTitle')} lead={t('travel.customLead')}>

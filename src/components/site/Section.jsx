@@ -10,6 +10,8 @@ export default function Section({
     accent,
     lead,
     tone = 'dark',
+    /** Photo d'ambiance en fond de section : { src, alt }. */
+    background,
     className = '',
     children,
 }) {
@@ -20,11 +22,36 @@ export default function Section({
             id={id}
             // Une section porteuse d'ancre se décale d'elle-même sous l'en-tête fixe
             // et la barre de navigation interne, sans que la page ait à s'en occuper.
-            className={`px-6 py-24 md:py-32 ${id ? 'scroll-anchor' : ''} ${
-                isLight ? 'bg-veda-cream text-veda-dark' : 'bg-veda-dark text-veda-light'
-            } ${className}`}
+            className={`px-6 py-24 md:py-32 ${background ? 'relative overflow-hidden' : ''} ${
+                id ? 'scroll-anchor' : ''
+            } ${isLight ? 'bg-veda-cream text-veda-dark' : 'bg-veda-dark text-veda-light'} ${className}`}
         >
-            <div className="mx-auto max-w-container">
+            {/* Le fond est rendu ici, avant le contenu : posé depuis `children`,
+                il recouvrait le titre et le rendait illisible. */}
+            {background && (
+                <>
+                    <img
+                        src={background.src}
+                        alt=""
+                        loading="lazy"
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20"
+                    />
+                    <div
+                        aria-hidden="true"
+                        className={`pointer-events-none absolute inset-0 ${
+                            isLight
+                                ? 'bg-gradient-to-b from-veda-cream via-veda-cream/85 to-veda-cream'
+                                : 'bg-gradient-to-b from-veda-dark via-veda-dark/85 to-veda-dark'
+                        }`}
+                    />
+                </>
+            )}
+
+            {/* `relative` garde le contenu au-dessus des images de fond que
+                certaines sections posent en absolu : sans cela, le titre passait
+                dessous et devenait illisible. */}
+            <div className="relative mx-auto max-w-container">
                 {(eyebrow || title || lead) && (
                     <div className="mb-14 max-w-3xl md:mb-20">
                         {eyebrow && (
