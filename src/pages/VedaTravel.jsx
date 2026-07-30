@@ -145,14 +145,8 @@ export default function VedaTravel() {
 
             <Section title={t('travel.pricingTitle')} lead={t('travel.pricingNote')}>
                 <ul className="max-w-3xl space-y-4 text-base font-light leading-relaxed text-veda-light/70">
-                    <li className="border-l-2 border-veda-gold/40 pl-5">
-                        Voyages en groupe : 100 à 150 € par jour et par personne, tout inclus, billets
-                        d'entrée compris. Le tarif dépend de la taille du groupe, donc du véhicule.
-                    </li>
-                    <li className="border-l-2 border-veda-gold/40 pl-5">
-                        Voyage en famille : sur devis, avec les activités réglées sur place pour garder
-                        la souplesse au jour le jour.
-                    </li>
+                    <li className="border-l-2 border-veda-gold/40 pl-5">{t('travel.pricingGroups')}</li>
+                    <li className="border-l-2 border-veda-gold/40 pl-5">{t('travel.pricingFamily')}</li>
                 </ul>
             </Section>
 
@@ -185,7 +179,7 @@ export default function VedaTravel() {
                                 label={t('contact.fields.message')}
                                 name="message"
                                 className="sm:col-span-2"
-                                placeholder="Ce que vous aimeriez voir, le rythme souhaité, la durée..."
+                                placeholder={t('travel.customPlaceholder')}
                             />
                         </div>
                     </Form>
