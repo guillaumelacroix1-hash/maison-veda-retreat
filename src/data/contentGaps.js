@@ -21,11 +21,11 @@ export const OWNERS = {
 }
 
 export const CONTENT_GAPS = {
-    'nightly-rates': {
-        fr: 'Montants des tarifs de nuitée, haute et basse saison.',
-        en: 'Nightly rates for high and low season.',
+    'season-rates': {
+        fr: 'Les tarifs de nuitée affichés (70 €, 100 €, 200 €) sont ceux relevés sur le site actuel, sans distinction de saison. Le cahier des charges prévoit une haute saison de novembre à avril et une basse saison : les montants de chacune restent à fournir.',
+        en: 'The nightly rates shown (€70, €100, €200) are those found on the current site, with no seasonal distinction. The brief provides for a high season from November to April and a low season: the rates for each are still to be supplied.',
         owner: OWNERS.aurelie,
-        ref: '§12',
+        ref: '§7, §12',
     },
     'retreat-balance': {
         fr: 'Conditions de paiement à trancher : la page retraite annonce un acompte de 500 € par virement, un solde au 15 janvier et un remboursement si un remplacement est trouvé. Le cahier des charges prévoit un acompte de 30 % payé en ligne, non remboursable mais transférable. Les deux ne peuvent pas coexister.',
