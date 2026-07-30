@@ -6,13 +6,14 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import Section from '../components/site/Section'
 import RetreatCard from '../components/site/RetreatCard'
+import RetreatFeature from '../components/site/RetreatFeature'
 import TripCard from '../components/site/TripCard'
 import SectionCards from '../components/site/SectionCards'
-import ContentGap from '../components/site/ContentGap'
 import { NewsletterForm } from '../components/site/Forms'
 import { upcomingRetreats } from '../data/retreats'
 import { TRIPS } from '../data/trips'
 import { srilanka } from '../data/srilankaContent'
+import { SOCIAL } from '../data/site'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 
@@ -135,11 +136,17 @@ export default function Accueil() {
                 title={t('home.upcomingTitle')}
                 lead={t('home.upcomingLead')}
             >
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {upcoming.map((retreat) => (
-                        <RetreatCard key={retreat.slug} retreat={retreat} />
-                    ))}
-                </div>
+                {/* Une seule retraite programmée : elle occupe toute la largeur plutôt
+                    que de flotter seule dans une grille de trois colonnes. */}
+                {upcoming.length === 1 ? (
+                    <RetreatFeature retreat={upcoming[0]} />
+                ) : (
+                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        {upcoming.map((retreat) => (
+                            <RetreatCard key={retreat.slug} retreat={retreat} />
+                        ))}
+                    </div>
+                )}
                 <Link
                     to={path('retreats')}
                     className="mt-12 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-veda-gold transition-colors hover:text-white"
@@ -179,13 +186,40 @@ export default function Accueil() {
                 </Link>
             </Section>
 
-            {/* 4. Le studio */}
+            {/* 4. Le studio. Les pratiques réelles, pas l'encart interne :
+                   l'accueil n'est pas l'endroit pour afficher nos notes de travail. */}
             <Section
                 eyebrow={t('nav.studio')}
                 title={t('home.studioTitle')}
                 lead={t('home.studioLead')}
             >
-                <ContentGap id="studio-schedule" className="max-w-3xl" />
+                <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+                    <ul className="flex flex-wrap gap-2.5">
+                        {(lang === 'en'
+                            ? ['Daily Kundalini', 'Celestial Communication', 'Mantras & Meditation', 'Breathwork', 'Japa', 'Kirtan with musicians', 'Gong bath', 'Monthly Sadhana']
+                            : ['Kundalini quotidien', 'Celestial Communication', 'Mantras & méditation', 'Breathwork', 'Japa', 'Kirtan avec musiciens', 'Bain de gong', 'Sadhana mensuelle']
+                        ).map((p) => (
+                            <li
+                                key={p}
+                                className="rounded-full border border-veda-gold/30 px-5 py-2.5 text-sm font-light text-veda-light/80"
+                            >
+                                {p}
+                            </li>
+                        ))}
+                    </ul>
+
+                    {SRILANKA_MEDIA['yoga-shala']?.[3] && (
+                        <div className="aspect-[4/3] overflow-hidden rounded-3xl">
+                            <img
+                                src={SRILANKA_MEDIA['yoga-shala'][3].src}
+                                alt={SRILANKA_MEDIA['yoga-shala'][3].alt || ''}
+                                loading="lazy"
+                                className="h-full w-full object-cover"
+                            />
+                        </div>
+                    )}
+                </div>
+
                 <Link
                     to={path('studio')}
                     className="mt-12 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-veda-gold transition-colors hover:text-white"
@@ -195,18 +229,49 @@ export default function Accueil() {
             </Section>
 
             {/* 5. Organiser votre retraite ici */}
+            {/* Bloc organisateurs : deux images décalées équilibrent le texte,
+                   au lieu d'une colonne pleine face à une colonne vide. */}
             <Section tone="light" eyebrow={t('nav.host')} title={t('home.hostTitle')} lead={t('home.hostLead')}>
-                <div className="grid items-center gap-12 md:grid-cols-2">
-                    <div className="aspect-[4/3] overflow-hidden rounded-3xl">
-                        <img src={MEDIA.host} alt="" loading="lazy" className="h-full w-full object-cover" />
+                <div className="grid items-center gap-12 lg:grid-cols-2">
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="aspect-[3/4] overflow-hidden rounded-3xl">
+                            <img
+                                src={SRILANKA_MEDIA['yoga-shala'][0].src}
+                                alt={SRILANKA_MEDIA['yoga-shala'][0].alt || ''}
+                                loading="lazy"
+                                className="h-full w-full object-cover"
+                            />
+                        </div>
+                        <div className="mt-10 aspect-[3/4] overflow-hidden rounded-3xl">
+                            <img
+                                src={SRILANKA_MEDIA['lake-loft'][0].src}
+                                alt={SRILANKA_MEDIA['lake-loft'][0].alt || ''}
+                                loading="lazy"
+                                className="h-full w-full object-cover"
+                            />
+                        </div>
                     </div>
+
                     <div>
                         <p className="text-lg font-light leading-relaxed text-veda-dark/70">
                             {t('host.capacityOnSite')}, {t('host.capacityExtended')}.
                         </p>
+
+                        <ul className="mt-8 space-y-3">
+                            {(lang === 'en'
+                                ? ['Full property privatization', 'Minimum stay: 3 nights', 'Daily yoga and meditation included', 'Experiences à la carte']
+                                : ['Privatisation complète de la propriété', 'Séjour minimum : 3 nuits', 'Yoga et méditation quotidiens inclus', 'Expériences à la carte']
+                            ).map((item) => (
+                                <li key={item} className="flex items-start gap-3 text-sm font-light text-veda-dark/80">
+                                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-veda-gold" />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+
                         <Link
                             to={path('host')}
-                            className="mt-8 inline-flex items-center gap-3 rounded-full bg-veda-dark px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-light transition-colors duration-300 hover:bg-black"
+                            className="mt-9 inline-flex items-center gap-3 rounded-full bg-veda-dark px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-light transition-colors duration-300 hover:bg-black"
                         >
                             {t('common.quote')}
                         </Link>
@@ -229,27 +294,74 @@ export default function Accueil() {
                 </Link>
             </Section>
 
-            {/* 7. Témoignages */}
+            {/* 7. Avis. Les témoignages ne sont pas encore rapatriés : plutôt qu'un
+                   encart de travail sur l'accueil, on renvoie vers les avis réels. */}
             <Section tone="light" title={t('home.testimonialsTitle')}>
-                <ContentGap id="reviews" className="max-w-3xl" />
+                <div className="grid gap-12 lg:grid-cols-[1fr,1.2fr] lg:items-center">
+                    <div>
+                        <p className="text-lg font-light leading-relaxed text-veda-dark/70">
+                            {lang === 'en'
+                                ? 'La Maison VEDA has been welcoming travellers for years. Their reviews are on Airbnb, where the house is rated by its guests.'
+                                : 'La Maison VEDA accueille des voyageurs depuis des années. Leurs avis sont sur Airbnb, où la maison est notée par ses hôtes.'}
+                        </p>
+                        <a
+                            href={SOCIAL.airbnb}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="mt-8 inline-flex items-center gap-3 rounded-full border border-veda-dark/30 px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-veda-dark hover:text-veda-light"
+                        >
+                            {t('venue.onAirbnb')}
+                            <ArrowRight className="h-4 w-4" />
+                        </a>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-3">
+                        {SRILANKA_MEDIA.galerie.slice(0, 3).map((img) => (
+                            <div key={img.src} className="aspect-[3/4] overflow-hidden rounded-2xl">
+                                <img
+                                    src={img.src}
+                                    alt={img.alt || ''}
+                                    loading="lazy"
+                                    className="h-full w-full object-cover"
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </Section>
 
             {/* 8. Notre histoire + newsletter */}
             <Section eyebrow={t('nav.story')} title={t('home.storyTitle')}>
-                <div className="max-w-3xl space-y-5">
-                    <p className="text-lg font-light italic leading-relaxed text-veda-gold">
-                        {c.story.paragraphs[0]}
-                    </p>
-                    <p className="text-base font-light leading-relaxed text-veda-light/70">
-                        {c.story.paragraphs[1]}
-                    </p>
+                <div className="grid gap-12 lg:grid-cols-[1.4fr,1fr] lg:items-center">
+                    <div className="space-y-5">
+                        <p className="text-lg font-light italic leading-relaxed text-veda-gold">
+                            {c.story.paragraphs[0]}
+                        </p>
+                        <p className="text-base font-light leading-relaxed text-veda-light/70">
+                            {c.story.paragraphs[1]}
+                        </p>
+                        <Link
+                            to={path('story')}
+                            className="inline-flex items-center gap-2 pt-3 text-xs font-semibold uppercase tracking-widest text-veda-gold transition-colors hover:text-white"
+                        >
+                            {t('common.learnMore')} <ArrowRight className="h-4 w-4" />
+                        </Link>
+                    </div>
+
+                    {SRILANKA_MEDIA.histoire?.[1] && (
+                        <div className="relative">
+                            <div className="aspect-[4/5] overflow-hidden rounded-3xl">
+                                <img
+                                    src={SRILANKA_MEDIA.histoire[1].src}
+                                    alt={SRILANKA_MEDIA.histoire[1].alt || ''}
+                                    loading="lazy"
+                                    className="h-full w-full object-cover"
+                                />
+                            </div>
+                            <div className="pointer-events-none absolute inset-0 -z-10 hidden translate-x-5 translate-y-5 rounded-3xl border border-veda-gold/50 sm:block" />
+                        </div>
+                    )}
                 </div>
-                <Link
-                    to={path('story')}
-                    className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-veda-gold transition-colors hover:text-white"
-                >
-                    {t('common.learnMore')} <ArrowRight className="h-4 w-4" />
-                </Link>
 
                 <div className="mt-20 border-t border-white/10 pt-14">
                     <h3 className="font-heading text-2xl md:text-3xl">{t('home.newsletterTitle')}</h3>

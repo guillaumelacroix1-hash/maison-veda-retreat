@@ -7,9 +7,9 @@ import { ArrowUpRight } from 'lucide-react'
  * Reprend le principe des cartes du site source (VACATIONS, RETREATS,
  * VEDA TRAVEL, KUNDALINI YOGA, OUR STORY), en gardant leurs visuels.
  *
- * L'image est en noir et blanc au repos et retrouve ses couleurs au survol :
- * la couleur signale l'élément visé sans avoir besoin d'un cadre ni d'un
- * changement de fond.
+ * Les images restent en couleur : le Sri Lanka se vend par ses couleurs, et
+ * une grille désaturée donnait au site un air éteint. Le survol assombrit
+ * légèrement et fait monter la légende.
  *
  * @param {{to: string, label: string, caption?: string, image: {src,alt}}[]} items
  */
@@ -32,11 +32,12 @@ export default function SectionCards({ items, className = '' }) {
                                 src={item.image.src}
                                 alt={item.image.alt || ''}
                                 loading="lazy"
-                                className="absolute inset-0 h-full w-full object-cover grayscale transition-all duration-[1200ms] ease-soft group-hover:scale-105 group-hover:grayscale-0"
+                                className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-soft group-hover:scale-105"
                             />
                         )}
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-veda-dark via-veda-dark/50 to-veda-dark/10 transition-opacity duration-700 group-hover:from-veda-dark/95 group-hover:via-veda-dark/25" />
+                        {/* Dégradé qui garde le titre lisible sans éteindre la photo */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-veda-dark via-veda-dark/35 to-transparent transition-all duration-700 group-hover:from-veda-dark group-hover:via-veda-dark/55" />
 
                         {/* Liseré doré qui se révèle au survol */}
                         <div className="pointer-events-none absolute inset-0 rounded-3xl border border-veda-gold/0 transition-colors duration-500 group-hover:border-veda-gold/60" />

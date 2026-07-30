@@ -10,7 +10,9 @@ const LAKE_HOUSE = '/images/carousels/maison-veda/lake-house'
 const LAKE_LOFT = '/images/carousels/maison-veda/lake-loft'
 
 export const MEDIA = {
-    home: `${LAKE_HOUSE}/IMG_0343.JPEG`,
+    // Le shala en pleine pratique, face au lac : c'est ce que le lieu vend.
+    // (Une photo de chambre en hero ne donnait envie de rien.)
+    home: '/srilanka/histoire/img_9658-1.jpg',
     retreats: '/new_image/yoga.jpg',
     host: `${LAKE_HOUSE}/IMG_9684.JPEG`,
     studio: `${LAKE_HOUSE}/IMG_1126.JPEG`,
