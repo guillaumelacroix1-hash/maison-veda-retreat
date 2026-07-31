@@ -104,7 +104,7 @@ export default function Contact() {
                 </div>
             </Section>
 
-            <Section tone="light" title={t('contact.faqTitle')}>
+            <Section tone="light" ornament="left" title={t('contact.faqTitle')} accent={t('contact.faqAccent')}>
                 <div className="space-y-10">
                     {[t('contact.faqTravel'), t('contact.faqOnSite'), t('contact.faqPractice')].map((family) => (
                         <div key={family}>

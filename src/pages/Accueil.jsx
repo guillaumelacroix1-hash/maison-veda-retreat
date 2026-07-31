@@ -10,6 +10,8 @@ import RetreatCard from '../components/site/RetreatCard'
 import RetreatFeature from '../components/site/RetreatFeature'
 import TripCard from '../components/site/TripCard'
 import SectionCards from '../components/site/SectionCards'
+import Testimonials from '../components/site/Testimonials'
+import ImageSlider from '../components/site/ImageSlider'
 import { NewsletterForm } from '../components/site/Forms'
 import { upcomingRetreats } from '../data/retreats'
 import { TRIPS } from '../data/trips'
@@ -91,6 +93,7 @@ export default function Accueil() {
                    Fond crème pour trancher franchement avec le hero sombre. */}
             <Section
                 tone="light"
+                ornament="left"
                 eyebrow={t('home.exploreEyebrow')}
                 title={t('home.exploreTitle')}
                 accent={t('home.exploreAccent')}
@@ -163,22 +166,14 @@ export default function Accueil() {
                 title={c.welcome.title}
                 lead={c.welcome.paragraphs[0]}
             >
-                <div className="grid gap-4 md:grid-cols-3">
-                    {[
-                        SRILANKA_MEDIA['lake-house'][0],
-                        SRILANKA_MEDIA['lake-loft'][0],
-                        SRILANKA_MEDIA['yoga-shala'][0],
-                    ].map((image) => (
-                        <div key={image.src} className="aspect-[4/5] overflow-hidden rounded-2xl">
-                            <img
-                                src={image.src}
-                                alt={image.alt || ''}
-                                loading="lazy"
-                                className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
-                            />
-                        </div>
-                    ))}
-                </div>
+                <ImageSlider
+                    images={[
+                        ...SRILANKA_MEDIA['lake-house'].slice(0, 4),
+                        ...SRILANKA_MEDIA['lake-loft'].slice(0, 4),
+                        ...SRILANKA_MEDIA['yoga-shala'].slice(0, 4),
+                    ]}
+                    tone="light"
+                />
                 <Link
                     to={path('venue')}
                     className="mt-12 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-veda-gold transition-colors hover:text-veda-dark"
@@ -194,7 +189,7 @@ export default function Accueil() {
                 title={t('home.studioTitle')}
                 lead={t('home.studioLead')}
             >
-                <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+                <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
                     <ul className="flex flex-wrap gap-2.5">
                         {(lang === 'en'
                             ? ['Daily Kundalini', 'Celestial Communication', 'Mantras & Meditation', 'Breathwork', 'Japa', 'Kirtan with musicians', 'Gong bath', 'Monthly Sadhana']
@@ -295,45 +290,14 @@ export default function Accueil() {
                 </Link>
             </Section>
 
-            {/* 7. Avis. Les témoignages ne sont pas encore rapatriés : plutôt qu'un
-                   encart de travail sur l'accueil, on renvoie vers les avis réels. */}
-            <Section tone="light" title={t('home.testimonialsTitle')}>
-                <div className="grid gap-12 lg:grid-cols-[1fr,1.2fr] lg:items-center">
-                    <div>
-                        <p className="text-lg font-light leading-relaxed text-veda-dark/70">
-                            {lang === 'en'
-                                ? 'La Maison VEDA has been welcoming travellers for years. Their reviews are on Airbnb, where the house is rated by its guests.'
-                                : 'La Maison VEDA accueille des voyageurs depuis des années. Leurs avis sont sur Airbnb, où la maison est notée par ses hôtes.'}
-                        </p>
-                        <a
-                            href={SOCIAL.airbnb}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="mt-8 inline-flex items-center gap-3 rounded-full border border-veda-dark/30 px-8 py-3.5 text-xs font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-veda-dark hover:text-veda-light"
-                        >
-                            {t('venue.onAirbnb')}
-                            <ArrowRight className="h-4 w-4" />
-                        </a>
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-3">
-                        {SRILANKA_MEDIA.galerie.slice(0, 3).map((img) => (
-                            <div key={img.src} className="aspect-[3/4] overflow-hidden rounded-2xl">
-                                <img
-                                    src={img.src}
-                                    alt={img.alt || ''}
-                                    loading="lazy"
-                                    className="h-full w-full object-cover"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
+            {/* 7. Avis, avec la mosaïque des hôtes et la visionneuse */}
+            <Section tone="light" ornament="right" title={t('home.testimonialsTitle')}>
+                <Testimonials images={SRILANKA_MEDIA.galerie.slice(0, 5)} reviewsUrl={SOCIAL.airbnb} tone="light" />
             </Section>
 
             {/* 8. Notre histoire + newsletter */}
             <Section eyebrow={t('nav.story')} title={t('home.storyTitle')}>
-                <div className="grid gap-12 lg:grid-cols-[1.4fr,1fr] lg:items-center">
+                <div className="grid gap-12 lg:grid-cols-[1.4fr,1fr] lg:items-start">
                     <div className="space-y-5">
                         <p className="text-lg font-light italic leading-relaxed text-veda-gold">
                             {c.story.paragraphs[0]}

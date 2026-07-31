@@ -6,6 +6,7 @@ import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
 import NotFound from './NotFound'
 import { getTrip } from '../data/trips'
+import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 
 /** Ligne « libellé, valeur » du bandeau de faits. */
 function Fact({ icon: Icon, label, value }) {
@@ -94,7 +95,11 @@ export default function VoyageDetail() {
                 )}
             </Section>
 
-            <Section tone="light" title={t('travel.itinerary')}>
+            <Section
+                tone="light"
+                title={t('travel.itinerary')}
+                aside={{ src: trip.image, alt: copy.name }}
+            >
                 <ol className="max-w-3xl space-y-10">
                     {copy.days.map((day, index) => (
                         <li key={day.title} className="flex gap-6">
@@ -171,7 +176,11 @@ export default function VoyageDetail() {
                 )}
             </Section>
 
-            <Section tone="light" title={t('travel.atVeda')}>
+            <Section
+                tone="light"
+                title={t('travel.atVeda')}
+                aside={SRILANKA_MEDIA['lake-house'][0]}
+            >
                 <p className="max-w-3xl text-lg font-light leading-relaxed text-veda-dark/70">
                     {copy.vedaExtension}
                 </p>

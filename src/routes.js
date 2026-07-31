@@ -25,8 +25,16 @@ export const ROUTES = {
     book: { fr: 'reserver/:slug', en: 'book/:slug' },
 }
 
-/** Ordre d'affichage dans le menu principal (section 4 du cahier des charges). */
-export const NAV_KEYS = ['retreats', 'host', 'studio', 'venue', 'travel', 'story', 'contact']
+/**
+ * Menu principal, organisé par ce que le visiteur vient chercher plutôt que par
+ * type de page : les offres d'abord, puis la maison et le contact réduits à
+ * une icône pour ne pas allonger la barre.
+ */
+export const NAV_OFFERS = ['venue', 'retreats', 'studio', 'travel', 'host']
+export const NAV_ICONS = ['story', 'contact']
+
+/** Toutes les entrées, dans l'ordre : sert au pied de page et au menu mobile. */
+export const NAV_KEYS = [...NAV_OFFERS, ...NAV_ICONS]
 
 /**
  * Construit une URL absolue vers une page.

@@ -4,6 +4,7 @@ import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
 import CtaSection from '../components/site/CtaSection'
 import RetreatCard from '../components/site/RetreatCard'
+import RetreatFeature from '../components/site/RetreatFeature'
 import ContentGap from '../components/site/ContentGap'
 import { NewsletterForm } from '../components/site/Forms'
 import { upcomingRetreats, pastRetreats } from '../data/retreats'
@@ -31,7 +32,7 @@ export default function Retraites() {
 
             {/* Introduction reprise de la page source, avec une image pour l'habiller */}
             <Section title={t('retreats.upcoming')}>
-                <div className="mb-16 grid items-center gap-12 lg:grid-cols-[1.3fr,1fr]">
+                <div className="mb-16 grid items-start gap-12 lg:grid-cols-[1.2fr,1fr]">
                     <div className="space-y-4">
                         {c.retreats.upcomingText.map((p) => (
                             <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
@@ -42,32 +43,45 @@ export default function Retraites() {
 
                     {SRILANKA_MEDIA.nav?.[1] && (
                         <div className="relative">
-                            <div className="aspect-[4/5] overflow-hidden rounded-3xl">
+                            {/* Format paysage : en portrait, l'image dictait la hauteur
+                                de la ligne et creusait un vide sous le titre. */}
+                            <div className="aspect-[4/3] overflow-hidden rounded-3xl">
                                 <img
                                     src={SRILANKA_MEDIA.nav[1].src}
                                     alt={SRILANKA_MEDIA.nav[1].alt || ''}
                                     loading="lazy"
+                                    style={{ objectPosition: SRILANKA_MEDIA.nav[1].position }}
                                     className="h-full w-full object-cover"
                                 />
                             </div>
-                            {/* Cadre doré décalé, écho au traitement des portraits de la page retraite */}
-                            <div className="pointer-events-none absolute inset-0 -z-10 translate-x-5 -translate-y-5 rounded-3xl border border-veda-gold/50 hidden sm:block" />
+                            <div className="pointer-events-none absolute inset-0 -z-10 hidden translate-x-5 -translate-y-5 rounded-3xl border border-veda-gold/50 sm:block" />
                         </div>
                     )}
                 </div>
 
-                <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {upcoming.map((retreat) => (
-                        <RetreatCard key={retreat.slug} retreat={retreat} />
-                    ))}
-                </div>
+                {/* Une seule retraite : pleine largeur, comme sur l'accueil. */}
+                {upcoming.length === 1 ? (
+                    <RetreatFeature retreat={upcoming[0]} />
+                ) : (
+                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        {upcoming.map((retreat) => (
+                            <RetreatCard key={retreat.slug} retreat={retreat} />
+                        ))}
+                    </div>
+                )}
             </Section>
 
-            <Section tone="light" title={t('retreats.miniTitle')} lead={t('retreats.miniLead')}>
+            <Section
+                tone="light"
+                title={t('retreats.miniTitle')}
+                accent={t('retreats.miniAccent')}
+                lead={t('retreats.miniLead')}
+                aside={SRILANKA_MEDIA['yoga-shala'][2]}
+            >
                 <ContentGap id="mini-retreats" className="max-w-3xl" />
             </Section>
 
-            <Section title={t('retreats.pastTitle')} lead={t('retreats.pastLead')}>
+            <Section title={t('retreats.pastTitle')} accent={t('retreats.pastAccent')} lead={t('retreats.pastLead')}>
                 {past.length > 0 ? (
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                         {past.map((retreat) => (

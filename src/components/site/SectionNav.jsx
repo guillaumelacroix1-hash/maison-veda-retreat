@@ -75,7 +75,7 @@ export default function SectionNav({ items }) {
         >
             <ul
                 ref={listRef}
-                className="scrollbar-hide mx-auto flex max-w-container gap-7 overflow-x-auto px-4 sm:px-6"
+                className="scrollbar-hide mx-auto flex max-w-container gap-7 overflow-x-auto px-4 sm:px-6 lg:justify-center"
             >
                 {items.map(({ id, label }) => (
                     <li key={id} className="shrink-0">

@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Home, MessageCircle } from 'lucide-react'
 import Logo from '../Logo'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useI18n } from '../../i18n'
-import { NAV_KEYS } from '../../routes'
+import { NAV_KEYS, NAV_OFFERS, NAV_ICONS } from '../../routes'
 import { upcomingRetreats } from '../../data/retreats'
 
 /**
@@ -96,16 +96,40 @@ export default function Header() {
                     />
                 </Link>
 
-                {/* Menu desktop */}
+                {/* Menu desktop : les offres en toutes lettres, la maison et le
+                    contact en icônes pour garder la barre courte. */}
                 <nav className="hidden items-center gap-7 text-sm font-medium tracking-wide lg:flex">
-                    {NAV_KEYS.map((key) => (
+                    {NAV_OFFERS.map((key) => (
                         <NavLink key={key} to={path(key)} className={linkClass}>
                             {t(`nav.${key}`)}
                         </NavLink>
                     ))}
                 </nav>
 
-                <div className="hidden items-center gap-5 lg:flex">
+                <div className="hidden items-center gap-4 lg:flex">
+                    <span className="h-5 w-px bg-white/15" />
+
+                    {NAV_ICONS.map((key) => {
+                        const Icon = key === 'story' ? Home : MessageCircle
+                        return (
+                            <NavLink
+                                key={key}
+                                to={path(key)}
+                                title={t(`nav.${key}`)}
+                                aria-label={t(`nav.${key}`)}
+                                className={({ isActive }) =>
+                                    `flex h-9 w-9 items-center justify-center rounded-full border transition-colors duration-300 ${
+                                        isActive
+                                            ? 'border-veda-gold text-veda-gold'
+                                            : 'border-white/20 text-veda-light/70 hover:border-veda-gold/60 hover:text-veda-gold'
+                                    }`
+                                }
+                            >
+                                <Icon className="h-4 w-4" />
+                            </NavLink>
+                        )
+                    })}
+
                     <LanguageSwitcher />
                     <Link
                         to={bookTo}

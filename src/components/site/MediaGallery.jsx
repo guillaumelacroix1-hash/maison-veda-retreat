@@ -1,7 +1,7 @@
-import { useState, useEffect, useCallback } from 'react'
-import { createPortal } from 'react-dom'
-import { X, ChevronLeft, ChevronRight, Expand } from 'lucide-react'
+import { useState } from 'react'
+import { Expand } from 'lucide-react'
 import { useI18n } from '../../i18n'
+import Lightbox from './Lightbox'
 
 /**
  * Grille de photos avec visionneuse plein écran.
@@ -21,36 +21,12 @@ export default function MediaGallery({ images, initial = 6, tone = 'dark', class
     const shown = expanded ? images : images.slice(0, initial)
     const hidden = images.length - shown.length
 
-    const close = useCallback(() => setCurrent(null), [])
-    const move = useCallback(
-        (delta) =>
-            setCurrent((i) => (i === null ? null : (i + delta + images.length) % images.length)),
-        [images.length],
-    )
-
-    // Navigation clavier et blocage du défilement pendant la visionneuse.
-    useEffect(() => {
-        if (current === null) return
-        const onKey = (e) => {
-            if (e.key === 'Escape') close()
-            if (e.key === 'ArrowRight') move(1)
-            if (e.key === 'ArrowLeft') move(-1)
-        }
-        window.addEventListener('keydown', onKey)
-        const previous = document.body.style.overflow
-        document.body.style.overflow = 'hidden'
-        return () => {
-            window.removeEventListener('keydown', onKey)
-            document.body.style.overflow = previous
-        }
-    }, [current, close, move])
-
     if (!images?.length) return null
 
     const labels =
         lang === 'en'
-            ? { more: `Show ${hidden} more photos`, less: 'Show fewer', close: 'Close', prev: 'Previous', next: 'Next' }
-            : { more: `Voir ${hidden} photos de plus`, less: 'Réduire', close: 'Fermer', prev: 'Précédente', next: 'Suivante' }
+            ? { more: `Show ${hidden} more photos`, less: 'Show fewer' }
+            : { more: `Voir ${hidden} photos de plus`, less: 'Réduire' }
 
     const buttonClass =
         tone === 'light'
@@ -90,55 +66,7 @@ export default function MediaGallery({ images, initial = 6, tone = 'dark', class
                 </button>
             )}
 
-            {current !== null &&
-                createPortal(
-                    <div
-                        className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 p-4 backdrop-blur-sm md:p-10"
-                        onClick={close}
-                        role="dialog"
-                        aria-modal="true"
-                    >
-                        <button
-                            type="button"
-                            onClick={close}
-                            aria-label={labels.close}
-                            className="absolute right-4 top-4 p-3 text-white/70 transition-colors hover:text-white md:right-8 md:top-8"
-                        >
-                            <X className="h-8 w-8" />
-                        </button>
-
-                        <button
-                            type="button"
-                            onClick={(e) => { e.stopPropagation(); move(-1) }}
-                            aria-label={labels.prev}
-                            className="absolute left-2 p-3 text-white/70 transition-colors hover:text-white md:left-6"
-                        >
-                            <ChevronLeft className="h-10 w-10 md:h-14 md:w-14" />
-                        </button>
-
-                        <figure className="max-h-full" onClick={(e) => e.stopPropagation()}>
-                            <img
-                                src={images[current].src}
-                                alt={images[current].alt || ''}
-                                className="max-h-[80vh] w-auto rounded-lg object-contain"
-                            />
-                            <figcaption className="mt-4 text-center text-xs font-light text-white/50">
-                                {images[current].alt}
-                                <span className="ml-3 tabular-nums">{current + 1} / {images.length}</span>
-                            </figcaption>
-                        </figure>
-
-                        <button
-                            type="button"
-                            onClick={(e) => { e.stopPropagation(); move(1) }}
-                            aria-label={labels.next}
-                            className="absolute right-2 p-3 text-white/70 transition-colors hover:text-white md:right-6"
-                        >
-                            <ChevronRight className="h-10 w-10 md:h-14 md:w-14" />
-                        </button>
-                    </div>,
-                    document.body,
-                )}
+            <Lightbox images={images} index={current} onClose={() => setCurrent(null)} onChange={setCurrent} />
         </div>
     )
 }

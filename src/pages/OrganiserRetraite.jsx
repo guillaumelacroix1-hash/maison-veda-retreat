@@ -26,12 +26,13 @@ export default function OrganiserRetraite() {
             <PageHero
                 eyebrow={c.tagline}
                 title={t('host.title')}
+                accent={t('host.titleAccent')}
                 lead={t('host.lead')}
                 image={MEDIA.host}
             />
 
             {/* Argumentaire repris de la page source */}
-            <Section title={c.groups.title}>
+            <Section title={c.groups.title} accent={c.groups.titleAccent}>
                 <div className="max-w-3xl space-y-5">
                     {c.groups.paragraphs.map((p) => (
                         <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
@@ -89,7 +90,7 @@ export default function OrganiserRetraite() {
             </Section>
 
             {/* Hébergements complémentaires et démarche de réservation */}
-            <Section title={c.retreats.additionalTitle}>
+            <Section title={c.retreats.additionalTitle} accent={c.retreats.additionalAccent}>
                 <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">
                     {c.retreats.additionalText}
                 </p>
@@ -115,12 +116,14 @@ export default function OrganiserRetraite() {
             <Section
                 tone="light"
                 title={t('host.availabilityTitle')}
+                accent={t('host.availabilityAccent')}
                 lead={t('host.availabilityLead')}
+                aside={SRILANKA_MEDIA['lake-house'][10]}
             >
                 <ContentGap id="availability" className="max-w-3xl" />
             </Section>
 
-            <Section title={t('host.packTitle')} lead={t('host.packLead')}>
+            <Section title={t('host.packTitle')} accent={t('host.packAccent')} lead={t('host.packLead')}>
                 {/* Couverture du pack, récupérée du site source */}
                 {SRILANKA_MEDIA.retraites?.[0] && (
                     <img
@@ -167,6 +170,7 @@ export default function OrganiserRetraite() {
             <Section
                 id="devis"
                 title={c.venueForm.title}
+                accent={c.venueForm.titleAccent}
                 lead={t('host.formLead')}
                 background={SRILANKA_MEDIA['lake-loft']?.[0]}
             >

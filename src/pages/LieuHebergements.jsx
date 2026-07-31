@@ -90,6 +90,7 @@ export default function LieuHebergements() {
             <PageHero
                 eyebrow={c.tagline}
                 title={t('venue.title')}
+                accent={t('venue.titleAccent')}
                 lead={t('venue.lead')}
                 image={MEDIA.venue}
             />
@@ -107,7 +108,7 @@ export default function LieuHebergements() {
 
             {/* Présentation du lieu : le texte tient sur deux colonnes, la troisième
                 laisse respirer une image verticale. */}
-            <Section id="le-lieu" title={c.welcome.title}>
+            <Section id="le-lieu" title={c.welcome.title} accent={c.welcome.titleAccent}>
                 <div className="grid gap-12 lg:grid-cols-[2fr,1fr]">
                     <div className="grid gap-10 sm:grid-cols-2">
                         <div className="space-y-5">
@@ -155,7 +156,7 @@ export default function LieuHebergements() {
             </Section>
 
             {/* Les trois espaces */}
-            <Section id="hebergements" tone="light" title={c.offer.title}>
+            <Section id="hebergements" tone="light" ornament="right" title={c.offer.title} accent={c.offer.titleAccent}>
                 {SRILANKA_MEDIA.accueil?.[0] && (
                     <div className="mb-16 aspect-[21/9] overflow-hidden rounded-3xl">
                         <img
@@ -301,7 +302,7 @@ export default function LieuHebergements() {
             </Section>
 
             {/* Hébergements complémentaires */}
-            <Section title={c.retreats.additionalTitle}>
+            <Section title={c.retreats.additionalTitle} accent={c.retreats.additionalAccent}>
                 <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">
                     {c.retreats.additionalText}
                 </p>
@@ -322,7 +323,7 @@ export default function LieuHebergements() {
             </Section>
 
             {/* Que faire autour, avec les 11 activités de la page source */}
-            <Section id="alentours" tone="light" title={c.around.title}>
+            <Section id="alentours" tone="light" ornament="left" title={c.around.title} accent={c.around.titleAccent}>
                 <div className="grid gap-10 lg:grid-cols-2">
                     <div className="space-y-5">
                         {c.around.paragraphs.slice(0, 2).map((p) => (

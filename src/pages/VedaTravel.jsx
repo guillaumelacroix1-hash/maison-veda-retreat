@@ -78,7 +78,7 @@ export default function VedaTravel() {
             </Section>
 
             {/* Pour les agences */}
-            <Section id="agences" tone="light" title={c.agenciesTitle}>
+            <Section id="agences" tone="light" ornament="left" title={c.agenciesTitle} accent={c.agenciesAccent}>
                 <p className="max-w-3xl text-base font-light leading-relaxed text-veda-dark/70">{c.agenciesText}</p>
 
                 <div className="mt-14 grid gap-12 lg:grid-cols-2">
@@ -132,7 +132,7 @@ export default function VedaTravel() {
             </Section>
 
             {/* Pour les voyageurs individuels */}
-            <Section id="particuliers" title={c.individualTitle}>
+            <Section id="particuliers" title={c.individualTitle} accent={c.individualAccent}>
                 <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">{c.individualText}</p>
                 <ul className="mt-8 grid max-w-3xl gap-3">
                     {c.individual.map((item) => (
@@ -244,7 +244,11 @@ export default function VedaTravel() {
                 </div>
             </Section>
 
-            <Section title={t('travel.testimonialsTitle')}>
+            <Section
+                title={t('travel.testimonialsTitle')}
+                accent={t('travel.testimonialsAccent')}
+                aside={SRILANKA_MEDIA['veda-travel'][0]}
+            >
                 <ContentGap id="reviews" className="max-w-3xl" />
             </Section>
 

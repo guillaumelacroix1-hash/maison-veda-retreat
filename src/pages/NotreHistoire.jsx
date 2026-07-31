@@ -51,11 +51,21 @@ export default function NotreHistoire() {
                 <ContentGap id="story-rest" className="mt-16 max-w-3xl" />
             </Section>
 
-            <Section tone="light" title={t('story.teamTitle')}>
+            <Section
+                tone="light"
+                title={t('story.teamTitle')}
+                accent={t('story.teamAccent')}
+                aside={SRILANKA_MEDIA.galerie[1]}
+            >
                 <ContentGap id="team" className="max-w-3xl" />
             </Section>
 
-            <Section title={t('story.valuesTitle')}>
+            <Section
+                title={t('story.valuesTitle')}
+                accent={t('story.valuesAccent')}
+                aside={SRILANKA_MEDIA.galerie[7]}
+                asidePosition="left"
+            >
                 <ContentGap id="values" className="max-w-3xl" />
 
                 <Link

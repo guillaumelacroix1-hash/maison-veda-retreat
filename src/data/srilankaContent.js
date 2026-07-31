@@ -15,7 +15,7 @@ export const SRILANKA = {
         tagline: 'Retraites de yoga et séjours conscients au bord du lac de Koggala',
 
         welcome: {
-            title: 'Bienvenue à La maison VEDA Sri Lanka',
+            title: 'Bienvenue à La maison', titleAccent: 'VEDA Sri Lanka',
             paragraphs: [
                 'Nichée entre la jungle et le lac, sur les rives du lac de Koggala dans le sud du Sri Lanka, La Maison VEDA est un lieu de bien-être dédié au yoga, à la nature et aux expériences authentiques.',
                 'Nous accueillons des retraites de yoga et de bien-être organisées en petits groupes, pour celles et ceux qui souhaitent ralentir, se reconnecter et approfondir leur pratique dans un cadre naturel inspirant.',
@@ -35,7 +35,7 @@ export const SRILANKA = {
         ],
         hostDirect: 'Vous préférez en parler de vive voix ? Écrivez-nous directement, nous répondons sous 48 h.',
         groups: {
-            title: 'Pour les petits groupes, les retraites et les agences',
+            title: 'Pour les petits groupes,', titleAccent: 'les retraites et les agences',
             paragraphs: [
                 'Avec ses deux villas authentiques et son yoga shala en rooftop, La Maison VEDA est le cadre idéal pour des vacances paisibles, une retraite transformatrice ou une expérience de groupe sur mesure.',
                 'Nous accueillons jusqu\'à 7 personnes sur place, et jusqu\'à 15 avec les villas voisines.',
@@ -43,7 +43,7 @@ export const SRILANKA = {
             ],
         },
 
-        offer: { title: 'Notre offre' },
+        offer: { title: 'Notre', titleAccent: 'offre' },
 
         lodgings: {
             lakeHouse: {
@@ -122,7 +122,7 @@ export const SRILANKA = {
 
         retreats: {
             title: 'Retraites',
-            additionalTitle: 'Hébergements complémentaires pendant les retraites',
+            additionalTitle: 'Hébergements complémentaires', additionalAccent: 'pendant les retraites',
             additionalText: 'Pour les groupes plus nombreux ou les préférences variées, nous travaillons avec des hébergements de confiance proches de La Maison VEDA. Les options vont de la chambre en dortoir à la chambre privée, jusqu\'à une luxueuse cabane flottante sur le lac, pour garantir confort et authenticité à chacun.',
             packCta: 'Télécharger l\'Info Pack Retraite (PDF)',
             ratesCta: 'Télécharger les tarifs et options (PDF)',
@@ -144,7 +144,7 @@ export const SRILANKA = {
             ],
             experience: 'Cette double expérience nous vient naturellement : après presque chaque retraite de yoga que nous accueillons, nous organisons des voyages prolongés pour nos hôtes. Nous savons donc de première main comment déplacer de petits groupes confortablement à travers l\'île, tout en gardant une expérience authentique et centrée sur le bien-être.',
 
-            agenciesTitle: 'Pour les agences de voyage et les organisateurs de retraites',
+            agenciesTitle: 'Pour les agences et', agenciesAccent: 'les organisateurs de retraites',
             agenciesText: 'Nous collaborons avec des agences de voyage, des professeurs de retraite et des tour-opérateurs pour créer des programmes bien-être sur mesure destinés à leurs clients. Notre approche est souple, authentique et pensée pour les petits groupes, avec un accent sur des expériences qui ont du sens et un tourisme responsable.',
             capacityTitle: 'Hébergement et capacité',
             capacity: [
@@ -175,7 +175,7 @@ export const SRILANKA = {
             howTitle: 'Comment ça marche',
             howText: 'Les agences choisissent une formule de 3 à 7 jours et ajoutent les expériences à la carte. Nous fournissons un programme personnalisé et un tarif établi selon la taille du groupe, les dates et les préférences.',
 
-            individualTitle: 'Pour les voyageurs individuels, voyages sur mesure',
+            individualTitle: 'Pour les voyageurs individuels,', individualAccent: 'voyages sur mesure',
             individualText: 'Vous ne faites pas partie d\'un groupe ou d\'une agence ? Veda Travel conçoit aussi des itinéraires entièrement personnalisés pour les voyageurs individuels et les familles qui veulent découvrir le Sri Lanka au-delà de la maison.',
             individual: [
                 'Transport privé en voiture ou en van, jusqu\'à 17 personnes en minibus',
@@ -205,7 +205,7 @@ export const SRILANKA = {
         },
 
         around: {
-            title: 'Que faire autour de La maison VEDA',
+            title: 'Que faire autour de', titleAccent: 'La maison VEDA',
             paragraphs: [
                 'Découvrez le meilleur de la côte sud du Sri Lanka depuis votre séjour à Habaraduwa. Que vous cherchiez une retraite paisible ou de nouvelles aventures, il y a tant à explorer tout près.',
                 'Attrapez le lever du soleil lors d\'une session de surf matinale, ou apprenez à prendre votre première vague sur l\'une des plages splendides à quelques minutes. Filez à Mirissa pour une observation inoubliable des dauphins et des baleines, ou explorez les rives animées d\'Unawatuna, ses cafés de plage et ses spots de snorkeling.',
@@ -241,7 +241,7 @@ export const SRILANKA = {
         },
 
         venueForm: {
-            title: 'Réserver votre lieu de retraite',
+            title: 'Réserver votre', titleAccent: 'lieu de retraite',
             fields: {
                 firstName: 'Prénom',
                 lastName: 'Nom',
@@ -272,7 +272,7 @@ export const SRILANKA = {
         tagline: 'Yoga Retreats & Conscious Holidays by Koggala Lake',
 
         welcome: {
-            title: 'Welcome to La maison VEDA Sri-Lanka',
+            title: 'Welcome to', titleAccent: 'La maison VEDA Sri Lanka',
             paragraphs: [
                 'Nestled between jungle and lake, on the shores of Koggala Lake in the south of Sri Lanka, La Maison VEDA is a well-being place dedicated to yoga, nature and authentic experiences.',
                 'We welcome yoga and well-being retreats, organized in small groups, for those who wish to slow down, reconnect and deepen their practice in an inspiring natural setting.',
@@ -292,7 +292,7 @@ export const SRILANKA = {
         ],
         hostDirect: 'Would you rather talk it through? Write to us directly, we reply within 48 hours.',
         groups: {
-            title: 'For small Groups, Retreats & Agencies',
+            title: 'For small Groups,', titleAccent: 'Retreats & Agencies',
             paragraphs: [
                 'With its two authentic villas and a rooftop yoga shala, La Maison VEDA is the perfect setting for a peaceful holiday, a transformative retreat, or a bespoke group experience.',
                 'We host up to 7 guests on-site, and can extend to 15 guests with nearby villas.',
@@ -300,7 +300,7 @@ export const SRILANKA = {
             ],
         },
 
-        offer: { title: 'Our offer' },
+        offer: { title: 'Our', titleAccent: 'offer' },
 
         lodgings: {
             lakeHouse: {
@@ -379,7 +379,7 @@ export const SRILANKA = {
 
         retreats: {
             title: 'Retreats',
-            additionalTitle: 'Additional Accommodations during retreats',
+            additionalTitle: 'Additional accommodation', additionalAccent: 'during retreats',
             additionalText: 'For larger groups or varied preferences, we partner with trusted lodgings near La Maison VEDA. Options range from dorm-style rooms and private bedrooms to a luxurious floating cabin on the lake, ensuring comfort and authenticity for every guest.',
             packCta: 'Download the Retreat Pack (PDF)',
             ratesCta: 'Download the rates and options (PDF)',
@@ -401,7 +401,7 @@ export const SRILANKA = {
             ],
             experience: 'This dual experience comes naturally to us: after almost every yoga retreat we host, we organize extended trips for our guests, so we know first-hand how to move small groups comfortably around the island while keeping the experience authentic and well-being focused.',
 
-            agenciesTitle: 'For Travel Agencies & Retreat Organizers',
+            agenciesTitle: 'For travel agencies and', agenciesAccent: 'retreat organizers',
             agenciesText: 'We collaborate with travel agencies, retreat leaders, and tour operators to create tailor-made well-being programs for their clients. Our approach is flexible, authentic, and designed for small groups, with a focus on meaningful experiences and responsible tourism.',
             capacityTitle: 'Accommodation & capacity',
             capacity: [
@@ -432,7 +432,7 @@ export const SRILANKA = {
             howTitle: 'How it works',
             howText: 'Agencies can choose a package of 3 to 7 days and add experiences à la carte. We provide a customized program and pricing based on group size, dates, and preferences.',
 
-            individualTitle: 'For Individual Travelers, Custom Trips',
+            individualTitle: 'For individual travellers,', individualAccent: 'custom trips',
             individualText: 'Not part of a group or an agency? Veda Travel also designs fully custom itineraries for individual travelers and families wanting to discover Sri Lanka beyond the house.',
             individual: [
                 'Private transport by car or van, for groups up to 17 people by minibus',
@@ -462,7 +462,7 @@ export const SRILANKA = {
         },
 
         around: {
-            title: 'What to do around La maison VEDA',
+            title: 'What to do around', titleAccent: 'La maison VEDA',
             paragraphs: [
                 'Discover the best of Sri Lanka\'s southern coast right from your stay in Habaraduwa. Whether you\'re seeking a peaceful retreat or thrilling new adventures, there\'s so much to explore nearby.',
                 'Catch the sunrise on a morning surf session or learn to ride your first wave at one of the stunning beaches just minutes away. Head to Mirissa for unforgettable dolphin and whale watching, or explore the lively shores of Unawatuna with its beach cafés and snorkeling spots.',
@@ -498,7 +498,7 @@ export const SRILANKA = {
         },
 
         venueForm: {
-            title: 'Book Your Yoga Retreat Venue',
+            title: 'Book your', titleAccent: 'yoga retreat venue',
             fields: {
                 firstName: 'First name',
                 lastName: 'Last name',

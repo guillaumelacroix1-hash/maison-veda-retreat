@@ -32,6 +32,9 @@ export default function SectionCards({ items, className = '' }) {
                                 src={item.image.src}
                                 alt={item.image.alt || ''}
                                 loading="lazy"
+                                // Chaque photo dit où se trouve son sujet : un cadrage
+                                // centré coupait les hamacs et les silhouettes.
+                                style={{ objectPosition: item.image.position || '50% 50%' }}
                                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-soft group-hover:scale-105"
                             />
                         )}

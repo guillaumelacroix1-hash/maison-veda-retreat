@@ -29,6 +29,7 @@ export default function Studio() {
             <PageHero
                 eyebrow={t('common.location')}
                 title={t('studio.title')}
+                accent={t('studio.titleAccent')}
                 lead={t('studio.lead')}
                 image={MEDIA.studio}
             />
@@ -38,7 +39,7 @@ export default function Studio() {
                 <MediaGallery images={SRILANKA_MEDIA['yoga-shala']} initial={6} />
             </Section>
 
-            <Section title={t('studio.scheduleTitle')} lead={t('studio.scheduleNote')}>
+            <Section title={t('studio.scheduleTitle')} accent={t('studio.scheduleAccent')} lead={t('studio.scheduleNote')}>
                 {/* Le planning affiché sur le site source est une image, donc ni
                     traduisible ni lisible par un lecteur d'écran. Il faudra le
                     ressaisir en texte : voir le ContentGap ci-dessous. */}
@@ -78,7 +79,14 @@ export default function Studio() {
                 </div>
             </Section>
 
-            <Section tone="light" title={t('studio.sadhanaTitle')} lead={t('studio.sadhanaLead')}>
+            <Section
+                tone="light"
+                ornament="right"
+                title={t('studio.sadhanaTitle')}
+                lead={t('studio.sadhanaLead')}
+                aside={SRILANKA_MEDIA['yoga-shala'][8]}
+                asidePosition="left"
+            >
                 <div className="flex max-w-2xl items-start gap-5 rounded-3xl border border-veda-dark/10 bg-white p-8 shadow-card">
                     <Sunrise className="mt-1 h-6 w-6 shrink-0 text-veda-gold" />
                     <p className="text-lg font-light leading-relaxed text-veda-dark/70">
@@ -87,11 +95,22 @@ export default function Studio() {
                 </div>
             </Section>
 
-            <Section title={t('studio.teachersTitle')} lead={t('studio.teachersLead')}>
+            <Section
+                title={t('studio.teachersTitle')}
+                accent={t('studio.teachersAccent')}
+                lead={t('studio.teachersLead')}
+                aside={SRILANKA_MEDIA.nav[3]}
+            >
                 <ContentGap id="team" className="max-w-3xl" />
             </Section>
 
-            <Section tone="light" title={t('studio.pricesTitle')}>
+            <Section
+                tone="light"
+                title={t('studio.pricesTitle')}
+                accent={t('studio.pricesAccent')}
+                aside={SRILANKA_MEDIA['yoga-shala'][11]}
+                asidePosition="left"
+            >
                 <ContentGap id="studio-prices" className="max-w-3xl" />
             </Section>
 
