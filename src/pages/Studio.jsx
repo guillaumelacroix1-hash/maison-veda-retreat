@@ -6,6 +6,7 @@ import Section from '../components/site/Section'
 import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
+import TransparencyNote from '../components/site/TransparencyNote'
 import { srilanka } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
@@ -77,6 +78,12 @@ export default function Studio() {
                         <ContentGap id="studio-schedule" className="mt-10" />
                     </div>
                 </div>
+            </Section>
+
+            {/* Obligatoire (§4) : le shala est sur le toit du Lake Loft, donc
+                au-dessus d'hôtes en séjour. Même encart que sur la page Le Lieu. */}
+            <Section>
+                <TransparencyNote copy={c.loftTransparency} />
             </Section>
 
             <Section

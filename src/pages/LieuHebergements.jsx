@@ -7,6 +7,8 @@ import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
 import SectionNav from '../components/site/SectionNav'
+import TransparencyNote from '../components/site/TransparencyNote'
+import Accordion from '../components/site/Accordion'
 import { srilanka, SRILANKA_LINKS } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
@@ -178,6 +180,9 @@ export default function LieuHebergements() {
                     images={SRILANKA_MEDIA['lake-loft']}
                     tone="light"
                 />
+
+                {/* Obligatoire (§4) : le shala est sur le toit du Lake Loft. */}
+                <TransparencyNote copy={c.loftTransparency} tone="light" className="mb-16" />
                 <Lodging
                     copy={c.lodgings.yogaShala}
                     images={SRILANKA_MEDIA['yoga-shala']}
@@ -307,19 +312,29 @@ export default function LieuHebergements() {
                     {c.retreats.additionalText}
                 </p>
 
-                <div className="mt-12 grid gap-8 md:grid-cols-2">
-                    {[
-                        { name: t('venue.tothupola'), image: MEDIA.tothupola },
-                        { name: t('venue.jungleBreeze'), image: MEDIA.jungleBreeze },
-                    ].map(({ name, image }) => (
-                        <article key={name} className="overflow-hidden rounded-3xl border border-veda-gold/20 bg-white/[0.03]">
-                            <div className="aspect-[4/3] overflow-hidden">
-                                <img src={image} alt="" loading="lazy" className="h-full w-full object-cover" />
-                            </div>
-                            <h3 className="p-7 font-heading text-2xl">{name}</h3>
-                        </article>
-                    ))}
-                </div>
+                {/* Partenaires en accordéon : la maison reste en vedette, mais
+                    toutes leurs photos sont conservées (§4). */}
+                <Accordion
+                    className="mt-12"
+                    items={[
+                        {
+                            key: 'tothupola',
+                            title: t('venue.tothupola'),
+                            subtitle: lang === 'en'
+                                ? `Wooden chalets and pool · ${SRILANKA_MEDIA.tothupola.length} photos`
+                                : `Chalets en bois et piscine · ${SRILANKA_MEDIA.tothupola.length} photos`,
+                            content: <MediaGallery images={SRILANKA_MEDIA.tothupola} initial={8} />,
+                        },
+                        {
+                            key: 'jungle-breeze',
+                            title: t('venue.jungleBreeze'),
+                            subtitle: lang === 'en'
+                                ? `Nestled in the greenery · ${SRILANKA_MEDIA['jungle-breeze'].length} photos`
+                                : `Nichée dans la verdure · ${SRILANKA_MEDIA['jungle-breeze'].length} photos`,
+                            content: <MediaGallery images={SRILANKA_MEDIA['jungle-breeze']} initial={8} />,
+                        },
+                    ]}
+                />
             </Section>
 
             {/* Que faire autour, avec les 11 activités de la page source */}

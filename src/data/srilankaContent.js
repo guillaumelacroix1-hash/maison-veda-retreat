@@ -45,6 +45,33 @@ export const SRILANKA = {
 
         offer: { title: 'Notre', titleAccent: 'offre' },
 
+        /**
+         * Encart de transparence sur le Lake Loft, rendu obligatoire par le
+         * cahier des charges (§4) et repris aussi sur la page Studio : le shala
+         * est sur son toit et accueille du public.
+         */
+        loftTransparency: {
+            eyebrow: 'En toute transparence',
+            title: 'Un studio vivant',
+            titleAccent: 'sur votre toit',
+            lead: 'Le yoga shala perché sur le toit du Lake Loft accueille des cours et des ateliers quotidiens, ouverts aux personnes de l\'extérieur. Voici précisément ce que cela implique.',
+            points: [
+                {
+                    label: 'Un accès totalement indépendant',
+                    text: 'Le public rejoint le shala par son propre escalier. Personne ne traverse la maison ni votre terrasse, qui restent entièrement privées.',
+                },
+                {
+                    label: 'Les cours vous sont ouverts',
+                    text: 'En séjournant au Lake Loft, vous profitez des cours à volonté, quand vous le souhaitez.',
+                },
+                {
+                    label: 'Une maison qui vit',
+                    text: 'Kundalini au lever du jour, kirtans, bains de gong : le lieu a son rythme, et vous y prenez part autant que vous le voulez.',
+                },
+            ],
+        },
+
+
         lodgings: {
             lakeHouse: {
                 name: 'La Lake House',
@@ -301,6 +328,28 @@ export const SRILANKA = {
         },
 
         offer: { title: 'Our', titleAccent: 'offer' },
+
+        loftTransparency: {
+            eyebrow: 'Full transparency',
+            title: 'A living studio',
+            titleAccent: 'on your roof',
+            lead: 'The yoga shala on the roof of the Lake Loft hosts daily classes and workshops, open to people from outside. Here is exactly what that means.',
+            points: [
+                {
+                    label: 'A completely separate entrance',
+                    text: 'The public reaches the shala by its own staircase. Nobody walks through the house or across your terrace, which stay entirely private.',
+                },
+                {
+                    label: 'The classes are yours too',
+                    text: 'Staying at the Lake Loft, you can join the classes as often as you like, whenever you like.',
+                },
+                {
+                    label: 'A house that lives',
+                    text: 'Kundalini at sunrise, kirtans, gong baths: the place has its own rhythm, and you take part in it as much as you wish.',
+                },
+            ],
+        },
+
 
         lodgings: {
             lakeHouse: {

@@ -29,6 +29,38 @@ export const SRILANKA_MEDIA = {
         { src: '/srilanka/nav/80d77856-e8dd-42ad-946d-2ec7236215fb.jpg' },
         { src: '/srilanka/nav/f3f86797-af61-477a-9953-02a180cc687c.jpg' },
     ],
+
+    /**
+     * Hébergements partenaires, à quelques pas de la maison. Le cahier des
+     * charges demande de conserver toutes leurs photos, en second plan derrière
+     * les villas de La Maison VEDA.
+     */
+    'tothupola': [
+        { src: '/images/carousels/tothupola/IMG_1491.JPG' },
+        { src: '/images/carousels/tothupola/IMG_1493.JPG' },
+        { src: '/images/carousels/tothupola/IMG_1497.JPG' },
+        { src: '/images/carousels/tothupola/IMG_1499.JPG' },
+        { src: '/images/carousels/tothupola/IMG_1502.JPG' },
+        { src: '/images/carousels/tothupola/IMG_1510.JPG' },
+        { src: '/images/carousels/tothupola/IMG_1516.JPG' },
+        { src: '/images/carousels/tothupola/IMG_1529.JPG' },
+        { src: '/images/carousels/tothupola/IMG_1531.JPG' },
+        { src: '/images/carousels/tothupola/IMG_1535.JPG' },
+        { src: '/images/carousels/tothupola/IMG_1537.JPG' },
+    ],
+    'jungle-breeze': [
+        { src: '/images/carousels/jungle-breeze/IMG_2091.JPG' },
+        { src: '/images/carousels/jungle-breeze/IMG_2096.JPG' },
+        { src: '/images/carousels/jungle-breeze/IMG_2125.JPG' },
+        { src: '/images/carousels/jungle-breeze/IMG_2127.JPG' },
+        { src: '/images/carousels/jungle-breeze/IMG_2128.JPG' },
+        { src: '/images/carousels/jungle-breeze/IMG_2129.JPG' },
+        { src: '/images/carousels/jungle-breeze/IMG_2130.JPG' },
+        { src: '/images/carousels/jungle-breeze/IMG_2131.JPG' },
+        { src: '/images/carousels/jungle-breeze/IMG_2132.JPG' },
+        { src: '/images/carousels/jungle-breeze/IMG_2133.JPG' },
+        { src: '/images/carousels/jungle-breeze/IMG_2134.JPG' },
+    ],
     'entete': [
         { src: '/srilanka/entete/logo-veda-sri-lanka.jpg' },
     ],
