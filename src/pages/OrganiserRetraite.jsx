@@ -3,6 +3,7 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import SectionNav from '../components/site/SectionNav'
 import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
@@ -31,8 +32,19 @@ export default function OrganiserRetraite() {
                 image={MEDIA.host}
             />
 
+            <SectionNav
+                items={[
+                    { id: 'le-lieu-pro', label: t('host.navVenue') },
+                    { id: 'shala-pro', label: t('host.navShala') },
+                    { id: 'comment', label: t('host.navHow') },
+                    { id: 'dispos', label: t('host.navAvailability') },
+                    { id: 'devis', label: t('host.navQuote') },
+                ]}
+            />
+
+
             {/* Argumentaire repris de la page source */}
-            <Section title={c.groups.title} accent={c.groups.titleAccent}>
+            <Section id="le-lieu-pro" title={c.groups.title} accent={c.groups.titleAccent}>
                 <div className="max-w-3xl space-y-5">
                     {c.groups.paragraphs.map((p) => (
                         <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
@@ -75,7 +87,7 @@ export default function OrganiserRetraite() {
             </Section>
 
             {/* Le shala, argument central pour un organisateur */}
-            <Section tone="light" title={c.lodgings.yogaShala.name}>
+            <Section id="shala-pro" tone="light" title={c.lodgings.yogaShala.name}>
                 <p className="max-w-3xl text-base font-light leading-relaxed text-veda-dark/70">
                     {c.lodgings.yogaShala.lead}
                 </p>
@@ -90,7 +102,7 @@ export default function OrganiserRetraite() {
             </Section>
 
             {/* Hébergements complémentaires et démarche de réservation */}
-            <Section title={c.retreats.additionalTitle} accent={c.retreats.additionalAccent}>
+            <Section id="comment" title={c.retreats.additionalTitle} accent={c.retreats.additionalAccent}>
                 <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">
                     {c.retreats.additionalText}
                 </p>
@@ -114,6 +126,7 @@ export default function OrganiserRetraite() {
             </Section>
 
             <Section
+                id="dispos"
                 tone="light"
                 title={t('host.availabilityTitle')}
                 accent={t('host.availabilityAccent')}

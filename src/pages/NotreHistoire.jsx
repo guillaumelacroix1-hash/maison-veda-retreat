@@ -3,6 +3,7 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import SectionNav from '../components/site/SectionNav'
 import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import { CONTACT } from '../data/site'
@@ -21,8 +22,17 @@ export default function NotreHistoire() {
             <PageMeta title={t('story.metaTitle')} description={c.story.paragraphs[0]} />
             <PageHero title={c.story.title} lead={t('story.lead')} image={MEDIA.story} />
 
+            <SectionNav
+                items={[
+                    { id: 'recit', label: t('story.navStory') },
+                    { id: 'equipe', label: t('story.navTeam') },
+                    { id: 'valeurs', label: t('story.navValues') },
+                ]}
+            />
+
+
             {/* Récit d'Aurélie, repris de la page source */}
-            <Section>
+            <Section id="recit">
                 <div className="grid gap-14 lg:grid-cols-[3fr,2fr] lg:gap-20">
                     <div className="space-y-6">
                         <p className="text-xl font-light italic leading-relaxed text-veda-gold">
@@ -52,6 +62,7 @@ export default function NotreHistoire() {
             </Section>
 
             <Section
+                id="equipe"
                 tone="light"
                 title={t('story.teamTitle')}
                 accent={t('story.teamAccent')}
@@ -61,6 +72,7 @@ export default function NotreHistoire() {
             </Section>
 
             <Section
+                id="valeurs"
                 title={t('story.valuesTitle')}
                 accent={t('story.valuesAccent')}
                 aside={SRILANKA_MEDIA.galerie[7]}

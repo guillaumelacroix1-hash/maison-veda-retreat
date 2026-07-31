@@ -3,6 +3,7 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import SectionNav from '../components/site/SectionNav'
 import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
@@ -35,12 +36,22 @@ export default function Studio() {
                 image={MEDIA.studio}
             />
 
+            <SectionNav
+                items={[
+                    { id: 'shala', label: t('studio.navPractices') },
+                    { id: 'planning', label: t('studio.navSchedule') },
+                    { id: 'professeures', label: t('studio.navTeachers') },
+                    { id: 'tarifs-cours', label: t('studio.navPrices') },
+                ]}
+            />
+
+
             {/* Le shala en pleine largeur : c'est le lieu dont parle toute la page */}
             <Section id="shala" className="pb-0">
                 <MediaGallery images={SRILANKA_MEDIA['yoga-shala']} initial={6} />
             </Section>
 
-            <Section title={t('studio.scheduleTitle')} accent={t('studio.scheduleAccent')} lead={t('studio.scheduleNote')}>
+            <Section id="planning" title={t('studio.scheduleTitle')} accent={t('studio.scheduleAccent')} lead={t('studio.scheduleNote')}>
                 {/* Le planning affiché sur le site source est une image, donc ni
                     traduisible ni lisible par un lecteur d'écran. Il faudra le
                     ressaisir en texte : voir le ContentGap ci-dessous. */}
@@ -103,6 +114,7 @@ export default function Studio() {
             </Section>
 
             <Section
+                id="professeures"
                 title={t('studio.teachersTitle')}
                 accent={t('studio.teachersAccent')}
                 lead={t('studio.teachersLead')}
@@ -112,6 +124,7 @@ export default function Studio() {
             </Section>
 
             <Section
+                id="tarifs-cours"
                 tone="light"
                 title={t('studio.pricesTitle')}
                 accent={t('studio.pricesAccent')}

@@ -64,6 +64,21 @@ export default {
             story: 'Our story',
             storyCaption: 'How this house came to be.',
         },
+        // Cards for the Studio and Host sections on the home page
+        studioCards: [
+            { title: 'Daily Kundalini', desc: 'A practice every day, open to all levels, facing the lake.' },
+            { title: 'Mantras & meditation', desc: 'Chanting, Japa and guided meditation, to settle the mind.' },
+            { title: 'Breathwork', desc: 'Breathing sessions led by a certified professional.' },
+            { title: 'Kirtan & gong baths', desc: 'Singing circles with musicians, bowls and gongs in the evening.' },
+            { title: 'Monthly Sadhana', desc: 'Once a month at 5:15 am, free and open to everyone.' },
+            { title: 'Workshops & guests', desc: 'Occasional guest teachers, and longer workshops.' },
+        ],
+        hostCards: [
+            { title: 'The whole property', desc: 'Two villas and the shala for your group alone, up to 15 guests with the villas nearby.' },
+            { title: 'Yoga and meditation included', desc: 'Every programme includes the daily sessions, at no extra cost.' },
+            { title: 'Experiences à la carte', desc: 'Sound baths, cacao, kirtan, cooking, temple, boat: you choose.' },
+            { title: 'A team on site', desc: 'Catering and room service handled, so all you have to do is teach.' },
+        ],
         upcomingTitle: 'Upcoming', upcomingAccent: 'retreats',
         upcomingLead: 'Our retreats book up almost a year ahead. The season opens in November.',
         venueTitle: 'The place',
@@ -82,6 +97,9 @@ export default {
     },
 
     retreats: {
+        navUpcoming: 'Upcoming',
+        navMini: 'Mini-retreats',
+        navPast: 'Past',
         metaTitle: 'Yoga retreats in Sri Lanka',
         title: 'Retreats',
         lead: 'Retreats led by La Maison VEDA in Habaraduwa, facing Koggala Lake.',
@@ -102,6 +120,11 @@ export default {
     },
 
     host: {
+        navVenue: 'The venue',
+        navShala: 'The shala',
+        navHow: 'How it works',
+        navAvailability: 'Availability',
+        navQuote: 'Quote',
         metaTitle: 'Host your retreat in Sri Lanka',
         title: 'Host your', titleAccent: 'retreat',
         lead: 'Teachers, agencies and small groups: La Maison VEDA opens its doors for your own retreat.',
@@ -119,6 +142,10 @@ export default {
     },
 
     studio: {
+        navPractices: 'Classes',
+        navSchedule: 'Schedule',
+        navTeachers: 'Teachers',
+        navPrices: 'Rates',
         metaTitle: 'Maison VEDA Lake Studio, yoga classes in Sri Lanka',
         title: 'Maison VEDA', titleAccent: 'Lake Studio',
         lead: 'The studio is open to everyone, including when the house hosts a private retreat.',
@@ -204,6 +231,9 @@ export default {
     },
 
     story: {
+        navStory: 'The story',
+        navTeam: 'The team',
+        navValues: 'Our values',
         metaTitle: 'Our story, La Maison VEDA',
         title: 'Our', titleAccent: 'story',
         lead: 'How La Maison VEDA came to be, between Charente and southern Sri Lanka.',

@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, ArrowDown } from 'lucide-react'
+import { ArrowRight, ArrowDown, Sunrise, Music, Wind, Sparkles, Users2, Flower2, Home, Check, Utensils, CalendarCheck } from 'lucide-react'
 import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import Section from '../components/site/Section'
@@ -10,6 +10,7 @@ import RetreatCard from '../components/site/RetreatCard'
 import RetreatFeature from '../components/site/RetreatFeature'
 import TripCard from '../components/site/TripCard'
 import SectionCards from '../components/site/SectionCards'
+import FeatureCard from '../components/site/FeatureCard'
 import Testimonials from '../components/site/Testimonials'
 import ImageSlider from '../components/site/ImageSlider'
 import { NewsletterForm } from '../components/site/Forms'
@@ -182,38 +183,29 @@ export default function Accueil() {
                 </Link>
             </Section>
 
-            {/* 4. Le studio. Les pratiques réelles, pas l'encart interne :
-                   l'accueil n'est pas l'endroit pour afficher nos notes de travail. */}
+            {/* 4. Le studio, en cartes : même traitement que la page retraite,
+                   icône, texte et photo révélée au survol. */}
             <Section
                 eyebrow={t('nav.studio')}
                 title={t('home.studioTitle')}
                 lead={t('home.studioLead')}
             >
-                <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-                    <ul className="flex flex-wrap gap-2.5">
-                        {(lang === 'en'
-                            ? ['Daily Kundalini', 'Celestial Communication', 'Mantras & Meditation', 'Breathwork', 'Japa', 'Kirtan with musicians', 'Gong bath', 'Monthly Sadhana']
-                            : ['Kundalini quotidien', 'Celestial Communication', 'Mantras & méditation', 'Breathwork', 'Japa', 'Kirtan avec musiciens', 'Bain de gong', 'Sadhana mensuelle']
-                        ).map((p) => (
-                            <li
-                                key={p}
-                                className="rounded-full border border-veda-gold/30 px-5 py-2.5 text-sm font-light text-veda-light/80"
-                            >
-                                {p}
-                            </li>
-                        ))}
-                    </ul>
-
-                    {SRILANKA_MEDIA['yoga-shala']?.[3] && (
-                        <div className="aspect-[4/3] overflow-hidden rounded-3xl">
-                            <img
-                                src={SRILANKA_MEDIA['yoga-shala'][3].src}
-                                alt={SRILANKA_MEDIA['yoga-shala'][3].alt || ''}
-                                loading="lazy"
-                                className="h-full w-full object-cover"
+                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {t('home.studioCards').map((card, i) => {
+                        const icons = [Sunrise, Music, Wind, Sparkles, Flower2, Users2]
+                        const photos = SRILANKA_MEDIA['yoga-shala']
+                        return (
+                            <FeatureCard
+                                key={card.title}
+                                icon={icons[i]}
+                                title={card.title}
+                                desc={card.desc}
+                                image={photos[(i * 3) % photos.length]?.src}
+                                delay={i * 0.08}
+                                tone="dark"
                             />
-                        </div>
-                    )}
+                        )
+                    })}
                 </div>
 
                 <Link
@@ -225,54 +217,36 @@ export default function Accueil() {
             </Section>
 
             {/* 5. Organiser votre retraite ici */}
-            {/* Bloc organisateurs : deux images décalées équilibrent le texte,
-                   au lieu d'une colonne pleine face à une colonne vide. */}
-            <Section tone="light" eyebrow={t('nav.host')} title={t('home.hostTitle')} lead={t('home.hostLead')}>
-                <div className="grid items-center gap-12 lg:grid-cols-2">
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="aspect-[3/4] overflow-hidden rounded-3xl">
-                            <img
-                                src={SRILANKA_MEDIA['yoga-shala'][0].src}
-                                alt={SRILANKA_MEDIA['yoga-shala'][0].alt || ''}
-                                loading="lazy"
-                                className="h-full w-full object-cover"
+            {/* 5. Organisateurs, en cartes claires sur fond crème. */}
+            <Section tone="light" ornament="right" eyebrow={t('nav.host')} title={t('home.hostTitle')} lead={t('home.hostLead')}>
+                <div className="grid gap-6 sm:grid-cols-2">
+                    {t('home.hostCards').map((card, i) => {
+                        const icons = [Home, CalendarCheck, Utensils, Users2]
+                        const photos = [
+                            SRILANKA_MEDIA['yoga-shala'][0],
+                            SRILANKA_MEDIA['lake-loft'][0],
+                            SRILANKA_MEDIA['lake-house'][2],
+                            SRILANKA_MEDIA.galerie[0],
+                        ]
+                        return (
+                            <FeatureCard
+                                key={card.title}
+                                icon={icons[i]}
+                                title={card.title}
+                                desc={card.desc}
+                                image={photos[i]?.src}
+                                delay={i * 0.08}
                             />
-                        </div>
-                        <div className="mt-10 aspect-[3/4] overflow-hidden rounded-3xl">
-                            <img
-                                src={SRILANKA_MEDIA['lake-loft'][0].src}
-                                alt={SRILANKA_MEDIA['lake-loft'][0].alt || ''}
-                                loading="lazy"
-                                className="h-full w-full object-cover"
-                            />
-                        </div>
-                    </div>
-
-                    <div>
-                        <p className="text-lg font-light leading-relaxed text-veda-dark/70">
-                            {t('host.capacityOnSite')}, {t('host.capacityExtended')}.
-                        </p>
-
-                        <ul className="mt-8 space-y-3">
-                            {(lang === 'en'
-                                ? ['Full property privatization', 'Minimum stay: 3 nights', 'Daily yoga and meditation included', 'Experiences à la carte']
-                                : ['Privatisation complète de la propriété', 'Séjour minimum : 3 nuits', 'Yoga et méditation quotidiens inclus', 'Expériences à la carte']
-                            ).map((item) => (
-                                <li key={item} className="flex items-start gap-3 text-sm font-light text-veda-dark/80">
-                                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-veda-gold" />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-
-                        <Link
-                            to={path('host')}
-                            className="mt-9 inline-flex items-center gap-3 rounded-full bg-veda-dark px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-light transition-colors duration-300 hover:bg-black"
-                        >
-                            {t('common.quote')}
-                        </Link>
-                    </div>
+                        )
+                    })}
                 </div>
+
+                <Link
+                    to={path('host')}
+                    className="mt-12 inline-flex items-center gap-3 rounded-full bg-veda-dark px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-light transition-colors duration-300 hover:bg-black"
+                >
+                    {t('common.quote')}
+                </Link>
             </Section>
 
             {/* 6. VEDA Travel */}

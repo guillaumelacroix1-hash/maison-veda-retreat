@@ -64,6 +64,21 @@ export default {
             story: 'Notre histoire',
             storyCaption: 'Comment cette maison est née.',
         },
+        // Cartes des sections Studio et Organiser sur l'accueil
+        studioCards: [
+            { title: 'Kundalini quotidien', desc: 'Une pratique chaque jour, ouverte à tous les niveaux, face au lac.' },
+            { title: 'Mantras & méditation', desc: 'Chants, Japa et méditation guidée, pour poser le mental.' },
+            { title: 'Breathwork', desc: 'Des séances de respiration menées par un professionnel certifié.' },
+            { title: 'Kirtan & bains de gong', desc: 'Cercles de chant avec musiciens, bols et gongs en soirée.' },
+            { title: 'Sadhana mensuelle', desc: 'Une fois par mois à 5 h 15, gratuite et ouverte à tous.' },
+            { title: 'Ateliers & invités', desc: 'Des professeurs invités ponctuels, et des ateliers plus longs.' },
+        ],
+        hostCards: [
+            { title: 'La propriété privatisée', desc: 'Deux villas et le shala rien que pour votre groupe, jusqu’à 15 personnes avec les villas voisines.' },
+            { title: 'Yoga et méditation inclus', desc: 'Chaque programme comprend les séances quotidiennes, sans supplément.' },
+            { title: 'Expériences à la carte', desc: 'Bains sonores, cacao, kirtan, cuisine, temple, bateau : vous composez.' },
+            { title: 'Une équipe sur place', desc: 'Restauration et service en chambre assurés, vous n’avez qu’à enseigner.' },
+        ],
         upcomingTitle: 'Prochaines retraites',
         upcomingLead: 'Nos retraites se réservent près d\'un an à l\'avance. La saison s\'ouvre en novembre.',
         venueTitle: 'Le lieu en images',
@@ -82,6 +97,9 @@ export default {
     },
 
     retreats: {
+        navUpcoming: 'À venir',
+        navMini: 'Mini-retraites',
+        navPast: 'Passées',
         metaTitle: 'Retraites de yoga au Sri Lanka',
         title: 'Retraites',
         lead: 'Les retraites animées par La Maison VEDA, à Habaraduwa, face au lac de Koggala.',
@@ -102,6 +120,11 @@ export default {
     },
 
     host: {
+        navVenue: 'Le lieu',
+        navShala: 'Le shala',
+        navHow: 'Comment ça marche',
+        navAvailability: 'Disponibilités',
+        navQuote: 'Devis',
         metaTitle: 'Organiser votre retraite au Sri Lanka',
         title: 'Organiser votre', titleAccent: 'retraite',
         lead: 'Professeurs, agences et petits groupes : La Maison VEDA vous ouvre ses portes pour votre propre retraite.',
@@ -119,6 +142,10 @@ export default {
     },
 
     studio: {
+        navPractices: 'Les cours',
+        navSchedule: 'Planning',
+        navTeachers: 'Professeures',
+        navPrices: 'Tarifs',
         metaTitle: 'Maison VEDA Lake Studio, cours de yoga au Sri Lanka',
         title: 'Maison VEDA', titleAccent: 'Lake Studio',
         lead: 'Le studio est ouvert à tous, y compris quand la maison accueille une retraite privée.',
@@ -204,6 +231,9 @@ export default {
     },
 
     story: {
+        navStory: 'Le récit',
+        navTeam: 'L’équipe',
+        navValues: 'Nos valeurs',
         metaTitle: 'Notre histoire, La Maison VEDA',
         title: 'Notre', titleAccent: 'histoire',
         lead: 'Comment La Maison VEDA est née, entre la Charente et le sud du Sri Lanka.',

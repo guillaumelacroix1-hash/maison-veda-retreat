@@ -75,7 +75,8 @@ export default function SectionNav({ items }) {
         >
             <ul
                 ref={listRef}
-                className="scrollbar-hide mx-auto flex max-w-container gap-7 overflow-x-auto px-4 sm:px-6 lg:justify-center"
+                // Alignée à gauche comme le titre du hero, juste au-dessus.
+                className="scrollbar-hide mx-auto flex max-w-container gap-7 overflow-x-auto px-4 sm:px-6"
             >
                 {items.map(({ id, label }) => (
                     <li key={id} className="shrink-0">

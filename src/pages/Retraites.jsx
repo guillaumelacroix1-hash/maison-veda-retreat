@@ -2,6 +2,7 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import SectionNav from '../components/site/SectionNav'
 import CtaSection from '../components/site/CtaSection'
 import RetreatCard from '../components/site/RetreatCard'
 import RetreatFeature from '../components/site/RetreatFeature'
@@ -30,8 +31,17 @@ export default function Retraites() {
                 image={SRILANKA_MEDIA.retraites?.[1]?.src ?? MEDIA.retreats}
             />
 
+            <SectionNav
+                items={[
+                    { id: 'a-venir', label: t('retreats.navUpcoming') },
+                    { id: 'mini', label: t('retreats.navMini') },
+                    { id: 'passees', label: t('retreats.navPast') },
+                ]}
+            />
+
+
             {/* Introduction reprise de la page source, avec une image pour l'habiller */}
-            <Section title={t('retreats.upcoming')}>
+            <Section id="a-venir" title={t('retreats.upcoming')}>
                 <div className="mb-16 grid items-start gap-12 lg:grid-cols-[1.2fr,1fr]">
                     <div className="space-y-4">
                         {c.retreats.upcomingText.map((p) => (
@@ -72,6 +82,7 @@ export default function Retraites() {
             </Section>
 
             <Section
+                id="mini"
                 tone="light"
                 title={t('retreats.miniTitle')}
                 accent={t('retreats.miniAccent')}
@@ -81,7 +92,7 @@ export default function Retraites() {
                 <ContentGap id="mini-retreats" className="max-w-3xl" />
             </Section>
 
-            <Section title={t('retreats.pastTitle')} accent={t('retreats.pastAccent')} lead={t('retreats.pastLead')}>
+            <Section id="passees" title={t('retreats.pastTitle')} accent={t('retreats.pastAccent')} lead={t('retreats.pastLead')}>
                 {past.length > 0 ? (
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                         {past.map((retreat) => (
