@@ -14,7 +14,7 @@ import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 
 /**
- * Location du lieu aux professeurs et aux agences.
+ * Location du lieu aux professeurs et aux organisateurs de retraites.
  * Objectif : générer des demandes de devis qualifiées (section 4).
  */
 export default function OrganiserRetraite() {
@@ -137,39 +137,24 @@ export default function OrganiserRetraite() {
             </Section>
 
             <Section title={t('host.packTitle')} accent={t('host.packAccent')} lead={t('host.packLead')}>
-                {/* Couverture du pack, récupérée du site source */}
-                {SRILANKA_MEDIA.retraites?.[0] && (
-                    <img
-                        src={SRILANKA_MEDIA.retraites[0].src}
-                        alt={SRILANKA_MEDIA.retraites[0].alt || ''}
-                        loading="lazy"
-                        className="mb-10 w-full max-w-xs rounded-2xl border border-veda-gold/20"
-                    />
-                )}
+                {/* Couverture du pack fusionné */}
+                <img
+                    src={`${import.meta.env.BASE_URL}docs/info-pack-cover.jpg`}
+                    alt={t('host.packTitle')}
+                    loading="lazy"
+                    className="mb-10 w-full max-w-[15rem] rounded-2xl border border-veda-gold/20 shadow-premium"
+                />
 
-                {/* Les deux PDF existants du site source, en attendant leur fusion. */}
-                <div className="flex flex-wrap gap-4">
-                    <a
-                        href={SRILANKA_LINKS.venuePackPdf}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-3 rounded-full bg-veda-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
-                    >
-                        <Download className="h-4 w-4" />
-                        {c.retreats.packCta}
-                    </a>
-                    <a
-                        href={SRILANKA_LINKS.retreatRatesPdf}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-3 rounded-full border border-veda-gold/50 px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-gold transition-colors duration-300 hover:bg-veda-gold/10"
-                    >
-                        <Download className="h-4 w-4" />
-                        {c.retreats.ratesCta}
-                    </a>
-                </div>
-
-                <ContentGap id="info-pack" className="mt-10 max-w-3xl" />
+                {/* Un seul document : le lieu, les capacités, les tarifs et les conditions. */}
+                <a
+                    href={SRILANKA_LINKS.infoPackPdf[lang]}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-3 rounded-full bg-veda-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
+                >
+                    <Download className="h-4 w-4" />
+                    {c.retreats.packCta}
+                </a>
 
                 <p className="mt-10 max-w-2xl text-sm font-light leading-relaxed text-veda-light/60">
                     {t('host.mediaKit')}

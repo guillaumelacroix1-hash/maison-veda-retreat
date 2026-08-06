@@ -32,7 +32,7 @@ export default function VedaTravel() {
 
             <SectionNav
                 items={[
-                    { id: 'agences', label: t('travel.navAgencies') },
+                    { id: 'organisateurs', label: t('travel.navAgencies') },
                     { id: 'particuliers', label: t('travel.navIndividual') },
                     { id: 'voyages', label: t('travel.navTrips') },
                     { id: 'tarifs', label: t('travel.navRates') },
@@ -77,8 +77,8 @@ export default function VedaTravel() {
                 </div>
             </Section>
 
-            {/* Pour les agences */}
-            <Section id="agences" tone="light" ornament="left" title={c.agenciesTitle} accent={c.agenciesAccent}>
+            {/* Pour les organisateurs de retraites */}
+            <Section id="organisateurs" tone="light" ornament="left" title={c.agenciesTitle} accent={c.agenciesAccent}>
                 <p className="max-w-3xl text-base font-light leading-relaxed text-veda-dark/70">{c.agenciesText}</p>
 
                 <div className="mt-14 grid gap-12 lg:grid-cols-2">
@@ -121,7 +121,7 @@ export default function VedaTravel() {
                 </div>
 
                 <a
-                    href={SRILANKA_LINKS.retreatRatesPdf}
+                    href={SRILANKA_LINKS.infoPackPdf[lang]}
                     target="_blank"
                     rel="noreferrer"
                     className="mt-12 inline-flex items-center gap-3 rounded-full bg-veda-dark px-9 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-light transition-colors duration-300 hover:bg-black"
@@ -216,7 +216,7 @@ export default function VedaTravel() {
                         {c.brochureText}
                     </p>
                     <a
-                        href={SRILANKA_LINKS.retreatRatesPdf}
+                        href={SRILANKA_LINKS.infoPackPdf[lang]}
                         target="_blank"
                         rel="noreferrer"
                         className="mt-6 inline-flex items-center gap-3 rounded-full border border-veda-gold/50 px-7 py-3 text-xs font-bold uppercase tracking-widest text-veda-gold transition-colors duration-300 hover:bg-veda-gold hover:text-veda-dark"

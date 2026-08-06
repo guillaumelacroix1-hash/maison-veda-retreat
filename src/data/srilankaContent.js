@@ -20,7 +20,7 @@ export const SRILANKA = {
                 'Nichée entre la jungle et le lac, sur les rives du lac de Koggala dans le sud du Sri Lanka, La Maison VEDA est un lieu de bien-être dédié au yoga, à la nature et aux expériences authentiques.',
                 'Nous accueillons des retraites de yoga et de bien-être organisées en petits groupes, pour celles et ceux qui souhaitent ralentir, se reconnecter et approfondir leur pratique dans un cadre naturel inspirant.',
                 'La Maison VEDA est aussi ouverte aux voyageurs en quête de vacances conscientes, à la recherche d\'un séjour paisible au plus près de la nature, où la vie s\'écoule doucement et où l\'hospitalité est sincère.',
-                'Enfin, nous collaborons avec des agences de voyage et des organisateurs de retraites, en proposant des expériences sur mesure et des séjours bien-être personnalisés, conçus pour de petits groupes et une approche du tourisme plus humaine et responsable.',
+                'Enfin, nous accompagnons les organisateurs de retraites, en proposant des expériences sur mesure et des séjours bien-être personnalisés, conçus pour de petits groupes et une approche du tourisme plus humaine et responsable.',
                 'Deux villas au charme authentique, un yoga shala avec une vue imprenable sur le lac, et une cuisine végétarienne inspirée des traditions sri-lankaise et ayurvédique font de La Maison VEDA une véritable maison d\'expériences.',
             ],
         },
@@ -35,11 +35,11 @@ export const SRILANKA = {
         ],
         hostDirect: 'Vous préférez en parler de vive voix ? Écrivez-nous directement, nous répondons sous 48 h.',
         groups: {
-            title: 'Pour les petits groupes,', titleAccent: 'les retraites et les agences',
+            title: 'Pour les petits groupes,', titleAccent: 'les retraites et leurs organisateurs',
             paragraphs: [
                 'Avec ses deux villas authentiques et son yoga shala en rooftop, La Maison VEDA est le cadre idéal pour des vacances paisibles, une retraite transformatrice ou une expérience de groupe sur mesure.',
                 'Nous accueillons jusqu\'à 7 personnes sur place, et jusqu\'à 15 avec les villas voisines.',
-                'Que vous veniez pour vous reposer, pour vous retrouver ou pour guider une retraite, La Maison VEDA est prête à vous accueillir, agences de voyage et organisateurs de retraites compris.',
+                'Que vous veniez pour vous reposer, pour vous retrouver ou pour guider une retraite, La Maison VEDA est prête à vous accueillir, organisateurs de retraites compris.',
             ],
         },
 
@@ -151,8 +151,7 @@ export const SRILANKA = {
             title: 'Retraites',
             additionalTitle: 'Hébergements complémentaires', additionalAccent: 'pendant les retraites',
             additionalText: 'Pour les groupes plus nombreux ou les préférences variées, nous travaillons avec des hébergements de confiance proches de La Maison VEDA. Les options vont de la chambre en dortoir à la chambre privée, jusqu\'à une luxueuse cabane flottante sur le lac, pour garantir confort et authenticité à chacun.',
-            packCta: 'Télécharger l\'Info Pack Retraite (PDF)',
-            ratesCta: 'Télécharger les tarifs et options (PDF)',
+            packCta: 'Télécharger l\'Info Pack Organisateurs (PDF)',
             upcomingTitle: 'Retraites à venir',
             upcomingText: [
                 'Découvrez les expériences transformatrices accueillies à La Maison VEDA. Tout au long de l\'année, nous recevons des professeurs et facilitateurs passionnés qui proposent des retraites de yoga, des immersions de breathwork et des voyages bien-être dans notre sanctuaire paisible au bord du lac.',
@@ -166,13 +165,13 @@ export const SRILANKA = {
             intro: 'Veda Travel est la branche voyage de La Maison VEDA, une petite maison de bien-être authentique sur les rives du lac de Koggala, dans le sud du Sri Lanka. Au-delà de l\'accueil de groupes sur place, nous concevons et organisons des voyages à travers le Sri Lanka, mêlant yoga, nature et culture locale, pour les professionnels du voyage comme pour les voyageurs indépendants.',
             twoWaysTitle: 'Nous travaillons de deux façons',
             twoWays: [
-                'Avec les agences de voyage, les professeurs de retraite et les tour-opérateurs, qui réservent La Maison VEDA comme base pour leurs programmes de groupe.',
+                'Avec les professeurs et organisateurs de retraites, qui réservent La Maison VEDA comme base pour leurs programmes de groupe.',
                 'Avec les voyageurs individuels, pour qui nous concevons des itinéraires entièrement sur mesure à travers le Sri Lanka : voyage accompagné en voiture ou en van, jusqu\'à 17 personnes avec un bus privé.',
             ],
             experience: 'Cette double expérience nous vient naturellement : après presque chaque retraite de yoga que nous accueillons, nous organisons des voyages prolongés pour nos hôtes. Nous savons donc de première main comment déplacer de petits groupes confortablement à travers l\'île, tout en gardant une expérience authentique et centrée sur le bien-être.',
 
-            agenciesTitle: 'Pour les agences et', agenciesAccent: 'les organisateurs de retraites',
-            agenciesText: 'Nous collaborons avec des agences de voyage, des professeurs de retraite et des tour-opérateurs pour créer des programmes bien-être sur mesure destinés à leurs clients. Notre approche est souple, authentique et pensée pour les petits groupes, avec un accent sur des expériences qui ont du sens et un tourisme responsable.',
+            agenciesTitle: 'Pour les', agenciesAccent: 'organisateurs de retraites',
+            agenciesText: 'Nous collaborons avec des professeurs de yoga et des organisateurs de retraites pour créer des programmes bien-être sur mesure destinés à leurs élèves. Notre approche est souple, authentique et pensée pour les petits groupes, avec un accent sur des expériences qui ont du sens et un tourisme responsable.',
             capacityTitle: 'Hébergement et capacité',
             capacity: [
                 'Jusqu\'à 7 personnes sur place, deux villas, 7 lits',
@@ -200,10 +199,10 @@ export const SRILANKA = {
                 'Visite d\'une écloserie de tortues et lâcher de bébés tortues',
             ],
             howTitle: 'Comment ça marche',
-            howText: 'Les agences choisissent une formule de 3 à 7 jours et ajoutent les expériences à la carte. Nous fournissons un programme personnalisé et un tarif établi selon la taille du groupe, les dates et les préférences.',
+            howText: 'Les organisateurs choisissent une formule de 3 à 7 jours et ajoutent les expériences à la carte. Nous fournissons un programme personnalisé et un tarif établi selon la taille du groupe, les dates et les préférences.',
 
             individualTitle: 'Pour les voyageurs individuels,', individualAccent: 'voyages sur mesure',
-            individualText: 'Vous ne faites pas partie d\'un groupe ou d\'une agence ? Veda Travel conçoit aussi des itinéraires entièrement personnalisés pour les voyageurs individuels et les familles qui veulent découvrir le Sri Lanka au-delà de la maison.',
+            individualText: 'Vous ne faites pas partie d\'un groupe ? Veda Travel conçoit aussi des itinéraires entièrement personnalisés pour les voyageurs individuels et les familles qui veulent découvrir le Sri Lanka au-delà de la maison.',
             individual: [
                 'Transport privé en voiture ou en van, jusqu\'à 17 personnes en minibus',
                 'Itinéraires construits autour de vos dates, de votre rythme et de vos envies, de la plage et la culture au bien-être et à la nature',
@@ -213,8 +212,8 @@ export const SRILANKA = {
             turnkeyTitle: 'Séjours clés en main, bientôt disponibles',
             turnkeyText: 'Nous préparons trois séjours touristiques clés en main, chacun combinant un itinéraire choisi, l\'hébergement et les expériences. Détails à venir.',
             brochureTitle: 'Demander notre brochure',
-            brochureText: 'Pour recevoir notre présentation complète en PDF et le détail des tarifs, pour les agences comme pour les voyages individuels, contactez-nous. Nous serons heureux de construire une offre sur mesure pour vos clients ou pour votre propre voyage.',
-            brochureCta: 'Télécharger notre pack Agences (FR)',
+            brochureText: 'Pour recevoir notre présentation complète en PDF et le détail des tarifs, pour les organisateurs de retraites comme pour les voyages individuels, contactez-nous. Nous serons heureux de construire une offre sur mesure pour votre groupe ou pour votre propre voyage.',
+            brochureCta: 'Télécharger notre Info Pack (FR)',
         },
 
         studio: {
@@ -304,7 +303,7 @@ export const SRILANKA = {
                 'Nestled between jungle and lake, on the shores of Koggala Lake in the south of Sri Lanka, La Maison VEDA is a well-being place dedicated to yoga, nature and authentic experiences.',
                 'We welcome yoga and well-being retreats, organized in small groups, for those who wish to slow down, reconnect and deepen their practice in an inspiring natural setting.',
                 'La Maison VEDA is also open to travelers seeking conscious holidays, looking for a peaceful stay close to nature, where life flows gently and hospitality is sincere.',
-                'Finally, we collaborate with travel agencies and retreat organizers, offering tailor-made experiences and personalized well-being stays, designed for small groups and a more human and responsible approach to tourism.',
+                'Finally, we support retreat organizers, offering tailor-made experiences and personalized well-being stays, designed for small groups and a more human and responsible approach to tourism.',
                 'Two villas with authentic charm, a yoga shala with breathtaking views over the lake, and a vegetarian cuisine inspired by Sri Lankan and Ayurvedic traditions make La Maison VEDA a true house of experiences.',
             ],
         },
@@ -319,11 +318,11 @@ export const SRILANKA = {
         ],
         hostDirect: 'Would you rather talk it through? Write to us directly, we reply within 48 hours.',
         groups: {
-            title: 'For small Groups,', titleAccent: 'Retreats & Agencies',
+            title: 'For small Groups,', titleAccent: 'Retreats & their Organizers',
             paragraphs: [
                 'With its two authentic villas and a rooftop yoga shala, La Maison VEDA is the perfect setting for a peaceful holiday, a transformative retreat, or a bespoke group experience.',
                 'We host up to 7 guests on-site, and can extend to 15 guests with nearby villas.',
-                'Whether you come to rest, to gather, or to guide a retreat, La Maison VEDA is ready to welcome you, including travel agencies and retreat organizers seeking tailor-made well-being programs.',
+                'Whether you come to rest, to gather, or to guide a retreat, La Maison VEDA is ready to welcome you, including retreat organizers seeking tailor-made well-being programs.',
             ],
         },
 
@@ -430,8 +429,7 @@ export const SRILANKA = {
             title: 'Retreats',
             additionalTitle: 'Additional accommodation', additionalAccent: 'during retreats',
             additionalText: 'For larger groups or varied preferences, we partner with trusted lodgings near La Maison VEDA. Options range from dorm-style rooms and private bedrooms to a luxurious floating cabin on the lake, ensuring comfort and authenticity for every guest.',
-            packCta: 'Download the Retreat Pack (PDF)',
-            ratesCta: 'Download the rates and options (PDF)',
+            packCta: 'Download the Organizers\' Info Pack (PDF)',
             upcomingTitle: 'Upcoming retreats',
             upcomingText: [
                 'Discover the transformative experiences hosted at La maison Veda. Throughout the year, we welcome passionate teachers and facilitators offering yoga retreats, breathwork immersions, and wellness journeys in our serene lakeside sanctuary.',
@@ -445,13 +443,13 @@ export const SRILANKA = {
             intro: 'Veda Travel is the travel arm of La Maison VEDA, a small, authentic well-being house on the shores of Koggala Lake, in the south of Sri Lanka. Beyond hosting groups on-site, we design and organize journeys across Sri Lanka, blending yoga, nature, and local culture, for both travel professionals and independent travelers.',
             twoWaysTitle: 'We work in two ways',
             twoWays: [
-                'With travel agencies, retreat leaders, and tour operators, who book La Maison VEDA as a base for their group programs.',
+                'With retreat teachers and organizers, who book La Maison VEDA as a base for their group programs.',
                 'With individual travelers, for whom we design fully tailor-made itineraries and trips around Sri Lanka: accompanied travel by car or van, up to 17 people with a private bus.',
             ],
             experience: 'This dual experience comes naturally to us: after almost every yoga retreat we host, we organize extended trips for our guests, so we know first-hand how to move small groups comfortably around the island while keeping the experience authentic and well-being focused.',
 
-            agenciesTitle: 'For travel agencies and', agenciesAccent: 'retreat organizers',
-            agenciesText: 'We collaborate with travel agencies, retreat leaders, and tour operators to create tailor-made well-being programs for their clients. Our approach is flexible, authentic, and designed for small groups, with a focus on meaningful experiences and responsible tourism.',
+            agenciesTitle: 'For', agenciesAccent: 'retreat organizers',
+            agenciesText: 'We collaborate with yoga teachers and retreat organizers to create tailor-made well-being programs for their students. Our approach is flexible, authentic, and designed for small groups, with a focus on meaningful experiences and responsible tourism.',
             capacityTitle: 'Accommodation & capacity',
             capacity: [
                 'Up to 7 guests on-site, two villas, 7 beds',
@@ -479,10 +477,10 @@ export const SRILANKA = {
                 'Turtle hatchery visit and baby turtle release',
             ],
             howTitle: 'How it works',
-            howText: 'Agencies can choose a package of 3 to 7 days and add experiences à la carte. We provide a customized program and pricing based on group size, dates, and preferences.',
+            howText: 'Organizers can choose a package of 3 to 7 days and add experiences à la carte. We provide a customized program and pricing based on group size, dates, and preferences.',
 
             individualTitle: 'For individual travellers,', individualAccent: 'custom trips',
-            individualText: 'Not part of a group or an agency? Veda Travel also designs fully custom itineraries for individual travelers and families wanting to discover Sri Lanka beyond the house.',
+            individualText: 'Not part of a group? Veda Travel also designs fully custom itineraries for individual travelers and families wanting to discover Sri Lanka beyond the house.',
             individual: [
                 'Private transport by car or van, for groups up to 17 people by minibus',
                 'Itineraries built around your dates, pace, and interests, from beach and culture to wellness and nature',
@@ -492,8 +490,8 @@ export const SRILANKA = {
             turnkeyTitle: 'Signature turnkey stays, coming soon',
             turnkeyText: 'We are preparing three ready-made, turnkey tourist stays, each combining a curated itinerary, accommodation, and experiences. Details to follow shortly.',
             brochureTitle: 'Request Our Brochure',
-            brochureText: 'To receive our full presentation (PDF) and pricing details, for agencies or individual trips, please contact us. We are happy to create a tailor-made offer for your clients or for your own journey.',
-            brochureCta: 'Download our Agency Pack info (FR)',
+            brochureText: 'To receive our full presentation (PDF) and pricing details, for retreat organizers or individual trips, please contact us. We are happy to create a tailor-made offer for your group or for your own journey.',
+            brochureCta: 'Download our Info Pack (EN)',
         },
 
         studio: {
@@ -582,8 +580,12 @@ export const srilanka = (lang) => SRILANKA[lang] ?? SRILANKA.fr
 export const SRILANKA_LINKS = {
     revolut: 'https://revolut.me/dutreya',
     airbnb: 'https://www.airbnb.fr/users/show/5719526',
-    venuePackPdf: 'https://www.lamaisonveda.com/wp-content/uploads/2026/03/VENUE-HIRE-INFO-PACK.pdf',
-    retreatRatesPdf: 'https://www.lamaisonveda.com/wp-content/uploads/2026/03/Votre-retraite-a-la-maison-VEDA-Sri-Lanka.pdf',
+    /**
+     * Info Pack Organisateurs : fusion des deux PDF du site source
+     * (« Venue Hire Info Pack » + « Votre retraite à La Maison VEDA »), qui
+     * disaient la même chose. Un seul document désormais, une version par langue.
+     */
+    infoPackPdf: { fr: '/docs/info-pack-organisateurs-fr.pdf', en: '/docs/info-pack-organisateurs-en.pdf' },
     retreat2027: 'https://www.lamaisonveda.com/programme/retraite-sri-lankahatha-kundalini-yoga-7-13-fev-2027/',
 }
 
