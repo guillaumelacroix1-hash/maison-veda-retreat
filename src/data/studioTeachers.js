@@ -16,7 +16,7 @@ export const TEACHERS = [
         key: 'lilie',
         name: 'Aurélie Dutrey',
         spiritualName: 'Radha Navjot Kaur',
-        photo: img('lilie-sadhana.jpg'),
+        photo: img('lilie-tambour.jpg'),
         fr: {
             role: 'Fondatrice et professeure de Kundalini',
             bio: [

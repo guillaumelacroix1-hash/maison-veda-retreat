@@ -157,7 +157,9 @@ export default function Studio() {
                 tone="light"
                 title={t('studio.pricesTitle')}
                 accent={t('studio.pricesAccent')}
-                aside={SRILANKA_MEDIA['yoga-shala'][11]}
+                // Des élèves en cours plutôt qu'un portrait : on parle ici du
+                // prix d'une place sur le tapis.
+                aside={SRILANKA_MEDIA['yoga-shala'][4]}
                 asidePosition="left"
             >
                 <ContentGap id="studio-prices" className="max-w-3xl" />
