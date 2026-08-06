@@ -8,10 +8,12 @@ import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
 import TransparencyNote from '../components/site/TransparencyNote'
+import WeeklySchedule from '../components/site/WeeklySchedule'
 import { srilanka } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 import { CONTACT, SOCIAL } from '../data/site'
+import { HIGHLIGHTS } from '../data/studioSchedule'
 
 /**
  * Maison VEDA Lake Studio.
@@ -23,7 +25,6 @@ import { CONTACT, SOCIAL } from '../data/site'
 export default function Studio() {
     const { t, lang } = useI18n()
     const c = srilanka(lang)
-    const schedule = SRILANKA_MEDIA.studio?.[0]
 
     return (
         <>
@@ -51,66 +52,36 @@ export default function Studio() {
                 <MediaGallery images={SRILANKA_MEDIA['yoga-shala']} initial={6} />
             </Section>
 
+            {/* Le planning est le cœur de la page : on va droit au but.
+                Il est écrit en texte (src/data/studioSchedule.js) et non en
+                image, pour être traduit, lu par un lecteur d'écran, référencé —
+                et surtout actualisé chaque semaine sans refaire un visuel. */}
             <Section id="planning" title={t('studio.scheduleTitle')} accent={t('studio.scheduleAccent')} lead={t('studio.scheduleNote')}>
-                {/* Le planning affiché sur le site source est une image, donc ni
-                    traduisible ni lisible par un lecteur d'écran. Il faudra le
-                    ressaisir en texte : voir le ContentGap ci-dessous. */}
-                <div className="grid gap-12 lg:grid-cols-[1fr,1.2fr]">
-                    {schedule && (
-                        <figure>
-                            <img
-                                src={schedule.src}
-                                alt={c.studio.scheduleAlt}
-                                loading="lazy"
-                                className="w-full rounded-2xl border border-veda-gold/20"
-                            />
-                            <figcaption className="mt-3 text-xs font-light text-veda-light/50">
-                                {c.studio.title}
-                            </figcaption>
-                        </figure>
-                    )}
+                <WeeklySchedule />
 
-                    <div>
-                        {/* Les pratiques annoncées, en attendant le planning ressaisi */}
-                        <ul className="flex flex-wrap gap-2">
-                            {(lang === 'en'
-                                ? ['Daily Kundalini', 'Celestial Communication', 'Mantras & Meditation', 'Breathwork', 'Japa', 'Kirtan with musicians', 'Gong bath', 'Gong workshops']
-                                : ['Kundalini quotidien', 'Celestial Communication', 'Mantras & méditation', 'Breathwork', 'Japa', 'Kirtan avec musiciens', 'Bain de gong', 'Ateliers gong']
-                            ).map((p) => (
-                                <li
-                                    key={p}
-                                    className="rounded-full border border-veda-gold/30 px-4 py-2 text-xs font-light text-veda-light/80"
-                                >
-                                    {p}
-                                </li>
-                            ))}
-                        </ul>
-
-                        <ContentGap id="studio-schedule" className="mt-10" />
-                    </div>
+                <div className="mt-12 grid gap-6 md:grid-cols-2">
+                    {HIGHLIGHTS.map((h) => (
+                        <div key={h.fr.title} className="rounded-2xl border border-veda-gold/20 bg-white/[0.03] p-7">
+                            <div className="flex items-start gap-4">
+                                <Sunrise className="mt-1 h-5 w-5 shrink-0 text-veda-gold" />
+                                <div>
+                                    <h3 className="font-heading text-lg">{h[lang].title}</h3>
+                                    <p className="mt-2 text-sm font-light leading-relaxed text-veda-light/70">
+                                        {h[lang].text}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
+
+                <ContentGap id="studio-schedule" className="mt-10 max-w-3xl" />
             </Section>
 
             {/* Obligatoire (§4) : le shala est sur le toit du Lake Loft, donc
                 au-dessus d'hôtes en séjour. Même encart que sur la page Le Lieu. */}
             <Section>
                 <TransparencyNote copy={c.loftTransparency} />
-            </Section>
-
-            <Section
-                tone="light"
-                ornament="right"
-                title={t('studio.sadhanaTitle')}
-                lead={t('studio.sadhanaLead')}
-                aside={SRILANKA_MEDIA['yoga-shala'][8]}
-                asidePosition="left"
-            >
-                <div className="flex max-w-2xl items-start gap-5 rounded-3xl border border-veda-dark/10 bg-white p-8 shadow-card">
-                    <Sunrise className="mt-1 h-6 w-6 shrink-0 text-veda-gold" />
-                    <p className="text-lg font-light leading-relaxed text-veda-dark/70">
-                        {t('studio.sadhanaLead')}
-                    </p>
-                </div>
             </Section>
 
             <Section

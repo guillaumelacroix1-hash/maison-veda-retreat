@@ -34,8 +34,8 @@ export const CONTENT_GAPS = {
         ref: '§6, §12',
     },
     'studio-schedule': {
-        fr: 'Le planning ci-dessus est l\'image récupérée du site actuel : elle n\'est ni traduisible, ni lisible par un lecteur d\'écran, ni référençable. Il faut le ressaisir en texte. Un brouillon détaillé existe (document « MaisonVEDA_Collaboration_Anna_2027_v8 » sur le Drive, 23/07/2026), à valider avec Anna avant publication.',
-        en: 'The schedule above is the image taken from the current site: it cannot be translated, read by a screen reader, or indexed. It needs to be retyped as text. A detailed draft exists (document "MaisonVEDA_Collaboration_Anna_2027_v8" on the Drive, 23/07/2026), to be confirmed with Anna before publishing.',
+        fr: 'Le planning ci-dessus vient du brouillon de partenariat avec Anna (« MaisonVEDA_Collaboration_Anna_2027_v8 », Drive, 23/07/2026) : à figer avec elle avant l\'ouverture de la saison. Il s\'actualise ensuite chaque semaine dans src/data/studioSchedule.js.',
+        en: 'The schedule above comes from the partnership draft with Anna ("MaisonVEDA_Collaboration_Anna_2027_v8", Drive, 23/07/2026): to be finalised with her before the season opens. It is then updated weekly in src/data/studioSchedule.js.',
         owner: OWNERS.aurelieAnna,
         ref: '§11, §12',
     },
@@ -52,8 +52,8 @@ export const CONTENT_GAPS = {
         ref: '§12',
     },
     'studio-cafe': {
-        fr: 'Le café au jardin n\'est encore qu\'une idée : rien n\'est organisé, ni décidé. Formulation volontairement prudente sur le site. À reprendre (ou à retirer) quand Aurélie aura tranché.',
-        en: 'The garden café is still just an idea: nothing is organised or decided. The wording on the site is deliberately cautious. To revisit (or remove) once Aurélie has decided.',
+        fr: 'Le café et le petit-déjeuner au jardin restent à organiser concrètement (horaires, carte, prix). Le site les annonce simplement, sans détail : les clients découvriront sur place.',
+        en: 'The garden café and breakfast still need to be organised in practice (hours, menu, prices). The site simply announces them, without detail: guests will discover on site.',
         owner: OWNERS.aurelie,
         ref: '§12',
     },
