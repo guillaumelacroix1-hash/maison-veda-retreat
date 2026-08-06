@@ -16,15 +16,16 @@ export default function WeeklySchedule() {
 
     const cell = (slotKey, dayKey) => SCHEDULE[slotKey]?.[dayKey] ?? null
 
-    // Inutile d'étiqueter « Kundalini » un cours qui s'appelle déjà ainsi.
+    // Tout le programme relève du Kundalini : seuls les intervenants extérieurs
+    // et les professeures nommément associées à un cours sont signalés.
     const badge = (entry) =>
-        entry?.kundalini && !entry[lang].toLowerCase().includes('kundalini') ? (
-            <span className="mt-1.5 block text-[10px] font-semibold uppercase tracking-[0.15em] text-veda-gold/70">
-                Kundalini
-            </span>
-        ) : entry?.guest ? (
+        entry?.guest ? (
             <span className="mt-1.5 block text-[10px] font-light uppercase tracking-[0.15em] text-veda-light/40">
                 {lang === 'en' ? 'Guest teacher' : 'Professeur invité'}
+            </span>
+        ) : entry?.teacher ? (
+            <span className="mt-1.5 block text-[10px] font-light uppercase tracking-[0.15em] text-veda-gold/60">
+                {entry.teacher[lang]}
             </span>
         ) : null
 

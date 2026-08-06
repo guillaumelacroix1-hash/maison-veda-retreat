@@ -9,8 +9,11 @@
  * tel quel, dans les deux langues. Remplacer un cours revient à changer sa
  * ligne ici. Le planning de la semaine est aussi publié sur Instagram.
  *
- * `kundalini: true` met la pratique en avant : le Kundalini est le cœur du
- * studio, les deux professeures en sont issues.
+ * Tout le programme relève du Kundalini Yoga selon Yogi Bhajan — mantras,
+ * méditation, Japa, kirtan et breathwork en sont des expressions, pas des
+ * disciplines à côté. Inutile donc d'étiqueter les cours un par un : seuls
+ * `guest: true` (intervenant extérieur) et `teacher` (quand une professeure
+ * est nommément associée à un cours, ex. Rebirth Kriya) sont signalés.
  */
 
 export const DAYS = [
@@ -48,20 +51,20 @@ export const SLOTS = [
  */
 export const SCHEDULE = {
     morning: {
-        mon: { fr: 'Kundalini', en: 'Kundalini', kundalini: true },
-        tue: { fr: 'Kundalini', en: 'Kundalini', kundalini: true },
-        wed: { fr: 'Kundalini', en: 'Kundalini', kundalini: true },
-        thu: { fr: 'Kundalini', en: 'Kundalini', kundalini: true },
-        fri: { fr: 'Kundalini', en: 'Kundalini', kundalini: true },
-        sat: { fr: 'Kundalini', en: 'Kundalini', kundalini: true },
+        mon: { fr: 'Kundalini', en: 'Kundalini' },
+        tue: { fr: 'Kundalini', en: 'Kundalini' },
+        wed: { fr: 'Kundalini', en: 'Kundalini' },
+        thu: { fr: 'Kundalini', en: 'Kundalini' },
+        fri: { fr: 'Kundalini', en: 'Kundalini' },
+        sat: { fr: 'Kundalini', en: 'Kundalini' },
         sun: null,
     },
     midMorning: {
-        mon: { fr: 'Breathwork & méditation', en: 'Breathwork & meditation', kundalini: true },
+        mon: { fr: 'Breathwork & méditation', en: 'Breathwork & meditation' },
         tue: { fr: 'Bain de gong', en: 'Gong bath', guest: true },
         wed: { fr: 'Mantras & méditation', en: 'Mantras & meditation' },
         thu: { fr: 'Celestial Communication', en: 'Celestial Communication' },
-        fri: { fr: 'Rebirth Kriya', en: 'Rebirth Kriya', kundalini: true },
+        fri: { fr: 'Rebirth Kriya', en: 'Rebirth Kriya', teacher: { fr: 'avec Lilie', en: 'with Lilie' } },
         sat: { fr: 'Kirtan avec musiciens', en: 'Kirtan with musicians' },
         sun: null,
     },
@@ -69,7 +72,7 @@ export const SCHEDULE = {
         mon: { fr: 'Japa, méditation chantée', en: 'Japa chanting meditation' },
         tue: { fr: 'Mantras & méditation', en: 'Mantras & meditation' },
         wed: { fr: 'Kirtan avec musiciens', en: 'Kirtan with musicians' },
-        thu: { fr: 'Breathwork & méditation', en: 'Breathwork & meditation', kundalini: true },
+        thu: { fr: 'Breathwork & méditation', en: 'Breathwork & meditation' },
         fri: { fr: 'Celestial Communication', en: 'Celestial Communication' },
         sat: { fr: 'Événement ou professeur invité', en: 'Special event or guest teacher', guest: true },
         sun: null,
@@ -79,8 +82,8 @@ export const SCHEDULE = {
 /** Ce qui ne tient pas dans la grille : rendez-vous mensuels et ponctuels. */
 export const HIGHLIGHTS = [
     {
-        fr: { title: 'La Sadhana mensuelle', text: 'Une fois par mois à 5 h 15, à la pleine ou à la nouvelle lune. Gratuite, ouverte à tous les pratiquants.' },
-        en: { title: 'Monthly Sadhana', text: 'Once a month at 5:15 am, on the full or new moon. Free, open to all practitioners.' },
+        fr: { title: 'La Sadhana de pleine lune', text: 'Une fois par mois, le jour de la pleine lune, à 5 h 30 — au lever du soleil sri-lankais. Gratuite et ouverte à tous : un moment pour réunir la sangat et faire vivre la communauté.' },
+        en: { title: 'Full moon Sadhana', text: 'Once a month, on the full moon, at 5:30 am — as the Sri Lankan sun rises. Free and open to all: a moment to gather the sangat and grow the community.' },
     },
     {
         fr: { title: 'Ateliers et professeurs invités', text: 'Ateliers de gong, événements ponctuels : les dates sont annoncées à l\'avance sur Instagram.' },

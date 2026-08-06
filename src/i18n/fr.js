@@ -144,12 +144,19 @@ export default {
 
     studio: {
         navPractices: 'Les cours',
+        navPhilosophy: 'Le Kundalini',
         navSchedule: 'Planning',
         navTeachers: 'Professeures',
         navPrices: 'Tarifs',
         metaTitle: 'Maison VEDA Lake Studio, cours de yoga au Sri Lanka',
         title: 'Maison VEDA', titleAccent: 'Lake Studio',
         lead: 'Cours quotidiens de Kundalini, kirtans et bains de gong, ouverts à tous : à nos hôtes du Lake Loft et de la Lake House comme aux visiteurs de passage.',
+        philosophyEyebrow: 'Notre pratique',
+        philosophyTitle: 'Le Kundalini Yoga', philosophyAccent: 'selon Yogi Bhajan',
+        philosophyParagraphs: [
+            'Anna et moi enseignons le Kundalini Yoga tel que l\'a transmis Yogi Bhajan — une pratique qui a changé nos vies à toutes les deux. Pour nous, ce n\'est pas un yoga parmi d\'autres : c\'est un chemin de transformation, où le souffle, le mouvement et le son se rejoignent pour éveiller l\'énergie qui sommeille en chacun.',
+            'Nous croyons profondément au pouvoir des mantras — une source de guérison que nous vivons nous-mêmes, chaque jour sur le tapis. Et parmi nos pratiques les plus intenses, Lilie anime les séances de Rebirth Kriya : un souffle puissant, pensé pour traverser et transformer ce qui demande à l\'être.',
+        ],
         scheduleTitle: 'Le planning', scheduleAccent: 'de la semaine',
         scheduleNote: 'Le Kundalini est notre pratique de cœur : il ouvre chaque journée, six jours sur sept. Autour de lui viennent les mantras, le breathwork, les kirtans et les bains de gong. Le planning est actualisé chaque semaine, ici et sur Instagram, et s\'allège en basse saison (novembre et avril).',
         retreatPauseTitle: 'Pendant les retraites', retreatPauseAccent: 'privées',

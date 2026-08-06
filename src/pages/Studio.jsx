@@ -40,6 +40,7 @@ export default function Studio() {
             <SectionNav
                 items={[
                     { id: 'shala', label: t('studio.navPractices') },
+                    { id: 'philosophie', label: t('studio.navPhilosophy') },
                     { id: 'planning', label: t('studio.navSchedule') },
                     { id: 'professeures', label: t('studio.navTeachers') },
                     { id: 'tarifs-cours', label: t('studio.navPrices') },
@@ -50,6 +51,24 @@ export default function Studio() {
             {/* Le shala en pleine largeur : c'est le lieu dont parle toute la page */}
             <Section id="shala" className="pb-0">
                 <MediaGallery images={SRILANKA_MEDIA['yoga-shala']} initial={6} />
+            </Section>
+
+            {/* Pourquoi le Kundalini, dans les mots d'Aurélie : ce que la
+                pratique change chez elle et Anna, avant de dérouler le planning. */}
+            <Section
+                id="philosophie"
+                tone="light"
+                eyebrow={t('studio.philosophyEyebrow')}
+                title={t('studio.philosophyTitle')}
+                accent={t('studio.philosophyAccent')}
+            >
+                <div className="max-w-3xl space-y-5">
+                    {t('studio.philosophyParagraphs').map((p) => (
+                        <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-dark/70">
+                            {p}
+                        </p>
+                    ))}
+                </div>
             </Section>
 
             {/* Le planning est le cœur de la page : on va droit au but.
