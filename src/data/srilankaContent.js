@@ -51,10 +51,10 @@ export const SRILANKA = {
          * est sur son toit et accueille du public.
          */
         loftTransparency: {
-            eyebrow: 'En toute transparence',
+            eyebrow: 'Bon à savoir',
             title: 'Un studio vivant',
             titleAccent: 'sur votre toit',
-            lead: 'Le yoga shala perché sur le toit du Lake Loft accueille des cours et des ateliers quotidiens, ouverts aux personnes de l\'extérieur. Voici précisément ce que cela implique.',
+            lead: 'Le yoga shala perché sur le toit du Lake Loft accueille des cours quotidiens, ouverts à tous. Les deux villas, elles, restent entièrement privatives.',
             points: [
                 {
                     label: 'Un accès totalement indépendant',
@@ -62,7 +62,7 @@ export const SRILANKA = {
                 },
                 {
                     label: 'Les cours vous sont ouverts',
-                    text: 'En séjournant au Lake Loft, vous profitez des cours à volonté, quand vous le souhaitez.',
+                    text: 'En séjournant au Lake Loft comme à la Lake House, vous profitez des cours quand vous le souhaitez, juste au-dessus de chez vous.',
                 },
                 {
                     label: 'Une maison qui vit',
@@ -328,10 +328,10 @@ export const SRILANKA = {
         offer: { title: 'Our', titleAccent: 'offer' },
 
         loftTransparency: {
-            eyebrow: 'Full transparency',
+            eyebrow: 'Good to know',
             title: 'A living studio',
             titleAccent: 'on your roof',
-            lead: 'The yoga shala on the roof of the Lake Loft hosts daily classes and workshops, open to people from outside. Here is exactly what that means.',
+            lead: 'The yoga shala on the roof of the Lake Loft hosts daily classes, open to everyone. Both villas themselves stay entirely private.',
             points: [
                 {
                     label: 'A completely separate entrance',
@@ -339,7 +339,7 @@ export const SRILANKA = {
                 },
                 {
                     label: 'The classes are yours too',
-                    text: 'Staying at the Lake Loft, you can join the classes as often as you like, whenever you like.',
+                    text: 'Staying at the Lake Loft or the Lake House, you can join the classes whenever you like, just above your door.',
                 },
                 {
                     label: 'A house that lives',

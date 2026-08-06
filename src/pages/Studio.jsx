@@ -7,13 +7,13 @@ import SectionNav from '../components/site/SectionNav'
 import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
-import TransparencyNote from '../components/site/TransparencyNote'
 import WeeklySchedule from '../components/site/WeeklySchedule'
 import { srilanka } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 import { CONTACT, SOCIAL } from '../data/site'
 import { HIGHLIGHTS } from '../data/studioSchedule'
+import { TEACHERS, TEACHERS_MEDIA } from '../data/studioTeachers'
 
 /**
  * Maison VEDA Lake Studio.
@@ -97,20 +97,59 @@ export default function Studio() {
                 <ContentGap id="studio-schedule" className="mt-10 max-w-3xl" />
             </Section>
 
-            {/* Obligatoire (§4) : le shala est sur le toit du Lake Loft, donc
-                au-dessus d'hôtes en séjour. Même encart que sur la page Le Lieu. */}
-            <Section>
-                <TransparencyNote copy={c.loftTransparency} />
-            </Section>
+            {/* L'encart de transparence sur le Lake Loft vit sur la page
+                « Le Lieu & Hébergements » : il s'adresse aux vacanciers qui
+                louent les villas, pas aux élèves venus pour un cours. */}
 
             <Section
                 id="professeures"
                 title={t('studio.teachersTitle')}
                 accent={t('studio.teachersAccent')}
                 lead={t('studio.teachersLead')}
-                aside={SRILANKA_MEDIA.nav[3]}
             >
-                <ContentGap id="team" className="max-w-3xl" />
+                {/* Photo du duo en bandeau : c'est le binôme qui fait le studio. */}
+                <img
+                    src={TEACHERS_MEDIA.namaste.src}
+                    alt={TEACHERS_MEDIA.namaste.alt}
+                    loading="lazy"
+                    className="mb-14 aspect-[2/1] w-full rounded-3xl object-cover object-top"
+                />
+
+                <div className="grid gap-10 md:grid-cols-2">
+                    {TEACHERS.map((teacher) => {
+                        const copy = teacher[lang] ?? teacher.fr
+                        return (
+                            <article key={teacher.key} className="flex flex-col">
+                                <div className="overflow-hidden rounded-3xl">
+                                    <img
+                                        src={teacher.photo}
+                                        alt={teacher.name}
+                                        loading="lazy"
+                                        className="aspect-[4/5] w-full object-cover transition-transform duration-700 hover:scale-105"
+                                    />
+                                </div>
+                                <h3 className="mt-7 font-heading text-2xl">{teacher.name}</h3>
+                                {teacher.spiritualName && (
+                                    <p className="mt-1 font-heading text-lg italic text-veda-gold">
+                                        {teacher.spiritualName}
+                                    </p>
+                                )}
+                                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold/70">
+                                    {copy.role}
+                                </p>
+                                <div className="mt-5 space-y-4">
+                                    {copy.bio.map((p) => (
+                                        <p key={p.slice(0, 40)} className="text-sm font-light leading-relaxed text-veda-light/75">
+                                            {p}
+                                        </p>
+                                    ))}
+                                </div>
+                                {/* Anna doit écrire sa biographie : rien n'est inventé à sa place. */}
+                                {teacher.gap && <ContentGap id={teacher.gap} className="mt-5" />}
+                            </article>
+                        )
+                    })}
+                </div>
             </Section>
 
             <Section

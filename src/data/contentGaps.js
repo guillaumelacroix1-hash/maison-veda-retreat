@@ -99,6 +99,12 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelie,
         ref: '§4, §12',
     },
+    'anna-bio': {
+        fr: 'Biographie d\'Anna, à écrire par elle : son parcours, sa formation en Kundalini, ce qui l\'a amenée au Sri Lanka. Nom spirituel s\'il y en a un. Rien n\'est rédigé à sa place (règle « zéro invention »).',
+        en: 'Anna\'s biography, to be written by her: her path, her Kundalini training, what brought her to Sri Lanka. Spiritual name if she has one. Nothing is written on her behalf (the "no invention" rule).',
+        owner: OWNERS.aurelieAnna,
+        ref: '§8, §12',
+    },
     'values': {
         fr: 'Les valeurs du lieu. Le site source les évoque en filigrane (petits groupes, tourisme responsable, hospitalité sincère, cuisine végétarienne ayurvédique) mais ne les formule jamais explicitement.',
         en: 'The values of the house. The source site hints at them (small groups, responsible tourism, sincere hospitality, Ayurvedic vegetarian food) but never states them explicitly.',
