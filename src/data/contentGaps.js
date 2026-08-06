@@ -45,6 +45,18 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelieAnna,
         ref: '§11, §12',
     },
+    'studio-retreat-dates': {
+        fr: 'Dates des retraites privées de la saison, pendant lesquelles les cours du studio sont suspendus. Une seule retraite connue pour 2026-2027 : celle d\'Aurélie, du 7 au 13 février 2027. À compléter au fil des réservations.',
+        en: 'Dates of the season\'s private retreats, when studio classes pause. Only one known for 2026-2027: Aurélie\'s, 7 to 13 February 2027. To be completed as bookings come in.',
+        owner: OWNERS.aurelie,
+        ref: '§12',
+    },
+    'studio-cafe': {
+        fr: 'Le café au jardin n\'est encore qu\'une idée : rien n\'est organisé, ni décidé. Formulation volontairement prudente sur le site. À reprendre (ou à retirer) quand Aurélie aura tranché.',
+        en: 'The garden café is still just an idea: nothing is organised or decided. The wording on the site is deliberately cautious. To revisit (or remove) once Aurélie has decided.',
+        owner: OWNERS.aurelie,
+        ref: '§12',
+    },
     'availability': {
         fr: 'Périodes déjà réservées et périodes libres pour la saison.',
         en: 'Booked and open periods for the season.',

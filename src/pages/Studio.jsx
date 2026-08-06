@@ -134,10 +134,31 @@ export default function Studio() {
                 <ContentGap id="studio-prices" className="max-w-3xl" />
             </Section>
 
+            {/* Le shala est sur le toit du Lake Loft : quand un groupe privatise
+                la maison, il lui revient et les cours quotidiens s'arrêtent. */}
+            <Section
+                title={t('studio.retreatPauseTitle')}
+                accent={t('studio.retreatPauseAccent')}
+                lead={t('studio.retreatPauseLead')}
+            >
+                <ContentGap id="studio-retreat-dates" className="max-w-3xl" />
+            </Section>
+
+            {/* Le café n'est encore qu'une envie : formulé comme tel, sans
+                rien promettre tant que rien n'est organisé. */}
+            <Section
+                tone="light"
+                title={t('studio.cafeTitle')}
+                accent={t('studio.cafeAccent')}
+                lead={t('studio.cafeLead')}
+            >
+                <ContentGap id="studio-cafe" className="max-w-3xl" />
+            </Section>
+
             {/* Appel à l'action final, posé sur une photo du lieu */}
             <Section
-                title={t('studio.cafeTitle')}
-                lead={t('studio.cafeLead')}
+                title={t('studio.bookTitle')}
+                lead={t('studio.bookLead')}
                 background={SRILANKA_MEDIA.nav?.[3]}
             >
                 <div className="flex flex-wrap gap-5">

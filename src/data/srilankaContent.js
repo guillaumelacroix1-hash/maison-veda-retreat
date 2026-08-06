@@ -68,6 +68,10 @@ export const SRILANKA = {
                     label: 'Une maison qui vit',
                     text: 'Kundalini au lever du jour, kirtans, bains de gong : le lieu a son rythme, et vous y prenez part autant que vous le voulez.',
                 },
+                {
+                    label: 'Sauf pendant les retraites',
+                    text: 'Lorsqu\'un groupe privatise La Maison VEDA, le shala lui est réservé et les cours du studio sont suspendus le temps de la retraite. Ces périodes sont annoncées à l\'avance.',
+                },
             ],
         },
 
@@ -340,6 +344,10 @@ export const SRILANKA = {
                 {
                     label: 'A house that lives',
                     text: 'Kundalini at sunrise, kirtans, gong baths: the place has its own rhythm, and you take part in it as much as you wish.',
+                },
+                {
+                    label: 'Except during retreats',
+                    text: 'When a group books La Maison VEDA exclusively, the shala is reserved for them and studio classes pause for the duration of the retreat. These dates are announced in advance.',
                 },
             ],
         },
