@@ -123,6 +123,7 @@ export default {
         navVenue: 'Le lieu',
         navShala: 'Le shala',
         navHow: 'Comment ça marche',
+        navAlaCarte: 'À la carte',
         navAvailability: 'Disponibilités',
         navQuote: 'Devis',
         metaTitle: 'Organiser votre retraite au Sri Lanka',

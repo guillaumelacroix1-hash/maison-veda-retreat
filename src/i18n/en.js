@@ -123,6 +123,7 @@ export default {
         navVenue: 'The venue',
         navShala: 'The shala',
         navHow: 'How it works',
+        navAlaCarte: 'À la carte',
         navAvailability: 'Availability',
         navQuote: 'Quote',
         metaTitle: 'Host your retreat in Sri Lanka',

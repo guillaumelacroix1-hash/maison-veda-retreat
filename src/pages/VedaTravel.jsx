@@ -1,4 +1,5 @@
-import { Car, Users, Route, Check, Download, Building2, User } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Car, Users, Route, Check, Building2, User } from 'lucide-react'
 import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
@@ -11,13 +12,13 @@ import SectionNav from '../components/site/SectionNav'
 import { Form, Field, TextareaField } from '../components/site/Forms'
 import { TRIPS } from '../data/trips'
 import { CONTACT } from '../data/site'
-import { srilanka, SRILANKA_LINKS } from '../data/srilankaContent'
+import { srilanka } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 
 /** VEDA Travel : voyages accompagnés, vendus aux participants comme aux particuliers. */
 export default function VedaTravel() {
-    const { t, lang } = useI18n()
+    const { t, lang, path } = useI18n()
     const c = srilanka(lang).travel
 
     return (
@@ -32,9 +33,9 @@ export default function VedaTravel() {
 
             <SectionNav
                 items={[
+                    { id: 'voyages', label: t('travel.navTrips') },
                     { id: 'organisateurs', label: t('travel.navAgencies') },
                     { id: 'particuliers', label: t('travel.navIndividual') },
-                    { id: 'voyages', label: t('travel.navTrips') },
                     { id: 'tarifs', label: t('travel.navRates') },
                     { id: 'devis', label: t('travel.navQuote') },
                 ]}
@@ -77,65 +78,24 @@ export default function VedaTravel() {
                 </div>
             </Section>
 
-            {/* Pour les organisateurs de retraites */}
-            <Section id="organisateurs" tone="light" ornament="left" title={c.agenciesTitle} accent={c.agenciesAccent}>
-                <p className="max-w-3xl text-base font-light leading-relaxed text-veda-dark/70">{c.agenciesText}</p>
-
-                <div className="mt-14 grid gap-12 lg:grid-cols-2">
-                    <div>
-                        <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                            {c.capacityTitle}
-                        </h3>
-                        <ul className="mt-6 space-y-3">
-                            {c.capacity.map((item) => (
-                                <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-dark/80">
-                                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-veda-gold" />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-
-                        <h3 className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                            {c.includedTitle}
-                        </h3>
-                        <p className="mt-4 text-sm font-light leading-relaxed text-veda-dark/70">{c.includedText}</p>
-
-                        <h3 className="mt-10 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                            {c.howTitle}
-                        </h3>
-                        <p className="mt-4 text-sm font-light leading-relaxed text-veda-dark/70">{c.howText}</p>
-                    </div>
-
-                    <div className="rounded-3xl bg-white p-8 shadow-card md:p-10">
-                        <h3 className="font-heading text-2xl">{c.alaCarteTitle}</h3>
-                        <p className="mt-3 text-sm font-light leading-relaxed text-veda-dark/60">{c.alaCarteText}</p>
-                        <ul className="mt-6 grid gap-2.5">
-                            {c.alaCarte.map((item) => (
-                                <li key={item} className="flex items-start gap-3 text-sm font-light text-veda-dark/80">
-                                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-veda-gold" />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+            {/* Les voyages d'abord : ce sont eux qu'on vend en priorité, aux
+                organisateurs comme aux particuliers. Le sur-mesure vient après. */}
+            <Section id="voyages" tone="light" title={t('travel.tripsTitle')} lead={t('travel.tripsLead')}>
+                <div className="grid gap-8 md:grid-cols-2">
+                    {TRIPS.map((trip) => (
+                        <TripCard key={trip.slug} trip={trip} tone="light" />
+                    ))}
                 </div>
-
-                <a
-                    href={SRILANKA_LINKS.infoPackPdf[lang]}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-12 inline-flex items-center gap-3 rounded-full bg-veda-dark px-9 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-light transition-colors duration-300 hover:bg-black"
-                >
-                    <Download className="h-4 w-4" />
-                    {c.brochureCta}
-                </a>
             </Section>
 
-            {/* Pour les voyageurs individuels */}
-            <Section id="particuliers" title={c.individualTitle} accent={c.individualAccent}>
-                <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">{c.individualText}</p>
-                <ul className="mt-8 grid max-w-3xl gap-3">
-                    {c.individual.map((item) => (
+            {/* Pour les organisateurs de retraites : ici, on ne parle que du
+                circuit qui prolonge la retraite. Le lieu, les capacités et les
+                expériences à la carte vivent sur « Organiser votre retraite ». */}
+            <Section id="organisateurs" ornament="left" title={c.agenciesTitle} accent={c.agenciesAccent}>
+                <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">{c.agenciesText}</p>
+
+                <ul className="mt-10 grid max-w-4xl gap-3.5">
+                    {c.organizerPoints.map((item) => (
                         <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-light/80">
                             <Check className="mt-0.5 h-4 w-4 shrink-0 text-veda-gold" />
                             {item}
@@ -143,17 +103,39 @@ export default function VedaTravel() {
                     ))}
                 </ul>
 
-                <MediaGallery images={SRILANKA_MEDIA['veda-travel']} initial={4} className="mt-12" />
+                <div className="mt-12 flex flex-wrap items-center gap-4">
+                    <a
+                        href="#voyages"
+                        className="inline-flex items-center gap-3 rounded-full bg-veda-gold px-9 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
+                    >
+                        {c.organizerCta}
+                    </a>
+                    <Link
+                        to={path('host')}
+                        className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-veda-light/60 transition-colors duration-300 hover:text-veda-gold"
+                    >
+                        {t('nav.host')}
+                    </Link>
+                </div>
+
+                <p className="mt-8 max-w-2xl text-sm font-light leading-relaxed text-veda-light/50">
+                    {c.organizerNote}
+                </p>
             </Section>
 
-            {/* Ces voyages sont la concrétisation des « séjours clés en main »
-                que la page source annonçait comme à venir. */}
-            <Section id="voyages" tone="light" title={t('travel.tripsTitle')} lead={t('travel.tripsLead')}>
-                <div className="grid gap-8 md:grid-cols-2">
-                    {TRIPS.map((trip) => (
-                        <TripCard key={trip.slug} trip={trip} tone="light" />
+            {/* Pour les voyageurs individuels */}
+            <Section id="particuliers" tone="light" title={c.individualTitle} accent={c.individualAccent}>
+                <p className="max-w-3xl text-base font-light leading-relaxed text-veda-dark/70">{c.individualText}</p>
+                <ul className="mt-8 grid max-w-3xl gap-3">
+                    {c.individual.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-dark/80">
+                            <Check className="mt-0.5 h-4 w-4 shrink-0 text-veda-gold" />
+                            {item}
+                        </li>
                     ))}
-                </div>
+                </ul>
+
+                <MediaGallery images={SRILANKA_MEDIA['veda-travel']} initial={4} className="mt-12" />
             </Section>
 
             {/* Deux formules en cartes sur une photo de fond : la section n'était
@@ -209,21 +191,13 @@ export default function VedaTravel() {
                 lead={t('travel.customLead')}
                 background={SRILANKA_MEDIA['veda-travel']?.[3]}
             >
-                {/* Bloc « Request Our Brochure » de la page source */}
+                {/* Introduction au formulaire de devis. L'Info Pack ne vit pas ici :
+                    il concerne la location du lieu, pas les voyages. */}
                 <div className="mb-14 max-w-3xl rounded-3xl border border-white/10 bg-veda-dark/60 p-8 backdrop-blur-md">
                     <h3 className="font-heading text-2xl">{c.brochureTitle}</h3>
                     <p className="mt-3 text-sm font-light leading-relaxed text-veda-light/70">
                         {c.brochureText}
                     </p>
-                    <a
-                        href={SRILANKA_LINKS.infoPackPdf[lang]}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="mt-6 inline-flex items-center gap-3 rounded-full border border-veda-gold/50 px-7 py-3 text-xs font-bold uppercase tracking-widest text-veda-gold transition-colors duration-300 hover:bg-veda-gold hover:text-veda-dark"
-                    >
-                        <Download className="h-4 w-4" />
-                        {c.brochureCta}
-                    </a>
                 </div>
 
                 <div className="max-w-2xl rounded-3xl border border-white/10 bg-veda-dark/60 p-8 backdrop-blur-md md:p-12">

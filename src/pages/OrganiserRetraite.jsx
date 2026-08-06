@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Download, Users, Home, Check, Maximize } from 'lucide-react'
 import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
@@ -18,7 +19,7 @@ import { MEDIA } from '../data/media'
  * Objectif : générer des demandes de devis qualifiées (section 4).
  */
 export default function OrganiserRetraite() {
-    const { t, lang } = useI18n()
+    const { t, lang, path } = useI18n()
     const c = srilanka(lang)
 
     return (
@@ -37,6 +38,7 @@ export default function OrganiserRetraite() {
                     { id: 'le-lieu-pro', label: t('host.navVenue') },
                     { id: 'shala-pro', label: t('host.navShala') },
                     { id: 'comment', label: t('host.navHow') },
+                    { id: 'a-la-carte', label: t('host.navAlaCarte') },
                     { id: 'dispos', label: t('host.navAvailability') },
                     { id: 'devis', label: t('host.navQuote') },
                 ]}
@@ -125,9 +127,38 @@ export default function OrganiserRetraite() {
                 </div>
             </Section>
 
+            {/* Le service qui distingue le lieu : on fait venir le praticien. */}
+            <Section
+                id="a-la-carte"
+                tone="light"
+                ornament="right"
+                title={c.retreats.alaCarteTitle}
+                accent={c.retreats.alaCarteAccent}
+                lead={c.retreats.alaCarteLead}
+            >
+                <ul className="grid gap-2.5 sm:grid-cols-2">
+                    {c.retreats.alaCarte.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-dark/80">
+                            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-veda-gold" />
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+
+                <p className="mt-10 max-w-3xl text-sm font-light leading-relaxed text-veda-dark/50">
+                    {c.retreats.alaCarteNote}
+                </p>
+
+                <p className="mt-4 max-w-3xl text-sm font-light leading-relaxed text-veda-dark/60">
+                    {c.retreats.alaCarteTravel}{' '}
+                    <Link to={path('travel')} className="font-semibold text-veda-gold hover:underline">
+                        {t('nav.travel')}
+                    </Link>
+                </p>
+            </Section>
+
             <Section
                 id="dispos"
-                tone="light"
                 title={t('host.availabilityTitle')}
                 accent={t('host.availabilityAccent')}
                 lead={t('host.availabilityLead')}
