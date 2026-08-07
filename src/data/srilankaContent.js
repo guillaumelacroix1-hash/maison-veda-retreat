@@ -29,7 +29,6 @@ export const SRILANKA = {
         hostReassurance: [
             'La propriété entière : deux villas, 7 lits, jusqu\'à 15 personnes avec les villas voisines',
             'Le yoga shala de 80 m² sur le toit, avec ses 15 tapis',
-            'Yoga et méditation quotidiens inclus dans chaque programme',
             'Une équipe sri-lankaise pour la restauration et le service en chambre',
             'Séjour minimum de 3 nuits',
         ],
@@ -157,9 +156,10 @@ export const SRILANKA = {
             additionalText: 'Pour les groupes plus nombreux ou les préférences variées, nous travaillons avec des hébergements de confiance proches de La Maison VEDA. Les options vont de la chambre en dortoir à la chambre privée, jusqu\'à une luxueuse cabane flottante sur le lac, pour garantir confort et authenticité à chacun.',
             packCta: 'Télécharger l\'Info Pack Organisateurs (PDF)',
             alaCarteTitle: 'Expériences', alaCarteAccent: 'à la carte',
-            alaCarteLead: 'La Maison VEDA ne se limite pas à un hébergement et un shala. Si vous souhaitez enrichir votre programme, nous faisons venir pour vous un professeur ou un praticien : vous choisissez l\'expérience, nous nous occupons de tout. Un service entièrement optionnel.',
+            alaCarteLead: 'La Maison VEDA ne se limite pas à un hébergement et un shala. Si vous souhaitez enrichir votre programme, nous faisons venir pour vous un professeur ou un praticien : vous choisissez l\'expérience, nous nous occupons de tout. Un service entièrement optionnel, facturé à la carte — y compris lorsque c\'est Lilie ou Anna qui anime la séance.',
             alaCarte: [
-                'Cours de yoga par un professeur certifié (Hatha, Vinyasa, Yin, Kundalini)',
+                'Cours de Kundalini avec Lilie ou Anna, les professeures du studio',
+                'Cours de yoga par un professeur certifié (Hatha, Vinyasa, Yin)',
                 'Pilates avec les professeurs de PURA Ahangama',
                 'Bains sonores : bols de cristal, bols tibétains, bain de gong, multi-instruments',
                 'Séances de breathwork, avec un professionnel certifié',
@@ -311,7 +311,6 @@ export const SRILANKA = {
         hostReassurance: [
             'The whole property: two villas, 7 beds, up to 15 guests with the villas nearby',
             'The 80 m² rooftop yoga shala, with its 15 mats',
-            'Daily yoga and meditation included in every programme',
             'A Sri Lankan team for catering and room service',
             'Minimum stay of 3 nights',
         ],
@@ -434,9 +433,10 @@ export const SRILANKA = {
             additionalText: 'For larger groups or varied preferences, we partner with trusted lodgings near La Maison VEDA. Options range from dorm-style rooms and private bedrooms to a luxurious floating cabin on the lake, ensuring comfort and authenticity for every guest.',
             packCta: 'Download the Organizers\' Info Pack (PDF)',
             alaCarteTitle: 'À la carte', alaCarteAccent: 'experiences',
-            alaCarteLead: 'La Maison VEDA is not just accommodation and a shala. If you want to enrich your programme, we bring in a teacher or practitioner for you: you choose the experience, we take care of everything. An entirely optional service.',
+            alaCarteLead: 'La Maison VEDA is not just accommodation and a shala. If you want to enrich your programme, we bring in a teacher or practitioner for you: you choose the experience, we take care of everything. An entirely optional service, billed à la carte — including when Lilie or Anna leads the session.',
             alaCarte: [
-                'Yoga classes with a certified teacher (Hatha, Vinyasa, Yin, Kundalini)',
+                'Kundalini classes with Lilie or Anna, the studio teachers',
+                'Yoga classes with a certified teacher (Hatha, Vinyasa, Yin)',
                 'Pilates with the teachers from PURA Ahangama',
                 'Sound baths: crystal bowls, Tibetan bowls, gong bath, multi-instrument',
                 'Breathwork sessions with a certified professional',

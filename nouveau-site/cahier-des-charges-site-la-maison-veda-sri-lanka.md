@@ -86,6 +86,7 @@ Chaque page existe en FR et EN. Format : objectif — blocs de contenu — bouto
 - **Tarifs publics** : nuitées (par nuit, avec haute saison novembre–avril et basse saison), prix des retraites (par personne, par formule), tarifs des cours du studio.
 - **Sur devis** : location du lieu et VEDA Travel. Pour VEDA Travel et le voyage post-retraite, une **fourchette de prix par jour** est affichée ; le tarif final dépend de la taille du groupe (voiture, van ou bus).
 - **Options des retraites** : toutes affichées avec leur prix sur la page de chaque retraite (chambre individuelle, transferts aéroport, activités, voyage post-retraite en fourchette/jour).
+- **Expériences à la carte pour les organisateurs** (précision Aurélie, 06/08/2026) : le yoga quotidien **n'est pas inclus** dans la privatisation — la mention « yoga et méditation quotidiens inclus dans chaque programme » a été retirée du site. Un organisateur qui veut un cours pendant sa retraite le commande à la carte, et c'est **facturé comme n'importe quelle autre expérience, y compris lorsque c'est Lilie ou Anna qui anime**. Ce que comprend la privatisation : les deux villas, le shala avec ses tapis et blocs, et l'équipe sri-lankaise.
 - **PDF** : le PDF participant (« Votre retraite à la Maison VEDA ») disparaît — la page de chaque retraite dit tout. Les **deux packs actuels, qui se recoupent, sont fusionnés en un seul « Info Pack Organisateurs »** (FR + EN), téléchargeable sur la page Organiser votre retraite.
 
 ## 8. Contenu
@@ -108,6 +109,7 @@ Chaque page existe en FR et EN. Format : objectif — blocs de contenu — bouto
 - Formulaires : inscription retraite, devis location du lieu (détaillé), devis VEDA Travel, contact.
 - Newsletter : capture d'emails dès le lancement (bandeau « Soyez informé·e des prochaines retraites ») ; la liste d'attente alimente le même fichier.
 - Liste des périodes libres/réservées (page Organiser votre retraite), éditable simplement à la main.
+- **Calendrier de réservation en ligne** (décision Aurélie, 06/08/2026) pour les villas — Lake Loft, Lake House, ou les deux — et pour les retraites, **synchronisé avec les plateformes via le channel manager Bed24**, avec **paiement direct en ligne**. Remplace à terme la liste manuelle ci-dessus. Mise en place : Guillaume.
 - Planning du studio, éditable simplement (il est aussi publié sur Instagram).
 - Galeries photos.
 - PDF téléchargeable (Info Pack Organisateurs) et kit média photos (dossier partageable, envoyé avec les devis).

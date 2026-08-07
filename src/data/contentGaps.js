@@ -129,4 +129,10 @@ export const CONTENT_GAPS = {
         owner: OWNERS.guillaume,
         ref: '§6, §10',
     },
+    'booking-calendar': {
+        fr: 'Calendrier de réservation en ligne pour les villas (Lake Loft, Lake House, ou les deux) et pour les retraites, synchronisé avec les plateformes via le channel manager Bed24, avec paiement direct. À mettre en place avec Guillaume.',
+        en: 'Online booking calendar for the villas (Lake Loft, Lake House, or both) and for retreats, synced with the platforms through the Bed24 channel manager, with direct payment. To be set up with Guillaume.',
+        owner: OWNERS.guillaume,
+        ref: '§6, §10',
+    },
 }

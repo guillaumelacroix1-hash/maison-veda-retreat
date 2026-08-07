@@ -75,7 +75,7 @@ export default {
         ],
         hostCards: [
             { title: 'The whole property', desc: 'Two villas and the shala for your group alone, up to 15 guests with the villas nearby.' },
-            { title: 'Yoga and meditation included', desc: 'Every programme includes the daily sessions, at no extra cost.' },
+            { title: 'The shala is yours', desc: 'A 70 m² rooftop studio, with its mats and blocks, for your own classes.' },
             { title: 'Experiences à la carte', desc: 'Sound baths, cacao, kirtan, cooking, temple, boat: you choose.' },
             { title: 'A team on site', desc: 'Catering and room service handled, so all you have to do is teach.' },
         ],
@@ -163,7 +163,7 @@ export default {
         retreatPauseLead: 'When a group books La Maison VEDA exclusively, the shala is reserved for them and daily studio classes pause for the duration of the retreat. These dates are announced in advance, on this page and on Instagram.',
         classesTitle: 'Classes and events',
         teachersTitle: 'The', teachersAccent: 'teachers',
-        teachersLead: 'The studio has been co-run equally by Lilie and Anna since October 2026, with occasional guest teachers.',
+        teachersLead: 'Lilie and Anna hold the studio together, carried by the same practice. One or the other welcomes you on the mat, and the circle sometimes opens to a guest teacher.',
         pricesTitle: 'Class', pricesAccent: 'rates',
         cafeTitle: 'After class,', cafeAccent: 'breakfast',
         cafeLead: 'Coffee, tea and a healthy, gluten-free breakfast, to share in the garden after practice.',

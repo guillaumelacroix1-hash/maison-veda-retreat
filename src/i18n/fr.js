@@ -75,7 +75,7 @@ export default {
         ],
         hostCards: [
             { title: 'La propriété privatisée', desc: 'Deux villas et le shala rien que pour votre groupe, jusqu’à 15 personnes avec les villas voisines.' },
-            { title: 'Yoga et méditation inclus', desc: 'Chaque programme comprend les séances quotidiennes, sans supplément.' },
+            { title: 'Le shala à vous', desc: 'Un studio de 70 m² sur le toit, avec ses tapis et ses blocs, pour vos propres cours.' },
             { title: 'Expériences à la carte', desc: 'Bains sonores, cacao, kirtan, cuisine, temple, bateau : vous composez.' },
             { title: 'Une équipe sur place', desc: 'Restauration et service en chambre assurés, vous n’avez qu’à enseigner.' },
         ],
@@ -163,7 +163,7 @@ export default {
         retreatPauseLead: 'Lorsqu\'un groupe privatise La Maison VEDA, le shala lui est réservé et les cours quotidiens du studio sont suspendus le temps de la retraite. Ces dates sont annoncées à l\'avance, sur cette page et sur Instagram.',
         classesTitle: 'Les cours et les événements',
         teachersTitle: 'Les', teachersAccent: 'professeures',
-        teachersLead: 'Le studio est co-géré à parts égales par Lilie et Anna depuis octobre 2026, avec des professeurs invités ponctuels.',
+        teachersLead: 'Lilie et Anna tiennent le studio à deux, portées par la même pratique. L\'une ou l\'autre vous accueille sur le tapis, et le cercle s\'ouvre parfois à un professeur invité.',
         pricesTitle: 'Tarifs', pricesAccent: 'des cours',
         cafeTitle: 'Après le cours,', cafeAccent: 'le petit-déjeuner',
         cafeLead: 'Un café, un thé, un petit-déjeuner sain et sans gluten, à partager au jardin après la pratique.',
