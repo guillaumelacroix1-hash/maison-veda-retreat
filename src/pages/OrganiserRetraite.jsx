@@ -41,6 +41,8 @@ export default function OrganiserRetraite() {
                     { id: 'a-la-carte', label: t('host.navAlaCarte') },
                     { id: 'dispos', label: t('host.navAvailability') },
                     { id: 'devis', label: t('host.navQuote') },
+                    // Retour visible vers l'autre versant des retraites.
+                    { to: path('retreats'), label: t('nav.retreatsChild') },
                 ]}
             />
 

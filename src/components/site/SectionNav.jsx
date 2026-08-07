@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 
 /**
  * Barre de navigation interne, collée sous l'en-tête, pour les pages longues.
@@ -33,6 +35,7 @@ export default function SectionNav({ items }) {
 
     useEffect(() => {
         const sections = items
+            .filter(({ to }) => !to)
             .map(({ id }) => document.getElementById(id))
             .filter(Boolean)
 
@@ -78,22 +81,38 @@ export default function SectionNav({ items }) {
                 // Alignée à gauche comme le titre du hero, juste au-dessus.
                 className="scrollbar-hide mx-auto flex max-w-container gap-7 overflow-x-auto px-4 sm:px-6"
             >
-                {items.map(({ id, label }) => (
-                    <li key={id} className="shrink-0">
-                        <a
-                            href={`#${id}`}
-                            onClick={(event) => handleClick(event, id)}
-                            aria-current={activeId === id ? 'true' : undefined}
-                            className={`block whitespace-nowrap border-b-2 py-4 text-xs font-semibold uppercase tracking-widest transition-colors duration-300 ${
-                                activeId === id
-                                    ? 'border-veda-gold text-veda-gold'
-                                    : 'border-transparent text-veda-light/60 hover:text-veda-light'
-                            }`}
-                        >
-                            {label}
-                        </a>
-                    </li>
-                ))}
+                {items.map(({ id, to, label }) =>
+                    // Une entrée peut mener à une autre page plutôt qu'à une ancre :
+                    // c'est ainsi que « Retraites » et « Organiser la vôtre » se
+                    // renvoient l'une à l'autre, visiblement, sans dépendre du survol
+                    // du menu principal.
+                    to ? (
+                        <li key={to} className="ml-auto shrink-0">
+                            <Link
+                                to={to}
+                                className="flex items-center gap-1.5 whitespace-nowrap border-b-2 border-transparent py-4 text-xs font-semibold uppercase tracking-widest text-veda-gold/80 transition-colors duration-300 hover:text-veda-gold"
+                            >
+                                {label}
+                                <ArrowRight className="h-3.5 w-3.5" />
+                            </Link>
+                        </li>
+                    ) : (
+                        <li key={id} className="shrink-0">
+                            <a
+                                href={`#${id}`}
+                                onClick={(event) => handleClick(event, id)}
+                                aria-current={activeId === id ? 'true' : undefined}
+                                className={`block whitespace-nowrap border-b-2 py-4 text-xs font-semibold uppercase tracking-widest transition-colors duration-300 ${
+                                    activeId === id
+                                        ? 'border-veda-gold text-veda-gold'
+                                        : 'border-transparent text-veda-light/60 hover:text-veda-light'
+                                }`}
+                            >
+                                {label}
+                            </a>
+                        </li>
+                    )
+                )}
             </ul>
         </nav>
     )

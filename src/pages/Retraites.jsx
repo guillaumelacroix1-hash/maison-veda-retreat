@@ -31,11 +31,15 @@ export default function Retraites() {
                 image={SRILANKA_MEDIA.retraites?.[1]?.src ?? MEDIA.retreats}
             />
 
+            {/* Le second public des retraites — les professeurs qui organisent la
+                leur — a sa propre page. Le lien est ici, visible, plutôt que caché
+                derrière le survol du menu principal. */}
             <SectionNav
                 items={[
                     { id: 'a-venir', label: t('retreats.navUpcoming') },
                     { id: 'mini', label: t('retreats.navMini') },
                     { id: 'passees', label: t('retreats.navPast') },
+                    { to: path('host'), label: t('nav.hostChild') },
                 ]}
             />
 
