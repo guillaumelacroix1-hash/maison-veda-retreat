@@ -31,8 +31,11 @@ export default {
     nav: {
         home: 'Accueil',
         retreats: 'Retraites',
-        host: 'Organiser',
-        studio: 'Studio',
+        // Libellés du sous-menu « Retraites » : ils disent qui fait quoi.
+        retreatsChild: 'Nos retraites',
+        hostChild: 'Organiser la vôtre',
+        host: 'Organiser une retraite',
+        studio: 'Cours de yoga',
         venue: 'Séjourner',
         travel: 'Voyages',
         story: 'Notre histoire',

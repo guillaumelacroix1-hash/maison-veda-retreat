@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef } from 'react'
+import { Fragment, useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu, X, Home, MessageCircle } from 'lucide-react'
 import Logo from '../Logo'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useI18n } from '../../i18n'
-import { NAV_KEYS, NAV_OFFERS, NAV_ICONS } from '../../routes'
+import { NAV_OFFERS, NAV_ICONS } from '../../routes'
 import { upcomingRetreats } from '../../data/retreats'
 
 /**
@@ -79,6 +79,13 @@ export default function Header() {
     const linkClass = ({ isActive }) =>
         `transition-colors duration-300 hover:text-veda-gold ${isActive ? 'text-veda-gold' : ''}`
 
+    /** Lien du menu mobile ; `extra` sert à décaler les entrées d'un sous-menu. */
+    const mobileLinkClass = (extra = '') =>
+        ({ isActive }) =>
+            `border-b border-white/5 py-3.5 transition-colors duration-300 hover:text-veda-gold ${extra} ${
+                isActive ? 'text-veda-gold' : ''
+            }`
+
     return (
         <header
             ref={headerRef}
@@ -99,11 +106,38 @@ export default function Header() {
                 {/* Menu desktop : les offres en toutes lettres, la maison et le
                     contact en icônes pour garder la barre courte. */}
                 <nav className="hidden items-center gap-7 text-sm font-medium tracking-wide lg:flex">
-                    {NAV_OFFERS.map((key) => (
-                        <NavLink key={key} to={path(key)} className={linkClass}>
-                            {t(`nav.${key}`)}
-                        </NavLink>
-                    ))}
+                    {NAV_OFFERS.map(({ key, children }) =>
+                        children ? (
+                            // Sous-menu ouvert au survol et au clavier (focus-within),
+                            // sans état React : rien à synchroniser, rien à fermer.
+                            <div key={key} className="group relative">
+                                <NavLink to={path(key)} className={linkClass}>
+                                    {t(`nav.${key}`)}
+                                </NavLink>
+                                <div className="pointer-events-none absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 pt-4 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                                    <div className="overflow-hidden rounded-2xl border border-white/10 bg-veda-dark shadow-premium">
+                                        {children.map((child) => (
+                                            <NavLink
+                                                key={child}
+                                                to={path(child)}
+                                                className={({ isActive }) =>
+                                                    `block px-5 py-3.5 text-sm font-light transition-colors duration-200 hover:bg-white/5 hover:text-veda-gold ${
+                                                        isActive ? 'text-veda-gold' : 'text-veda-light/80'
+                                                    }`
+                                                }
+                                            >
+                                                {t(`nav.${child}Child`)}
+                                            </NavLink>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        ) : (
+                            <NavLink key={key} to={path(key)} className={linkClass}>
+                                {t(`nav.${key}`)}
+                            </NavLink>
+                        )
+                    )}
                 </nav>
 
                 <div className="hidden items-center gap-4 lg:flex">
@@ -161,17 +195,28 @@ export default function Header() {
                     isMenuOpen ? 'max-h-[80vh] border-t opacity-100' : 'max-h-0 opacity-0'
                 }`}
             >
+                {/* Tout est déplié : sur un petit écran, un sous-menu qui s'ouvre
+                    au toucher cache plus qu'il ne range. Les enfants sont décalés
+                    pour qu'on voie tout de suite ce qui dépend de « Retraites ». */}
                 <nav className="flex flex-col px-6 py-4 text-sm font-medium tracking-wide">
-                    {NAV_KEYS.map((key) => (
-                        <NavLink
-                            key={key}
-                            to={path(key)}
-                            className={({ isActive }) =>
-                                `border-b border-white/5 py-3.5 transition-colors duration-300 hover:text-veda-gold ${
-                                    isActive ? 'text-veda-gold' : ''
-                                }`
-                            }
-                        >
+                    {NAV_OFFERS.map(({ key, children }) => (
+                        <Fragment key={key}>
+                            <NavLink to={path(key)} className={mobileLinkClass()}>
+                                {t(`nav.${key}`)}
+                            </NavLink>
+                            {children?.map((child) => (
+                                <NavLink
+                                    key={child}
+                                    to={path(child)}
+                                    className={mobileLinkClass('pl-5 font-light text-veda-light/70')}
+                                >
+                                    {t(`nav.${child}Child`)}
+                                </NavLink>
+                            ))}
+                        </Fragment>
+                    ))}
+                    {NAV_ICONS.map((key) => (
+                        <NavLink key={key} to={path(key)} className={mobileLinkClass()}>
                             {t(`nav.${key}`)}
                         </NavLink>
                     ))}

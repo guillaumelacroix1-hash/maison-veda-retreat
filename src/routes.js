@@ -29,12 +29,26 @@ export const ROUTES = {
  * Menu principal, organisé par ce que le visiteur vient chercher plutôt que par
  * type de page : les offres d'abord, puis la maison et le contact réduits à
  * une icône pour ne pas allonger la barre.
+ *
+ * « Retraites » ouvre un sous-menu : participer à l'une des nôtres et organiser
+ * la sienne s'adressent à deux publics très différents (une participante, un
+ * professeur qui loue le lieu), mais partent de la même intention. Les deux
+ * pages restent séparées ; seule l'entrée de menu est commune, ce qui raccourcit
+ * la barre sans mélanger les contenus.
  */
-export const NAV_OFFERS = ['venue', 'retreats', 'studio', 'travel', 'host']
+export const NAV_OFFERS = [
+    { key: 'venue' },
+    { key: 'retreats', children: ['retreats', 'host'] },
+    { key: 'studio' },
+    { key: 'travel' },
+]
 export const NAV_ICONS = ['story', 'contact']
 
-/** Toutes les entrées, dans l'ordre : sert au pied de page et au menu mobile. */
-export const NAV_KEYS = [...NAV_OFFERS, ...NAV_ICONS]
+/** Toutes les entrées à plat, dans l'ordre : pied de page et menu mobile. */
+export const NAV_KEYS = [
+    ...NAV_OFFERS.flatMap((item) => item.children ?? [item.key]),
+    ...NAV_ICONS,
+]
 
 /**
  * Construit une URL absolue vers une page.

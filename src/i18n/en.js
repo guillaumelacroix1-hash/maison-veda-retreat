@@ -31,8 +31,11 @@ export default {
     nav: {
         home: 'Home',
         retreats: 'Retreats',
-        host: 'Host',
-        studio: 'Studio',
+        // Submenu labels under "Retreats": they say who does what.
+        retreatsChild: 'Our retreats',
+        hostChild: 'Host your own',
+        host: 'Host a retreat',
+        studio: 'Yoga classes',
         venue: 'Stay',
         travel: 'Journeys',
         story: 'Our story',
