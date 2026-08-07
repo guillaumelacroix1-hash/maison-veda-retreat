@@ -86,7 +86,7 @@ export default {
         upcomingLead: 'Nos retraites se réservent près d\'un an à l\'avance. La saison s\'ouvre en novembre.',
         venueTitle: 'Le lieu en images',
         venueLead: 'Deux villas et un shala de yoga face au lac sacré de Koggala, au cœur de la jungle du sud sri-lankais.',
-        studioTitle: 'Le studio',
+        studioTitle: 'Chaque jour sur le tapis',
         studioLead: 'Maison VEDA Lake Studio, ouvert à tous, toute la saison.',
         hostTitle: 'Organisez votre retraite ici',
         hostLead: 'Professeurs et organisateurs de retraites : le lieu, l\'intendance et l\'équipe sur place, pour que vous n\'ayez qu\'à enseigner.',

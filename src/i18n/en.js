@@ -86,7 +86,7 @@ export default {
         upcomingLead: 'Our retreats book up almost a year ahead. The season opens in November.',
         venueTitle: 'The place',
         venueLead: 'Two villas and a yoga shala facing the sacred Koggala Lake, in the jungle of southern Sri Lanka.',
-        studioTitle: 'The studio',
+        studioTitle: 'Every day on the mat',
         studioLead: 'Maison VEDA Lake Studio, open to everyone, all season long.',
         hostTitle: 'Host your retreat here',
         hostLead: 'Teachers and retreat organizers: the venue, the logistics and the team on site, so all you have to do is teach.',
