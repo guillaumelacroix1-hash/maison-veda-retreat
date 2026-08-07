@@ -163,7 +163,7 @@ export default {
         retreatPauseLead: 'Lorsqu\'un groupe privatise La Maison VEDA, le shala lui est réservé et les cours quotidiens du studio sont suspendus le temps de la retraite. Ces dates sont annoncées à l\'avance, sur cette page et sur Instagram.',
         classesTitle: 'Les cours et les événements',
         teachersTitle: 'Les', teachersAccent: 'professeures',
-        teachersLead: 'Lilie et Anna tiennent le studio à deux, portées par la même pratique. L\'une ou l\'autre vous accueille sur le tapis, et le cercle s\'ouvre parfois à un professeur invité.',
+        teachersLead: 'Nous partageons la même passion : transmettre le Kundalini et tout ce qui l\'entoure. Et parce que la découverte fait partie du chemin, nous invitons aussi des thérapeutes et des professeurs certifiés à venir enseigner à La Maison VEDA — leurs expériences transformatrices apparaissent au planning.',
         pricesTitle: 'Tarifs', pricesAccent: 'des cours',
         cafeTitle: 'Après le cours,', cafeAccent: 'le petit-déjeuner',
         cafeLead: 'Un café, un thé, un petit-déjeuner sain et sans gluten, à partager au jardin après la pratique.',

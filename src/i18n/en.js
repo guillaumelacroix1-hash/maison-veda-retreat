@@ -163,7 +163,7 @@ export default {
         retreatPauseLead: 'When a group books La Maison VEDA exclusively, the shala is reserved for them and daily studio classes pause for the duration of the retreat. These dates are announced in advance, on this page and on Instagram.',
         classesTitle: 'Classes and events',
         teachersTitle: 'The', teachersAccent: 'teachers',
-        teachersLead: 'Lilie and Anna hold the studio together, carried by the same practice. One or the other welcomes you on the mat, and the circle sometimes opens to a guest teacher.',
+        teachersLead: 'We share the same passion: passing on Kundalini and everything around it. And because discovery is part of the path, we also invite certified therapists and teachers to come and teach at La Maison VEDA — their transformative experiences appear in the schedule.',
         pricesTitle: 'Class', pricesAccent: 'rates',
         cafeTitle: 'After class,', cafeAccent: 'breakfast',
         cafeLead: 'Coffee, tea and a healthy, gluten-free breakfast, to share in the garden after practice.',
