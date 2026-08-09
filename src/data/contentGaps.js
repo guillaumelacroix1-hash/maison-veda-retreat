@@ -39,12 +39,6 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelieAnna,
         ref: '§11, §12',
     },
-    'studio-prices': {
-        fr: 'Tarifs des cours à confirmer. Brouillon : 3 000 LKR par cours pour les visiteurs, 2 500 LKR pour les résidents, 4 000 à 5 000 LKR pour les événements. Les forfaits restent à définir.',
-        en: 'Class rates to be confirmed. Draft: LKR 3,000 per class for visitors, LKR 2,500 for residents, LKR 4,000 to 5,000 for events. Passes still to be defined.',
-        owner: OWNERS.aurelieAnna,
-        ref: '§11, §12',
-    },
     'studio-retreat-dates': {
         fr: 'Dates des retraites privées de la saison, pendant lesquelles les cours du studio sont suspendus. Une seule retraite connue pour 2026-2027 : celle d\'Aurélie, du 7 au 13 février 2027. À compléter au fil des réservations.',
         en: 'Dates of the season\'s private retreats, when studio classes pause. Only one known for 2026-2027: Aurélie\'s, 7 to 13 February 2027. To be completed as bookings come in.',

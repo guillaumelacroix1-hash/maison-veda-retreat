@@ -14,6 +14,7 @@ import { MEDIA } from '../data/media'
 import { CONTACT, SOCIAL } from '../data/site'
 import { HIGHLIGHTS } from '../data/studioSchedule'
 import { TEACHERS, TEACHERS_MEDIA } from '../data/studioTeachers'
+import { STUDIO_PRICES, PRICES_NOTE } from '../data/studioPrices'
 
 /**
  * Maison VEDA Lake Studio.
@@ -162,7 +163,31 @@ export default function Studio() {
                 aside={SRILANKA_MEDIA['yoga-shala'][4]}
                 asidePosition="left"
             >
-                <ContentGap id="studio-prices" className="max-w-3xl" />
+                <div className="grid gap-4 sm:grid-cols-3">
+                    {STUDIO_PRICES.map((price) => {
+                        const copy = price[lang] ?? price.fr
+                        return (
+                            <div
+                                key={price.key}
+                                className={`rounded-2xl border p-7 ${
+                                    price.highlight
+                                        ? 'border-veda-gold bg-veda-gold/10'
+                                        : 'border-veda-dark/10 bg-white shadow-card'
+                                }`}
+                            >
+                                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                                    {copy.label}
+                                </p>
+                                <p className="mt-4 font-heading text-3xl text-veda-dark">{price.amount}</p>
+                                <p className="mt-2 text-sm font-light text-veda-dark/60">{copy.detail}</p>
+                            </div>
+                        )
+                    })}
+                </div>
+
+                <p className="mt-8 max-w-2xl text-sm font-light leading-relaxed text-veda-dark/60">
+                    {PRICES_NOTE[lang] ?? PRICES_NOTE.fr}
+                </p>
             </Section>
 
             {/* Le shala est sur le toit du Lake Loft : quand un groupe privatise
