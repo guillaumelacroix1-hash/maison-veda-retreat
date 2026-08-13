@@ -7,8 +7,11 @@ export const CONTACT = {
     email: 'lamaisonveda@gmail.com',
     phone: '+33 6 79 09 89 47',
     phoneHref: 'tel:+33679098947',
-    whatsapp: '+33 7 84 54 49 42',
-    whatsappHref: 'https://wa.me/33784544942',
+    // Le WhatsApp d'Aurélie, confirmé par elle le 07/08/2026. Le site source
+    // affichait ici le fixe français de Laure : tous les boutons WhatsApp
+    // menaient au mauvais numéro.
+    whatsapp: '+33 6 79 09 89 47',
+    whatsappHref: 'https://wa.me/33679098947',
     addressFr: 'Habaraduwa, lac de Koggala, sud du Sri Lanka',
     addressEn: 'Habaraduwa, Koggala Lake, southern Sri Lanka',
 }
