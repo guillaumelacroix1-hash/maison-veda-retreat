@@ -93,12 +93,6 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelie,
         ref: '§4, §12',
     },
-    'aurelie-lineage': {
-        fr: 'Deux points à confirmer dans la présentation d\'Aurélie : le nom de la professeure (ou de l\'école) auprès de qui elle se forme en France — la dictée était inaudible — et l\'époque à laquelle ces femmes ont étudié auprès de Yogi Bhajan, annoncée comme « les années 1970, à vérifier ». La décennie n\'est pas affichée tant qu\'elle n\'est pas confirmée.',
-        en: 'Two points to confirm in Aurélie\'s presentation: the name of the teacher (or school) she trains with in France — the dictation was inaudible — and when these women studied with Yogi Bhajan, given as "the 1970s, to be checked". The decade is not shown until confirmed.',
-        owner: OWNERS.aurelie,
-        ref: '§8',
-    },
     'values': {
         fr: 'Les valeurs du lieu. Le site source les évoque en filigrane (petits groupes, tourisme responsable, hospitalité sincère, cuisine végétarienne ayurvédique) mais ne les formule jamais explicitement.',
         en: 'The values of the house. The source site hints at them (small groups, responsible tourism, sincere hospitality, Ayurvedic vegetarian food) but never states them explicitly.',
