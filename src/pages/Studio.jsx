@@ -155,6 +155,7 @@ export default function Studio() {
                                             </p>
                                         ))}
                                     </div>
+                                    {teacher.gap && <ContentGap id={teacher.gap} className="mt-6" />}
                                 </div>
                             </article>
                         )

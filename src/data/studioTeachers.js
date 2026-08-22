@@ -1,10 +1,10 @@
 /**
  * Les deux professeures du Maison VEDA Lake Studio.
  *
- * La biographie d'Aurélie reprend celle de la page retraite (retreat2027.js),
- * validée par elle. Celle d'Anna reste à écrire : elle ne doit surtout pas être
- * inventée (règle « zéro invention », section 8 du cahier des charges), d'où le
- * ContentGap « anna-bio » affiché à sa place sur la page.
+ * Les deux textes viennent de leurs autrices : celui d'Aurélie reprend sa page
+ * retraite et son récit de « Notre histoire », celui d'Anna est le sien, écrit
+ * en anglais et traduit fidèlement. Règle « zéro invention » (section 8 du
+ * cahier des charges) : ne rien ajouter à leur parcours sans leur accord.
  *
  * Photos : séance de janvier 2026 au shala, fournies par Aurélie.
  */
@@ -16,20 +16,26 @@ export const TEACHERS = [
         key: 'lilie',
         name: 'Aurélie Dutrey',
         spiritualName: 'Radha Navjot Kaur',
+        /** Nom de la formatrice en France et décennie d'étude à confirmer. */
+        gap: 'aurelie-lineage',
         photo: img('lilie-tambour.jpg'),
         fr: {
-            role: 'Fondatrice et professeure de Kundalini',
+            role: 'Fondatrice et professeure de Kundalini Yoga',
             bio: [
                 'Aurélie, Radha Navjot Kaur, est la fondatrice de La Maison VEDA, studio de yoga et centre de retraites à St-Simon en Charente et à Habaraduwa, dans le sud du Sri Lanka.',
-                'Elle transmet la pratique du yoga Kundalini selon les enseignements de Gurmukh Kaur Khalsa (Golden Bridge, USA). Elle est également certifiée en yoga Hatha (Aryoga, Rishikesh, Inde) et praticienne en ayurvéda, formée comme thérapeute ayurvédique à la clinique Ayuskama de Dharamshala.',
+                'Avant le yoga, il y a eu des études à Bordeaux et dix ans dans l\'industrie pharmaceutique — et un corps qui a fini par dire non. C\'est en partant étudier l\'ayurvéda en Inde que tout a commencé à bouger : apprendre à écouter son corps, le nourrir, le soigner. Puis, à travers les pratiques d\'éveil de la Kundalini, retrouver son souffle, sa clarté et un profond sentiment de sens.',
+                'Elle transmet le Kundalini selon les enseignements de Gurmukh Kaur Khalsa (Golden Bridge, États-Unis). Elle se forme aussi en France auprès de femmes de la lignée directe de Yogi Bhajan, qui ont étudié à ses côtés : elles ont aujourd\'hui entre 70 et 90 ans.',
+                'Elle est également certifiée en Hatha yoga (Aryoga, Rishikesh, Inde) et praticienne en ayurvéda, formée comme thérapeute ayurvédique à la clinique Ayuskama de Dharamshala.',
                 'Au studio, elle enseigne le Kundalini et la méditation, et anime les séances de Rebirth Kriya.',
             ],
         },
         en: {
-            role: 'Founder and Kundalini teacher',
+            role: 'Founder and Kundalini Yoga teacher',
             bio: [
                 'Aurélie, Radha Navjot Kaur, is the founder of La Maison VEDA, a yoga studio and retreat centre in St-Simon, Charente, and in Habaraduwa, southern Sri Lanka.',
-                'She teaches Kundalini yoga in the lineage of Gurmukh Kaur Khalsa (Golden Bridge, USA). She is also certified in Hatha yoga (Aryoga, Rishikesh, India) and trained as an Ayurvedic therapist at the Ayuskama clinic in Dharamshala.',
+                'Before yoga there were studies in Bordeaux and a decade in the pharmaceutical industry — and a body that eventually said no. Everything began to shift when she left to study Ayurveda in India: learning to listen to her body, to nourish it, to heal it. Then, through Kundalini awakening practices, finding her breath again, her clarity, and a deep sense of purpose.',
+                'She teaches Kundalini in the lineage of Gurmukh Kaur Khalsa (Golden Bridge, USA). She also trains in France with women of Yogi Bhajan\'s direct lineage, who studied at his side: they are now between 70 and 90 years old.',
+                'She is also certified in Hatha yoga (Aryoga, Rishikesh, India) and trained as an Ayurvedic therapist at the Ayuskama clinic in Dharamshala.',
                 'At the studio she teaches Kundalini and meditation, and leads the Rebirth Kriya sessions.',
             ],
         },
