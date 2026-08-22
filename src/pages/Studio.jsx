@@ -116,12 +116,20 @@ export default function Studio() {
                     className="mb-14 aspect-[2/1] w-full rounded-3xl object-cover object-top"
                 />
 
-                <div className="grid gap-10 md:grid-cols-2">
-                    {TEACHERS.map((teacher) => {
+                {/* Une professeure par bande, photo d'un côté et récit de l'autre,
+                    en alternance : leurs textes n'ont pas la même longueur, deux
+                    colonnes côte à côte laisseraient un grand vide sous la plus
+                    courte. La photo reste visible pendant la lecture (sticky). */}
+                <div className="space-y-20">
+                    {TEACHERS.map((teacher, index) => {
                         const copy = teacher[lang] ?? teacher.fr
+                        const photoRight = index % 2 === 1
                         return (
-                            <article key={teacher.key} className="flex flex-col">
-                                <div className="overflow-hidden rounded-3xl">
+                            <article
+                                key={teacher.key}
+                                className="grid items-start gap-10 md:grid-cols-[2fr,3fr] md:gap-14"
+                            >
+                                <div className={`overflow-hidden rounded-3xl md:sticky md:top-40 ${photoRight ? 'md:order-2' : ''}`}>
                                     <img
                                         src={teacher.photo}
                                         alt={teacher.name}
@@ -129,24 +137,25 @@ export default function Studio() {
                                         className="aspect-[4/5] w-full object-cover transition-transform duration-700 hover:scale-105"
                                     />
                                 </div>
-                                <h3 className="mt-7 font-heading text-2xl">{teacher.name}</h3>
-                                {teacher.spiritualName && (
-                                    <p className="mt-1 font-heading text-lg italic text-veda-gold">
-                                        {teacher.spiritualName}
-                                    </p>
-                                )}
-                                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold/70">
-                                    {copy.role}
-                                </p>
-                                <div className="mt-5 space-y-4">
-                                    {copy.bio.map((p) => (
-                                        <p key={p.slice(0, 40)} className="text-sm font-light leading-relaxed text-veda-light/75">
-                                            {p}
+
+                                <div>
+                                    <h3 className="font-heading text-3xl">{teacher.name}</h3>
+                                    {teacher.spiritualName && (
+                                        <p className="mt-1 font-heading text-xl italic text-veda-gold">
+                                            {teacher.spiritualName}
                                         </p>
-                                    ))}
+                                    )}
+                                    <p className="mt-3 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold/70">
+                                        {copy.role}
+                                    </p>
+                                    <div className="mt-6 space-y-4">
+                                        {copy.bio.map((p) => (
+                                            <p key={p.slice(0, 40)} className="text-sm font-light leading-relaxed text-veda-light/75 sm:text-base">
+                                                {p}
+                                            </p>
+                                        ))}
+                                    </div>
                                 </div>
-                                {/* Anna doit écrire sa biographie : rien n'est inventé à sa place. */}
-                                {teacher.gap && <ContentGap id={teacher.gap} className="mt-5" />}
                             </article>
                         )
                     })}

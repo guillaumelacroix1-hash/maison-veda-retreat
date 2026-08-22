@@ -226,6 +226,8 @@ export const SRILANKA = {
                 'La Maison VEDA est née d\'un chemin de transformation : un retour à l\'essentiel, et l\'appel de vivre en harmonie avec le corps, le mental et l\'âme.',
                 'J\'ai grandi au cœur de la région de Cognac, entourée par la beauté de la campagne française. De l\'extérieur, ma vie semblait réussie : des études à Bordeaux et dix ans dans l\'industrie pharmaceutique. À l\'intérieur, je me sentais déconnectée, un numéro de plus dans un monde où l\'humanité semblait s\'effacer. Le stress a épuisé mon système nerveux et affecté ma santé, ma digestion en particulier.',
                 'Déterminée à reprendre ma vie en main, je suis partie en Inde étudier l\'ayurvéda. Tout a commencé à bouger. J\'ai appris à écouter mon corps, à le nourrir et à le soigner. Découvrir mon intolérance au gluten n\'était qu\'un début : la vraie transformation est venue de la reconnexion à mon souffle, à mon âme et à ma vérité intérieure. À travers les pratiques d\'éveil de la Kundalini, j\'ai puisé dans une énergie plus profonde, qui a ouvert la clarté, l\'équilibre et un profond sentiment de sens.',
+                'Je ne prétends pas que le chemin soit devenu lisse. Les obstacles sont toujours là, les épreuves aussi. Mais ces outils ont changé ma façon de les traverser : les prises de conscience viennent plus vite, je comprends mieux ce qui se joue en moi, et je perds beaucoup moins l\'équilibre quand la vie me secoue.',
+                'C\'est peut-être cela qui a le plus changé — ma manière d\'accueillir les hauts et les bas. Aujourd\'hui, j\'ai le sentiment profond que chaque épreuve me fait grandir. Et c\'est exactement ce que j\'ai envie de transmettre ici.',
             ],
         },
 
@@ -502,6 +504,8 @@ export const SRILANKA = {
                 'La Maison VEDA was born from a journey of transformation, a return to essence, and a calling to live in harmony with body, mind, and soul.',
                 'I grew up in the heart of the Cognac region, surrounded by the beauty of the French countryside. On the outside, my life seemed successful: studies in Bordeaux and a decade in the pharmaceutical industry. Inside, I felt disconnected, just another number in a world where humanity seemed to fade. The stress drained my nervous system and affected my health, especially my digestion.',
                 'Determined to take my life back, I traveled to India to study Ayurveda. Everything began to shift. I learned to listen to my body, nourish it, and heal it. Discovering my gluten intolerance was only the beginning, the real transformation came from reconnecting with my breath, my soul, and my inner truth. Through Kundalini awakening practices, I tapped into a deeper energy, unlocking clarity, balance, and a profound sense of purpose.',
+                'I will not pretend the path has become smooth. The obstacles are still there, and so are the trials. But these tools have changed the way I move through them: realisations come faster, I understand better what is at play within me, and I lose my balance far less when life shakes me.',
+                'Perhaps that is what has changed most — the way I welcome the highs and the lows. Today I feel deeply that every challenge helps me grow. And that is exactly what I want to pass on here.',
             ],
         },
 
