@@ -22,7 +22,7 @@ export const TEACHERS = [
             bio: [
                 'Aurélie, Radha Navjot Kaur, est la fondatrice de La Maison VEDA, studio de yoga et centre de retraites à St-Simon en Charente et à Habaraduwa, dans le sud du Sri Lanka.',
                 'Avant le yoga, il y a eu des études à Bordeaux et dix ans dans l\'industrie pharmaceutique — et un corps qui a fini par dire non. C\'est en partant étudier l\'ayurvéda en Inde que tout a commencé à bouger : apprendre à écouter son corps, le nourrir, le soigner. Puis, à travers les pratiques d\'éveil de la Kundalini, retrouver son souffle, sa clarté et un profond sentiment de sens.',
-                'Elle s\'est formée auprès de deux femmes de la lignée d\'enseignement direct de Yogi Bhajan : Gurmukh Kaur Khalsa, au Golden Bridge aux États-Unis, et Sat Atma, dans les Cévennes. Deux guerrières spirituelles, comme elle aime les appeler, qu\'elle admire profondément — elles ont aujourd\'hui entre 70 et 90 ans.',
+                'Elle s\'est formée auprès de deux femmes de la lignée d\'enseignement direct de Yogi Bhajan : Gurmukh Kaur Khalsa, au Golden Bridge aux États-Unis, et Sat Atma Kaur, dont l\'école se trouve dans les Cévennes. Deux guerrières spirituelles, comme elle aime les appeler, qu\'elle admire profondément — elles ont aujourd\'hui entre 70 et 90 ans.',
                 'Elle est également certifiée en Hatha yoga (Aryoga, Rishikesh, Inde) et praticienne en ayurvéda, formée comme thérapeute ayurvédique à la clinique Ayuskama de Dharamshala.',
                 'Au studio, elle enseigne le Kundalini et la méditation, et anime les séances de Rebirth Kriya.',
             ],
@@ -32,7 +32,7 @@ export const TEACHERS = [
             bio: [
                 'Aurélie, Radha Navjot Kaur, is the founder of La Maison VEDA, a yoga studio and retreat centre in St-Simon, Charente, and in Habaraduwa, southern Sri Lanka.',
                 'Before yoga there were studies in Bordeaux and a decade in the pharmaceutical industry — and a body that eventually said no. Everything began to shift when she left to study Ayurveda in India: learning to listen to her body, to nourish it, to heal it. Then, through Kundalini awakening practices, finding her breath again, her clarity, and a deep sense of purpose.',
-                'She trained with two women from Yogi Bhajan\'s direct teaching lineage: Gurmukh Kaur Khalsa, at Golden Bridge in the United States, and Sat Atma, in the Cévennes. Two spiritual warriors, as she likes to call them, whom she deeply admires — they are now between 70 and 90 years old.',
+                'She trained with two women from Yogi Bhajan\'s direct teaching lineage: Gurmukh Kaur Khalsa, at Golden Bridge in the United States, and Sat Atma Kaur, whose school is in the Cévennes. Two spiritual warriors, as she likes to call them, whom she deeply admires — they are now between 70 and 90 years old.',
                 'She is also certified in Hatha yoga (Aryoga, Rishikesh, India) and trained as an Ayurvedic therapist at the Ayuskama clinic in Dharamshala.',
                 'At the studio she teaches Kundalini and meditation, and leads the Rebirth Kriya sessions.',
             ],
