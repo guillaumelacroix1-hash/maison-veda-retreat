@@ -33,6 +33,12 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelie,
         ref: '§6, §12',
     },
+    'slot-durations': {
+        fr: 'Les cours de 10 h n\'affichent que leur heure de début : les six pratiques du créneau (breathwork, bain de gong, mantras, Celestial Communication, Rebirth Kriya, kirtan) n\'ont pas la même durée. Donner l\'heure de fin de chacune et elle s\'affichera sous le cours, comme pour le matin et la fin de journée.',
+        en: 'The 10 am classes show only their start time: the six practices in that slot (breathwork, gong bath, mantras, Celestial Communication, Rebirth Kriya, kirtan) do not all run the same length. Give the end time for each and it will appear under the class, as it does for the morning and late afternoon.',
+        owner: OWNERS.aurelieAnna,
+        ref: '§11',
+    },
     'studio-schedule': {
         fr: 'Le planning ci-dessus vient du brouillon de partenariat avec Anna (« MaisonVEDA_Collaboration_Anna_2027_v8 », Drive, 23/07/2026) : à figer avec elle avant l\'ouverture de la saison. Il s\'actualise ensuite chaque semaine dans src/data/studioSchedule.js.',
         en: 'The schedule above comes from the partnership draft with Anna ("MaisonVEDA_Collaboration_Anna_2027_v8", Drive, 23/07/2026): to be finalised with her before the season opens. It is then updated weekly in src/data/studioSchedule.js.',
@@ -94,8 +100,8 @@ export const CONTENT_GAPS = {
         ref: '§4, §12',
     },
     'event-prices': {
-        fr: 'Dates, horaires et tarifs des deux rendez-vous du 18 décembre sont arrêtés. Reste le texte de présentation du kirtan : celui affiché a été écrit ici faute d\'avoir le sien, à faire relire par Siri Sadhana Kaur. ',
-        en: 'Dates, times and prices for both 18 December events are settled. What remains is the kirtan description: the one on display was written here for want of hers, and needs Siri Sadhana Kaur\'s approval. ',
+        fr: 'Le texte de présentation du kirtan a été écrit ici faute d\'avoir celui de Siri Sadhana Kaur : à lui faire relire avant l\'ouverture des réservations.',
+        en: 'The kirtan description was written here for want of Siri Sadhana Kaur\'s own: to be approved by her before bookings open.',
         owner: OWNERS.aurelie,
         ref: '§4, §7',
     },

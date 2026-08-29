@@ -210,7 +210,8 @@ export default function Studio() {
                     </p>
                 </div>
 
-                <ContentGap id="studio-schedule" className="mt-10 max-w-3xl" />
+                <ContentGap id="slot-durations" className="mt-10 max-w-3xl" />
+                <ContentGap id="studio-schedule" className="mt-6 max-w-3xl" />
             </Section>
 
             {/* Les rendez-vous à date fixe, animés par des professeurs invités.

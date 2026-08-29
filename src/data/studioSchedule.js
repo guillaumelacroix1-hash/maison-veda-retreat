@@ -29,11 +29,15 @@ export const DAYS = [
 /** Les trois créneaux de la journée. */
 export const SLOTS = [
     {
+        // Le matin, c'est du Kundalini toute la semaine, et un cours de
+        // Kundalini dure 1 h 30 (Aurélie, 29/08/2026) : la fin se déduit.
         key: 'morning',
-        time: '7:30',
+        time: '7:30 – 9:00',
         fr: 'Le matin', en: 'Morning',
     },
     {
+        // Six pratiques différentes sur ce créneau, de durées différentes :
+        // on n'affiche que l'heure de début tant qu'elles ne sont pas connues.
         key: 'midMorning',
         time: '10:00',
         fr: 'En matinée', en: 'Late morning',
