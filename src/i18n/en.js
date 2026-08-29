@@ -151,7 +151,7 @@ export default {
         navSchedule: 'Schedule & rates',
         navTeachers: 'Teachers',
         navPrices: 'Rates',
-        navEvents: 'Coming up',
+        navEvents: 'Events',
         classesTitle: 'Coming to', classesAccent: 'a class',
         classesLead: 'A Kundalini class lasts an hour and a half. Mats and blocks are provided, there is nothing to bring, and no experience is needed.',
         classesFacts: [
@@ -190,7 +190,7 @@ export default {
         pricesTitle: 'Class', pricesAccent: 'rates',
         cafeTitle: 'After class,', cafeAccent: 'breakfast',
         cafeLead: 'Coffee, tea and a healthy, gluten-free breakfast, to share in the garden after practice.',
-        eventsTitle: 'The dates', eventsAccent: 'ahead',
+        eventsTitle: 'The season\'s', eventsAccent: 'events',
         eventsLead: 'Workshops and guest teachers, on top of the weekly schedule — and private retreats, during which studio classes pause. Places are limited; booking is by WhatsApp or on Instagram.',
         agendaRetreatKicker: 'Private retreat',
         agendaClosed: 'Studio closed',

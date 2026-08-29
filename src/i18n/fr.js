@@ -151,7 +151,7 @@ export default {
         navSchedule: 'Planning & tarifs',
         navTeachers: 'Professeures',
         navPrices: 'Tarifs',
-        navEvents: 'À venir',
+        navEvents: 'Événements',
         classesTitle: 'Venir à', classesAccent: 'un cours',
         classesLead: 'Un cours de Kundalini dure une heure et demie. Les tapis et les blocs sont fournis, il n\'y a rien à apporter, et aucune expérience n\'est nécessaire.',
         classesFacts: [
@@ -190,7 +190,7 @@ export default {
         pricesTitle: 'Tarifs', pricesAccent: 'des cours',
         cafeTitle: 'Après le cours,', cafeAccent: 'le petit-déjeuner',
         cafeLead: 'Un café, un thé, un petit-déjeuner sain et sans gluten, à partager au jardin après la pratique.',
-        eventsTitle: 'Les prochaines', eventsAccent: 'dates',
+        eventsTitle: 'Les événements', eventsAccent: 'de la saison',
         eventsLead: 'Les ateliers et les professeurs invités, en plus du planning de la semaine — et les retraites privées, pendant lesquelles les cours du studio sont suspendus. Les places sont limitées, la réservation se fait par WhatsApp ou sur Instagram.',
         agendaRetreatKicker: 'Retraite privée',
         agendaClosed: 'Studio fermé',
