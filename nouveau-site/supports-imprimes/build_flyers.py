@@ -330,55 +330,52 @@ def affiche_sri_lanka(path):
 
     # Les quatre façons de venir, deux par ligne.
     col_w = (W - 40 * mm - 6 * mm) / 2
-    card_h = 22 * mm
+    card_h = 24 * mm
     for i, (title, desc) in enumerate(FACONS):
         cx = 20 * mm + (col_w + 6 * mm) * (i % 2)
-        cy = y(153) - (i // 2) * (card_h + 5 * mm)
+        cy = y(155) - (i // 2) * (card_h + 5 * mm)
         c.setStrokeColor(colors.Color(0.73, 0.61, 0.39, alpha=0.55))
         c.setLineWidth(0.7)
         c.roundRect(cx, cy - card_h, col_w, card_h, 2.5 * mm, fill=0, stroke=1)
         c.setFont(SERIF, 17)
         c.setFillColor(GOLD)
-        c.drawString(cx + 7 * mm, cy - 8 * mm, title)
-        wrap(c, desc, cx + 7 * mm, cy - 14 * mm, col_w - 14 * mm, SANS, 10.5,
+        c.drawString(cx + 7 * mm, cy - 8.5 * mm, title)
+        wrap(c, desc, cx + 7 * mm, cy - 15 * mm, col_w - 14 * mm, SANS, 10.5,
              4.6 * mm, colors.white)
 
     # Bandeau doré : la retraite de février et ses places restantes. C'est le
     # bloc le plus lisible de l'affiche — fond clair, texte foncé.
-    band_top = 100 * mm
+    band_top = 98 * mm
     c.setFillColor(GOLD)
-    c.roundRect(20 * mm, y(56), W - 40 * mm, y(44), 3 * mm, fill=1, stroke=0)
-    tracked(c, "PROCHAINE RETRAITE", W / 2, band_top - 9 * mm, SANS_B, 10, DARK, 2.5)
+    c.roundRect(20 * mm, y(58), W - 40 * mm, y(40), 3 * mm, fill=1, stroke=0)
+    tracked(c, "PROCHAINE RETRAITE", W / 2, band_top - 8.5 * mm, SANS_B, 10, DARK, 2.5)
     c.setFillColor(DARK)
     c.setFont(SERIF, 19)
-    c.drawCentredString(W / 2, band_top - 18 * mm, "Hatha & Kundalini · 7 au 13 février 2027")
+    c.drawCentredString(W / 2, band_top - 17.5 * mm, "Hatha & Kundalini · 7 au 13 février 2027")
     c.setFont(SANS_B, 12)
-    c.drawCentredString(W / 2, band_top - 25.5 * mm, "Il reste 3 places   ·   à partir de 1 280 €")
+    c.drawCentredString(W / 2, band_top - 25 * mm, "Il reste 3 places   ·   à partir de 1 280 €")
 
     # Le tour qui enchaîne sur la retraite : même bandeau, séparé par un filet,
     # pour qu'on lise les deux dates comme un seul voyage possible.
-    c.setStrokeColor(colors.Color(0, 0.18, 0.17, alpha=0.35))
-    c.setLineWidth(0.6)
-    c.line(W / 2 - 60 * mm, band_top - 30 * mm, W / 2 + 60 * mm, band_top - 30 * mm)
+    c.setStrokeColor(colors.Color(0, 0.18, 0.17, alpha=0.45))
+    c.setLineWidth(0.7)
+    c.line(W / 2 - 60 * mm, band_top - 28 * mm, W / 2 + 60 * mm, band_top - 28 * mm)
     c.setFillColor(DARK)
     c.setFont(SERIF, 14)
     c.drawCentredString(W / 2, band_top - 35.5 * mm,
                         "Et à la suite : le tour de l'île en mini-van, du 13 au 19 février")
-    c.setFont(SANS, 10.5)
-    c.drawCentredString(W / 2, band_top - 41 * mm,
-                        "7 jours et 6 nuits  ·  à partir de 5 personnes  ·  100 à 150 €  par jour")
 
     # Trois vignettes du lieu.
     tw = (W - 40 * mm - 2 * 4 * mm) / 3
     for i, photo in enumerate([PHOTO_MAISON, PHOTO_SHALA, PHOTO_PLAGE]):
-        fit_cover(photo, 20 * mm + i * (tw + 4 * mm), y(26), tw, y(26), c)
+        fit_cover(photo, 20 * mm + i * (tw + 4 * mm), y(25), tw, y(27), c)
 
     c.setFont(SANS, 10)
     c.setFillColor(colors.white)
-    c.drawCentredString(W / 2, y(20), "Habaraduwa, lac de Koggala, sud du Sri Lanka")
+    c.drawCentredString(W / 2, y(19), "Habaraduwa, lac de Koggala, sud du Sri Lanka")
     c.setFont(SANS_B, 13)
     c.setFillColor(GOLD)
-    c.drawCentredString(W / 2, y(11), "WhatsApp  +33 6 79 09 89 47   ·   lamaisonveda.com")
+    c.drawCentredString(W / 2, y(10.5), "WhatsApp  +33 6 79 09 89 47   ·   lamaisonveda.com")
 
     c.showPage()
     c.save()
