@@ -94,8 +94,8 @@ export const CONTENT_GAPS = {
         ref: '§4, §12',
     },
     'event-prices': {
-        fr: 'Dates, horaires et tarifs des deux rendez-vous du 18 décembre sont arrêtés. Reste le texte de présentation du kirtan : celui affiché a été écrit ici faute d\'avoir le sien, à faire relire par Siri Sadhana Kaur. Sa photo à la guitare est tirée d\'une vidéo (700 × 480) : à remplacer si elle en a une en pleine définition.',
-        en: 'Dates, times and prices for both 18 December events are settled. What remains is the kirtan description: the one on display was written here for want of hers, and needs Siri Sadhana Kaur\'s approval. Her guitar photo is a video still (700 × 480): to be replaced if she has one at full resolution.',
+        fr: 'Dates, horaires et tarifs des deux rendez-vous du 18 décembre sont arrêtés. Reste le texte de présentation du kirtan : celui affiché a été écrit ici faute d\'avoir le sien, à faire relire par Siri Sadhana Kaur. Sa photo à la guitare est tirée d\'une vidéo (700 × 480) : Aurélie en demande une en pleine définition, paysage, 1 200 px de large au minimum.',
+        en: 'Dates, times and prices for both 18 December events are settled. What remains is the kirtan description: the one on display was written here for want of hers, and needs Siri Sadhana Kaur\'s approval. Her guitar photo is a video still (700 × 480): Aurélie is asking for a full-resolution one, landscape, at least 1,200 px wide.',
         owner: OWNERS.aurelie,
         ref: '§4, §7',
     },

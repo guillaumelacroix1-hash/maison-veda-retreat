@@ -89,7 +89,9 @@ export const STUDIO_EVENTS = [
          * coup d'œil. La guitare est confirmée par Aurélie : Siri est
          * musicienne, elle jouera.
          * Photo tirée d'une vidéo (700 × 480) : correcte à cette taille, mais
-         * à remplacer si Siri en fournit une en pleine définition.
+         * Aurélie en demande une en pleine définition à Siri. Le bandeau fait
+         * 256 px de large sur ordinateur et toute la largeur sur mobile :
+         * viser 1 200 px minimum, en paysage.
          */
         banner: { src: img('siri-guitare.jpg'), alt: 'Siri Sadhana Kaur à la guitare' },
         /** 5 000 LKR, arrêté avec Aurélie le 29/08/2026. */
