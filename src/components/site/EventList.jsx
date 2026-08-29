@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { ChevronDown, MessageCircle } from 'lucide-react'
 import { useI18n } from '../../i18n'
 import { CONTACT } from '../../data/site'
@@ -19,6 +19,30 @@ export default function EventList({ events }) {
     // les voie d'abord les uns après les autres.
     const [openKey, setOpenKey] = useState(events.length === 1 ? events[0].key : null)
 
+    /**
+     * Ouvrir une carte en referme une autre. Si celle qui se referme est plus
+     * haut dans la page, tout ce qui suit remonte d'un coup — la carte qu'on
+     * vient de cliquer part hors de l'écran et on croit que rien ne s'est
+     * ouvert. On la ramène donc sous les barres collantes après le rendu.
+     * useLayoutEffect plutôt que useEffect : le navigateur ne peint qu'après,
+     * on ne voit pas le saut.
+     */
+    const cards = useRef({})
+    const clicked = useRef(null)
+
+    const toggle = (key) => {
+        clicked.current = key
+        setOpenKey((current) => (current === key ? null : key))
+    }
+
+    useLayoutEffect(() => {
+        const key = clicked.current
+        if (!key) return
+        clicked.current = null
+        // `.scroll-anchor` porte le décalage de l'en-tête et du sommaire.
+        cards.current[key]?.scrollIntoView({ block: 'start' })
+    }, [openKey])
+
     return (
         <div className="space-y-6">
             {events.map((event) => {
@@ -30,14 +54,15 @@ export default function EventList({ events }) {
                 return (
                     <article
                         key={event.key}
-                        className={`overflow-hidden rounded-3xl border bg-white transition-colors duration-300 ${
+                        ref={(el) => { cards.current[event.key] = el }}
+                        className={`scroll-anchor overflow-hidden rounded-3xl border bg-white transition-colors duration-300 ${
                             open ? 'border-veda-gold/50' : 'border-veda-dark/10 hover:border-veda-gold/50'
                         }`}
                     >
                         {/* La carte entière est le bouton : on clique n'importe où dessus. */}
                         <button
                             type="button"
-                            onClick={() => setOpenKey(open ? null : event.key)}
+                            onClick={() => toggle(event.key)}
                             aria-expanded={open}
                             className="grid w-full text-left sm:grid-cols-[minmax(0,16rem),1fr]"
                         >
