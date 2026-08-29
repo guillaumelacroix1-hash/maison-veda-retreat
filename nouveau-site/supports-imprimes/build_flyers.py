@@ -262,7 +262,7 @@ def flyer_cours(path, size):
             SANS_B, 6.8 * k, DARK, 1.6 * k)
     c.setFillColor(DARK)
     c.setFont(SERIF_I, 11 * k)
-    c.drawCentredString(W / 2, y(band_top - 11.5), "Retrouvez Aurélie au Sri Lanka, de novembre à mai")
+    c.drawCentredString(W / 2, y(band_top - 11.5), "Retrouvez Aurélie au Sri Lanka, de novembre à avril")
     c.setFont(SERIF_I, 8.8 * k)
     c.drawCentredString(W / 2, y(band_top - 17), "Un séjour à La Maison VEDA · Un cours au studio · Une retraite transformative")
     c.drawCentredString(W / 2, y(band_top - 21.5), "Et votre voyage dans l'île, que nous organisons pour vous avec chauffeur privé")
