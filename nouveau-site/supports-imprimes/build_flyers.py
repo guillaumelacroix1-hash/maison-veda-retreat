@@ -45,6 +45,8 @@ PHOTO_LOFT = os.path.join(ROOT, "ressources/info-pack/loft/img-008.jpg")
 PHOTO_MAISON = os.path.join(ROOT, "ressources/info-pack/earth-house/img-000.jpg")
 PHOTO_SHALA = os.path.join(ROOT, "ressources/info-pack/yoga-shala/img-001.jpg")
 PHOTO_PLAGE = os.path.join(ROOT, "public/new_image/IMG_1494.jpeg")
+# Le groupe bras ouverts face au lac, Aurélie en tête : la photo de retraite.
+PHOTO_GROUPE = os.path.join(ROOT, "ressources/info-pack/yoga-shala/img-003.jpg")
 
 
 # ------------------------------------------------------------------ outils
@@ -167,7 +169,29 @@ def gradient_png(path, w=8, h=600):
     return path
 
 
+def gradient_png_lineaire(path, w=8, h=900, sens="bas"):
+    """
+    Même voile, mais à progression linéaire : il assombrit plus haut.
+
+    `sens="bas"` : transparent en haut, opaque en bas. `sens="haut"` : l'inverse,
+    pour asseoir un logo posé en tête d'image.
+    """
+    if os.path.exists(path):
+        return path
+    im = PILImage.new("RGBA", (w, h))
+    px = im.load()
+    for y in range(h):
+        t = y / (h - 1)
+        a = int(255 * (t if sens == "bas" else 1 - t))
+        for x in range(w):
+            px[x, y] = (0, 45, 44, a)
+    im.save(path)
+    return path
+
+
 VOILE = gradient_png(os.path.join(SC, "voile-vert.png"))
+VOILE_POST = gradient_png_lineaire(os.path.join(SC, "voile-post.png"))
+VOILE_HAUT = gradient_png_lineaire(os.path.join(SC, "voile-haut.png"), h=320, sens="haut")
 
 
 # ------------------------------------------------------- flyer des cours
@@ -382,9 +406,72 @@ def affiche_sri_lanka(path):
     return path
 
 
+# ------------------------------------------------------- post Instagram
+def post_instagram(path):
+    """
+    Post Instagram au format 4:5 (1080 x 1350), le plus large du fil.
+
+    La page est dessinée en points à l'échelle du pixel : `pdftoppm -r 72`
+    en sort exactement 1080 x 1350, sans redimensionnement.
+    """
+    W, H = 1080, 1350
+    c = pdfcanvas.Canvas(path, pagesize=(W, H))
+    c._pagesize = (W, H)
+
+    c.setFillColor(DARK)
+    c.rect(0, 0, W, H, fill=1, stroke=0)
+
+    # La photo occupe tout le cadre : ses proportions sont presque celles du
+    # 4:5, elle perd donc à peine ses bords.
+    fit_cover(PHOTO_GROUPE, 0, 0, W, H, c, focus=0.42)
+
+    # Un voile uni sur toute l'image pour asseoir le blanc, puis un dégradé
+    # qui referme le bas en vert plein.
+    # L'opacité vit dans l'état PDF et vaut aussi pour les images : sans ce
+    # saveState, le dégradé qui suit hériterait des 22 % du voile uni et ne
+    # couvrirait plus rien.
+    c.saveState()
+    c.setFillColor(colors.Color(0, 0.176, 0.173, alpha=0.12))
+    c.rect(0, 0, W, H, fill=1, stroke=0)
+    c.restoreState()
+    c.drawImage(ImageReader(VOILE_POST), 0, 0, width=W, height=900, mask="auto")
+    c.drawImage(ImageReader(VOILE_HAUT), 0, H - 320, width=W, height=320, mask="auto")
+
+    # La signature en tête, le message en pied : posé au milieu, le mandala
+    # tombait sur la tête d'un élève.
+    mandala(c, W / 2, H - 118, 108, alpha=0.95)
+    centered(c, "LA MAISON VEDA", H - 205, SANS_B, 17, GOLD, tracking=6)
+
+    centered(c, "RETRAITE DE YOGA  ·  SRI LANKA", 500, SANS_B, 15, colors.white, tracking=4.5)
+    centered(c, "Hatha & Kundalini", 420, SERIF_I, 74, colors.white)
+    centered(c, "7 au 13 février 2027", 358, SERIF, 38, GOLD)
+
+    # La pastille dorée : c'est l'information qui doit arrêter le pouce.
+    pill_w, pill_h, pill_y = 360, 62, 250
+    c.setFillColor(GOLD)
+    c.roundRect((W - pill_w) / 2, pill_y, pill_w, pill_h, pill_h / 2, fill=1, stroke=0)
+    tracked(c, "IL RESTE 3 PLACES", W / 2, pill_y + 22, SANS_B, 20, DARK, 3)
+
+    c.setFont(SANS, 20)
+    c.setFillColor(colors.white)
+    c.drawCentredString(W / 2, 190, "Lac de Koggala, sud du Sri Lanka  ·  6 nuits en pension complète")
+    c.drawCentredString(W / 2, 158, "2 à 4 pratiques de yoga par jour  ·  à partir de 1 280 €")
+
+    rule(c, 118, 200, colors.Color(1, 1, 1, alpha=0.25), 1)
+
+    c.setFont(SANS_B, 22)
+    c.setFillColor(GOLD)
+    c.drawCentredString(W / 2, 70, "@lamaisonveda   ·   lamaisonveda.com")
+
+    c.showPage()
+    c.save()
+    return path
+
+
 for p in [
     flyer_cours(os.path.join(OUT, "cours-kundalini-A5.pdf"), A5),
     flyer_cours(os.path.join(OUT, "cours-kundalini-A4.pdf"), A4),
     affiche_sri_lanka(os.path.join(OUT, "sri-lanka-A4.pdf")),
+    post_instagram(os.path.join(OUT, "post-instagram-retraite.pdf")),
 ]:
     print("OK ->", os.path.basename(p), os.path.getsize(p) // 1024, "Ko")
