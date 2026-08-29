@@ -183,7 +183,10 @@ export default function Studio() {
                         <span className="italic text-veda-gold">{t('studio.pricesAccent')}</span>
                     </h3>
 
-                    <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                    {/* Un encart par formule, chaque formule portant ses deux
+                        tarifs : on choisit d'abord ce qu'on achète, on lit
+                        ensuite la ligne qui nous concerne. */}
+                    <div className="mt-8 grid gap-4 sm:grid-cols-2">
                         {STUDIO_PRICES.map((price) => {
                             const copy = price[lang] ?? price.fr
                             return (
@@ -198,8 +201,25 @@ export default function Studio() {
                                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
                                         {copy.label}
                                     </p>
-                                    <p className="mt-4 whitespace-nowrap font-heading text-2xl lg:text-3xl">{formatLkr(price.amount, lang)}</p>
-                                    <p className="mt-2 text-sm font-light text-veda-light/60">{copy.detail}</p>
+
+                                    <div className="mt-6 space-y-5">
+                                        {price.tiers.map((tier) => {
+                                            const who = tier[lang] ?? tier.fr
+                                            return (
+                                                <div key={tier.amount}>
+                                                    <p className="whitespace-nowrap font-heading text-2xl lg:text-3xl">
+                                                        {formatLkr(tier.amount, lang)}
+                                                    </p>
+                                                    <p className="mt-1 text-sm font-light text-veda-light/70">
+                                                        {who.who}
+                                                        {who.detail && (
+                                                            <span className="text-veda-light/50"> · {who.detail}</span>
+                                                        )}
+                                                    </p>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
                                 </div>
                             )
                         })}
@@ -210,7 +230,8 @@ export default function Studio() {
                     </p>
                 </div>
 
-                <ContentGap id="slot-durations" className="mt-10 max-w-3xl" />
+                <ContentGap id="resident-pass" className="mt-10 max-w-3xl" />
+                <ContentGap id="slot-durations" className="mt-6 max-w-3xl" />
                 <ContentGap id="studio-schedule" className="mt-6 max-w-3xl" />
             </Section>
 
