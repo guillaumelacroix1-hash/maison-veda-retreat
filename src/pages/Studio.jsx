@@ -185,9 +185,24 @@ export default function Studio() {
                         return (
                             <article
                                 key={teacher.key}
-                                className="grid items-start gap-10 md:grid-cols-[2fr,3fr] md:gap-14"
+                                // La colonne photo garde la même largeur d'une bande à
+                                // l'autre : `order-2` déplace la photo à droite mais ne
+                                // change pas la piste qu'elle occupe, il faut donc
+                                // inverser les pistes en même temps. Sans ça, la photo
+                                // de droite héritait de la piste large et sortait 50 %
+                                // plus grosse que celle de gauche.
+                                className={`grid items-start gap-10 md:gap-14 ${
+                                    photoRight
+                                        ? 'md:grid-cols-[1fr,minmax(0,380px)]'
+                                        : 'md:grid-cols-[minmax(0,380px),1fr]'
+                                }`}
                             >
-                                <div className={`overflow-hidden rounded-3xl md:sticky md:top-40 ${photoRight ? 'md:order-2' : ''}`}>
+                                <div
+                                    // En dessous de md la grille se replie sur une seule
+                                    // colonne : sans limite, un portrait 4/5 en pleine
+                                    // largeur devient plus haut que l'écran.
+                                    className={`max-w-[320px] overflow-hidden rounded-3xl md:max-w-none md:sticky md:top-40 ${photoRight ? 'md:order-2' : ''}`}
+                                >
                                     <img
                                         src={teacher.photo}
                                         alt={teacher.name}
@@ -196,7 +211,9 @@ export default function Studio() {
                                     />
                                 </div>
 
-                                <div>
+                                {/* La ligne de texte reste lisible : au-delà d'environ
+                                    75 signes, l'œil perd le début de la ligne suivante. */}
+                                <div className="max-w-3xl">
                                     <h3 className="font-heading text-3xl">{teacher.name}</h3>
                                     {teacher.spiritualName && (
                                         <p className="mt-1 font-heading text-xl italic text-veda-gold">
