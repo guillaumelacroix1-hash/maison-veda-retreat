@@ -22,7 +22,25 @@ export const STUDIO_EVENTS = [
         photo: img('siri-sadhana.jpg'),
         /** Bandeau au-dessus : Siri au gong, c'est le sujet de l'atelier. */
         banner: { src: img('siri-gong-rouge.jpg'), alt: 'Siri Sadhana Kaur au gong' },
-        price: { fr: '100 €', en: '€100' },
+        /**
+         * Tarif arrêté avec Aurélie le 29/08/2026, à partir du tarif londonien
+         * de Siri (150 £, soit ~170 €) : 100 € au Sri Lanka, et 85 € en
+         * réservant tôt. Affiché en roupies, la monnaie du pays où l'atelier a
+         * lieu, arrondi au millier au taux du 29/08/2026 (1 € = 382 LKR) :
+         * 38 000 et 32 000 LKR. L'équivalent en euros reste indiqué pour les
+         * participants qui viennent d'Europe.
+         * La date limite du tarif early bird reste à confirmer.
+         */
+        price: { lkr: 38000, eur: 100 },
+        earlyBird: {
+            lkr: 32000,
+            eur: 85,
+            fr: { label: 'Tarif early bird jusqu\'au 15 novembre' },
+            en: { label: 'Early bird rate until 15 November' },
+        },
+        seats: { fr: '6 à 8 participants', en: '6 to 8 participants' },
+        /** Deux à trois gongs sur place, partagés par le groupe. */
+        gongs: 3,
         fr: {
             kicker: 'Atelier avec Siri Sadhana Kaur',
             title: 'Introduction au gong',
@@ -39,7 +57,7 @@ export const STUDIO_EVENTS = [
                 'Explorer la présence, l\'écoute et la sensibilité au son',
                 'Se détendre profondément dans un bain de gong guidé',
             ],
-            note: 'Les places sont limitées.',
+            note: 'Un petit groupe de 6 à 8 personnes et deux à trois gongs, pour que chacun ait vraiment les mains sur l\'instrument.',
         },
         en: {
             kicker: 'A workshop with Siri Sadhana Kaur',
@@ -57,7 +75,7 @@ export const STUDIO_EVENTS = [
                 'Explore presence, listening, and sensitivity in sound',
                 'Relax deeply within a guided gong immersion',
             ],
-            note: 'Spaces are limited.',
+            note: 'A small group of 6 to 8 with two to three gongs, so everyone really gets their hands on the instrument.',
         },
     },
 ]
@@ -92,6 +110,20 @@ export const GUEST_TEACHERS = {
     },
 }
 
-/** N'affiche que ce qui n'est pas encore passé. */
+/** N'affiche que ce qui n'est pas encore passé, du plus proche au plus lointain. */
 export const upcomingEvents = (today = new Date()) =>
-    STUDIO_EVENTS.filter((e) => new Date(e.date) >= new Date(today.toDateString()))
+    STUDIO_EVENTS
+        .filter((e) => new Date(e.date) >= new Date(today.toDateString()))
+        .sort((a, b) => a.date.localeCompare(b.date))
+
+/**
+ * Le prix s'affiche en roupies : c'est la monnaie dans laquelle on paie sur
+ * place. L'équivalent en euros suit, en petit et précédé d'un « ≈ », parce que
+ * le taux bouge et que ce n'est qu'un ordre de grandeur.
+ */
+export const formatLkr = (amount, lang) =>
+    lang === 'en'
+        ? `LKR ${amount.toLocaleString('en-GB')}`
+        : `${amount.toLocaleString('fr-FR')} LKR`
+
+export const formatEur = (amount, lang) => (lang === 'en' ? `≈ €${amount}` : `≈ ${amount} €`)

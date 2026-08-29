@@ -173,6 +173,7 @@ export default {
         cafeLead: 'Un café, un thé, un petit-déjeuner sain et sans gluten, à partager au jardin après la pratique.',
         eventsTitle: 'Ateliers et', eventsAccent: 'professeurs invités',
         eventsLead: 'Des rendez-vous à date fixe, en plus du planning de la semaine. Les places sont limitées, la réservation se fait par WhatsApp ou sur Instagram.',
+        eventsOpen: 'Voir le détail', eventsClose: 'Réduire',
         aboutGuest: '+ Qui est {name} ?',
         bookTitle: 'Rejoignez-nous sur le tapis',
         bookLead: 'Réservez votre place par WhatsApp ou en message sur Instagram. Le planning de la semaine y est publié.',

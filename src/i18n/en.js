@@ -173,6 +173,7 @@ export default {
         cafeLead: 'Coffee, tea and a healthy, gluten-free breakfast, to share in the garden after practice.',
         eventsTitle: 'Workshops and', eventsAccent: 'guest teachers',
         eventsLead: 'One-off gatherings, on top of the weekly schedule. Places are limited; booking is by WhatsApp or on Instagram.',
+        eventsOpen: 'See the details', eventsClose: 'Close',
         aboutGuest: '+ Who is {name}?',
         bookTitle: 'Join us on the mat',
         bookLead: 'Book your spot on WhatsApp or by message on Instagram, where the week\'s schedule is posted.',

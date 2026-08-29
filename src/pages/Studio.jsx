@@ -8,6 +8,7 @@ import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
 import WeeklySchedule from '../components/site/WeeklySchedule'
+import EventList from '../components/site/EventList'
 import { srilanka } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
@@ -15,7 +16,7 @@ import { CONTACT, SOCIAL } from '../data/site'
 import { HIGHLIGHTS } from '../data/studioSchedule'
 import { TEACHERS, TEACHERS_MEDIA } from '../data/studioTeachers'
 import { STUDIO_PRICES, PRICES_NOTE } from '../data/studioPrices'
-import { upcomingEvents, GUEST_TEACHERS } from '../data/studioEvents'
+import { upcomingEvents } from '../data/studioEvents'
 
 /**
  * Maison VEDA Lake Studio.
@@ -113,118 +114,7 @@ export default function Studio() {
                     accent={t('studio.eventsAccent')}
                     lead={t('studio.eventsLead')}
                 >
-                    <div className="space-y-14">
-                        {events.map((event) => {
-                            const copy = event[lang] ?? event.fr
-                            const guest = GUEST_TEACHERS[event.teacher]
-                            return (
-                                <div key={event.key}>
-                                    {/* Le gong en bandeau : c'est le sujet de l'atelier. */}
-                                    {event.banner && (
-                                        <img
-                                            src={event.banner.src}
-                                            alt={event.banner.alt}
-                                            loading="lazy"
-                                            className="mb-12 aspect-[21/9] w-full rounded-3xl object-cover"
-                                        />
-                                    )}
-                                <article
-                                    className="grid items-start gap-10 md:grid-cols-[2fr,3fr] md:gap-14"
-                                >
-                                    <div className="overflow-hidden rounded-3xl">
-                                        <img
-                                            src={event.photo}
-                                            alt={event.teacher}
-                                            loading="lazy"
-                                            className="aspect-[4/5] w-full object-cover"
-                                            // Tant que la photo n'est pas fournie, on masque le
-                                            // cadre plutôt que d'afficher une image cassée.
-                                            onError={(e) => { e.currentTarget.parentElement.hidden = true }}
-                                        />
-                                    </div>
-
-                                    <div>
-                                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                                            {copy.kicker}
-                                        </p>
-                                        <h3 className="mt-3 font-heading text-3xl text-veda-dark">{copy.title}</h3>
-
-                                        <ul className="mt-5 flex flex-wrap gap-2">
-                                            {[copy.date, copy.duration, event.price[lang] ?? event.price.fr].map((fact) => (
-                                                <li
-                                                    key={fact}
-                                                    className="rounded-full border border-veda-dark/20 px-4 py-1.5 text-xs font-light text-veda-dark/70"
-                                                >
-                                                    {fact}
-                                                </li>
-                                            ))}
-                                        </ul>
-
-                                        <p className="mt-6 text-base font-light leading-relaxed text-veda-dark/75">
-                                            {copy.lead}
-                                        </p>
-
-                                        <ul className="mt-6 grid gap-2.5">
-                                            {copy.programme.map((item) => (
-                                                <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-dark/80">
-                                                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-veda-gold" />
-                                                    {item}
-                                                </li>
-                                            ))}
-                                        </ul>
-
-                                        <div className="mt-6 space-y-4">
-                                            {copy.body.map((p) => (
-                                                <p key={p.slice(0, 40)} className="text-sm font-light leading-relaxed text-veda-dark/70">
-                                                    {p}
-                                                </p>
-                                            ))}
-                                        </div>
-
-                                        <p className="mt-5 text-sm font-semibold text-veda-gold">{copy.note}</p>
-
-                                        <a
-                                            href={CONTACT.whatsappHref}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="mt-7 inline-flex items-center gap-3 rounded-full bg-veda-dark px-9 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-light transition-colors duration-300 hover:bg-black"
-                                        >
-                                            <MessageCircle className="h-4 w-4" />
-                                            {t('studio.bookCta')}
-                                        </a>
-
-                                        {/* Qui anime : sa présentation, écrite par elle. */}
-                                        {guest && (
-                                            <details className="group mt-10 border-t border-veda-dark/10 pt-6">
-                                                <summary className="cursor-pointer list-none text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold transition-colors hover:text-veda-dark">
-                                                    {t('studio.aboutGuest', { name: event.teacher })}
-                                                </summary>
-                                                <p className="mt-5 text-xs font-light uppercase tracking-wider text-veda-dark/50">
-                                                    {lang === 'en' ? guest.disciplinesEn : guest.disciplines}
-                                                </p>
-                                                {guest.atWork && (
-                                                    <img
-                                                        src={guest.atWork.src}
-                                                        alt={guest.atWork.alt}
-                                                        loading="lazy"
-                                                        className="mt-5 aspect-[4/3] w-full rounded-2xl object-cover"
-                                                    />
-                                                )}
-                                                <div className="mt-4 space-y-4">
-                                                    {(guest[lang] ?? guest.fr).map((p) => (
-                                                        <p key={p.slice(0, 40)} className="text-sm font-light leading-relaxed text-veda-dark/70">
-                                                            {p}
-                                                        </p>
-                                                    ))}
-                                                </div>
-                                            </details>
-                                        )}
-                                    </div>
-                                </article>
-                                </div>
-                            )
-                        })}
-                    </div>
+                    <EventList events={events} />
 
                     <ContentGap id="event-prices" className="mt-12 max-w-3xl" />
                 </Section>
