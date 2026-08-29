@@ -18,7 +18,10 @@ export const STUDIO_EVENTS = [
         /** Date ISO, pour masquer l'événement une fois passé. */
         date: '2026-12-18',
         teacher: 'Siri Sadhana Kaur',
+        /** Portrait, à côté du texte de l'atelier. */
         photo: img('siri-sadhana.jpg'),
+        /** Bandeau au-dessus : Siri au gong, c'est le sujet de l'atelier. */
+        banner: { src: img('siri-gong-rouge.jpg'), alt: 'Siri Sadhana Kaur au gong' },
         price: { fr: '100 €', en: '€100' },
         fr: {
             kicker: 'Atelier avec Siri Sadhana Kaur',
@@ -66,6 +69,8 @@ export const STUDIO_EVENTS = [
 export const GUEST_TEACHERS = {
     'Siri Sadhana Kaur': {
         photo: img('siri-sadhana.jpg'),
+        /** Deuxième image du gong, pour illustrer sa biographie. */
+        atWork: { src: img('siri-gong-blanc.jpg'), alt: 'Siri Sadhana Kaur jouant du gong' },
         disciplines: 'Danse · Yoga · Gong · Voix · Mantra · Son · Expression authentique',
         disciplinesEn: 'Dance · Yoga · Gong · Voice · Mantra · Sound · Authentic Expression',
         fr: [

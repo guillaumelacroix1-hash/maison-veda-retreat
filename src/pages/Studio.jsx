@@ -118,8 +118,17 @@ export default function Studio() {
                             const copy = event[lang] ?? event.fr
                             const guest = GUEST_TEACHERS[event.teacher]
                             return (
+                                <div key={event.key}>
+                                    {/* Le gong en bandeau : c'est le sujet de l'atelier. */}
+                                    {event.banner && (
+                                        <img
+                                            src={event.banner.src}
+                                            alt={event.banner.alt}
+                                            loading="lazy"
+                                            className="mb-12 aspect-[21/9] w-full rounded-3xl object-cover"
+                                        />
+                                    )}
                                 <article
-                                    key={event.key}
                                     className="grid items-start gap-10 md:grid-cols-[2fr,3fr] md:gap-14"
                                 >
                                     <div className="overflow-hidden rounded-3xl">
@@ -193,6 +202,14 @@ export default function Studio() {
                                                 <p className="mt-5 text-xs font-light uppercase tracking-wider text-veda-dark/50">
                                                     {lang === 'en' ? guest.disciplinesEn : guest.disciplines}
                                                 </p>
+                                                {guest.atWork && (
+                                                    <img
+                                                        src={guest.atWork.src}
+                                                        alt={guest.atWork.alt}
+                                                        loading="lazy"
+                                                        className="mt-5 aspect-[4/3] w-full rounded-2xl object-cover"
+                                                    />
+                                                )}
                                                 <div className="mt-4 space-y-4">
                                                     {(guest[lang] ?? guest.fr).map((p) => (
                                                         <p key={p.slice(0, 40)} className="text-sm font-light leading-relaxed text-veda-dark/70">
@@ -204,6 +221,7 @@ export default function Studio() {
                                         )}
                                     </div>
                                 </article>
+                                </div>
                             )
                         })}
                     </div>

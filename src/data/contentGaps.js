@@ -94,8 +94,8 @@ export const CONTENT_GAPS = {
         ref: '§4, §12',
     },
     'event-prices': {
-        fr: 'Atelier gong du 18 décembre : à confirmer avec Siri Sadhana Kaur — le tarif (100 € annoncé, mais à situer par rapport au marché sri-lankais), le nombre de places, le nombre de gongs nécessaires, et sa photo. La soirée kirtan reste à programmer : sa date n\'est pas fixée et son tarif hésite entre 4 000 et 5 000 LKR.',
-        en: 'Gong workshop on 18 December: to confirm with Siri Sadhana Kaur — the price (€100 announced, but to weigh against the Sri Lankan market), the number of places, how many gongs are needed, and her photo. The kirtan evening is still to be scheduled: no date set, and its price is undecided between LKR 4,000 and 5,000.',
+        fr: 'Atelier gong du 18 décembre : à confirmer avec Siri Sadhana Kaur — le tarif (100 € annoncé, mais à situer par rapport au marché sri-lankais), le nombre de places et le nombre de gongs nécessaires. La soirée kirtan reste à programmer : sa date n\'est pas fixée et son tarif hésite entre 4 000 et 5 000 LKR.',
+        en: 'Gong workshop on 18 December: to confirm with Siri Sadhana Kaur — the price (€100 announced, but to weigh against the Sri Lankan market), the number of places and how many gongs are needed. The kirtan evening is still to be scheduled: no date set, and its price is undecided between LKR 4,000 and 5,000.',
         owner: OWNERS.aurelie,
         ref: '§4, §7',
     },
