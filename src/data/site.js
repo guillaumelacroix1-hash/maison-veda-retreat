@@ -12,6 +12,10 @@ export const CONTACT = {
     // menaient au mauvais numéro.
     whatsapp: '+33 6 79 09 89 47',
     whatsappHref: 'https://wa.me/33679098947',
+    // Le WhatsApp d'Anna, dicté par Aurélie le 29/08/2026. Indicatif +7 :
+    // transcription à confirmer en tapant le lien.
+    whatsappAnna: '+7 915 778 38 21',
+    whatsappAnnaHref: 'https://wa.me/79157783821',
     addressFr: 'Habaraduwa, lac de Koggala, sud du Sri Lanka',
     addressEn: 'Habaraduwa, Koggala Lake, southern Sri Lanka',
 }

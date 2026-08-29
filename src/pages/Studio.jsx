@@ -16,7 +16,7 @@ import { CONTACT, SOCIAL } from '../data/site'
 import { HIGHLIGHTS } from '../data/studioSchedule'
 import { TEACHERS, TEACHERS_MEDIA } from '../data/studioTeachers'
 import { STUDIO_PRICES, PRICES_NOTE } from '../data/studioPrices'
-import { upcomingEvents, formatLkr } from '../data/studioEvents'
+import { studioAgenda, formatLkr } from '../data/studioEvents'
 
 /**
  * Maison VEDA Lake Studio.
@@ -28,7 +28,7 @@ import { upcomingEvents, formatLkr } from '../data/studioEvents'
 export default function Studio() {
     const { t, lang } = useI18n()
     const c = srilanka(lang)
-    const events = upcomingEvents()
+    const events = studioAgenda()
 
     return (
         <>
@@ -52,9 +52,84 @@ export default function Studio() {
             />
 
 
-            {/* Le shala en pleine largeur : c'est le lieu dont parle toute la page */}
-            <Section id="shala" className="pb-0">
-                <MediaGallery images={SRILANKA_MEDIA['yoga-shala']} initial={6} />
+            {/* Ce qu'on vient chercher ici : la durée, le matériel, le niveau.
+                L'onglet s'appelle « Les cours » — il doit livrer les cours,
+                pas seulement des photos de la salle. */}
+            <Section
+                id="shala"
+                title={t('studio.classesTitle')}
+                accent={t('studio.classesAccent')}
+                lead={t('studio.classesLead')}
+                className="pb-0"
+            >
+                {/* Les trois choses qu'on vérifie avant de décider de venir. */}
+                <div className="grid gap-4 sm:grid-cols-3">
+                    {t('studio.classesFacts').map((fact) => (
+                        <div key={fact.label} className="rounded-2xl border border-veda-gold/20 bg-white/[0.03] p-7">
+                            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                                {fact.label}
+                            </p>
+                            <p className="mt-4 font-heading text-3xl">{fact.value}</p>
+                            <p className="mt-2 text-sm font-light text-veda-light/60">{fact.detail}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="mt-14 grid gap-10 md:grid-cols-2 md:gap-14">
+                    <div>
+                        <h3 className="font-heading text-2xl">{t('studio.classesFlowTitle')}</h3>
+                        <ol className="mt-6 space-y-4">
+                            {t('studio.classesFlow').map((step, i) => (
+                                <li
+                                    key={step}
+                                    className="flex items-start gap-4 text-sm font-light leading-relaxed text-veda-light/75"
+                                >
+                                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-veda-gold/40 text-xs text-veda-gold">
+                                        {i + 1}
+                                    </span>
+                                    {step}
+                                </li>
+                            ))}
+                        </ol>
+                    </div>
+
+                    <div className="space-y-4">
+                        {t('studio.classesLevelParagraphs').map((p) => (
+                            <p key={p.slice(0, 40)} className="text-sm font-light leading-relaxed text-veda-light/75">
+                                {p}
+                            </p>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Deux numéros plutôt qu'un : les deux professeures gèrent le
+                    studio à parts égales, on écrit à celle qu'on veut. */}
+                <div className="mt-12 rounded-2xl border border-veda-gold/20 bg-white/[0.03] p-7">
+                    <p className="text-base font-light leading-relaxed text-veda-light/80">
+                        {t('studio.classesBooking')}
+                    </p>
+                    <div className="mt-5 flex flex-wrap gap-3">
+                        {[
+                            { href: CONTACT.whatsappHref, label: t('studio.classesBookLilie') },
+                            { href: CONTACT.whatsappAnnaHref, label: t('studio.classesBookAnna') },
+                        ].map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-3 rounded-full border border-veda-gold/40 px-7 py-3 text-sm font-semibold uppercase tracking-widest text-veda-gold transition-colors duration-300 hover:bg-veda-gold hover:text-veda-dark"
+                            >
+                                <MessageCircle className="h-4 w-4" />
+                                {link.label}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="mt-16">
+                    <MediaGallery images={SRILANKA_MEDIA['yoga-shala']} initial={6} />
+                </div>
             </Section>
 
             {/* Pourquoi le Kundalini, dans les mots d'Aurélie : ce que la
@@ -153,6 +228,7 @@ export default function Studio() {
                     <EventList events={events} />
 
                     <ContentGap id="event-prices" className="mt-12 max-w-3xl" />
+                    <ContentGap id="studio-retreat-dates" className="mt-6 max-w-3xl" />
                 </Section>
             )}
 
@@ -236,16 +312,6 @@ export default function Studio() {
                         )
                     })}
                 </div>
-            </Section>
-
-            {/* Le shala est sur le toit du Lake Loft : quand un groupe privatise
-                la maison, il lui revient et les cours quotidiens s'arrêtent. */}
-            <Section
-                title={t('studio.retreatPauseTitle')}
-                accent={t('studio.retreatPauseAccent')}
-                lead={t('studio.retreatPauseLead')}
-            >
-                <ContentGap id="studio-retreat-dates" className="max-w-3xl" />
             </Section>
 
             {/* Le café n'est encore qu'une envie : formulé comme tel, sans

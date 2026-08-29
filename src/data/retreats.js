@@ -11,6 +11,10 @@ export const RETREATS = [
     {
         slug: 'sri-lanka-2027',
         status: 'upcoming',
+        // Dates machine, en plus des dates rédigées : elles servent à trier la
+        // retraite dans l'agenda du studio et à la retirer une fois passée.
+        startDate: '2027-02-07',
+        endDate: '2027-02-13',
         // La maquette validée existe déjà pour cette retraite : elle est rendue
         // par src/pages/RetraiteSriLanka2027.jsx plutôt que par le gabarit générique.
         hasCustomPage: true,

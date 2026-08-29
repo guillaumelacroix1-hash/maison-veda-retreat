@@ -10,6 +10,8 @@
  * français. Règle « zéro invention » : ne rien ajouter sans son accord.
  */
 
+import { RETREATS } from './retreats'
+
 const img = (name) => `${import.meta.env.BASE_URL}images/evenements/${name}`
 
 export const STUDIO_EVENTS = [
@@ -88,12 +90,15 @@ export const STUDIO_EVENTS = [
          * sonore, et la carte doit se distinguer de celle du gong au premier
          * coup d'œil. La guitare est confirmée par Aurélie : Siri est
          * musicienne, elle jouera.
-         * Photo tirée d'une vidéo (700 × 480) : correcte à cette taille, mais
-         * Aurélie en demande une en pleine définition à Siri. Le bandeau fait
-         * 256 px de large sur ordinateur et toute la largeur sur mobile :
-         * viser 1 200 px minimum, en paysage.
+         * Photo fournie par Siri le 29/08/2026, 1 066 × 1 600. Portrait alors
+         * que le bandeau est large sur mobile : le cadrage est calé à 8 % du
+         * haut pour que son visage reste dans la découpe aux deux formats.
          */
-        banner: { src: img('siri-guitare.jpg'), alt: 'Siri Sadhana Kaur à la guitare' },
+        banner: {
+            src: img('siri-guitare.jpg'),
+            alt: 'Siri Sadhana Kaur à la guitare',
+            className: 'object-[50%_8%]',
+        },
         /** 5 000 LKR, arrêté avec Aurélie le 29/08/2026. */
         price: { lkr: 5000, eur: 13 },
         fr: {
@@ -158,6 +163,37 @@ export const upcomingEvents = (today = new Date()) =>
     STUDIO_EVENTS
         .filter((e) => new Date(e.date) >= new Date(today.toDateString()))
         .sort((a, b) => a.date.localeCompare(b.date))
+
+/**
+ * L'agenda du studio : les ateliers ci-dessus **et** les retraites privées,
+ * dans un seul fil chronologique.
+ *
+ * Une retraite ferme le studio — le shala est sur le toit du Lake Loft, il
+ * revient au groupe qui privatise la maison. C'est donc une information de
+ * planning avant d'être une information de retraite, et elle a sa place ici.
+ *
+ * Les retraites ne sont pas recopiées : elles sont lues dans RETREATS, qui
+ * reste la seule source de vérité. Une retraite ajoutée là-bas apparaît ici
+ * sans rien d'autre à faire.
+ */
+export const studioAgenda = (today = new Date()) => {
+    const floor = new Date(today.toDateString())
+
+    const closures = RETREATS
+        // Sans date exploitable, on ne devine pas : la retraite est ignorée.
+        .filter((r) => r.startDate && new Date(r.endDate ?? r.startDate) >= floor)
+        .map((r) => ({
+            key: `retraite-${r.slug}`,
+            kind: 'retreat',
+            date: r.startDate,
+            slug: r.slug,
+            banner: r.image ? { src: r.image, alt: r.fr.title } : null,
+            fr: { title: r.fr.title, date: r.fr.dates, duration: r.fr.duration, lead: r.fr.summary },
+            en: { title: r.en.title, date: r.en.dates, duration: r.en.duration, lead: r.en.summary },
+        }))
+
+    return [...upcomingEvents(today), ...closures].sort((a, b) => a.date.localeCompare(b.date))
+}
 
 /**
  * Le prix s'affiche en roupies : c'est la monnaie dans laquelle on paie sur

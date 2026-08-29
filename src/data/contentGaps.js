@@ -40,8 +40,8 @@ export const CONTENT_GAPS = {
         ref: '§11, §12',
     },
     'studio-retreat-dates': {
-        fr: 'Dates des retraites privées de la saison, pendant lesquelles les cours du studio sont suspendus. Une seule retraite connue pour 2026-2027 : celle d\'Aurélie, du 7 au 13 février 2027. À compléter au fil des réservations.',
-        en: 'Dates of the season\'s private retreats, when studio classes pause. Only one known for 2026-2027: Aurélie\'s, 7 to 13 February 2027. To be completed as bookings come in.',
+        fr: 'L\'agenda ci-dessus liste les retraites privées connues, pendant lesquelles les cours du studio sont suspendus. Une seule pour 2026-2027 : celle d\'Aurélie, du 7 au 13 février 2027. Les suivantes s\'ajoutent dans src/data/retreats.js et apparaissent ici toutes seules.',
+        en: 'The agenda above lists the private retreats we know of, during which studio classes pause. Only one for 2026-2027: Aurélie\'s, 7 to 13 February 2027. Further ones are added in src/data/retreats.js and appear here on their own.',
         owner: OWNERS.aurelie,
         ref: '§12',
     },
@@ -94,8 +94,8 @@ export const CONTENT_GAPS = {
         ref: '§4, §12',
     },
     'event-prices': {
-        fr: 'Dates, horaires et tarifs des deux rendez-vous du 18 décembre sont arrêtés. Reste le texte de présentation du kirtan : celui affiché a été écrit ici faute d\'avoir le sien, à faire relire par Siri Sadhana Kaur. Sa photo à la guitare est tirée d\'une vidéo (700 × 480) : Aurélie en demande une en pleine définition, paysage, 1 200 px de large au minimum.',
-        en: 'Dates, times and prices for both 18 December events are settled. What remains is the kirtan description: the one on display was written here for want of hers, and needs Siri Sadhana Kaur\'s approval. Her guitar photo is a video still (700 × 480): Aurélie is asking for a full-resolution one, landscape, at least 1,200 px wide.',
+        fr: 'Dates, horaires et tarifs des deux rendez-vous du 18 décembre sont arrêtés. Reste le texte de présentation du kirtan : celui affiché a été écrit ici faute d\'avoir le sien, à faire relire par Siri Sadhana Kaur. ',
+        en: 'Dates, times and prices for both 18 December events are settled. What remains is the kirtan description: the one on display was written here for want of hers, and needs Siri Sadhana Kaur\'s approval. ',
         owner: OWNERS.aurelie,
         ref: '§4, §7',
     },

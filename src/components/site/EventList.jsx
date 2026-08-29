@@ -1,7 +1,9 @@
 import { useLayoutEffect, useRef, useState } from 'react'
-import { ChevronDown, MessageCircle } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { ChevronDown, MessageCircle, MoonStar } from 'lucide-react'
 import { useI18n } from '../../i18n'
 import { CONTACT } from '../../data/site'
+import { buildPath } from '../../routes'
 import { GUEST_TEACHERS, formatLkr, formatEur } from '../../data/studioEvents'
 
 /**
@@ -50,6 +52,7 @@ export default function EventList({ events }) {
                 const guest = GUEST_TEACHERS[event.teacher]
                 const early = event.earlyBird
                 const open = openKey === event.key
+                const isRetreat = event.kind === 'retreat'
 
                 return (
                     <article
@@ -77,7 +80,7 @@ export default function EventList({ events }) {
 
                             <div className="flex flex-col justify-center gap-3 p-7 sm:p-9">
                                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                                    {copy.kicker}
+                                    {copy.kicker ?? t('studio.agendaRetreatKicker')}
                                 </p>
                                 <h3 className="font-heading text-2xl leading-tight text-veda-dark sm:text-3xl">
                                     {copy.title}
@@ -86,26 +89,38 @@ export default function EventList({ events }) {
                                     {[copy.date, copy.duration].filter(Boolean).join(' · ')}
                                 </p>
 
-                                <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                                    {/* Le tarif réduit passe devant : c'est lui qui décide
-                                        quelqu'un à réserver maintenant. */}
-                                    <span className="font-heading text-2xl text-veda-dark">
-                                        {formatLkr(early ? early.lkr : event.price.lkr, lang)}
-                                    </span>
-                                    {early && (
-                                        <span className="font-heading text-lg text-veda-dark/40 line-through">
-                                            {formatLkr(event.price.lkr, lang)}
-                                        </span>
-                                    )}
-                                    <span className="text-sm font-light text-veda-dark/50">
-                                        {formatEur(early ? early.eur : event.price.eur, lang)}
-                                    </span>
-                                </div>
-
-                                {early && (
-                                    <p className="text-xs font-semibold uppercase tracking-[0.15em] text-veda-gold">
-                                        {(early[lang] ?? early.fr).label}
+                                {isRetreat ? (
+                                    /* Une retraite n'a pas de tarif à afficher ici : ce
+                                       qu'elle annonce au lecteur du studio, c'est une
+                                       fermeture. */
+                                    <p className="mt-2 inline-flex items-center gap-2 self-start rounded-full bg-veda-dark/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.15em] text-veda-dark/70">
+                                        <MoonStar className="h-4 w-4 text-veda-gold" />
+                                        {t('studio.agendaClosed')}
                                     </p>
+                                ) : (
+                                    <>
+                                        <div className="mt-2 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                                            {/* Le tarif réduit passe devant : c'est lui qui décide
+                                                quelqu'un à réserver maintenant. */}
+                                            <span className="font-heading text-2xl text-veda-dark">
+                                                {formatLkr(early ? early.lkr : event.price.lkr, lang)}
+                                            </span>
+                                            {early && (
+                                                <span className="font-heading text-lg text-veda-dark/40 line-through">
+                                                    {formatLkr(event.price.lkr, lang)}
+                                                </span>
+                                            )}
+                                            <span className="text-sm font-light text-veda-dark/50">
+                                                {formatEur(early ? early.eur : event.price.eur, lang)}
+                                            </span>
+                                        </div>
+
+                                        {early && (
+                                            <p className="text-xs font-semibold uppercase tracking-[0.15em] text-veda-gold">
+                                                {(early[lang] ?? early.fr).label}
+                                            </p>
+                                        )}
+                                    </>
                                 )}
 
                                 <span className="mt-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-veda-dark/60">
@@ -139,15 +154,34 @@ export default function EventList({ events }) {
                                     )}
 
                                     <div>
+                                        {isRetreat && (
+                                            <>
+                                                <p className="text-base font-light leading-relaxed text-veda-dark/75">
+                                                    {copy.lead}
+                                                </p>
+                                                <p className="mt-4 text-sm font-light leading-relaxed text-veda-dark/70">
+                                                    {t('studio.retreatPauseLead')}
+                                                </p>
+                                                <Link
+                                                    to={buildPath('retreat', lang, { slug: event.slug })}
+                                                    className="mt-7 inline-flex items-center gap-3 rounded-full bg-veda-dark px-9 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-light transition-colors duration-300 hover:bg-black"
+                                                >
+                                                    {t('studio.agendaRetreatCta')}
+                                                </Link>
+                                            </>
+                                        )}
+
                                         {event.seats && (
                                             <p className="inline-block rounded-full border border-veda-dark/20 px-4 py-1.5 text-xs font-light text-veda-dark/70">
                                                 {event.seats[lang] ?? event.seats.fr}
                                             </p>
                                         )}
 
-                                        <p className="mt-6 text-base font-light leading-relaxed text-veda-dark/75">
-                                            {copy.lead}
-                                        </p>
+                                        {!isRetreat && (
+                                            <p className="mt-6 text-base font-light leading-relaxed text-veda-dark/75">
+                                                {copy.lead}
+                                            </p>
+                                        )}
 
                                         {copy.programme && (
                                             <ul className="mt-6 grid gap-2.5">
@@ -164,7 +198,7 @@ export default function EventList({ events }) {
                                         )}
 
                                         <div className="mt-6 space-y-4">
-                                            {copy.body.map((p) => (
+                                            {(copy.body ?? []).map((p) => (
                                                 <p
                                                     key={p.slice(0, 40)}
                                                     className="text-sm font-light leading-relaxed text-veda-dark/70"
@@ -174,8 +208,11 @@ export default function EventList({ events }) {
                                             ))}
                                         </div>
 
-                                        <p className="mt-5 text-sm font-semibold text-veda-gold">{copy.note}</p>
+                                        {copy.note && (
+                                            <p className="mt-5 text-sm font-semibold text-veda-gold">{copy.note}</p>
+                                        )}
 
+                                        {!isRetreat && (
                                         <a
                                             href={CONTACT.whatsappHref}
                                             target="_blank"
@@ -185,6 +222,7 @@ export default function EventList({ events }) {
                                             <MessageCircle className="h-4 w-4" />
                                             {t('studio.bookCta')}
                                         </a>
+                                        )}
 
                                         {/* Qui anime : sa présentation, écrite par elle. */}
                                         {guest && (
