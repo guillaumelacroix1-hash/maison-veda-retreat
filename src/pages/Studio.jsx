@@ -16,7 +16,7 @@ import { CONTACT, SOCIAL } from '../data/site'
 import { HIGHLIGHTS } from '../data/studioSchedule'
 import { TEACHERS, TEACHERS_MEDIA } from '../data/studioTeachers'
 import { STUDIO_PRICES, PRICES_NOTE } from '../data/studioPrices'
-import { upcomingEvents } from '../data/studioEvents'
+import { upcomingEvents, formatLkr } from '../data/studioEvents'
 
 /**
  * Maison VEDA Lake Studio.
@@ -46,9 +46,8 @@ export default function Studio() {
                     { id: 'shala', label: t('studio.navPractices') },
                     { id: 'philosophie', label: t('studio.navPhilosophy') },
                     { id: 'planning', label: t('studio.navSchedule') },
-                    { id: 'professeures', label: t('studio.navTeachers') },
                     { id: 'evenements', label: t('studio.navEvents') },
-                    { id: 'tarifs-cours', label: t('studio.navPrices') },
+                    { id: 'professeures', label: t('studio.navTeachers') },
                 ]}
             />
 
@@ -97,6 +96,43 @@ export default function Studio() {
                             </div>
                         </div>
                     ))}
+                </div>
+
+
+                {/* Les tarifs sous le planning : « quand » et « combien » sont
+                    une seule décision. Les mettre quatre sections plus loin
+                    obligeait à traverser toute la page pour la prendre. */}
+                <div className="mt-16 border-t border-veda-gold/20 pt-12">
+                    <h3 className="font-heading text-2xl">
+                        {t('studio.pricesTitle')}{' '}
+                        <span className="italic text-veda-gold">{t('studio.pricesAccent')}</span>
+                    </h3>
+
+                    <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                        {STUDIO_PRICES.map((price) => {
+                            const copy = price[lang] ?? price.fr
+                            return (
+                                <div
+                                    key={price.key}
+                                    className={`rounded-2xl border p-7 ${
+                                        price.highlight
+                                            ? 'border-veda-gold bg-veda-gold/10'
+                                            : 'border-veda-gold/20 bg-white/[0.03]'
+                                    }`}
+                                >
+                                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                                        {copy.label}
+                                    </p>
+                                    <p className="mt-4 whitespace-nowrap font-heading text-2xl lg:text-3xl">{formatLkr(price.amount, lang)}</p>
+                                    <p className="mt-2 text-sm font-light text-veda-light/60">{copy.detail}</p>
+                                </div>
+                            )
+                        })}
+                    </div>
+
+                    <p className="mt-8 max-w-2xl text-sm font-light leading-relaxed text-veda-light/60">
+                        {PRICES_NOTE[lang] ?? PRICES_NOTE.fr}
+                    </p>
                 </div>
 
                 <ContentGap id="studio-schedule" className="mt-10 max-w-3xl" />
@@ -183,43 +219,6 @@ export default function Studio() {
                         )
                     })}
                 </div>
-            </Section>
-
-            <Section
-                id="tarifs-cours"
-                tone="light"
-                title={t('studio.pricesTitle')}
-                accent={t('studio.pricesAccent')}
-                // Des élèves en cours plutôt qu'un portrait : on parle ici du
-                // prix d'une place sur le tapis.
-                aside={SRILANKA_MEDIA['yoga-shala'][4]}
-                asidePosition="left"
-            >
-                <div className="grid gap-4 sm:grid-cols-3">
-                    {STUDIO_PRICES.map((price) => {
-                        const copy = price[lang] ?? price.fr
-                        return (
-                            <div
-                                key={price.key}
-                                className={`rounded-2xl border p-7 ${
-                                    price.highlight
-                                        ? 'border-veda-gold bg-veda-gold/10'
-                                        : 'border-veda-dark/10 bg-white shadow-card'
-                                }`}
-                            >
-                                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                                    {copy.label}
-                                </p>
-                                <p className="mt-4 font-heading text-3xl text-veda-dark">{price.amount}</p>
-                                <p className="mt-2 text-sm font-light text-veda-dark/60">{copy.detail}</p>
-                            </div>
-                        )
-                    })}
-                </div>
-
-                <p className="mt-8 max-w-2xl text-sm font-light leading-relaxed text-veda-dark/60">
-                    {PRICES_NOTE[lang] ?? PRICES_NOTE.fr}
-                </p>
             </Section>
 
             {/* Le shala est sur le toit du Lake Loft : quand un groupe privatise

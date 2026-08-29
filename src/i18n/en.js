@@ -148,7 +148,7 @@ export default {
     studio: {
         navPractices: 'Classes',
         navPhilosophy: 'Kundalini',
-        navSchedule: 'Schedule',
+        navSchedule: 'Schedule & rates',
         navTeachers: 'Teachers',
         navPrices: 'Rates',
         navEvents: 'Events',

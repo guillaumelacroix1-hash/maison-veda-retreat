@@ -84,17 +84,14 @@ export const STUDIO_EVENTS = [
         date: '2026-12-18T18:00',
         teacher: 'Siri Sadhana Kaur',
         /**
-         * Portrait en couverture plutôt qu'une photo de gong : le kirtan est
-         * une soirée de chant, pas un bain sonore, et les deux cartes doivent
-         * se distinguer au premier coup d'œil. Cadrage haut pour garder son
-         * visage dans le bandeau. Une photo d'elle en train de jouer serait
-         * meilleure encore : demandée à Aurélie.
+         * Siri à la guitare : le kirtan est une soirée de chant, pas un bain
+         * sonore, et la carte doit se distinguer de celle du gong au premier
+         * coup d'œil. La guitare est confirmée par Aurélie : Siri est
+         * musicienne, elle jouera.
+         * Photo tirée d'une vidéo (700 × 480) : correcte à cette taille, mais
+         * à remplacer si Siri en fournit une en pleine définition.
          */
-        banner: {
-            src: img('siri-sadhana.jpg'),
-            alt: 'Siri Sadhana Kaur',
-            className: 'object-top',
-        },
+        banner: { src: img('siri-guitare.jpg'), alt: 'Siri Sadhana Kaur à la guitare' },
         /** 5 000 LKR, arrêté avec Aurélie le 29/08/2026. */
         price: { lkr: 5000, eur: 13 },
         fr: {
@@ -102,10 +99,10 @@ export const STUDIO_EVENTS = [
             title: 'Cercle de chant kirtan',
             date: 'Vendredi 18 décembre 2026',
             duration: '18h – 20h',
-            lead: 'Un cercle de chant, le soir : on chante des mantras ensemble, accompagnés en musique.',
+            lead: 'Un cercle de chant, le soir : on chante des mantras ensemble, portés par la guitare de Siri.',
             body: [
                 'Le kirtan se chante en appel et réponse : une voix lance, le cercle répond. Il n\'y a rien à préparer et rien à savoir faire — on entre dans le chant en le répétant, et au bout d\'un moment on ne s\'entend plus chanter seul.',
-                'Siri Sadhana Kaur mène la soirée. La voix, le mantra et le son sacré traversent son travail depuis trois décennies.',
+                'Siri Sadhana Kaur mène la soirée à la guitare. La voix, le mantra et le son sacré traversent son travail depuis trois décennies.',
             ],
             note: 'Le même jour que l\'atelier gong du matin : on peut venir à l\'un, ou aux deux.',
         },
@@ -114,10 +111,10 @@ export const STUDIO_EVENTS = [
             title: 'Kirtan chanting circle',
             date: 'Friday 18 December 2026',
             duration: '6pm – 8pm',
-            lead: 'An evening chanting circle: we sing mantras together, carried by live music.',
+            lead: 'An evening chanting circle: we sing mantras together, carried by Siri\'s guitar.',
             body: [
                 'Kirtan is sung in call and response: one voice leads, the circle answers. There is nothing to prepare and nothing you need to know how to do — you find your way in by repeating, and after a while you stop hearing yourself sing alone.',
-                'Siri Sadhana Kaur leads the evening. Voice, mantra and sacred sound have run through her work for three decades.',
+                'Siri Sadhana Kaur leads the evening on guitar. Voice, mantra and sacred sound have run through her work for three decades.',
             ],
             note: 'The same day as the morning gong workshop: come to one, or to both.',
         },

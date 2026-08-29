@@ -94,8 +94,8 @@ export const CONTENT_GAPS = {
         ref: '§4, §12',
     },
     'event-prices': {
-        fr: 'Dates, horaires et tarifs des deux rendez-vous du 18 décembre sont arrêtés. Restent trois points : la date limite du tarif early bird du gong (le 15 novembre affiché est une proposition, pas une décision), l\'existence ou non d\'un tarif résident, et le texte de présentation du kirtan — celui affiché est écrit ici, à faire relire par Siri Sadhana Kaur. Une photo d\'elle en train de jouer ferait une bien meilleure couverture pour la soirée que son portrait actuel.',
-        en: 'Dates, times and prices for both 18 December events are settled. Three points remain: the gong early-bird cut-off date (the 15 November shown is a proposal, not a decision), whether there is a resident rate, and the kirtan description — the one on display was written here and needs Siri Sadhana Kaur\'s approval. A photo of her playing would make a far better cover for the evening than the current portrait.',
+        fr: 'Dates, horaires et tarifs des deux rendez-vous du 18 décembre sont arrêtés. Reste le texte de présentation du kirtan : celui affiché a été écrit ici faute d\'avoir le sien, à faire relire par Siri Sadhana Kaur. Sa photo à la guitare est tirée d\'une vidéo (700 × 480) : à remplacer si elle en a une en pleine définition.',
+        en: 'Dates, times and prices for both 18 December events are settled. What remains is the kirtan description: the one on display was written here for want of hers, and needs Siri Sadhana Kaur\'s approval. Her guitar photo is a video still (700 × 480): to be replaced if she has one at full resolution.',
         owner: OWNERS.aurelie,
         ref: '§4, §7',
     },
