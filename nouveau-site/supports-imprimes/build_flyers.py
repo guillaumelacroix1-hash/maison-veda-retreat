@@ -236,37 +236,36 @@ def flyer_cours(path, size):
     c.setStrokeColor(GOLD)
     c.setLineWidth(0.6 * k)
     c.setFillColor(colors.Color(1, 1, 1, alpha=0.05))
-    c.roundRect(15 * mm * k, y(53.5), W - 30 * mm * k, y(35), 4 * mm * k,
+    c.roundRect(15 * mm * k, y(55.5), W - 30 * mm * k, y(33), 4 * mm * k,
                 fill=1, stroke=1)
 
     centered(c, "TOUS LES LUNDIS", y(box_top - 7), SANS_B, 8.6 * k, GOLD, tracking=1.8 * k)
 
     c.setFont(SERIF, 18 * k)
     c.setFillColor(colors.white)
-    c.drawCentredString(W * 0.34, y(box_top - 16), "10 h 00")
-    c.drawCentredString(W * 0.66, y(box_top - 16), "18 h 30")
-    c.setFont(SANS, 6.8 * k)
-    c.setFillColor(GOLD)
-    c.drawCentredString(W * 0.66, y(box_top - 20.5), "à partir de 3 personnes")
+    c.drawCentredString(W * 0.34, y(box_top - 16.5), "10 h 00")
+    c.drawCentredString(W * 0.66, y(box_top - 16.5), "18 h 30")
 
-    rule(c, y(box_top - 24), W - 46 * mm * k, colors.Color(1, 1, 1, alpha=0.18), 0.5 * k)
+    rule(c, y(box_top - 22), W - 46 * mm * k, colors.Color(1, 1, 1, alpha=0.18), 0.5 * k)
     c.setFont(SERIF, 14.5 * k)
     c.setFillColor(GOLD)
-    c.drawCentredString(W / 2, y(box_top - 28.5), "15 €  la séance")
+    c.drawCentredString(W / 2, y(box_top - 26), "15 €  la séance")
     c.setFont(SANS, 7 * k)
     c.setFillColor(colors.white)
-    c.drawCentredString(W / 2, y(box_top - 32.5), "À La Maison VEDA · Saint-Simon, Charente")
+    c.drawCentredString(W / 2, y(box_top - 30.5), "À La Maison VEDA · Saint-Simon, Charente")
 
     # Le pont vers le Sri Lanka : c'est là que la pratique se prolonge.
-    band_top = 46
+    band_top = 50.5
     c.setFillColor(GOLD)
-    c.roundRect(15 * mm * k, y(28), W - 30 * mm * k, y(18), 3 * mm * k, fill=1, stroke=0)
-    tracked(c, "ET SI L'ENVIE VOUS PREND, RETROUVEZ-LA AU SRI LANKA",
-            W / 2, y(band_top - 6), SANS_B, 6.8 * k, DARK, 1.6 * k)
+    c.roundRect(15 * mm * k, y(26.5), W - 30 * mm * k, y(24), 3 * mm * k, fill=1, stroke=0)
+    tracked(c, "ET SI L'ENVIE VOUS PREND", W / 2, y(band_top - 5.5),
+            SANS_B, 6.8 * k, DARK, 1.6 * k)
     c.setFillColor(DARK)
-    c.setFont(SERIF_I, 9.6 * k)
-    c.drawCentredString(W / 2, y(band_top - 11.5), "Séjourner à La Maison VEDA · Rejoindre les cours du studio")
-    c.drawCentredString(W / 2, y(band_top - 16.5), "Vivre une retraite · Voyager avec chauffeur privé")
+    c.setFont(SERIF_I, 11 * k)
+    c.drawCentredString(W / 2, y(band_top - 11.5), "Retrouvez Aurélie au Sri Lanka, de novembre à mai")
+    c.setFont(SERIF_I, 8.8 * k)
+    c.drawCentredString(W / 2, y(band_top - 17), "Un séjour à La Maison VEDA · Un cours au studio · Une retraite transformative")
+    c.drawCentredString(W / 2, y(band_top - 21.5), "Et votre voyage dans l'île, que nous organisons pour vous avec chauffeur privé")
 
     c.setFont(SANS, 7.4 * k)
     c.setFillColor(colors.white)
