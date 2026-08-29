@@ -1,9 +1,12 @@
 /**
  * Planning hebdomadaire du Maison VEDA Lake Studio.
  *
+ * ATTENTION : cette grille est une projection, pas le planning réel.
  * Source : « MaisonVEDA_Collaboration_Anna_2027_v8 » (Drive, 23/07/2026),
- * proposition de partenariat entre Lilie et Anna — un brouillon, à figer avec
- * Anna avant l'ouverture de la saison.
+ * proposition de partenariat entre Lilie et Anna. Aurélie a confirmé le
+ * 29/08/2026 que la saison démarrera vraisemblablement sur deux cours par
+ * jour, Lilie et Anna en alternance — et non sur les trois créneaux ci-dessous.
+ * À remplacer par la vraie grille dès qu'elle est arrêtée avec Anna.
  *
  * C'est le seul endroit à modifier pour actualiser le planning : la page le lit
  * tel quel, dans les deux langues. Remplacer un cours revient à changer sa

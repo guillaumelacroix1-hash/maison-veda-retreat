@@ -33,21 +33,9 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelie,
         ref: '§6, §12',
     },
-    'resident-pass': {
-        fr: 'Le tarif résident de la carte de 10 est déduit, pas dicté : « la même réduction » a été lue en proportion du tarif à l\'unité (2 500 / 3 000), ce qui donne 22 500 LKR, soit 2 250 le cours. L\'autre lecture — 500 LKR de moins par cours — donnerait 22 000. À trancher avant l\'ouverture de la saison.',
-        en: 'The resident rate for the 10-class pass is derived, not given: "the same reduction" was read as a proportion of the single-class rate (2,500 / 3,000), giving LKR 22,500, or 2,250 per class. The other reading — 500 LKR less per class — would give 22,000. To settle before the season opens.',
-        owner: OWNERS.aurelie,
-        ref: '§7',
-    },
-    'slot-durations': {
-        fr: 'Les cours de 10 h n\'affichent que leur heure de début : les six pratiques du créneau (breathwork, bain de gong, mantras, Celestial Communication, Rebirth Kriya, kirtan) n\'ont pas la même durée. Donner l\'heure de fin de chacune et elle s\'affichera sous le cours, comme pour le matin et la fin de journée.',
-        en: 'The 10 am classes show only their start time: the six practices in that slot (breathwork, gong bath, mantras, Celestial Communication, Rebirth Kriya, kirtan) do not all run the same length. Give the end time for each and it will appear under the class, as it does for the morning and late afternoon.',
-        owner: OWNERS.aurelieAnna,
-        ref: '§11',
-    },
     'studio-schedule': {
-        fr: 'Le planning ci-dessus vient du brouillon de partenariat avec Anna (« MaisonVEDA_Collaboration_Anna_2027_v8 », Drive, 23/07/2026) : à figer avec elle avant l\'ouverture de la saison. Il s\'actualise ensuite chaque semaine dans src/data/studioSchedule.js.',
-        en: 'The schedule above comes from the partnership draft with Anna ("MaisonVEDA_Collaboration_Anna_2027_v8", Drive, 23/07/2026): to be finalised with her before the season opens. It is then updated weekly in src/data/studioSchedule.js.',
+        fr: 'Le planning ci-dessus est une projection, pas le planning réel : il vient du brouillon de partenariat avec Anna (« MaisonVEDA_Collaboration_Anna_2027_v8 », Drive, 23/07/2026) et affiche trois cours par jour. La saison démarrera vraisemblablement sur deux cours par jour, Lilie et Anna en alternance. À remplacer par la vraie grille — jours, horaires de début et de fin, pratiques — dès qu\'elle est arrêtée avec Anna, dans src/data/studioSchedule.js.',
+        en: 'The schedule above is a projection, not the real timetable: it comes from the partnership draft with Anna ("MaisonVEDA_Collaboration_Anna_2027_v8", Drive, 23/07/2026) and shows three classes a day. The season will most likely start with two classes a day, Lilie and Anna alternating. To be replaced with the real grid — days, start and end times, practices — as soon as it is settled with Anna, in src/data/studioSchedule.js.',
         owner: OWNERS.aurelieAnna,
         ref: '§11, §12',
     },
