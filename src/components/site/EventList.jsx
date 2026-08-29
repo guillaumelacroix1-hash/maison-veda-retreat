@@ -46,7 +46,7 @@ export default function EventList({ events }) {
                                     src={event.banner.src}
                                     alt={event.banner.alt}
                                     loading="lazy"
-                                    className="h-52 w-full object-cover sm:h-full"
+                                    className={`h-52 w-full object-cover sm:h-full ${event.banner.className ?? ''}`}
                                 />
                             )}
 
@@ -94,18 +94,24 @@ export default function EventList({ events }) {
 
                         {open && (
                             <div className="border-t border-veda-dark/10 px-7 pb-10 pt-9 sm:px-9">
-                                <div className="grid items-start gap-10 md:grid-cols-[2fr,3fr] md:gap-14">
-                                    <div className="overflow-hidden rounded-3xl">
-                                        <img
-                                            src={event.photo}
-                                            alt={event.teacher}
-                                            loading="lazy"
-                                            className="aspect-[4/5] w-full object-cover"
-                                            // Tant que la photo n'est pas fournie, on masque le
-                                            // cadre plutôt que d'afficher une image cassée.
-                                            onError={(e) => { e.currentTarget.parentElement.hidden = true }}
-                                        />
-                                    </div>
+                                <div
+                                    className={`grid items-start gap-10 md:gap-14 ${
+                                        event.photo ? 'md:grid-cols-[2fr,3fr]' : 'max-w-3xl'
+                                    }`}
+                                >
+                                    {event.photo && (
+                                        <div className="overflow-hidden rounded-3xl">
+                                            <img
+                                                src={event.photo}
+                                                alt={event.teacher}
+                                                loading="lazy"
+                                                className="aspect-[4/5] w-full object-cover"
+                                                // Tant que la photo n'est pas fournie, on masque le
+                                                // cadre plutôt que d'afficher une image cassée.
+                                                onError={(e) => { e.currentTarget.parentElement.hidden = true }}
+                                            />
+                                        </div>
+                                    )}
 
                                     <div>
                                         {event.seats && (
@@ -118,17 +124,19 @@ export default function EventList({ events }) {
                                             {copy.lead}
                                         </p>
 
-                                        <ul className="mt-6 grid gap-2.5">
-                                            {copy.programme.map((item) => (
-                                                <li
-                                                    key={item}
-                                                    className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-dark/80"
-                                                >
-                                                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-veda-gold" />
-                                                    {item}
-                                                </li>
-                                            ))}
-                                        </ul>
+                                        {copy.programme && (
+                                            <ul className="mt-6 grid gap-2.5">
+                                                {copy.programme.map((item) => (
+                                                    <li
+                                                        key={item}
+                                                        className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-dark/80"
+                                                    >
+                                                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-veda-gold" />
+                                                        {item}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
 
                                         <div className="mt-6 space-y-4">
                                             {copy.body.map((p) => (

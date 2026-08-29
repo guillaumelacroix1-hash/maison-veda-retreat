@@ -94,8 +94,8 @@ export const CONTENT_GAPS = {
         ref: '§4, §12',
     },
     'event-prices': {
-        fr: 'Atelier gong du 18 décembre : le tarif et le groupe sont arrêtés. Restent deux points — la date limite du tarif early bird (le 15 novembre affiché est une proposition, pas une décision) et l\'existence ou non d\'un tarif résident. La soirée kirtan avec Siri reste à programmer : sa date n\'est pas fixée et son tarif hésite entre 4 000 et 5 000 LKR.',
-        en: 'Gong workshop on 18 December: the price and the group are settled. Two points remain — the early-bird cut-off date (the 15 November shown is a proposal, not a decision) and whether there is a resident rate. The kirtan evening with Siri is still to be scheduled: no date set, and its price is undecided between LKR 4,000 and 5,000.',
+        fr: 'Dates, horaires et tarifs des deux rendez-vous du 18 décembre sont arrêtés. Restent trois points : la date limite du tarif early bird du gong (le 15 novembre affiché est une proposition, pas une décision), l\'existence ou non d\'un tarif résident, et le texte de présentation du kirtan — celui affiché est écrit ici, à faire relire par Siri Sadhana Kaur. Une photo d\'elle en train de jouer ferait une bien meilleure couverture pour la soirée que son portrait actuel.',
+        en: 'Dates, times and prices for both 18 December events are settled. Three points remain: the gong early-bird cut-off date (the 15 November shown is a proposal, not a decision), whether there is a resident rate, and the kirtan description — the one on display was written here and needs Siri Sadhana Kaur\'s approval. A photo of her playing would make a far better cover for the evening than the current portrait.',
         owner: OWNERS.aurelie,
         ref: '§4, §7',
     },

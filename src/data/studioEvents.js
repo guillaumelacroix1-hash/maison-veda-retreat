@@ -16,7 +16,7 @@ export const STUDIO_EVENTS = [
     {
         key: 'gong-training-2026',
         /** Date ISO, pour masquer l'événement une fois passé. */
-        date: '2026-12-18',
+        date: '2026-12-18T08:00',
         teacher: 'Siri Sadhana Kaur',
         /** Portrait, à côté du texte de l'atelier. */
         photo: img('siri-sadhana.jpg'),
@@ -45,7 +45,7 @@ export const STUDIO_EVENTS = [
             kicker: 'Atelier avec Siri Sadhana Kaur',
             title: 'Introduction au gong',
             date: 'Vendredi 18 décembre 2026',
-            duration: '4 heures d\'immersion',
+            duration: '8h – 12h · 4 heures',
             lead: 'Un atelier immersif pour découvrir l\'art du gong : un espace ancré et inspirant pour explorer les fondamentaux de la pratique, et en éprouver les effets thérapeutiques profonds.',
             body: [
                 'Que vous soyez complètement débutant ou déjà familier de l\'instrument, cette session est ouverte à tous. Vous serez guidé pas à pas dans les fondations : tenir le gong, en jouer, et le comprendre comme instrument sonore autant que comme outil de transformation.',
@@ -63,7 +63,7 @@ export const STUDIO_EVENTS = [
             kicker: 'A workshop with Siri Sadhana Kaur',
             title: 'Introduction to Gong',
             date: 'Friday 18 December 2026',
-            duration: '4-hour immersive training',
+            duration: '8am – 12pm · 4 hours',
             lead: 'A powerful and immersive introduction to the art of gong: a grounded and inspiring space to explore the fundamentals of gong practice while experiencing its profound therapeutic effects.',
             body: [
                 'Whether you are completely new or already have some experience, this session is open to all. You will be guided step by step through the foundations of holding, playing, and understanding the gong as both a sound instrument and a tool for transformation.',
@@ -76,6 +76,50 @@ export const STUDIO_EVENTS = [
                 'Relax deeply within a guided gong immersion',
             ],
             note: 'A small group of 6 to 8 with two to three gongs, so everyone really gets their hands on the instrument.',
+        },
+    },
+    {
+        key: 'kirtan-2026',
+        /** Le même jour que l'atelier gong, le soir. */
+        date: '2026-12-18T18:00',
+        teacher: 'Siri Sadhana Kaur',
+        /**
+         * Portrait en couverture plutôt qu'une photo de gong : le kirtan est
+         * une soirée de chant, pas un bain sonore, et les deux cartes doivent
+         * se distinguer au premier coup d'œil. Cadrage haut pour garder son
+         * visage dans le bandeau. Une photo d'elle en train de jouer serait
+         * meilleure encore : demandée à Aurélie.
+         */
+        banner: {
+            src: img('siri-sadhana.jpg'),
+            alt: 'Siri Sadhana Kaur',
+            className: 'object-top',
+        },
+        /** 5 000 LKR, arrêté avec Aurélie le 29/08/2026. */
+        price: { lkr: 5000, eur: 13 },
+        fr: {
+            kicker: 'Soirée avec Siri Sadhana Kaur',
+            title: 'Cercle de chant kirtan',
+            date: 'Vendredi 18 décembre 2026',
+            duration: '18h – 20h',
+            lead: 'Un cercle de chant, le soir : on chante des mantras ensemble, accompagnés en musique.',
+            body: [
+                'Le kirtan se chante en appel et réponse : une voix lance, le cercle répond. Il n\'y a rien à préparer et rien à savoir faire — on entre dans le chant en le répétant, et au bout d\'un moment on ne s\'entend plus chanter seul.',
+                'Siri Sadhana Kaur mène la soirée. La voix, le mantra et le son sacré traversent son travail depuis trois décennies.',
+            ],
+            note: 'Le même jour que l\'atelier gong du matin : on peut venir à l\'un, ou aux deux.',
+        },
+        en: {
+            kicker: 'An evening with Siri Sadhana Kaur',
+            title: 'Kirtan chanting circle',
+            date: 'Friday 18 December 2026',
+            duration: '6pm – 8pm',
+            lead: 'An evening chanting circle: we sing mantras together, carried by live music.',
+            body: [
+                'Kirtan is sung in call and response: one voice leads, the circle answers. There is nothing to prepare and nothing you need to know how to do — you find your way in by repeating, and after a while you stop hearing yourself sing alone.',
+                'Siri Sadhana Kaur leads the evening. Voice, mantra and sacred sound have run through her work for three decades.',
+            ],
+            note: 'The same day as the morning gong workshop: come to one, or to both.',
         },
     },
 ]
