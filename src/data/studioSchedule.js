@@ -42,6 +42,13 @@ const anna = { fr: 'avec Anna', en: 'with Anna' }
 const kundalini = (teacher) => ({ fr: 'Kundalini Yoga', en: 'Kundalini Yoga', teacher })
 
 /**
+ * `seasonal` : le cours n'a lieu qu'en pleine saison. Il s'affiche en
+ * filigrane, pour qu'on sache qu'il existe sans croire qu'il est proposé
+ * dès l'ouverture. Une légende sous le tableau l'explique.
+ */
+const enSaison = (fr, en) => ({ fr, en, seasonal: true })
+
+/**
  * Une entrée par créneau et par jour. `null` = pas de cours.
  * Lilie et Anna alternent : chaque jour compte une de chaque, et le matin
  * passe de l'une à l'autre d'un jour sur l'autre.
@@ -57,7 +64,13 @@ export const SCHEDULE = {
         sun: null,
     },
     midMorning: {
-        mon: null, tue: null, wed: null, thu: null, fri: null, sat: null, sun: null,
+        mon: enSaison('Mantras & méditation', 'Mantras & meditation'),
+        tue: enSaison('Bain de gong', 'Gong bath'),
+        wed: enSaison('Celestial Communication', 'Celestial Communication'),
+        thu: enSaison('Breathwork & méditation', 'Breathwork & meditation'),
+        fri: enSaison('Rebirth Kriya', 'Rebirth Kriya'),
+        sat: enSaison('Sound healing', 'Sound healing'),
+        sun: null,
     },
     afternoon: {
         mon: kundalini(anna),
@@ -65,18 +78,16 @@ export const SCHEDULE = {
         wed: kundalini(anna),
         thu: kundalini(lilie),
         fri: kundalini(anna),
-        sat: kundalini(lilie),
+        // Le samedi soir n'est pas un cours : c'est le créneau des invités.
+        sat: { fr: 'Événement ou professeur invité', en: 'Special event or guest teacher', guest: true },
         sun: null,
     },
 }
 
-/**
- * Ce qui n'est pas encore au planning mais viendra. Annoncé sous le tableau
- * pour que le lecteur sache que la semaine s'étoffera.
- */
-export const COMING_PRACTICES = {
-    fr: 'Bain de gong, mantras et méditation, kirtan avec musiciens, Celestial Communication, breathwork et méditation, Rebirth Kriya : ces rendez-vous rejoindront le planning à mesure que la saison avance.',
-    en: 'Gong bath, mantras and meditation, kirtan with musicians, Celestial Communication, breathwork and meditation, Rebirth Kriya: these will join the schedule as the season goes on.',
+/** Légende du filigrane : sans elle, on ne comprend pas pourquoi c'est pâle. */
+export const SEASONAL_NOTE = {
+    fr: 'Les cours en filigrane ne sont proposés qu\'en pleine saison.',
+    en: 'The faded classes run in high season only.',
 }
 
 /** Ce qui ne tient pas dans la grille : rendez-vous mensuels et ponctuels. */

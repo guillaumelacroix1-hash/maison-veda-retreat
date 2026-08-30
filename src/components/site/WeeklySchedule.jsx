@@ -1,5 +1,5 @@
 import { useI18n } from '../../i18n'
-import { DAYS, SLOTS, SCHEDULE, WEEK, COMING_PRACTICES } from '../../data/studioSchedule'
+import { DAYS, SLOTS, SCHEDULE, WEEK, SEASONAL_NOTE } from '../../data/studioSchedule'
 
 /**
  * Le planning de la semaine du studio, en texte plutôt qu'en image : traduisible,
@@ -16,9 +16,14 @@ export default function WeeklySchedule() {
 
     const cell = (slotKey, dayKey) => SCHEDULE[slotKey]?.[dayKey] ?? null
 
-    // Un créneau vide ne s'affiche pas : la semaine d'ouverture n'a que deux
-    // cours par jour, une ligne de tirets ne dirait rien à personne.
+    // Un créneau vide ne s'affiche pas : une ligne de tirets ne dirait rien.
     const slots = SLOTS.filter((slot) => openDays.some((d) => cell(slot.key, d.key)))
+
+    // Filigrane pour les cours qui n'ont lieu qu'en pleine saison : présents,
+    // mais visiblement pas au même rang que ceux de la semaine d'ouverture.
+    const entryClass = (entry) =>
+        `text-sm font-light leading-snug ${entry.seasonal ? 'italic text-veda-light/40' : 'text-veda-light/85'}`
+    const hasSeasonal = slots.some((slot) => openDays.some((d) => cell(slot.key, d.key)?.seasonal))
 
     // Tout le programme relève du Kundalini : seuls les intervenants extérieurs
     // et les professeures nommément associées à un cours sont signalés.
@@ -80,7 +85,7 @@ export default function WeeklySchedule() {
                                         <td key={d.key} className="px-5 py-5 align-top">
                                             {entry ? (
                                                 <>
-                                                    <span className="text-sm font-light leading-snug text-veda-light/85">
+                                                    <span className={entryClass(entry)}>
                                                         {entry[lang]}
                                                     </span>
                                                     {badge(entry)}
@@ -111,7 +116,7 @@ export default function WeeklySchedule() {
                                         <span className="w-20 shrink-0 font-heading text-sm text-veda-gold">
                                             {slot.time}
                                         </span>
-                                        <span className="text-sm font-light leading-snug text-veda-light/85">
+                                        <span className={entryClass(entry)}>
                                             {entry[lang]}
                                             {badge(entry)}
                                         </span>
@@ -131,11 +136,12 @@ export default function WeeklySchedule() {
                 </p>
             )}
 
-            {/* Ce qui viendra : la semaine d'ouverture est volontairement
-                sobre, autant dire tout de suite qu'elle s'étoffera. */}
-            <p className="mt-4 border-t border-white/10 pt-6 text-sm font-light leading-relaxed text-veda-light/60">
-                {COMING_PRACTICES[lang] ?? COMING_PRACTICES.fr}
-            </p>
+            {/* Sans légende, le filigrane passe pour un défaut d'affichage. */}
+            {hasSeasonal && (
+                <p className="mt-4 border-t border-white/10 pt-6 text-sm font-light italic leading-relaxed text-veda-light/50">
+                    {SEASONAL_NOTE[lang] ?? SEASONAL_NOTE.fr}
+                </p>
+            )}
         </div>
     )
 }
