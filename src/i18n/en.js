@@ -158,7 +158,7 @@ export default {
         lakeHouseBeds: '3 beds · two connecting rooms',
         lakeLoftBeds: '4 beds · areas separated by large curtains',
         roomsTitle: 'Living under one roof',
-        roomsText: 'There are no private bedrooms at La Maison VEDA, and that is a deliberate choice. The two rooms of the Lake House connect; at the Lake Loft, wide curtains draw the sleeping areas. Nothing partitions the group — and that is what binds it: you wake together, you practise together, you never pass one another in a hotel corridor. The intimacy comes from the care given to each space, not from walls. Everyone has their own bed.',
+        roomsText: 'There are no private bedrooms at La Maison VEDA, and that is a deliberate choice. Picture nothing like a crowded dormitory, though: the Lake Loft is an air-conditioned 60 m² apartment, with its own fitted kitchen and a wide terrace onto the tropical garden, where large curtains draw three distinct sleeping areas — four beds across sixty square metres, each with a bed and a corner of their own. The Lake House, a traditional earth-walled house at the water\'s edge, offers two connecting rooms. Space, light, and the comfort of a place kept with care. What is missing are the partitions — and that is precisely what binds a group: you wake together, you practise together, you never pass one another in a hotel corridor.',
         metaTitle: 'Host your retreat in Sri Lanka',
         title: 'Host your', titleAccent: 'retreat',
         lead: 'Teachers and small groups: La Maison VEDA opens its doors for your own retreat.',

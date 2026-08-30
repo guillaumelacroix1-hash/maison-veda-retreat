@@ -158,7 +158,7 @@ export default {
         lakeHouseBeds: '3 lits · deux chambres communicantes',
         lakeLoftBeds: '4 lits · espaces séparés par de grands rideaux',
         roomsTitle: 'Vivre sous le même toit',
-        roomsText: 'Il n\'y a pas de chambre individuelle à La Maison VEDA, et c\'est un parti pris. Les deux chambres de la Lake House communiquent ; au Lake Loft, de grands rideaux dessinent les espaces de couchage. Rien ne cloisonne le groupe — et c\'est ce qui le lie : on se réveille ensemble, on pratique ensemble, on ne se croise pas dans le couloir d\'un hôtel. L\'intimité tient au soin apporté à chaque espace, pas aux murs. Chacun a son lit.',
+        roomsText: 'Il n\'y a pas de chambre individuelle à La Maison VEDA, et c\'est un parti pris. N\'imaginez pas pour autant un dortoir où l\'on s\'entasse : le Lake Loft est un appartement climatisé de 60 m², avec sa cuisine équipée et sa grande terrasse sur le jardin tropical, où de larges rideaux dessinent trois espaces nuit distincts — quatre lits pour soixante mètres carrés, chacun le sien, chacun son coin. La Lake House, maison traditionnelle aux murs de terre les pieds dans le lac, offre deux chambres communicantes. De l\'espace, de la lumière, et le confort d\'un lieu tenu avec soin. Ce qui manque, ce sont les cloisons — et c\'est précisément ce qui lie un groupe : on se réveille ensemble, on pratique ensemble, on ne se croise pas dans le couloir d\'un hôtel.',
         metaTitle: 'Organiser votre retraite au Sri Lanka',
         title: 'Organiser votre', titleAccent: 'retraite',
         lead: 'Professeurs et petits groupes : La Maison VEDA vous ouvre ses portes pour votre propre retraite.',
