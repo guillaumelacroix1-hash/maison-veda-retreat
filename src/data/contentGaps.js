@@ -18,6 +18,9 @@ export const OWNERS = {
     aurelieAnna: 'Aurélie + Anna',
     aurelieClaudeGuillaume: 'Aurélie + Claude + Guillaume',
     guillaume: 'Guillaume',
+    // Manu, ami d'Aurélie, prend en charge la réservation en direct et le
+    // channel manager (annoncé le 29/08/2026).
+    manu: 'Manu',
 }
 
 export const CONTENT_GAPS = {
@@ -118,15 +121,9 @@ export const CONTENT_GAPS = {
         ref: '§4, §11',
     },
     'payment': {
-        fr: 'Paiement en ligne de l\'acompte de 30 % : compte Stripe, clés API et fonction serveur à mettre en place sur Vercel.',
-        en: 'Online payment of the 30% deposit: Stripe account, API keys and serverless function to set up on Vercel.',
-        owner: OWNERS.guillaume,
-        ref: '§6, §10',
-    },
-    'booking-calendar': {
-        fr: 'Calendrier de réservation en ligne pour les villas (Lake Loft, Lake House, ou les deux) et pour les retraites, synchronisé avec les plateformes via le channel manager Bed24, avec paiement direct. À mettre en place avec Guillaume.',
-        en: 'Online booking calendar for the villas (Lake Loft, Lake House, or both) and for retreats, synced with the platforms through the Bed24 channel manager, with direct payment. To be set up with Guillaume.',
-        owner: OWNERS.guillaume,
+        fr: 'La réservation en direct est en cours de mise en place par Manu : paiement en ligne, vraisemblablement par Stripe — le prestataire reste à confirmer. Toutes les réservations, villas comme retraites, seront centralisées dans le channel manager Bed24, qui synchronise le site et les plateformes. En attendant, cette demande part par e-mail et le paiement se règle ensuite avec Aurélie.',
+        en: 'Direct booking is being set up by Manu: online payment, most likely through Stripe — the provider is still to be confirmed. All bookings, villas and retreats alike, will be centralised in the Bed24 channel manager, which syncs the site with the platforms. In the meantime this request is sent by email and payment is arranged afterwards with Aurélie.',
+        owner: OWNERS.manu,
         ref: '§6, §10',
     },
 }

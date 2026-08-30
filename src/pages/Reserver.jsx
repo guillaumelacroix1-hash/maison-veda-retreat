@@ -14,9 +14,11 @@ import { DEPOSIT_RATE } from '../data/site'
  *
  * État actuel : la demande part chez Formspree, comme sur la page 2027 en
  * ligne. Le cahier des charges (section 6) prévoit à la place un paiement
- * immédiat de 30 % par carte, avec fermeture automatique quand il ne reste
- * plus de place. Cet écart est signalé à l'écran par <ContentGap id="payment">
- * tant que Stripe n'est pas branché.
+ * immédiat par carte, avec fermeture automatique quand il ne reste plus de
+ * place. Manu s'en charge (annoncé le 29/08/2026), vraisemblablement avec
+ * Stripe, et centralisera toutes les réservations dans le channel manager
+ * Bed24. Cet écart est signalé à l'écran par <ContentGap id="payment"> tant
+ * que ce n'est pas branché.
  */
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdkboow'
 
