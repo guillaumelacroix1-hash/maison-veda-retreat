@@ -339,17 +339,15 @@ export default function LieuHebergements() {
                         {
                             key: 'tothupola',
                             title: t('venue.tothupola'),
-                            subtitle: lang === 'en'
-                                ? `Wooden chalets and pool · ${SRILANKA_MEDIA.tothupola.length} photos`
-                                : `Chalets en bois et piscine · ${SRILANKA_MEDIA.tothupola.length} photos`,
+                            // La distance est ce qu'un organisateur veut savoir en
+                            // premier : son groupe sera-t-il éparpillé ?
+                            subtitle: `${t('venue.tothupolaDistance')} · ${SRILANKA_MEDIA.tothupola.length} photos`,
                             content: <MediaGallery images={SRILANKA_MEDIA.tothupola} initial={8} />,
                         },
                         {
                             key: 'jungle-breeze',
                             title: t('venue.jungleBreeze'),
-                            subtitle: lang === 'en'
-                                ? `Nestled in the greenery · ${SRILANKA_MEDIA['jungle-breeze'].length} photos`
-                                : `Nichée dans la verdure · ${SRILANKA_MEDIA['jungle-breeze'].length} photos`,
+                            subtitle: `${t('venue.jungleBreezeDistance')} · ${SRILANKA_MEDIA['jungle-breeze'].length} photos`,
                             content: <MediaGallery images={SRILANKA_MEDIA['jungle-breeze']} initial={8} />,
                         },
                     ]}

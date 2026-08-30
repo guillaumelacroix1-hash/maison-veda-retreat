@@ -139,7 +139,7 @@ export default {
             {
                 label: 'Couchages',
                 value: '7 lits',
-                detail: 'Quatre au Lake Loft, trois à la Lake House. En retraite, un lit par personne. Jusqu\'à 15 lits avec Tothupola et Jungle Breeze, juste à côté.',
+                detail: 'Quatre au Lake Loft, trois à la Lake House. En retraite, un lit par personne. Jusqu\'à 15 lits avec nos hôtels partenaires, mitoyens ou à deux minutes.',
             },
             {
                 label: 'Tarif',
@@ -152,7 +152,7 @@ export default {
                 detail: 'En rooftop, à ciel ouvert. Confortable pour 15 à 20 pratiquants.',
             },
         ],
-        essentialsNote: 'Au-delà de 7 participants, les hébergements voisins — Tothupola, Jungle Breeze — sont chiffrés à part : demandez un devis. En séjour de vacances, les deux villas accueillent jusqu\'à 9 personnes, les couples partageant les deux grands lits.',
+        essentialsNote: 'Au-delà de 7 participants, nos hôtels partenaires prennent le relais — Tothupola, mitoyen de la maison, et Jungle Breeze, à deux minutes à pied. Ils sont chiffrés à part : demandez un devis. En séjour de vacances, les deux villas accueillent jusqu\'à 9 personnes, les couples partageant les deux grands lits.',
         roomsTitle: 'Vivre sous le même toit',
         roomsText: 'Il n\'y a pas de chambre individuelle à La Maison VEDA, et c\'est un parti pris. Les deux chambres de la Lake House communiquent ; au Lake Loft, de grands rideaux dessinent les espaces de couchage. Rien ne cloisonne le groupe — et c\'est ce qui le lie : on se réveille ensemble, on pratique ensemble, on ne se croise pas dans le couloir d\'un hôtel. L\'intimité tient au soin apporté à chaque espace, pas aux murs. Chacun a son lit.',
         metaTitle: 'Organiser votre retraite au Sri Lanka',
@@ -238,7 +238,9 @@ export default {
         additionalTitle: 'Hébergements complémentaires',
         additionalLead: 'À quelques pas, pour les groupes qui dépassent la capacité de la maison.',
         tothupola: 'Chalets Tothupola',
+        tothupolaDistance: 'Hôtel partenaire, mitoyen de La Maison VEDA',
         jungleBreeze: 'Villa Jungle Breeze',
+        jungleBreezeDistance: 'Hôtel partenaire, à deux minutes à pied',
         galleryTitle: 'Galerie',
         // Nav interne, reprise des ancres du site source
         navPlace: 'Le lieu',
@@ -339,7 +341,7 @@ export default {
         lastName: 'Nom',
         housing: 'Type d\'hébergement',
         // La Maison VEDA n'a pas de chambre fermée : l'individuelle est à côté.
-        housingSingle: 'Chambre individuelle, à Tothupola ou Jungle Breeze',
+        housingSingle: 'Chambre individuelle, chez un hôtel partenaire voisin',
         housingShared: 'Chambre partagée',
         travelOption: 'Je suis intéressé·e par le voyage VEDA Travel après la retraite',
         messagePlaceholder: 'Avez-vous des questions, ou des particularités (allergies, santé) dont nous devrions être informés ?',

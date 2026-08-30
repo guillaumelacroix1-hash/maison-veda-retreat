@@ -139,7 +139,7 @@ export default {
             {
                 label: 'Beds',
                 value: '7 beds',
-                detail: 'Four at the Lake Loft, three at the Lake House. On retreat, one bed per person. Up to 15 beds with Tothupola and Jungle Breeze, right next door.',
+                detail: 'Four at the Lake Loft, three at the Lake House. On retreat, one bed per person. Up to 15 beds with our partner hotels, adjoining or two minutes away.',
             },
             {
                 label: 'Rate',
@@ -152,7 +152,7 @@ export default {
                 detail: 'Open-air, on the roof. Comfortable for 15 to 20 practitioners.',
             },
         ],
-        essentialsNote: 'Beyond 7 participants, the neighbouring places — Tothupola, Jungle Breeze — are quoted separately: ask for a quote. On a holiday stay, the two villas sleep up to 9, with couples sharing the two double beds.',
+        essentialsNote: 'Beyond 7 participants, our partner hotels take over — Tothupola, adjoining the house, and Jungle Breeze, two minutes on foot. They are quoted separately: ask for a quote. On a holiday stay, the two villas sleep up to 9, with couples sharing the two double beds.',
         roomsTitle: 'Living under one roof',
         roomsText: 'There are no private bedrooms at La Maison VEDA, and that is a deliberate choice. The two rooms of the Lake House connect; at the Lake Loft, wide curtains draw the sleeping areas. Nothing partitions the group — and that is what binds it: you wake together, you practise together, you never pass one another in a hotel corridor. The intimacy comes from the care given to each space, not from walls. Everyone has their own bed.',
         metaTitle: 'Host your retreat in Sri Lanka',
@@ -238,7 +238,9 @@ export default {
         additionalTitle: 'Additional accommodation',
         additionalLead: 'A few steps away, for groups larger than the house can hold.',
         tothupola: 'Tothupola Chalets',
+        tothupolaDistance: 'Partner hotel, adjoining La Maison VEDA',
         jungleBreeze: 'Villa Jungle Breeze',
+        jungleBreezeDistance: 'Partner hotel, two minutes on foot',
         galleryTitle: 'Gallery',
         // Internal nav, taken from the source site's anchors
         navPlace: 'The place',
@@ -338,7 +340,7 @@ export default {
         firstName: 'First name',
         lastName: 'Last name',
         housing: 'Room type',
-        housingSingle: 'Single room, at Tothupola or Jungle Breeze',
+        housingSingle: 'Single room, at a neighbouring partner hotel',
         housingShared: 'Shared room',
         travelOption: 'I am interested in the VEDA Travel journey after the retreat',
         messagePlaceholder: 'Any questions, or anything we should know (allergies, health)?',
