@@ -148,11 +148,11 @@ export default {
             },
             {
                 label: 'Le shala',
-                value: '80 m²',
+                value: '+ de 70 m²',
                 detail: 'En rooftop, à ciel ouvert. Confortable pour 15 à 20 pratiquants.',
             },
         ],
-        essentialsNote: 'Au-delà de 7 participants, nos hôtels partenaires prennent le relais — Tothupola, mitoyen de la maison, et Jungle Breeze, à deux minutes à pied. Ils sont chiffrés à part : demandez un devis. En séjour de vacances, les deux villas accueillent jusqu\'à 9 personnes, les couples partageant les deux grands lits.',
+        essentialsNote: 'Au-delà de 7 participants, nos hôtels partenaires prennent le relais — Tothupola, mitoyen de la maison, et Jungle Breeze, à deux minutes à pied. Ils sont chiffrés à part : demandez un devis.',
         villasTitle: 'Voir les couchages',
         villasLead: 'Les deux villas en images, pour juger par vous-même de l\'espace et de la disposition avant de réserver.',
         lakeHouseBeds: '3 lits · deux chambres communicantes',

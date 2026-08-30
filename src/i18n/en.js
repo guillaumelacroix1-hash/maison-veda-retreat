@@ -148,11 +148,11 @@ export default {
             },
             {
                 label: 'The shala',
-                value: '80 m²',
+                value: 'over 70 m²',
                 detail: 'Open-air, on the roof. Comfortable for 15 to 20 practitioners.',
             },
         ],
-        essentialsNote: 'Beyond 7 participants, our partner hotels take over — Tothupola, adjoining the house, and Jungle Breeze, two minutes on foot. They are quoted separately: ask for a quote. On a holiday stay, the two villas sleep up to 9, with couples sharing the two double beds.',
+        essentialsNote: 'Beyond 7 participants, our partner hotels take over — Tothupola, adjoining the house, and Jungle Breeze, two minutes on foot. They are quoted separately: ask for a quote.',
         villasTitle: 'See where you sleep',
         villasLead: 'Both villas in pictures, so you can judge the space and the layout for yourself before booking.',
         lakeHouseBeds: '3 beds · two connecting rooms',

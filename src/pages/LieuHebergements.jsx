@@ -147,7 +147,7 @@ export default function LieuHebergements() {
                         { n: '2', l: lang === 'en' ? 'villas' : 'villas' },
                         { n: '7', l: lang === 'en' ? 'beds on site' : 'lits sur place' },
                         { n: '15', l: lang === 'en' ? 'guests with the villas nearby' : 'personnes avec les villas voisines' },
-                        { n: '80 m²', l: lang === 'en' ? 'rooftop yoga shala' : 'de shala sur le toit' },
+                        { n: lang === 'en' ? 'over 70 m²' : '+ de 70 m²', l: lang === 'en' ? 'rooftop yoga shala' : 'de shala sur le toit' },
                     ].map((s) => (
                         <div key={s.l} className="bg-veda-dark px-6 py-8 text-center">
                             <dt className="font-heading text-4xl text-veda-gold">{s.n}</dt>
