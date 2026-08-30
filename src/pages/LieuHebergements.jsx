@@ -399,6 +399,8 @@ export default function LieuHebergements() {
                         )
                     })}
                 </ul>
+
+                <ContentGap id="around-photos" className="mt-10 max-w-3xl" />
             </Section>
 
             {/* Galerie générale */}

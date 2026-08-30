@@ -208,16 +208,20 @@ export const SRILANKA_MEDIA = {
         { src: '/srilanka/studio/img_1067.jpg', alt: 'Yoga schedule' },
     ],
     'activites': [
-        { src: '/srilanka/activites/elephant.jpg', alt: 'La maison VEDA- Elephant safaris' },
+        { src: '/srilanka/activites/elephant.jpg', alt: 'Safari éléphant' },
         { src: '/srilanka/activites/ganlle-fort-visit.jpg', alt: 'la maison veda visite de galle' },
         { src: '/srilanka/activites/5c3bca3d-2a92-42da-849c-e3fa6f61cfad.jpg', alt: 'la maison veda surf' },
-        { src: '/srilanka/activites/04369f79-3ef9-4475-a333-6dac44252b9f.jpg', alt: 'La maison veda turtle hatchery' },
+        { src: '/srilanka/activites/04369f79-3ef9-4475-a333-6dac44252b9f.jpg', alt: 'Écloserie de tortues marines' },
         { src: '/srilanka/activites/3917a673-c329-4350-9846-85910b78ea53.jpg', alt: 'La maison veda tea factory' },
         { src: '/srilanka/activites/c26ae34f-19bc-4313-b0de-ef36e0e63142.jpg', alt: 'La maison VEDA COOKING CLASS' },
         { src: '/srilanka/activites/img_1154.jpg', alt: 'la maison veda' },
-        { src: '/srilanka/activites/wale.jpeg', alt: 'la maison veda wale watching mirissa' },
-        { src: '/srilanka/activites/stilt-fishermen.jpg', alt: 'la maison veda stilt fishermen' },
-        { src: '/srilanka/activites/japanese-peace-pagoda.jpg', alt: 'la maison veda visite temple' },
+        // 275 × 183 seulement : l'image est molle dans une carte de 380 px.
+        // À remplacer dès qu'Aurélie fournit une photo de sortie baleines.
+        { src: '/srilanka/activites/wale.jpeg', alt: 'Observation des baleines au large de Mirissa' },
+        { src: '/srilanka/activites/stilt-fishermen.jpg', alt: 'Pêcheurs sur échasses sur la côte sud' },
+        // Le fichier s'appelait japanese-peace-pagoda : c'est en réalité un
+        // rituel de Poya devant un stupa, pas la pagode japonaise d'Unawatuna.
+        { src: '/srilanka/activites/rituel-poya-temple.jpg', alt: 'Rituel de Poya devant le stupa d\'un temple bouddhiste' },
     ],
     'galerie': [
         { src: '/srilanka/galerie/img_6564.jpg' },

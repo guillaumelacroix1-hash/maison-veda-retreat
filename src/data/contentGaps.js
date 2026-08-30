@@ -61,6 +61,12 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelieManu,
         ref: '§6, §12',
     },
+    'around-photos': {
+        fr: 'Deux photos manquent à cette liste. La journée à Unawatuna — pagode japonaise, Jungle Beach, plage et boutiques — n\'a pas de carte faute d\'une photo de la pagode ; elle apparaîtra dès qu\'une image sera déposée. Et la photo d\'observation des baleines ne fait que 275 × 183 pixels : elle est molle dans sa carte, une vraie photo de sortie en mer la remplacerait avantageusement.',
+        en: 'Two photos are missing from this list. The day in Unawatuna — Japanese Pagoda, Jungle Beach, shopping and beach — has no card for want of a photo of the pagoda; it will appear as soon as one is supplied. And the whale watching photo is only 275 × 183 pixels: it looks soft in its card, and a real photo from a boat trip would serve far better.',
+        owner: OWNERS.aurelie,
+        ref: '§12',
+    },
     'reviews': {
         fr: 'Sélection des avis Airbnb et Google, et des témoignages de retraites passées. Format d\'affichage retenu : prénom et pays, à confirmer.',
         en: 'Selection of Airbnb and Google reviews, plus testimonials from past retreats. Display format chosen: first name and country, to be confirmed.',

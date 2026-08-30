@@ -246,21 +246,30 @@ export const SRILANKA = {
             paragraphs: [
                 'Découvrez le meilleur de la côte sud du Sri Lanka depuis votre séjour à Habaraduwa. Que vous cherchiez une retraite paisible ou de nouvelles aventures, il y a tant à explorer tout près.',
                 'Attrapez le lever du soleil lors d\'une session de surf matinale, ou apprenez à prendre votre première vague sur l\'une des plages splendides à quelques minutes. Filez à Mirissa pour une observation inoubliable des dauphins et des baleines, ou explorez les rives animées d\'Unawatuna, ses cafés de plage et ses spots de snorkeling.',
-                'Faites un voyage culturel vers la sereine Pagode de la Paix japonaise, visitez une fabrique de thé traditionnelle, ou allez découvrir un sanctuaire local de tortues marines et ses efforts de conservation. Pour un lien plus profond avec la terre, promenez-vous dans les rizières luxuriantes ou rejoignez une excursion guidée à la journée pour dénicher les trésors cachés de la côte sud.',
+                'Faites un voyage culturel vers la pagode japonaise d\'Unawatuna, visitez une fabrique de thé traditionnelle, ou allez découvrir une écloserie de tortues marines et ses efforts de conservation. Pour un lien plus profond avec la terre, promenez-vous dans les rizières luxuriantes ou rejoignez une excursion guidée à la journée pour dénicher les trésors cachés de la côte sud.',
                 'De la détente à l\'aventure, votre voyage commence ici, à Habaraduwa.',
             ],
+            /**
+             * Une entrée par photo, dans le même ordre (srilankaMedia.activites).
+             * Les libellés étaient décalés d'un cran à partir de la 8e carte :
+             * la photo des baleines portait « Découvrir Unawatuna », celle des
+             * pêcheurs portait « baleines », et le rituel de Poya passait pour
+             * la pagode japonaise. Corrigé avec Aurélie le 29/08/2026.
+             *
+             * « Safari à dos d'éléphant » était un faux ami de l'anglais
+             * « Elephant Safari » : on observe les éléphants, on ne les monte pas.
+             */
             activities: [
-                'Safari à dos d\'éléphant',
+                'Safari éléphant',
                 'Visite du fort de Galle',
                 'Surfer les vagues du sud',
-                'Visite du sanctuaire de tortues',
+                'Visite d\'une écloserie de tortues',
                 'Visite d\'une fabrique de thé',
                 'Cours de cuisine',
                 'Balade en bateau sur le lac de Koggala',
-                'Découvrir Unawatuna',
                 'Observation des baleines à Mirissa',
                 'Les pêcheurs sur échasses',
-                'La Pagode de la Paix japonaise',
+                'Rituel de Poya au temple bouddhiste',
             ],
         },
 
@@ -522,21 +531,20 @@ export const SRILANKA = {
             paragraphs: [
                 'Discover the best of Sri Lanka\'s southern coast right from your stay in Habaraduwa. Whether you\'re seeking a peaceful retreat or thrilling new adventures, there\'s so much to explore nearby.',
                 'Catch the sunrise on a morning surf session or learn to ride your first wave at one of the stunning beaches just minutes away. Head to Mirissa for unforgettable dolphin and whale watching, or explore the lively shores of Unawatuna with its beach cafés and snorkeling spots.',
-                'Take a cultural journey to the serene Japanese Peace Pagoda, tour a traditional tea factory, or visit a local sea turtle sanctuary to learn about conservation efforts. For a deeper connection to the land, wander through lush paddy fields or join a guided day trip to discover hidden gems along the south coast.',
+                'Take a cultural journey to the Japanese Pagoda in Unawatuna, tour a traditional tea factory, or visit a sea turtle hatchery to learn about conservation efforts. For a deeper connection to the land, wander through lush paddy fields or join a guided day trip to discover hidden gems along the south coast.',
                 'From relaxation to adventure, your journey begins here in Habaraduwa.',
             ],
             activities: [
                 'Elephant Safari',
                 'Galle Fort Visit',
                 'Surf the southern waves',
-                'Turtle sanctuary visit',
+                'Turtle hatchery visit',
                 'Tea factory tour',
                 'Cooking class',
                 'Boat tour on Koggala Lake',
-                'Discover Unawatuna',
                 'Whale Watching in Mirissa',
                 'Stilt fishermen',
-                'Japanese Peace Pagoda',
+                'Poya ritual at the Buddhist temple',
             ],
         },
 
