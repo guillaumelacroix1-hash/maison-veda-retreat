@@ -28,7 +28,7 @@ export const SRILANKA = {
         capacityTitleShort: 'Ce que comprend la privatisation',
         hostReassurance: [
             'La propriété entière : deux villas, 7 lits, jusqu\'à 15 personnes avec les villas voisines',
-            'Le yoga shala de plus de 70 m² sur le toit, avec ses 15 tapis',
+            'Le yoga shala de plus de 70 m² sur le toit, avec ses 17 tapis',
             'Une équipe sri-lankaise pour la restauration et le service en chambre',
             'Séjour minimum de 3 nuits',
         ],
@@ -106,8 +106,8 @@ export const SRILANKA = {
             },
             yogaShala: {
                 name: 'Le Yoga Shala',
-                lead: 'Un court escalier dédié vous mène à notre yoga shala en rooftop, un sanctuaire baigné de lumière avec une vue ininterrompue sur le lac de Koggala, les palmiers et une faune foisonnante. Ce studio de plus de 70 m² à ciel ouvert accueille confortablement 15 à 20 participants, ce qui le rend parfait pour le yoga, le breathwork et les rassemblements spirituels. Entièrement équipé, avec 15 tapis de yoga rangés dans une armoire, sa propre salle de bain et ses toilettes, l\'espace offre tout le nécessaire pour créer une expérience transformatrice, entouré par la beauté de la jungle sri-lankaise.',
-                facts: ['Plus de 70 m² à ciel ouvert', '15 à 20 participants', '15 tapis fournis', 'Salle de bain et toilettes'],
+                lead: 'Un court escalier dédié vous mène à notre yoga shala en rooftop, un sanctuaire baigné de lumière avec une vue ininterrompue sur le lac de Koggala, les palmiers et une faune foisonnante. Ce studio de plus de 70 m² à ciel ouvert accueille confortablement 15 à 20 participants, ce qui le rend parfait pour le yoga, le breathwork et les rassemblements spirituels. Entièrement équipé, avec 17 tapis de yoga rangés dans une armoire, sa propre salle de bain et ses toilettes, l\'espace offre tout le nécessaire pour créer une expérience transformatrice, entouré par la beauté de la jungle sri-lankaise.',
+                facts: ['Plus de 70 m² à ciel ouvert', '15 à 20 participants', '17 tapis fournis', 'Salle de bain et toilettes'],
             },
         },
 
@@ -345,7 +345,7 @@ export const SRILANKA = {
         capacityTitleShort: 'What privatization includes',
         hostReassurance: [
             'The whole property: two villas, 7 beds, up to 15 guests with the villas nearby',
-            'The rooftop yoga shala of over 70 m², with its 15 mats',
+            'The rooftop yoga shala of over 70 m², with its 17 mats',
             'A Sri Lankan team for catering and room service',
             'Minimum stay of 3 nights',
         ],
@@ -411,8 +411,8 @@ export const SRILANKA = {
             },
             yogaShala: {
                 name: 'The Yoga Shala',
-                lead: 'A short walk up a dedicated staircase brings you to our rooftop yoga shala, a light-filled sanctuary with uninterrupted views of Koggala Lake, lush palms, and vibrant wildlife. The open-air studio of over 70 m² comfortably hosts 15 to 20 participants, making it perfect for yoga, breathwork, and spiritual gatherings. Fully equipped with 15 yoga mats in a storage cabinet, and its own bathroom and toilet, the space offers everything you need to create a transformative experience surrounded by the beauty of the Sri Lankan jungle.',
-                facts: ['Over 70 m², open-air', '15 to 20 participants', '15 mats provided', 'Own bathroom and toilet'],
+                lead: 'A short walk up a dedicated staircase brings you to our rooftop yoga shala, a light-filled sanctuary with uninterrupted views of Koggala Lake, lush palms, and vibrant wildlife. The open-air studio of over 70 m² comfortably hosts 15 to 20 participants, making it perfect for yoga, breathwork, and spiritual gatherings. Fully equipped with 17 yoga mats in a storage cabinet, and its own bathroom and toilet, the space offers everything you need to create a transformative experience surrounded by the beauty of the Sri Lankan jungle.',
+                facts: ['Over 70 m², open-air', '15 to 20 participants', '17 mats provided', 'Own bathroom and toilet'],
             },
         },
 
