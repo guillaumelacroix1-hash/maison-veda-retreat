@@ -34,8 +34,8 @@ export const CONTENT_GAPS = {
         ref: '§6, §12',
     },
     'studio-schedule': {
-        fr: 'Le planning ci-dessus est une projection, pas le planning réel : il vient du brouillon de partenariat avec Anna (« MaisonVEDA_Collaboration_Anna_2027_v8 », Drive, 23/07/2026) et affiche trois cours par jour. La saison démarrera vraisemblablement sur deux cours par jour, Lilie et Anna en alternance. À remplacer par la vraie grille — jours, horaires de début et de fin, pratiques — dès qu\'elle est arrêtée avec Anna, dans src/data/studioSchedule.js.',
-        en: 'The schedule above is a projection, not the real timetable: it comes from the partnership draft with Anna ("MaisonVEDA_Collaboration_Anna_2027_v8", Drive, 23/07/2026) and shows three classes a day. The season will most likely start with two classes a day, Lilie and Anna alternating. To be replaced with the real grid — days, start and end times, practices — as soon as it is settled with Anna, in src/data/studioSchedule.js.',
+        fr: 'Le planning ci-dessus montre la saison à plein régime : il vient du brouillon de partenariat avec Anna (« MaisonVEDA_Collaboration_Anna_2027_v8 », Drive, 23/07/2026) et reste à valider avec elle. Il s\'actualise ensuite chaque semaine dans src/data/studioSchedule.js — allégé en novembre, complet de décembre à février.',
+        en: 'The schedule above shows the season at full tilt: it comes from the partnership draft with Anna ("MaisonVEDA_Collaboration_Anna_2027_v8", Drive, 23/07/2026) and still needs her sign-off. It is then updated weekly in src/data/studioSchedule.js — lighter in November, full from December to February.',
         owner: OWNERS.aurelieAnna,
         ref: '§11, §12',
     },

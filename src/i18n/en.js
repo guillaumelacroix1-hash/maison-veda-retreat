@@ -182,7 +182,7 @@ export default {
             'We believe deeply in the power of mantras — a source of healing that we live ourselves, every day on the mat. And among our most intense practices, Lilie leads the Rebirth Kriya sessions: a powerful breathwork, designed to move through and transform whatever asks to be transformed.',
         ],
         scheduleTitle: 'This week\'s', scheduleAccent: 'schedule',
-        scheduleNote: 'Kundalini is our heart practice: it opens every day, six days a week. Around it come mantras, breathwork, kirtans and gong baths. The schedule is updated every week, here and on Instagram, and lightens in low season (November and April).',
+        scheduleNote: 'Kundalini is our heart practice: it opens every day, six days a week. Around it come mantras, breathwork, kirtans and gong baths. The schedule is updated every week, here and on Instagram. The season starts gently in November, fills out from December to February, and eases off again in April.',
         retreatPauseTitle: 'During private', retreatPauseAccent: 'retreats',
         retreatPauseLead: 'When a group books La Maison VEDA exclusively, the shala is reserved for them and daily studio classes pause for the duration of the retreat. These dates are announced in advance, on this page and on Instagram.',
         teachersTitle: 'The', teachersAccent: 'teachers',
