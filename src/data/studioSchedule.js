@@ -1,22 +1,21 @@
 /**
  * Planning hebdomadaire du Maison VEDA Lake Studio.
  *
- * Cette grille montre la saison à plein régime. Aurélie a choisi de la garder
- * telle quelle le 29/08/2026 : elle sera actualisée chaque semaine. Novembre
- * démarre doucement, décembre à février sont les mois pleins.
- * Source : « MaisonVEDA_Collaboration_Anna_2027_v8 » (Drive, 23/07/2026),
- * proposition de partenariat entre Lilie et Anna, encore à valider avec elle.
+ * Le planning change chaque semaine : `WEEK` porte la semaine affichée, et
+ * c'est le premier champ à mettre à jour. Ne garnir que les créneaux réellement
+ * proposés cette semaine-là — un créneau sans aucun cours ne s'affiche pas.
  *
- * C'est le seul endroit à modifier pour actualiser le planning : la page le lit
- * tel quel, dans les deux langues. Remplacer un cours revient à changer sa
- * ligne ici. Le planning de la semaine est aussi publié sur Instagram.
- *
- * Tout le programme relève du Kundalini Yoga selon Yogi Bhajan — mantras,
- * méditation, Japa, kirtan et breathwork en sont des expressions, pas des
- * disciplines à côté. Inutile donc d'étiqueter les cours un par un : seuls
- * `guest: true` (intervenant extérieur) et `teacher` (quand une professeure
- * est nommément associée à un cours, ex. Rebirth Kriya) sont signalés.
+ * Dicté par Aurélie le 30/08/2026 pour l'ouverture de la saison : deux cours
+ * par jour, Kundalini Yoga, Lilie et Anna en alternance. Les autres pratiques
+ * (bain de gong, kirtan, Rebirth Kriya…) rejoindront la grille à mesure que la
+ * saison s'étoffe ; elles sont annoncées sous le tableau (COMING_PRACTICES).
  */
+
+/** La semaine affichée. À changer chaque semaine, en même temps que SCHEDULE. */
+export const WEEK = {
+    fr: 'À partir du 15 novembre 2026',
+    en: 'From 15 November 2026',
+}
 
 export const DAYS = [
     { key: 'mon', fr: 'Lundi', en: 'Monday' },
@@ -28,61 +27,56 @@ export const DAYS = [
     { key: 'sun', fr: 'Dimanche', en: 'Sunday', rest: true },
 ]
 
-/** Les trois créneaux de la journée. */
+/**
+ * Les créneaux possibles d'une journée. Celui de 10 h n'est pas proposé cette
+ * semaine : il ne s'affichera que le jour où SCHEDULE le garnira.
+ */
 export const SLOTS = [
-    {
-        // Le matin, c'est du Kundalini toute la semaine, et un cours de
-        // Kundalini dure 1 h 30 (Aurélie, 29/08/2026) : la fin se déduit.
-        key: 'morning',
-        time: '7:30 – 9:00',
-        fr: 'Le matin', en: 'Morning',
-    },
-    {
-        // Six pratiques différentes sur ce créneau, de durées différentes :
-        // on n'affiche que l'heure de début tant qu'elles ne sont pas connues.
-        key: 'midMorning',
-        time: '10:00',
-        fr: 'En matinée', en: 'Late morning',
-    },
-    {
-        key: 'afternoon',
-        time: '17:00 – 18:30',
-        fr: 'En fin de journée', en: 'Late afternoon',
-    },
+    { key: 'morning', time: '8:00 – 9:30', fr: 'Le matin', en: 'Morning' },
+    { key: 'midMorning', time: '10:00 – 11:30', fr: 'En matinée', en: 'Late morning' },
+    { key: 'afternoon', time: '17:00 – 18:30', fr: 'En fin de journée', en: 'Late afternoon' },
 ]
+
+const lilie = { fr: 'avec Lilie', en: 'with Lilie' }
+const anna = { fr: 'avec Anna', en: 'with Anna' }
+const kundalini = (teacher) => ({ fr: 'Kundalini Yoga', en: 'Kundalini Yoga', teacher })
 
 /**
  * Une entrée par créneau et par jour. `null` = pas de cours.
- * `teacher` reste volontairement souple : les deux professeures alternent.
+ * Lilie et Anna alternent : chaque jour compte une de chaque, et le matin
+ * passe de l'une à l'autre d'un jour sur l'autre.
  */
 export const SCHEDULE = {
     morning: {
-        mon: { fr: 'Kundalini', en: 'Kundalini' },
-        tue: { fr: 'Kundalini', en: 'Kundalini' },
-        wed: { fr: 'Kundalini', en: 'Kundalini' },
-        thu: { fr: 'Kundalini', en: 'Kundalini' },
-        fri: { fr: 'Kundalini', en: 'Kundalini' },
-        sat: { fr: 'Kundalini', en: 'Kundalini' },
+        mon: kundalini(lilie),
+        tue: kundalini(anna),
+        wed: kundalini(lilie),
+        thu: kundalini(anna),
+        fri: kundalini(lilie),
+        sat: kundalini(anna),
         sun: null,
     },
     midMorning: {
-        mon: { fr: 'Breathwork & méditation', en: 'Breathwork & meditation' },
-        tue: { fr: 'Bain de gong', en: 'Gong bath', guest: true },
-        wed: { fr: 'Mantras & méditation', en: 'Mantras & meditation' },
-        thu: { fr: 'Celestial Communication', en: 'Celestial Communication' },
-        fri: { fr: 'Rebirth Kriya', en: 'Rebirth Kriya', teacher: { fr: 'avec Lilie', en: 'with Lilie' } },
-        sat: { fr: 'Kirtan avec musiciens', en: 'Kirtan with musicians' },
-        sun: null,
+        mon: null, tue: null, wed: null, thu: null, fri: null, sat: null, sun: null,
     },
     afternoon: {
-        mon: { fr: 'Japa, méditation chantée', en: 'Japa chanting meditation' },
-        tue: { fr: 'Mantras & méditation', en: 'Mantras & meditation' },
-        wed: { fr: 'Kirtan avec musiciens', en: 'Kirtan with musicians' },
-        thu: { fr: 'Breathwork & méditation', en: 'Breathwork & meditation' },
-        fri: { fr: 'Celestial Communication', en: 'Celestial Communication' },
-        sat: { fr: 'Événement ou professeur invité', en: 'Special event or guest teacher', guest: true },
+        mon: kundalini(anna),
+        tue: kundalini(lilie),
+        wed: kundalini(anna),
+        thu: kundalini(lilie),
+        fri: kundalini(anna),
+        sat: kundalini(lilie),
         sun: null,
     },
+}
+
+/**
+ * Ce qui n'est pas encore au planning mais viendra. Annoncé sous le tableau
+ * pour que le lecteur sache que la semaine s'étoffera.
+ */
+export const COMING_PRACTICES = {
+    fr: 'Bain de gong, mantras et méditation, kirtan avec musiciens, Celestial Communication, breathwork et méditation, Rebirth Kriya : ces rendez-vous rejoindront le planning à mesure que la saison avance.',
+    en: 'Gong bath, mantras and meditation, kirtan with musicians, Celestial Communication, breathwork and meditation, Rebirth Kriya: these will join the schedule as the season goes on.',
 }
 
 /** Ce qui ne tient pas dans la grille : rendez-vous mensuels et ponctuels. */

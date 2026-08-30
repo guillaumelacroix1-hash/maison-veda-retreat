@@ -32,8 +32,8 @@ export const CONTENT_GAPS = {
         ref: '§6, §12',
     },
     'studio-schedule': {
-        fr: 'Le planning ci-dessus montre la saison à plein régime : il vient du brouillon de partenariat avec Anna (« MaisonVEDA_Collaboration_Anna_2027_v8 », Drive, 23/07/2026) et reste à valider avec elle. Il s\'actualise ensuite chaque semaine dans src/data/studioSchedule.js — allégé en novembre, complet de décembre à février.',
-        en: 'The schedule above shows the season at full tilt: it comes from the partnership draft with Anna ("MaisonVEDA_Collaboration_Anna_2027_v8", Drive, 23/07/2026) and still needs her sign-off. It is then updated weekly in src/data/studioSchedule.js — lighter in November, full from December to February.',
+        fr: 'Le planning affiché est celui de la semaine d\'ouverture, dicté par Aurélie le 30/08/2026. Il change chaque semaine : mettre à jour WEEK et SCHEDULE dans src/data/studioSchedule.js. Le créneau de 10 h – 11 h 30 est déjà défini et s\'affichera de lui-même dès qu\'un cours y sera inscrit.',
+        en: 'The schedule shown is the opening week, dictated by Aurélie on 30/08/2026. It changes every week: update WEEK and SCHEDULE in src/data/studioSchedule.js. The 10–11.30 slot is already defined and will appear on its own as soon as a class is put in it.',
         owner: OWNERS.aurelieAnna,
         ref: '§11, §12',
     },

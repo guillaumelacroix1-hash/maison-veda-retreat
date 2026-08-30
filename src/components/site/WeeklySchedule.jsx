@@ -1,5 +1,5 @@
 import { useI18n } from '../../i18n'
-import { DAYS, SLOTS, SCHEDULE } from '../../data/studioSchedule'
+import { DAYS, SLOTS, SCHEDULE, WEEK, COMING_PRACTICES } from '../../data/studioSchedule'
 
 /**
  * Le planning de la semaine du studio, en texte plutôt qu'en image : traduisible,
@@ -16,6 +16,10 @@ export default function WeeklySchedule() {
 
     const cell = (slotKey, dayKey) => SCHEDULE[slotKey]?.[dayKey] ?? null
 
+    // Un créneau vide ne s'affiche pas : la semaine d'ouverture n'a que deux
+    // cours par jour, une ligne de tirets ne dirait rien à personne.
+    const slots = SLOTS.filter((slot) => openDays.some((d) => cell(slot.key, d.key)))
+
     // Tout le programme relève du Kundalini : seuls les intervenants extérieurs
     // et les professeures nommément associées à un cours sont signalés.
     const badge = (entry) =>
@@ -31,6 +35,12 @@ export default function WeeklySchedule() {
 
     return (
         <div>
+            {/* La semaine concernée : le planning change d'une semaine à l'autre,
+                il faut pouvoir vérifier d'un coup d'œil laquelle on regarde. */}
+            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                {WEEK[lang] ?? WEEK.fr}
+            </p>
+
             {/* Grand écran : la semaine d'un coup d'œil */}
             <div className="hidden overflow-hidden rounded-3xl border border-veda-gold/20 lg:block">
                 <table className="w-full border-collapse text-left">
@@ -56,7 +66,7 @@ export default function WeeklySchedule() {
                         </tr>
                     </thead>
                     <tbody>
-                        {SLOTS.map((slot) => (
+                        {slots.map((slot) => (
                             <tr key={slot.key} className="border-t border-white/10">
                                 <th scope="row" className="px-5 py-5 align-top">
                                     <span className="block font-heading text-lg text-veda-gold">{slot.time}</span>
@@ -93,7 +103,7 @@ export default function WeeklySchedule() {
                     <div key={d.key} className="rounded-2xl border border-veda-gold/20 p-6">
                         <h3 className="font-heading text-xl text-veda-light">{d[lang]}</h3>
                         <ul className="mt-4 space-y-3">
-                            {SLOTS.map((slot) => {
+                            {slots.map((slot) => {
                                 const entry = cell(slot.key, d.key)
                                 if (!entry) return null
                                 return (
@@ -120,6 +130,12 @@ export default function WeeklySchedule() {
                         : `Le ${restDay.fr.toLowerCase()} est un jour de repos.`}
                 </p>
             )}
+
+            {/* Ce qui viendra : la semaine d'ouverture est volontairement
+                sobre, autant dire tout de suite qu'elle s'étoffera. */}
+            <p className="mt-4 border-t border-white/10 pt-6 text-sm font-light leading-relaxed text-veda-light/60">
+                {COMING_PRACTICES[lang] ?? COMING_PRACTICES.fr}
+            </p>
         </div>
     )
 }
