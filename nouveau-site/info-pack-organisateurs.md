@@ -37,7 +37,7 @@ Privatisation complète des deux villas et du shala. Capacité : **7 couchages**
 
 **La Lake House** — charmante maison traditionnelle sri-lankaise aux murs de terre, directement au bord du lac : 1 grande chambre avec lit double + 1 chambre attenante avec 2 lits simples, salle de bain, cuisine équipée, grande terrasse face aux levers de soleil sur le lac.
 
-**Le Yoga Shala** — perché sur le toit du Loft, vue imprenable sur le lac Koggala et les pêcheurs. 70 m², lumineux, jusqu'à 15 pratiquants confortablement. Équipé : 17 tapis et blocs. Salle d'eau avec douche et toilettes.
+**Le Yoga Shala** — perché sur le toit du Loft, vue imprenable sur le lac Koggala et les pêcheurs. Plus de 70 m², lumineux, de 15 à 20 pratiquants confortablement. Équipé : 17 tapis et blocs. Salle d'eau avec douche et toilettes.
 
 ## Les hébergements partenaires (en option)
 
@@ -132,7 +132,7 @@ Full privatisation of the two villas and the shala. Capacity: **7 beds**. Minimu
 
 **The Lake House** — a charming traditional Sri Lankan clay-wall house right on the lakefront: 1 large bedroom with a double bed + 1 adjoining room with 2 single beds, bathroom, fully equipped kitchen, and a large terrace facing the sunrise over the lake.
 
-**The Yoga Shala** — perched on the Loft's rooftop with breathtaking views over Koggala Lake and its fishermen. 70 m², bright, comfortably seats up to 15 practitioners. Equipped: 17 mats and blocks. Bathroom with shower and toilet.
+**The Yoga Shala** — perched on the Loft's rooftop with breathtaking views over Koggala Lake and its fishermen. Over 70 m², bright, comfortably seats 15 to 20 practitioners. Equipped: 17 mats and blocks. Bathroom with shower and toilet.
 
 ## Partner accommodation (optional)
 
