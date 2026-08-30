@@ -37,7 +37,7 @@ export const SRILANKA = {
             title: 'Pour les petits groupes,', titleAccent: 'les retraites et leurs organisateurs',
             paragraphs: [
                 'Avec ses deux villas authentiques et son yoga shala en rooftop, La Maison VEDA est le cadre idéal pour des vacances paisibles, une retraite transformatrice ou une expérience de groupe sur mesure.',
-                'Nous accueillons jusqu\'à 7 personnes sur place, et jusqu\'à 15 avec les villas voisines.',
+                'Nous accueillons jusqu\'à 7 personnes réparties dans les deux villas, et jusqu\'à 15 avec les villas voisines.',
                 'Que vous veniez pour vous reposer, pour vous retrouver ou pour guider une retraite, La Maison VEDA est prête à vous accueillir, organisateurs de retraites compris.',
             ],
         },
@@ -340,7 +340,7 @@ export const SRILANKA = {
             title: 'For small Groups,', titleAccent: 'Retreats & their Organizers',
             paragraphs: [
                 'With its two authentic villas and a rooftop yoga shala, La Maison VEDA is the perfect setting for a peaceful holiday, a transformative retreat, or a bespoke group experience.',
-                'We host up to 7 guests on-site, and can extend to 15 guests with nearby villas.',
+                'We host up to 7 guests across the two villas, and up to 15 with the neighbouring villas.',
                 'Whether you come to rest, to gather, or to guide a retreat, La Maison VEDA is ready to welcome you, including retreat organizers seeking tailor-made well-being programs.',
             ],
         },
