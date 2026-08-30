@@ -22,8 +22,8 @@ export const OWNERS = {
 
 export const CONTENT_GAPS = {
     'season-rates': {
-        fr: 'Les tarifs de nuitée affichés (70 €, 100 €, 200 €) sont ceux relevés sur le site actuel, sans distinction de saison. Le cahier des charges prévoit une haute saison de novembre à avril et une basse saison : les montants de chacune restent à fournir.',
-        en: 'The nightly rates shown (€70, €100, €200) are those found on the current site, with no seasonal distinction. The brief provides for a high season from November to April and a low season: the rates for each are still to be supplied.',
+        fr: 'La basse saison se donne sur demande : c\'est arrêté. Reste à confirmer que les montants affichés (70 €, 100 €, 200 €) sont bien ceux de la haute saison — ils viennent du site actuel, qui ne distinguait pas les saisons.',
+        en: 'The low season rate is given on request: that is settled. What remains is to confirm that the rates shown (€70, €100, €200) are the high season ones — they come from the current site, which drew no seasonal distinction.',
         owner: OWNERS.aurelie,
         ref: '§7, §12',
     },

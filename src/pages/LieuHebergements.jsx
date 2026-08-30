@@ -236,6 +236,24 @@ export default function LieuHebergements() {
                 </div>
 
                 <p className="mt-10 text-sm font-light italic text-veda-light/60">{c.prices.note}</p>
+
+                {/* La basse saison ne s'affiche pas : elle se négocie. On ne
+                    laisse donc pas le lecteur deviner, on lui tend le bouton. */}
+                <div className="mt-8 flex flex-col items-start gap-4 rounded-2xl border border-veda-gold/20 bg-white/[0.04] p-7 sm:flex-row sm:items-center sm:justify-between">
+                    <p className="text-sm font-light leading-relaxed text-veda-light/75">
+                        {c.prices.seasonNote}
+                    </p>
+                    <a
+                        href={CONTACT.whatsappHref}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex shrink-0 items-center gap-3 rounded-full border border-veda-gold/40 px-7 py-3 text-xs font-semibold uppercase tracking-widest text-veda-gold transition-colors duration-300 hover:bg-veda-gold hover:text-veda-dark"
+                    >
+                        <MessageCircle className="h-4 w-4" />
+                        {c.prices.seasonCta}
+                    </a>
+                </div>
+
                 <ContentGap id="season-rates" className="mt-8 max-w-3xl" />
             </Section>
 
