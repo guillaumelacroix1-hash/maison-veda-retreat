@@ -21,6 +21,7 @@ export const OWNERS = {
     // Manu, ami d'Aurélie, prend en charge la réservation en direct et le
     // channel manager (annoncé le 29/08/2026).
     manu: 'Manu',
+    aurelieManu: 'Aurélie + Manu',
 }
 
 export const CONTENT_GAPS = {
@@ -55,10 +56,10 @@ export const CONTENT_GAPS = {
         ref: '§12',
     },
     'availability': {
-        fr: 'Périodes déjà réservées et périodes libres pour la saison.',
-        en: 'Booked and open periods for the season.',
-        owner: OWNERS.aurelie,
-        ref: '§12',
+        fr: 'Un organisateur doit pouvoir vérifier les dates libres avant d\'écrire, sans quoi il propose des périodes déjà prises et l\'échange repart de zéro. La source doit être le channel manager Bed24 que Manu met en place : lui seul connaît à la fois les réservations directes et celles venues d\'Airbnb et de Booking.com. Une liste tenue à la main serait fausse dès la première réservation reçue ailleurs. À ajouter au périmètre de Manu : un calendrier de disponibilités affiché ici.',
+        en: 'An organiser needs to check open dates before writing, otherwise they propose periods already taken and the exchange starts over. The source has to be the Bed24 channel manager Manu is setting up: only it knows both direct bookings and those coming from Airbnb and Booking.com. A hand-kept list would be wrong the moment a booking lands elsewhere. To add to Manu\'s scope: an availability calendar displayed here.',
+        owner: OWNERS.aurelieManu,
+        ref: '§6, §12',
     },
     'reviews': {
         fr: 'Sélection des avis Airbnb et Google, et des témoignages de retraites passées. Format d\'affichage retenu : prénom et pays, à confirmer.',

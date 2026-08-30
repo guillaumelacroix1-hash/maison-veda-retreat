@@ -136,7 +136,7 @@ export default {
         capacityOnSite: '7 guests in the house',
         capacityExtended: 'up to 15 with the neighbouring villas',
         availabilityTitle: 'This season\'s', availabilityAccent: 'availability',
-        availabilityLead: 'Open and booked periods, updated by hand.',
+        availabilityLead: 'The dates still open to host your retreat. Write to us with the period that suits you.',
         packTitle: 'Organisers', packAccent: 'Info Pack',
         packLead: 'Everything about the venue, capacity and services, in French and English.',
         packCta: 'Download the Info Pack (PDF)',

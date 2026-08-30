@@ -136,7 +136,7 @@ export default {
         capacityOnSite: '7 personnes dans la maison',
         capacityExtended: 'jusqu\'à 15 avec les villas voisines',
         availabilityTitle: 'Disponibilités', availabilityAccent: 'de la saison',
-        availabilityLead: 'Périodes libres et déjà réservées, mises à jour à la main.',
+        availabilityLead: 'Les dates encore libres pour accueillir votre retraite. Écrivez-nous avec la période qui vous convient.',
         packTitle: 'Info Pack', packAccent: 'Organisateurs',
         packLead: 'Tout le détail du lieu, des capacités et des services, en français et en anglais.',
         packCta: 'Télécharger l\'Info Pack (PDF)',
