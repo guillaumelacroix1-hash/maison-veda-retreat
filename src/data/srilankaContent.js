@@ -46,8 +46,15 @@ export const SRILANKA = {
 
         /**
          * Encart de transparence sur le Lake Loft, rendu obligatoire par le
-         * cahier des charges (§4) et repris aussi sur la page Studio : le shala
-         * est sur son toit et accueille du public.
+         * cahier des charges (§4) : le shala est sur son toit et accueille du
+         * public.
+         *
+         * Il ne s'adresse qu'à ceux qui louent une villa. La pause des cours
+         * pendant les retraites privées n'y figure donc pas : quand une
+         * retraite a lieu, toute la maison est privatisée et ce lecteur n'est
+         * pas là pour la vivre. L'information est sur la page Studio, dans la
+         * carte de la retraite, où elle sert vraiment — à qui comptait venir
+         * à un cours.
          */
         loftTransparency: {
             eyebrow: 'Bon à savoir',
@@ -66,10 +73,6 @@ export const SRILANKA = {
                 {
                     label: 'Une maison qui vit',
                     text: 'Kundalini au lever du jour, kirtans, bains de gong : le lieu a son rythme, et vous y prenez part autant que vous le voulez.',
-                },
-                {
-                    label: 'Sauf pendant les retraites',
-                    text: 'Lorsqu\'un groupe privatise La Maison VEDA, le shala lui est réservé et les cours du studio sont suspendus le temps de la retraite. Ces périodes sont annoncées à l\'avance.',
                 },
             ],
         },
@@ -345,10 +348,6 @@ export const SRILANKA = {
                 {
                     label: 'A house that lives',
                     text: 'Kundalini at sunrise, kirtans, gong baths: the place has its own rhythm, and you take part in it as much as you wish.',
-                },
-                {
-                    label: 'Except during retreats',
-                    text: 'When a group books La Maison VEDA exclusively, the shala is reserved for them and studio classes pause for the duration of the retreat. These dates are announced in advance.',
                 },
             ],
         },
