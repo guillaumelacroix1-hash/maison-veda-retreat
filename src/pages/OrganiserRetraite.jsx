@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Download, Users, Home, Check, Maximize } from 'lucide-react'
+import { Download, Check } from 'lucide-react'
 import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
@@ -8,6 +8,7 @@ import SectionNav from '../components/site/SectionNav'
 import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
+import Accordion from '../components/site/Accordion'
 import { Form, Field, TextareaField } from '../components/site/Forms'
 import { CONTACT } from '../data/site'
 import { srilanka, SRILANKA_LINKS } from '../data/srilankaContent'
@@ -97,36 +98,42 @@ export default function OrganiserRetraite() {
                     ))}
                 </div>
 
-                {/* Capacités et argument du lieu, côte à côte avec une photo.
-                    `content-start` empêche les blocs de s'étirer sur la hauteur de
-                    l'image : ils gardaient sinon un grand vide sous leur texte. */}
-                <div className="mt-16 grid items-start gap-12 lg:grid-cols-[1fr,1.1fr]">
-                    <div className="grid content-start gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                        {[
-                            { icon: Home, label: t('host.capacityOnSite') },
-                            { icon: Users, label: t('host.capacityExtended') },
-                            { icon: Maximize, label: lang === 'en' ? '80 m² rooftop yoga shala' : '80 m² de shala sur le toit' },
-                        ].map(({ icon: Icon, label }) => (
-                            <div
-                                key={label}
-                                className="flex items-center gap-5 rounded-2xl border border-veda-gold/20 bg-white/[0.03] px-6 py-5 transition-colors duration-500 hover:border-veda-gold/50"
-                            >
-                                <Icon className="h-6 w-6 shrink-0 text-veda-gold" />
-                                <p className="font-heading text-xl leading-snug">{label}</p>
-                            </div>
-                        ))}
-                    </div>
+                {/* Les trois encarts de capacité qui vivaient ici répétaient
+                    « L'essentiel » en tête de page. À leur place, les deux
+                    villas en photos.
 
-                    {SRILANKA_MEDIA['yoga-shala']?.[4] && (
-                        <div className="aspect-[4/3] overflow-hidden rounded-3xl">
-                            <img
-                                src={SRILANKA_MEDIA['yoga-shala'][4].src}
-                                alt={SRILANKA_MEDIA['yoga-shala'][4].alt || ''}
-                                loading="lazy"
-                                className="h-full w-full object-cover"
-                            />
-                        </div>
-                    )}
+                    Ce ne sont pas les mêmes images que la page Hébergements
+                    au sens où elles ne disent pas la même chose : là-bas on
+                    vend un séjour, ici on prouve une affirmation. La page
+                    annonce 7 lits et pas de chambre fermée — un organisateur
+                    veut le voir avant d'engager son groupe. Les légendes
+                    comptent les lits, elles ne décrivent pas l'ambiance.
+
+                    Replié par défaut : la page est déjà longue, et qui n'a pas
+                    besoin de vérifier passe son chemin. */}
+                <div className="mt-16">
+                    <h3 className="font-heading text-2xl">{t('host.villasTitle')}</h3>
+                    <p className="mt-3 max-w-2xl text-base font-light leading-relaxed text-veda-light/70">
+                        {t('host.villasLead')}
+                    </p>
+
+                    <Accordion
+                        className="mt-8"
+                        items={[
+                            {
+                                key: 'lake-house',
+                                title: c.lodgings.lakeHouse.name,
+                                subtitle: `${t('host.lakeHouseBeds')} · ${SRILANKA_MEDIA['lake-house'].length} photos`,
+                                content: <MediaGallery images={SRILANKA_MEDIA['lake-house']} initial={8} />,
+                            },
+                            {
+                                key: 'lake-loft',
+                                title: c.lodgings.lakeLoft.name,
+                                subtitle: `${t('host.lakeLoftBeds')} · ${SRILANKA_MEDIA['lake-loft'].length} photos`,
+                                content: <MediaGallery images={SRILANKA_MEDIA['lake-loft']} initial={8} />,
+                            },
+                        ]}
+                    />
                 </div>
             </Section>
 
