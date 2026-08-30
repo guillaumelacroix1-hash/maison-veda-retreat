@@ -5,10 +5,10 @@
  * c'est le premier champ à mettre à jour. Ne garnir que les créneaux réellement
  * proposés cette semaine-là — un créneau sans aucun cours ne s'affiche pas.
  *
- * Dicté par Aurélie le 30/08/2026 pour l'ouverture de la saison : deux cours
- * par jour, Kundalini Yoga, Lilie et Anna en alternance. Les autres pratiques
- * (bain de gong, kirtan, Rebirth Kriya…) rejoindront la grille à mesure que la
- * saison s'étoffe ; elles sont annoncées sous le tableau (COMING_PRACTICES).
+ * RÈGLE DE RÉFÉRENCE DU STUDIO (Aurélie, 30/08/2026) : deux cours par jour,
+ * du lundi au samedi, un avec Lilie et un avec Anna. C'est le socle, pas une
+ * particularité de la semaine d'ouverture — toute semaine à venir part de là.
+ * Les cours de pleine saison (`seasonal`) s'y ajoutent sans le remplacer.
  */
 
 /** La semaine affichée. À changer chaque semaine, en même temps que SCHEDULE. */
