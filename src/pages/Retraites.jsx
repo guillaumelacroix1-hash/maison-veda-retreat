@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+import { ArrowRight } from 'lucide-react'
 import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
@@ -31,17 +33,38 @@ export default function Retraites() {
                 image={SRILANKA_MEDIA.retraites?.[1]?.src ?? MEDIA.retreats}
             />
 
-            {/* Le second public des retraites — les professeurs qui organisent la
-                leur — a sa propre page. Le lien est ici, visible, plutôt que caché
-                derrière le survol du menu principal. */}
             <SectionNav
                 items={[
                     { id: 'a-venir', label: t('retreats.navUpcoming') },
                     { id: 'mini', label: t('retreats.navMini') },
                     { id: 'passees', label: t('retreats.navPast') },
-                    { to: path('host'), label: t('nav.hostChild') },
                 ]}
             />
+
+            {/* Cette page parle aux participantes ; l'autre public — les
+                professeurs qui viennent louer la maison — a besoin d'être
+                détourné ici même. C'était un lien au bout de la barre de
+                sections, séparé du reste par un grand vide : on passait à
+                côté. Un bandeau à part entière, juste sous le sommaire. */}
+            <div className="border-b border-veda-gold/20 bg-veda-gold/[0.06] px-6 py-8">
+                <div className="mx-auto flex max-w-container flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                            {t('retreats.hostBannerEyebrow')}
+                        </p>
+                        <p className="mt-2 max-w-2xl text-base font-light leading-relaxed text-veda-light/80">
+                            {t('retreats.hostBannerText')}
+                        </p>
+                    </div>
+                    <Link
+                        to={path('host')}
+                        className="inline-flex shrink-0 items-center gap-3 rounded-full bg-veda-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
+                    >
+                        {t('nav.hostChild')}
+                        <ArrowRight className="h-4 w-4" />
+                    </Link>
+                </div>
+            </div>
 
 
             {/* Introduction reprise de la page source, avec une image pour l'habiller */}

@@ -106,6 +106,8 @@ export default {
         navUpcoming: 'À venir',
         navMini: 'Mini-retraites',
         navPast: 'Passées',
+        hostBannerEyebrow: 'Vous êtes professeur ou thérapeute ?',
+        hostBannerText: 'La Maison VEDA se loue en exclusivité pour accueillir votre propre retraite : les deux villas, le shala et l\'équipe sur place.',
         metaTitle: 'Retraites de yoga au Sri Lanka',
         title: 'Retraites',
         lead: 'Les retraites animées par La Maison VEDA, à Habaraduwa, face au lac de Koggala.',

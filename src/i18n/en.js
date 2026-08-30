@@ -106,6 +106,8 @@ export default {
         navUpcoming: 'Upcoming',
         navMini: 'Mini-retreats',
         navPast: 'Past',
+        hostBannerEyebrow: 'Are you a teacher or therapist?',
+        hostBannerText: 'La Maison VEDA can be booked exclusively to host your own retreat: both villas, the shala and the team on site.',
         metaTitle: 'Yoga retreats in Sri Lanka',
         title: 'Retreats',
         lead: 'Retreats led by La Maison VEDA in Habaraduwa, facing Koggala Lake.',
