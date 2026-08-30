@@ -178,14 +178,19 @@ export default function OrganiserRetraite() {
                 accent={c.retreats.alaCarteAccent}
                 lead={c.retreats.alaCarteLead}
             >
-                <ul className="grid gap-2.5 sm:grid-cols-2">
+                {/* Chaque famille porte son tarif : on ne peut pas composer un
+                    programme si l'on ignore ce que coûte quoi. */}
+                <div className="grid gap-4 sm:grid-cols-2">
                     {c.retreats.alaCarte.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-dark/80">
-                            <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-veda-gold" />
-                            {item}
-                        </li>
+                        <div key={item.title} className="rounded-2xl border border-veda-dark/10 bg-white p-7 shadow-card">
+                            <h3 className="font-heading text-xl text-veda-dark">{item.title}</h3>
+                            <p className="mt-2 text-sm font-semibold text-veda-gold">{item.price}</p>
+                            <p className="mt-4 text-sm font-light leading-relaxed text-veda-dark/70">
+                                {item.detail}
+                            </p>
+                        </div>
                     ))}
-                </ul>
+                </div>
 
                 <p className="mt-10 max-w-3xl text-sm font-light leading-relaxed text-veda-dark/50">
                     {c.retreats.alaCarteNote}

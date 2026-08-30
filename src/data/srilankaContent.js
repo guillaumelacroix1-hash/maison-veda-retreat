@@ -167,21 +167,35 @@ export const SRILANKA = {
             packCta: 'Télécharger l\'Info Pack Organisateurs (PDF)',
             alaCarteTitle: 'Expériences', alaCarteAccent: 'à la carte',
             alaCarteLead: 'La Maison VEDA ne se limite pas à un hébergement et un shala. Si vous souhaitez enrichir votre programme, nous faisons venir pour vous un professeur ou un praticien : vous choisissez l\'expérience, nous nous occupons de tout. Un service entièrement optionnel, facturé à la carte — y compris lorsque c\'est Lilie ou Anna qui anime la séance.',
+            /**
+             * Quatre familles, chacune avec son tarif : c'est la structure de
+             * l'Info Pack Organisateurs. Le site l'avait aplatie en une liste
+             * unique dont les prix tenaient dans une phrase finale — on ne
+             * pouvait plus savoir ce que coûtait quoi.
+             */
             alaCarte: [
-                'Cours de Kundalini avec Lilie ou Anna, les professeures du studio',
-                'Cours de yoga par un professeur certifié (Hatha, Vinyasa, Yin)',
-                'Pilates avec les professeurs de PURA Ahangama',
-                'Bains sonores : bols de cristal, bols tibétains, bain de gong, multi-instruments',
-                'Séances de breathwork, avec un professionnel certifié',
-                'Cacao cérémonie',
-                'Kirtan, cercle de chant avec musiciens',
-                'Ateliers de cuisine sri-lankaise et ayurvédique',
-                'Journée complète dans une maison ayurvédique traditionnelle, hors site',
-                'Visite d\'un temple et rituel puja avec un guide bouddhiste local',
-                'Balade en bateau sur le lac de Koggala, au départ du jardin',
-                'Visite d\'une fabrique de thé, du fort de Galle (UNESCO), d\'une écloserie de tortues',
+                {
+                    title: 'Bien-être & mouvement',
+                    price: 'à partir de 100 € par groupe',
+                    detail: 'Un cours avec un professeur certifié : Hatha, Vinyasa, Kundalini, Pilates. Y compris avec Lilie ou Anna, les professeures du studio.',
+                },
+                {
+                    title: 'Expériences profondes',
+                    price: 'à partir de 200 € par groupe',
+                    detail: 'Bain sonore — bols de cristal, bols tibétains, gong —, breathwork, cacao cérémonie, kirtan avec musiciens, atelier de cuisine sri-lankaise ou ayurvédique.',
+                },
+                {
+                    title: 'Immersion ayurvédique',
+                    price: 'à partir de 80 € par personne',
+                    detail: 'Une journée entière dans une maison ayurvédique familiale traditionnelle, à vingt minutes.',
+                },
+                {
+                    title: 'Culture & nature',
+                    price: '10 à 35 € par personne',
+                    detail: 'Balade en bateau sur le lac au départ du jardin, temple et rituel puja avec un guide bouddhiste, écloserie de tortues, fort de Galle (UNESCO), fabrique de thé, surf.',
+                },
             ],
-            alaCarteNote: 'Tarifs indicatifs : à partir de 100 € par groupe pour un cours, 200 € pour une expérience profonde, 10 à 35 € par personne pour les sorties culturelles. Le détail complet figure dans l\'Info Pack.',
+            alaCarteNote: 'Tarifs indicatifs, confirmés selon le praticien. Le détail complet figure dans l\'Info Pack Organisateurs.',
             alaCarteTravel: 'Et pour prolonger la retraite par un circuit à travers l\'île, tout se passe du côté de VEDA Travel.',
             upcomingTitle: 'Retraites à venir',
             upcomingText: [
@@ -454,20 +468,28 @@ export const SRILANKA = {
             alaCarteTitle: 'À la carte', alaCarteAccent: 'experiences',
             alaCarteLead: 'La Maison VEDA is not just accommodation and a shala. If you want to enrich your programme, we bring in a teacher or practitioner for you: you choose the experience, we take care of everything. An entirely optional service, billed à la carte — including when Lilie or Anna leads the session.',
             alaCarte: [
-                'Kundalini classes with Lilie or Anna, the studio teachers',
-                'Yoga classes with a certified teacher (Hatha, Vinyasa, Yin)',
-                'Pilates with the teachers from PURA Ahangama',
-                'Sound baths: crystal bowls, Tibetan bowls, gong bath, multi-instrument',
-                'Breathwork sessions with a certified professional',
-                'Cacao ceremony',
-                'Kirtan, a chanting circle with live musicians',
-                'Sri Lankan and Ayurvedic cooking workshops',
-                'A full day in a traditional Ayurvedic house, off site',
-                'Temple visit and puja ritual with a local Buddhist guide',
-                'Boat ride on Koggala Lake, departing from the garden',
-                'Visits to a tea factory, Galle Fort (UNESCO), a turtle hatchery',
+                {
+                    title: 'Wellness & movement',
+                    price: 'from €100 per group',
+                    detail: 'A class with a certified teacher: Hatha, Vinyasa, Kundalini, Pilates. Including with Lilie or Anna, the studio teachers.',
+                },
+                {
+                    title: 'Deep experiences',
+                    price: 'from €200 per group',
+                    detail: 'Sound bath — crystal bowls, Tibetan bowls, gong —, breathwork, cacao ceremony, kirtan with musicians, Sri Lankan or Ayurvedic cooking workshop.',
+                },
+                {
+                    title: 'Ayurvedic immersion',
+                    price: 'from €80 per person',
+                    detail: 'A full day in a traditional family Ayurvedic house, twenty minutes away.',
+                },
+                {
+                    title: 'Culture & nature',
+                    price: '€10 to €35 per person',
+                    detail: 'Boat ride on the lake from the garden, temple and puja ritual with a Buddhist guide, turtle hatchery, Galle Fort (UNESCO), tea factory, surfing.',
+                },
             ],
-            alaCarteNote: 'Indicative prices: from €100 per group for a class, €200 for a deep experience, €10 to €35 per person for cultural outings. Full details are in the Info Pack.',
+            alaCarteNote: 'Indicative rates, confirmed depending on the practitioner. Full detail in the Organisers Info Pack.',
             alaCarteTravel: 'And to extend the retreat with a journey across the island, head over to VEDA Travel.',
             upcomingTitle: 'Upcoming retreats',
             upcomingText: [
