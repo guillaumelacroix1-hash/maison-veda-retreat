@@ -42,7 +42,13 @@ export const RETREATS = [
             from: 1280,
             options: [
                 { fr: 'Chambre partagée (2, 3 ou 4 personnes)', en: 'Shared room (2, 3 or 4 people)', price: 1280 },
-                { fr: 'Supplément chambre individuelle', en: 'Single room supplement', price: 200 },
+                // La Maison VEDA n'a pas de chambre individuelle : le supplément
+                // paie une chambre à côté, à Tothupola ou à Jungle Breeze.
+                {
+                    fr: 'Supplément chambre individuelle, à Tothupola ou Jungle Breeze',
+                    en: 'Single room supplement, at Tothupola or Jungle Breeze',
+                    price: 200,
+                },
             ],
         },
         // Section 6 : nombre de places défini par retraite, le paiement se ferme
