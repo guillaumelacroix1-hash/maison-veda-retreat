@@ -172,6 +172,7 @@ export const SRILANKA_MEDIA = {
         { src: '/srilanka/lake-loft/img_9825.jpg' },
     ],
     'yoga-shala': [
+        { src: '/srilanka/yoga-shala/e81ceae4-a7df-4fed-846b-416832741d05.jpg', alt: 'Cercle de fin de retraite sur le shala' },
         { src: '/srilanka/yoga-shala/img_8466.jpg' },
         { src: '/srilanka/yoga-shala/2d0a0420-fb65-4df8-9d51-ba9741e8be8f.jpg' },
         { src: '/srilanka/yoga-shala/3bfc87bf-15ea-434f-8b19-40ce6295f3db.jpg' },
@@ -198,11 +199,23 @@ export const SRILANKA_MEDIA = {
         { src: '/srilanka/retraites/venue-hire-info-pack.jpg', alt: 'YO GG RETREAT info pack la maison veda Sri Lanka' },
         { src: '/srilanka/retraites/img_7021.jpg' },
     ],
+    /**
+     * VEDA Travel : que des images de voyage.
+     *
+     * Trois des quatre photos d'origine montraient le studio — deux cours de
+     * Kundalini (doublons de la galerie du shala) et le cercle de fin d'une
+     * retraite. Elles vendaient la retraite sur la page des circuits.
+     *
+     * L'ordre compte : [1] et [3] servent de fonds pleine largeur, [0] de
+     * vignette latérale, [2] d'illustration de section (VedaTravel.jsx).
+     */
     'veda-travel': [
-        { src: '/srilanka/veda-travel/img_1288.jpg' },
-        { src: '/srilanka/veda-travel/img_1297.jpg' },
-        { src: '/srilanka/veda-travel/img_6693.jpg' },
-        { src: '/srilanka/veda-travel/e81ceae4-a7df-4fed-846b-416832741d05.jpg' },
+        { src: '/srilanka/veda-travel/img_6693.jpg', alt: 'Accueil et jus frais à l\'arrivée d\'un groupe' },
+        { src: '/new_image/stilt-fisherman-ahangama-1536x1026.jpeg', alt: 'Pêcheur sur échasses au coucher du soleil, Ahangama' },
+        { src: '/new_image/ahangama-railway-nirbana-sri-lanka-1367x2048.jpeg', alt: 'La voie ferrée d\'Ahangama au soleil couchant' },
+        // Deux petits logos de partenaires en bas à gauche : à vérifier avec
+        // Aurélie que l'image lui est bien cessible.
+        { src: '/new_image/IMG_1494.jpeg', alt: 'Pêcheur sur le lac de Koggala au petit matin' },
     ],
     'studio': [
         { src: '/srilanka/studio/img_1067.jpg', alt: 'Yoga schedule' },

@@ -136,6 +136,8 @@ export default function VedaTravel() {
                 </ul>
 
                 <MediaGallery images={SRILANKA_MEDIA['veda-travel']} initial={4} className="mt-12" />
+
+                <ContentGap id="travel-photos" className="mt-10 max-w-3xl" />
             </Section>
 
             {/* Deux formules en cartes sur une photo de fond : la section n'était
@@ -221,7 +223,7 @@ export default function VedaTravel() {
             <Section
                 title={t('travel.testimonialsTitle')}
                 accent={t('travel.testimonialsAccent')}
-                aside={SRILANKA_MEDIA['veda-travel'][0]}
+                aside={SRILANKA_MEDIA['veda-travel']?.[0]}
             >
                 <ContentGap id="reviews" className="max-w-3xl" />
             </Section>
@@ -233,7 +235,7 @@ export default function VedaTravel() {
                 lead={t('cta.travelLead')}
                 primary={{ label: t('common.quote'), to: '#devis' }}
                 secondary={{ label: t('common.whatsapp'), href: CONTACT.whatsappHref }}
-                image={SRILANKA_MEDIA['veda-travel'][2]}
+                image={SRILANKA_MEDIA['veda-travel']?.[2]}
             />
 
         </>

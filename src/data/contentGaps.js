@@ -61,6 +61,12 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelie,
         ref: '§12',
     },
+    'travel-photos': {
+        fr: 'VEDA Travel n\'a presque pas d\'images à soi : sur les quatre de cette galerie, trois montraient en réalité le studio — deux cours de Kundalini et le cercle de fin d\'une retraite. Elles sont remplacées par des photos de la côte, mais il manque l\'essentiel : la route, le van, les sites visités, les hôtels partenaires, les groupes en excursion. À rapporter du prochain circuit.',
+        en: 'VEDA Travel has almost no images of its own: of the four in this gallery, three actually showed the studio — two Kundalini classes and a retreat closing circle. They have been replaced with coastal photographs, but the essentials are missing: the road, the van, the sites visited, the partner hotels, groups on excursion. To bring back from the next tour.',
+        owner: OWNERS.aurelie,
+        ref: '§12',
+    },
     'reviews': {
         fr: 'Sélection des avis Airbnb et Google, et des témoignages de retraites passées. Format d\'affichage retenu : prénom et pays, à confirmer.',
         en: 'Selection of Airbnb and Google reviews, plus testimonials from past retreats. Display format chosen: first name and country, to be confirmed.',
