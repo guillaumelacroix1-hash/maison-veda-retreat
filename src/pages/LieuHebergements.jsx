@@ -254,7 +254,6 @@ export default function LieuHebergements() {
                     </a>
                 </div>
 
-                <ContentGap id="season-rates" className="mt-8 max-w-3xl" />
             </Section>
 
             {/* Les trois façons de réserver */}

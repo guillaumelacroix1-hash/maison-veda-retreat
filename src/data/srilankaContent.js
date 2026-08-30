@@ -135,9 +135,9 @@ export const SRILANKA = {
             ],
             note: 'Aucun personnel ne dort sur place, pour une intimité totale.',
             /**
-             * Les montants ci-dessus sont ceux de la haute saison. Aurélie a
-             * arrêté le 29/08/2026 que la basse saison ne s'affiche pas : elle
-             * se donne sur demande.
+             * Les montants ci-dessus — 70, 100 et 200 € — sont confirmés par
+             * Aurélie le 29/08/2026 comme étant ceux de la haute saison. La
+             * basse saison ne s'affiche pas : elle se donne sur demande.
              */
             seasonNote: 'Tarifs de haute saison, de novembre à avril. En basse saison, le tarif est donné sur demande.',
             seasonCta: 'Demander le tarif basse saison',

@@ -25,12 +25,6 @@ export const OWNERS = {
 }
 
 export const CONTENT_GAPS = {
-    'season-rates': {
-        fr: 'La basse saison se donne sur demande : c\'est arrêté. Reste à confirmer que les montants affichés (70 €, 100 €, 200 €) sont bien ceux de la haute saison — ils viennent du site actuel, qui ne distinguait pas les saisons.',
-        en: 'The low season rate is given on request: that is settled. What remains is to confirm that the rates shown (€70, €100, €200) are the high season ones — they come from the current site, which drew no seasonal distinction.',
-        owner: OWNERS.aurelie,
-        ref: '§7, §12',
-    },
     'retreat-balance': {
         fr: 'Conditions de paiement à trancher : la page retraite annonce un acompte de 500 € par virement, un solde au 15 janvier et un remboursement si un remplacement est trouvé. Le cahier des charges prévoit un acompte de 30 % payé en ligne, non remboursable mais transférable. Les deux ne peuvent pas coexister.',
         en: 'Payment terms to settle: the retreat page announces a €500 deposit by bank transfer, a balance due on 15 January and a refund if a replacement is found. The brief provides for a 30% deposit paid online, non-refundable but transferable. The two cannot coexist.',
