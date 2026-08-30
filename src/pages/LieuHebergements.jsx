@@ -322,6 +322,8 @@ export default function LieuHebergements() {
                     </a>
                     <p className="text-sm font-light text-veda-dark/70">{t('venue.directBooking')}</p>
                 </div>
+
+                <ContentGap id="villa-booking" className="mt-10 max-w-3xl" />
             </Section>
 
             {/* Hébergements complémentaires */}

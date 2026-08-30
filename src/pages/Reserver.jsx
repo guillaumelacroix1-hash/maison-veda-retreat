@@ -15,10 +15,12 @@ import { DEPOSIT_RATE } from '../data/site'
  * État actuel : la demande part chez Formspree, comme sur la page 2027 en
  * ligne. Le cahier des charges (section 6) prévoit à la place un paiement
  * immédiat par carte, avec fermeture automatique quand il ne reste plus de
- * place. Manu s'en charge (annoncé le 29/08/2026), vraisemblablement avec
- * Stripe, et centralisera toutes les réservations dans le channel manager
- * Bed24. Cet écart est signalé à l'écran par <ContentGap id="payment"> tant
- * que ce n'est pas branché.
+ * place. Rien n'est branché : l'écart est signalé à l'écran par
+ * <ContentGap id="payment">.
+ *
+ * À ne pas confondre avec la réservation des villas (page Lieu &
+ * Hébergements), que Manu équipe d'un paiement en direct et d'un channel
+ * manager Bed24. Reste à décider si les retraites y passeront aussi.
  */
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdkboow'
 

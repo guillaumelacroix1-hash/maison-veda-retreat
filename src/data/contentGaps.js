@@ -120,10 +120,16 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelieAnna,
         ref: '§4, §11',
     },
-    'payment': {
-        fr: 'La réservation en direct est en cours de mise en place par Manu : paiement en ligne, vraisemblablement par Stripe — le prestataire reste à confirmer. Toutes les réservations, villas comme retraites, seront centralisées dans le channel manager Bed24, qui synchronise le site et les plateformes. En attendant, cette demande part par e-mail et le paiement se règle ensuite avec Aurélie.',
-        en: 'Direct booking is being set up by Manu: online payment, most likely through Stripe — the provider is still to be confirmed. All bookings, villas and retreats alike, will be centralised in the Bed24 channel manager, which syncs the site with the platforms. In the meantime this request is sent by email and payment is arranged afterwards with Aurélie.',
+    'villa-booking': {
+        fr: 'Manu met en place la réservation en direct des villas : paiement en ligne, vraisemblablement par Stripe — le prestataire reste à confirmer. Toutes les réservations seront ensuite centralisées dans le channel manager Bed24, qui synchronisera ce site avec Airbnb et Booking.com. En attendant, « réserver en direct » passe par un lien de paiement Revolut.',
+        en: 'Manu is setting up direct booking for the villas: online payment, most likely through Stripe — the provider is still to be confirmed. All bookings will then be centralised in the Bed24 channel manager, which will sync this site with Airbnb and Booking.com. For now, "book directly" goes through a Revolut payment link.',
         owner: OWNERS.manu,
+        ref: '§6, §10',
+    },
+    'payment': {
+        fr: 'Le paiement en ligne de l\'acompte de retraite n\'est pas branché : cette demande part par e-mail et le règlement se fait ensuite avec Aurélie. Reste à décider si le système de réservation en direct que Manu installe pour les villas couvrira aussi les retraites, ou si elles gardent leur circuit propre.',
+        en: 'Online payment of the retreat deposit is not connected: this request is sent by email and payment is arranged afterwards with Aurélie. Still to decide whether the direct booking system Manu is setting up for the villas will also cover retreats, or whether they keep their own route.',
+        owner: OWNERS.aurelie,
         ref: '§6, §10',
     },
 }
