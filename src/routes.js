@@ -30,23 +30,45 @@ export const ROUTES = {
  * type de page : les offres d'abord, puis la maison et le contact réduits à
  * une icône pour ne pas allonger la barre.
  *
- * « Retraites » ouvre un sous-menu : participer à l'une des nôtres et organiser
- * la sienne s'adressent à deux publics très différents (une participante, un
- * professeur qui loue le lieu), mais partent de la même intention. Les deux
+ * « Retraites » ouvre un sous-menu : participer à l'une des nôtres et louer le
+ * lieu pour la sienne s'adressent à deux publics très différents (une
+ * participante, un professeur), mais partent de la même intention. Les deux
  * pages restent séparées ; seule l'entrée de menu est commune, ce qui raccourcit
  * la barre sans mélanger les contenus.
+ *
+ * Un enfant vaut { key, label, hash? } : `key` désigne la page, `label` la clé
+ * de traduction, `hash` une ancre dans cette page.
  */
 export const NAV_OFFERS = [
     { key: 'venue' },
-    { key: 'retreats', children: ['retreats', 'host'] },
-    { key: 'studio' },
+    {
+        key: 'retreats',
+        children: [
+            { key: 'retreats', label: 'retreatsChild' },
+            { key: 'host', label: 'hostChild' },
+        ],
+    },
+    {
+        // Le planning est ce qu'on vient chercher le plus souvent sur cette
+        // page : il mérite d'être à un clic depuis n'importe où, avec le mot
+        // « planning » visible dans le menu. `hash` mène droit à la section.
+        key: 'studio',
+        children: [
+            { key: 'studio', hash: 'planning', label: 'studioScheduleChild' },
+            { key: 'studio', hash: 'evenements', label: 'studioEventsChild' },
+        ],
+    },
     { key: 'travel' },
 ]
 export const NAV_ICONS = ['story', 'contact']
 
-/** Toutes les entrées à plat, dans l'ordre : pied de page et menu mobile. */
+/**
+ * Toutes les pages du menu, à plat et sans doublon : pied de page.
+ * Une page peut apparaître plusieurs fois dans le menu (le studio y figure
+ * une fois par ancre), elle ne doit sortir qu'une fois ici.
+ */
 export const NAV_KEYS = [
-    ...NAV_OFFERS.flatMap((item) => item.children ?? [item.key]),
+    ...new Set(NAV_OFFERS.flatMap((item) => item.children?.map((c) => c.key) ?? [item.key])),
     ...NAV_ICONS,
 ]
 

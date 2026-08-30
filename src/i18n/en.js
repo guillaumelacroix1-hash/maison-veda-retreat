@@ -33,7 +33,10 @@ export default {
         retreats: 'Retreats',
         // Submenu labels under "Retreats": they say who does what.
         retreatsChild: 'Our retreats',
-        hostChild: 'Host your own',
+        hostChild: 'Hire the venue for a retreat',
+        studioScheduleChild: 'The weekly schedule',
+        studioEventsChild: 'Events',
+        openSubmenu: 'Open the {name} submenu',
         host: 'Host a retreat',
         studio: 'Yoga classes',
         venue: 'Stay',

@@ -33,7 +33,10 @@ export default {
         retreats: 'Retraites',
         // Libellés du sous-menu « Retraites » : ils disent qui fait quoi.
         retreatsChild: 'Nos retraites',
-        hostChild: 'Organiser la vôtre',
+        hostChild: 'Louer le lieu pour une retraite',
+        studioScheduleChild: 'Le planning de la semaine',
+        studioEventsChild: 'Les événements',
+        openSubmenu: 'Ouvrir le sous-menu {name}',
         host: 'Organiser une retraite',
         studio: 'Cours de yoga',
         venue: 'Séjourner',

@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, X, Home, MessageCircle } from 'lucide-react'
+import { Menu, X, Home, MessageCircle, ChevronDown } from 'lucide-react'
 import Logo from '../Logo'
 import LanguageSwitcher from './LanguageSwitcher'
 import { useI18n } from '../../i18n'
@@ -17,6 +17,12 @@ export default function Header() {
     const { pathname } = useLocation()
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    /**
+     * Sous-menu ouvert au clic. Le survol seul ne suffisait pas : sur une
+     * tablette il n'existe pas, et cliquer sur « Retraites » emmenait sur la
+     * page des participantes sans jamais montrer « Louer le lieu ».
+     */
+    const [openSubmenu, setOpenSubmenu] = useState(null)
     const headerRef = useRef(null)
 
     /**
@@ -67,6 +73,23 @@ export default function Header() {
     // Referme le menu mobile après une navigation.
     useEffect(() => setIsMenuOpen(false), [pathname])
 
+    // Le sous-menu ouvert au clic se referme quand on change de page, et quand
+    // on clique ailleurs — sans quoi il resterait ouvert dans le dos du lecteur.
+    useEffect(() => setOpenSubmenu(null), [pathname])
+    useEffect(() => {
+        if (!openSubmenu) return
+        const close = (event) => {
+            if (!headerRef.current?.contains(event.target)) setOpenSubmenu(null)
+        }
+        const onEscape = (event) => { if (event.key === 'Escape') setOpenSubmenu(null) }
+        document.addEventListener('click', close)
+        document.addEventListener('keydown', onEscape)
+        return () => {
+            document.removeEventListener('click', close)
+            document.removeEventListener('keydown', onEscape)
+        }
+    }, [openSubmenu])
+
     // Empêche le défilement de la page derrière le menu mobile ouvert.
     useEffect(() => {
         document.body.style.overflow = isMenuOpen ? 'hidden' : ''
@@ -108,25 +131,40 @@ export default function Header() {
                 <nav className="hidden items-center gap-7 text-sm font-medium tracking-wide lg:flex">
                     {NAV_OFFERS.map(({ key, children }) =>
                         children ? (
-                            // Sous-menu ouvert au survol et au clavier (focus-within),
-                            // sans état React : rien à synchroniser, rien à fermer.
-                            <div key={key} className="group relative">
+                            // Le libellé reste un lien vers la page ; le chevron
+                            // à côté ouvre le sous-menu. Survol et clavier
+                            // continuent de fonctionner comme avant.
+                            <div key={key} className="group relative flex items-center gap-1">
                                 <NavLink to={path(key)} className={linkClass}>
                                     {t(`nav.${key}`)}
                                 </NavLink>
-                                <div className="pointer-events-none absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 pt-4 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                                <button
+                                    type="button"
+                                    aria-expanded={openSubmenu === key}
+                                    aria-label={t('nav.openSubmenu', { name: t(`nav.${key}`) })}
+                                    onClick={() => setOpenSubmenu(openSubmenu === key ? null : key)}
+                                    className="p-1 text-veda-light/60 transition-colors hover:text-veda-gold"
+                                >
+                                    <ChevronDown
+                                        className={`h-3.5 w-3.5 transition-transform duration-200 ${
+                                            openSubmenu === key ? 'rotate-180' : ''
+                                        }`}
+                                    />
+                                </button>
+                                <div
+                                    className={`absolute left-1/2 top-full z-50 w-64 -translate-x-1/2 pt-4 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100 ${
+                                        openSubmenu === key ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+                                    }`}
+                                >
                                     <div className="overflow-hidden rounded-2xl border border-white/10 bg-veda-dark shadow-premium">
                                         {children.map((child) => (
                                             <NavLink
-                                                key={child}
-                                                to={path(child)}
-                                                className={({ isActive }) =>
-                                                    `block px-5 py-3.5 text-sm font-light transition-colors duration-200 hover:bg-white/5 hover:text-veda-gold ${
-                                                        isActive ? 'text-veda-gold' : 'text-veda-light/80'
-                                                    }`
-                                                }
+                                                key={child.label}
+                                                to={path(child.key) + (child.hash ? `#${child.hash}` : '')}
+                                                onClick={() => setOpenSubmenu(null)}
+                                                className="block px-5 py-3.5 text-sm font-light text-veda-light/80 transition-colors duration-200 hover:bg-white/5 hover:text-veda-gold"
                                             >
-                                                {t(`nav.${child}Child`)}
+                                                {t(`nav.${child.label}`)}
                                             </NavLink>
                                         ))}
                                     </div>
@@ -206,11 +244,11 @@ export default function Header() {
                             </NavLink>
                             {children?.map((child) => (
                                 <NavLink
-                                    key={child}
-                                    to={path(child)}
+                                    key={child.label}
+                                    to={path(child.key) + (child.hash ? `#${child.hash}` : '')}
                                     className={mobileLinkClass('pl-5 font-light text-veda-light/70')}
                                 >
-                                    {t(`nav.${child}Child`)}
+                                    {t(`nav.${child.label}`)}
                                 </NavLink>
                             ))}
                         </Fragment>
