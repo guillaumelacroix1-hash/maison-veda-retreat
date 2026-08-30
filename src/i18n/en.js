@@ -134,6 +134,27 @@ export default {
         navAlaCarte: 'À la carte',
         navAvailability: 'Availability',
         navQuote: 'Quote',
+        essentialsTitle: 'The essentials',
+        essentials: [
+            {
+                label: 'Beds',
+                value: '7 beds',
+                detail: 'Four at the Lake Loft, three at the Lake House. On retreat, one bed per person. Up to 15 beds with the neighbouring villas.',
+            },
+            {
+                label: 'Rate',
+                value: '€200 / night',
+                detail: 'Both villas and their 7 beds. Full board: €30 per person per day.',
+            },
+            {
+                label: 'The shala',
+                value: '80 m²',
+                detail: 'Open-air, on the roof. Comfortable for 15 to 20 practitioners.',
+            },
+        ],
+        essentialsNote: 'Beyond 7 participants, the neighbouring villas are quoted separately: ask for a quote. On a holiday stay, the two villas sleep up to 9, with couples sharing the two double beds.',
+        roomsTitle: 'No private bedrooms',
+        roomsText: 'Worth knowing before you book: La Maison VEDA has no private bedrooms. The Lake House is a small house with two connecting rooms; at the Lake Loft, large curtains separate the sleeping areas, in a more luxurious spirit. The feel of a dormitory, far more intimate. It is also why we count one bed per person on retreat.',
         metaTitle: 'Host your retreat in Sri Lanka',
         title: 'Host your', titleAccent: 'retreat',
         lead: 'Teachers and small groups: La Maison VEDA opens its doors for your own retreat.',

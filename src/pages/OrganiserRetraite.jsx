@@ -47,6 +47,46 @@ export default function OrganiserRetraite() {
             />
 
 
+            {/* Les trois chiffres qui décident — capacité, tarif, shala — avant
+                l'argumentaire. Un organisateur doit fixer un prix par
+                participant avant même de nous écrire : sans ordre de grandeur,
+                il ne peut pas savoir si le lieu entre dans son modèle. Le devis
+                reste pour le sur-mesure (durée, groupe de plus de 7, à la carte). */}
+            <div className="border-b border-veda-gold/20 bg-veda-gold/[0.05] px-6 py-14">
+                <div className="mx-auto max-w-container">
+                    <h2 className="font-heading text-2xl text-veda-light">{t('host.essentialsTitle')}</h2>
+
+                    <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                        {t('host.essentials').map((fact) => (
+                            <div key={fact.label} className="rounded-2xl border border-veda-gold/20 bg-white/[0.03] p-7">
+                                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                                    {fact.label}
+                                </p>
+                                <p className="mt-4 whitespace-nowrap font-heading text-2xl lg:text-3xl">{fact.value}</p>
+                                <p className="mt-2 text-sm font-light leading-relaxed text-veda-light/60">
+                                    {fact.detail}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <p className="mt-6 text-sm font-light italic text-veda-light/60">
+                        {t('host.essentialsNote')}
+                    </p>
+
+                    {/* Aurélie insiste : personne ne doit découvrir sur place
+                        qu'il n'y a pas de chambre fermée. */}
+                    <div className="mt-8 rounded-2xl border border-veda-gold/30 p-7">
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                            {t('host.roomsTitle')}
+                        </p>
+                        <p className="mt-3 max-w-3xl text-sm font-light leading-relaxed text-veda-light/75">
+                            {t('host.roomsText')}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             {/* Argumentaire repris de la page source */}
             <Section id="le-lieu-pro" title={c.groups.title} accent={c.groups.titleAccent}>
                 <div className="max-w-3xl space-y-5">

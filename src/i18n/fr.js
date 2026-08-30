@@ -134,6 +134,27 @@ export default {
         navAlaCarte: 'À la carte',
         navAvailability: 'Disponibilités',
         navQuote: 'Devis',
+        essentialsTitle: 'L\'essentiel',
+        essentials: [
+            {
+                label: 'Couchages',
+                value: '7 lits',
+                detail: 'Quatre au Lake Loft, trois à la Lake House. En retraite, un lit par personne. Jusqu\'à 15 lits avec les villas voisines.',
+            },
+            {
+                label: 'Tarif',
+                value: '200 € / nuit',
+                detail: 'Les deux villas et leurs 7 lits. Pension complète : 30 € par personne et par jour.',
+            },
+            {
+                label: 'Le shala',
+                value: '80 m²',
+                detail: 'En rooftop, à ciel ouvert. Confortable pour 15 à 20 pratiquants.',
+            },
+        ],
+        essentialsNote: 'Au-delà de 7 participants, les villas voisines sont chiffrées à part : demandez un devis. En séjour de vacances, les deux villas accueillent jusqu\'à 9 personnes, les couples partageant les deux grands lits.',
+        roomsTitle: 'Pas de chambre individuelle',
+        roomsText: 'Il faut le savoir avant de réserver : La Maison VEDA n\'a pas de chambre privée. La Lake House est une petite maison à deux chambres communicantes ; au Lake Loft, de grands rideaux séparent les espaces de couchage, dans un esprit plus luxueux. L\'esprit d\'un dortoir, en beaucoup plus intime. C\'est aussi pourquoi nous comptons un lit par personne en retraite.',
         metaTitle: 'Organiser votre retraite au Sri Lanka',
         title: 'Organiser votre', titleAccent: 'retraite',
         lead: 'Professeurs et petits groupes : La Maison VEDA vous ouvre ses portes pour votre propre retraite.',
