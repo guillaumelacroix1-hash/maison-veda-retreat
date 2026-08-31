@@ -58,7 +58,7 @@ Privatisation complète des deux villas et du shala. Capacité : **7 couchages**
 Rien n'est imposé : vous dessinez votre retraite selon votre vision. Tarifs indicatifs, confirmés selon le praticien :
 
 - **Bien-être & mouvement** (dès 100 €/groupe) : un cours par un professeur certifié — Hatha, Vinyasa, Kundalini, Pilates
-- **Expériences profondes** (dès 200 €/groupe) : bain sonore, breathwork, cérémonie cacao, kirtan, atelier de cuisine sri-lankaise ou ayurvédique
+- **Expériences profondes** (dès 150 €/groupe) : bain sonore, breathwork, cérémonie cacao, kirtan, atelier de cuisine sri-lankaise ou ayurvédique
 - **Immersion ayurvédique** (dès 80 €/personne) : journée complète dans une maison ayurvédique familiale traditionnelle, à 20 min
 - **Culture & nature** (10–35 €/personne/activité) : bateau sur le lac Koggala au départ du jardin, temple du lac & rituel puja, centre de conservation des tortues, fort de Galle (UNESCO), fabrique de thé, surf
 
@@ -153,7 +153,7 @@ Full privatisation of the two villas and the shala. Capacity: **7 beds**. Minimu
 Nothing is imposed: you design your retreat according to your vision. Indicative prices, confirmed depending on the practitioner:
 
 - **Wellness & movement** (from €100/group): a class with a certified teacher — Hatha, Vinyasa, Kundalini, Pilates
-- **Deep experiences** (from €200/group): sound bath, breathwork, cacao ceremony, kirtan, Sri Lankan or Ayurvedic cooking workshop
+- **Deep experiences** (from €150/group): sound bath, breathwork, cacao ceremony, kirtan, Sri Lankan or Ayurvedic cooking workshop
 - **Ayurvedic immersion** (from €80/person): a full day in a traditional family Ayurvedic house, 20 minutes away
 - **Culture & nature** (€10–35/person/activity): boat ride on Koggala Lake from the garden, lakeside temple & puja ritual, turtle conservation centre, Galle Fort (UNESCO), tea factory, surfing
 

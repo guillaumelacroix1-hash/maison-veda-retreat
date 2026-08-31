@@ -181,7 +181,7 @@ export const SRILANKA = {
                 },
                 {
                     title: 'Expériences profondes',
-                    price: 'à partir de 200 € par groupe',
+                    price: 'à partir de 150 € par groupe',
                     detail: 'Bain sonore — bols de cristal, bols tibétains, gong —, breathwork, cacao cérémonie, kirtan avec musiciens, atelier de cuisine sri-lankaise ou ayurvédique.',
                 },
                 {
@@ -195,7 +195,7 @@ export const SRILANKA = {
                     detail: 'Balade en bateau sur le lac au départ du jardin, temple et rituel puja avec un guide bouddhiste, écloserie de tortues, fort de Galle (UNESCO), fabrique de thé, surf.',
                 },
             ],
-            alaCarteNote: 'Tarifs indicatifs, confirmés selon le praticien. Le détail complet figure dans l\'Info Pack Organisateurs.',
+            alaCarteNote: 'Chaque expérience se facture au tarif de l\'intervenant, majoré de la coordination assurée par La Maison VEDA. Les intervenants revoient leurs tarifs chaque saison : ceux-ci sont confirmés au moment de la réservation. Le détail complet figure dans l\'Info Pack Organisateurs.',
             alaCarteTravel: 'Et pour prolonger la retraite par un circuit à travers l\'île, tout se passe du côté de VEDA Travel.',
             upcomingTitle: 'Retraites à venir',
             upcomingText: [
@@ -475,7 +475,7 @@ export const SRILANKA = {
                 },
                 {
                     title: 'Deep experiences',
-                    price: 'from €200 per group',
+                    price: 'from €150 per group',
                     detail: 'Sound bath — crystal bowls, Tibetan bowls, gong —, breathwork, cacao ceremony, kirtan with musicians, Sri Lankan or Ayurvedic cooking workshop.',
                 },
                 {
@@ -489,7 +489,7 @@ export const SRILANKA = {
                     detail: 'Boat ride on the lake from the garden, temple and puja ritual with a Buddhist guide, turtle hatchery, Galle Fort (UNESCO), tea factory, surfing.',
                 },
             ],
-            alaCarteNote: 'Indicative rates, confirmed depending on the practitioner. Full detail in the Organisers Info Pack.',
+            alaCarteNote: 'Each experience is billed at the practitioner\'s fee plus the coordination handled by La Maison VEDA. Practitioners revise their rates each season: these are confirmed when you book. Full detail in the Organisers Info Pack.',
             alaCarteTravel: 'And to extend the retreat with a journey across the island, head over to VEDA Travel.',
             upcomingTitle: 'Upcoming retreats',
             upcomingText: [
