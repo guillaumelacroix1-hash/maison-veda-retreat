@@ -55,12 +55,19 @@ export const SECTIONS = [
     },
     {
         cle: 'sorties',
-        fr: { nom: 'Sorties que nous organisons', note: 'Transport et cours compris, facturés par personne. Ces tarifs sont en cours d\'actualisation auprès de nos prestataires : ils sont confirmés à la réservation.' },
-        en: { nom: 'Outings we organise', note: 'Transport and lesson included, billed per person. These rates are being updated with our providers: they are confirmed when you book.' },
+        fr: { nom: 'Sorties et visites', note: 'Nous les organisons et nous les facturons. Les tarifs marqués « en cours d\'actualisation » sont redemandés à nos chauffeurs et prestataires : ils sont confirmés au moment de la réservation.' },
+        en: { nom: 'Outings and visits', note: 'We organise them and we bill them. Rates marked “being updated” are being re-quoted with our drivers and providers: they are confirmed when you book.' },
         unite: 'personne',
         lignes: [
             { cle: 'surf', prix: 25, parPersonne: true, fr: 'Cours de surf — transport et cours compris', en: 'Surf lesson — transport and lesson included' },
             { cle: 'ayurveda', prix: 80, parPersonne: true, fr: 'Immersion ayurvédique — journée complète en maison traditionnelle', en: 'Ayurvedic immersion — full day in a traditional house' },
+            { cle: 'puja', prix: 0, surDemande: true, fr: 'Rituel puja au temple bouddhiste', en: 'Puja ritual at the Buddhist temple' },
+            { cle: 'tortues', prix: 0, surDemande: true, fr: 'Visite du turtle hatchery', en: 'Turtle hatchery visit' },
+            { cle: 'pagode', prix: 0, surDemande: true, fr: 'Pagode japonaise d\'Unawatuna', en: 'Japanese pagoda in Unawatuna' },
+            { cle: 'galle', prix: 0, surDemande: true, fr: 'Ville de Galle (UNESCO)', en: 'Galle Fort (UNESCO)' },
+            { cle: 'the', prix: 0, surDemande: true, fr: 'Fabrique de thé', en: 'Tea factory' },
+            { cle: 'safari', prix: 0, surDemande: true, fr: 'Safari éléphant — journée entière, départ 5 h', en: 'Elephant safari — full day, 5 am start' },
+            { cle: 'cuisine', prix: 0, surDemande: true, fr: 'Cours de cuisine sri-lankaise', en: 'Sri Lankan cooking class' },
         ],
     },
     {
@@ -89,10 +96,3 @@ export const SECTIONS = [
     },
 ]
 
-/** Organisées mais non facturées : transport et billets sont réglés sur place. */
-export const SORTIES_LIBRES = {
-    fr: ['Rituel puja au temple bouddhiste', 'Écloserie de tortues', 'Pagode japonaise d\'Unawatuna',
-         'Fort de Galle (UNESCO)', 'Fabrique de thé', 'Safari éléphant', 'Cours de cuisine sri-lankaise'],
-    en: ['Puja ritual at the Buddhist temple', 'Turtle hatchery', 'Japanese pagoda in Unawatuna',
-         'Galle Fort (UNESCO)', 'Tea factory', 'Elephant safari', 'Sri Lankan cooking class'],
-}

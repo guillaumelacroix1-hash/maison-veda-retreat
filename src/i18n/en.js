@@ -140,7 +140,7 @@ export default {
         simParticipants: 'Participants',
         simNights: 'Nights',
         simOrganisers: 'Organisers',
-        simOnRequest: 'On request',
+        simOnRequest: 'Rate being updated',
         simSleeps: 'sleeps {n}',
         simPer_night: 'night', simPer_trip: 'trip', simPer_session: 'session', simPer_person: 'person',
         simBoard: 'Full board',

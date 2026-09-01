@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { Minus, Plus, MessageCircle, AlertTriangle, Check } from 'lucide-react'
 import { useI18n } from '../../i18n'
 import { CONTACT } from '../../data/site'
-import { BASE, PENSION, SECTIONS, SORTIES_LIBRES, NUITS_MINIMUM } from '../../data/retreatQuote'
+import { BASE, PENSION, SECTIONS, NUITS_MINIMUM } from '../../data/retreatQuote'
 
 /**
  * Simulateur de devis pour un organisateur de retraite.
@@ -174,13 +174,6 @@ export default function RetreatSimulator() {
                     </div>
                 ))}
 
-                <div className="rounded-2xl border border-veda-dark/10 bg-veda-dark/[0.03] p-6">
-                    <h4 className="font-heading text-lg text-veda-dark">{t('host.simOutings')}</h4>
-                    <p className="mt-1 text-xs font-light leading-relaxed text-veda-dark/55">{t('host.simOutingsNote')}</p>
-                    <p className="mt-3 text-sm font-light leading-relaxed text-veda-dark/70">
-                        {(SORTIES_LIBRES[lang] ?? SORTIES_LIBRES.fr).join(' · ')}
-                    </p>
-                </div>
             </div>
 
             <div className="lg:sticky lg:top-40">

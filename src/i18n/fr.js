@@ -140,7 +140,7 @@ export default {
         simParticipants: 'Participants',
         simNights: 'Nuits',
         simOrganisers: 'Organisateurs',
-        simOnRequest: 'Sur demande',
+        simOnRequest: 'Tarif en cours d\'actualisation',
         simSleeps: 'loge {n} personne(s)',
         simPer_night: 'nuit', simPer_trip: 'trajet', simPer_session: 'séance', simPer_person: 'personne',
         simBoard: 'Pension complète',
