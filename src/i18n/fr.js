@@ -149,8 +149,8 @@ export default {
         simBedsOk: '{places} couchages réservés pour {monde} personnes — un lit par personne.',
         simMinNights: 'Le séjour minimum est de {n} nuits.',
         simBaseLabel: 'Compris d\'office',
-        simBaseTitle: 'La Maison VEDA — les deux villas et le shala',
-        simBaseNote: 'Base de toute retraite, privatisation complète, 7 couchages. Les hébergements partenaires ne se réservent qu\'en complément.',
+        simBaseTitle: 'La Maison VEDA — 7 couchages en chambre partagée',
+        simBaseNote: 'Les deux villas et le shala, en privatisation complète : 4 couchages au Lake Loft, 3 à la Lake House. Base de toute retraite — les hébergements partenaires ne se réservent qu\'en complément.',
         simOutings: 'Sorties et visites',
         simOutingsNote: 'Nous les organisons sans les facturer : transport et billets sont réglés sur place par les participants. Les tarifs de transport sont en cours d\'actualisation auprès de nos chauffeurs — sur demande pour le moment.',
         simSummary: 'Votre récapitulatif',
@@ -158,6 +158,7 @@ export default {
         simPerParticipant: 'Soit {amount} par participant',
         simCta: 'Envoyer ce projet par WhatsApp',
         simDisclaimer: 'Estimation indicative. Écrivez-nous avec vos dates et nous vous répondons par un devis ferme sous 48 h.',
+        simPeople: 'Personnes', simPricePerPerson: 'Prix / personne',
         essentialsTitle: 'L\'essentiel',
         essentials: [
             {

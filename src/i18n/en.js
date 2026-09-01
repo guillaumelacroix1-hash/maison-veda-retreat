@@ -149,8 +149,8 @@ export default {
         simBedsOk: '{places} beds booked for {monde} people — one bed each.',
         simMinNights: 'The minimum stay is {n} nights.',
         simBaseLabel: 'Always included',
-        simBaseTitle: 'La Maison VEDA — both villas and the shala',
-        simBaseNote: 'The base of every retreat, exclusive use, 7 beds. Partner accommodation can only be booked in addition.',
+        simBaseTitle: 'La Maison VEDA — 7 beds in shared rooms',
+        simBaseNote: 'Both villas and the shala, for your exclusive use: 4 beds at the Lake Loft, 3 at the Lake House. The base of every retreat — partner accommodation can only be booked in addition.',
         simOutings: 'Outings and visits',
         simOutingsNote: 'We organise them without billing them: transport and tickets are paid on site by the participants. Transport rates are being updated with our drivers — on request for now.',
         simSummary: 'Your summary',
@@ -158,6 +158,7 @@ export default {
         simPerParticipant: 'That is {amount} per participant',
         simCta: 'Send this plan by WhatsApp',
         simDisclaimer: 'Indicative estimate. Write to us with your dates and we reply with a firm quote within 48 hours.',
+        simPeople: 'People', simPricePerPerson: 'Price / person',
         essentialsTitle: 'The essentials',
         essentials: [
             {
