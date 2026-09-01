@@ -41,7 +41,7 @@ Privatisation complète des deux villas et du shala. Capacité : **7 couchages**
 
 ## Les hébergements partenaires (en option)
 
-**Chalets Tothupola** — accès direct par une porte de jardin. Deux chalets en bois construits par des artisans sri-lankais : 2 lits simples chacun, salle de bain privée, climatisation, piscine dans le jardin avec vue lac (accès piscine réservé aux locataires de Tothupola). **+4 couchages** (total : 11).
+**Chalets Tothupola** — accès direct par une porte de jardin. Deux chalets en bois construits par des artisans sri-lankais : 1 lit double + 1 lit simple chacun, salle de bain privée, climatisation, piscine dans le jardin avec vue lac (accès piscine réservé aux locataires de Tothupola). **+4 couchages** (total : 11).
 
 **Villas Jungle Breeze** — à 1 minute à pied, propriété rénovée avec goût au bord du lac : 5 chambres doubles, chacune avec terrasse ou balcon privé — dont un appartement flottant sur coques de catamaran et une maison en terre traditionnelle. Cuisine sur place. **Total avec la base et Tothupola : 16 couchages.**
 
@@ -136,7 +136,7 @@ Full privatisation of the two villas and the shala. Capacity: **7 beds**. Minimu
 
 ## Partner accommodation (optional)
 
-**Tothupola chalets** — direct access through a garden gate. Two wooden chalets built by Sri Lankan artisans: 2 single beds each, private bathroom, air conditioning, garden pool with lake view (pool access reserved for Tothupola guests). **+4 beds** (total: 11).
+**Tothupola chalets** — direct access through a garden gate. Two wooden chalets built by Sri Lankan artisans: 1 double + 1 single bed each, private bathroom, air conditioning, garden pool with lake view (pool access reserved for Tothupola guests). **+4 beds** (total: 11).
 
 **Jungle Breeze villas** — a 1-minute walk, a tastefully renovated lakeside property: 5 double rooms, each with a private terrace or balcony — including a floating apartment on catamaran hulls and a traditional earth house. On-site kitchen. **Total with the base and Tothupola: 16 beds.**
 
