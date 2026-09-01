@@ -9,6 +9,7 @@ import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
 import Accordion from '../components/site/Accordion'
+import RetreatSimulator from '../components/site/RetreatSimulator'
 import { Form, Field, TextareaField } from '../components/site/Forms'
 import { CONTACT } from '../data/site'
 import { srilanka, SRILANKA_LINKS } from '../data/srilankaContent'
@@ -41,6 +42,7 @@ export default function OrganiserRetraite() {
                     { id: 'comment', label: t('host.navHow') },
                     { id: 'a-la-carte', label: t('host.navAlaCarte') },
                     { id: 'dispos', label: t('host.navAvailability') },
+                    { id: 'simulateur', label: t('host.navSimulator') },
                     { id: 'devis', label: t('host.navQuote') },
                     // Retour visible vers l'autre versant des retraites.
                     { to: path('retreats'), label: t('nav.retreatsChild') },
@@ -250,6 +252,18 @@ export default function OrganiserRetraite() {
             {/* Champs repris du formulaire « Book Your Yoga Retreat Venue » de la source.
                 Section sombre sur photo : le formulaire n'est plus un bloc posé
                 sur du crème, il fait corps avec la page. */}
+            {/* Le simulateur juste avant le formulaire : on compose, puis on
+                demande. L'adresse e-mail n'est jamais exigée pour regarder. */}
+            <Section
+                id="simulateur"
+                tone="light"
+                title={t('host.simTitle')}
+                accent={t('host.simAccent')}
+                lead={t('host.simLead')}
+            >
+                <RetreatSimulator />
+            </Section>
+
             <Section
                 id="devis"
                 title={c.venueForm.title}
