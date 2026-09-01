@@ -240,9 +240,9 @@ export default {
         additionalTitle: 'Hébergements complémentaires',
         additionalLead: 'À quelques pas, pour les groupes qui dépassent la capacité de la maison.',
         tothupola: 'Chalets Tothupola',
-        tothupolaDistance: 'Hôtel partenaire, mitoyen de La Maison VEDA',
+        tothupolaDistance: 'Hôtel partenaire mitoyen · chalets en bois et petite piscine',
         jungleBreeze: 'Villa Jungle Breeze',
-        jungleBreezeDistance: 'Hôtel partenaire, à deux minutes à pied',
+        jungleBreezeDistance: 'Hôtel partenaire à deux minutes à pied · nichée dans la verdure',
         galleryTitle: 'Galerie',
         // Nav interne, reprise des ancres du site source
         navPlace: 'Le lieu',

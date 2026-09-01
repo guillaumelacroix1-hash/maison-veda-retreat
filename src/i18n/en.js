@@ -240,9 +240,9 @@ export default {
         additionalTitle: 'Additional accommodation',
         additionalLead: 'A few steps away, for groups larger than the house can hold.',
         tothupola: 'Tothupola Chalets',
-        tothupolaDistance: 'Partner hotel, adjoining La Maison VEDA',
+        tothupolaDistance: 'Adjoining partner hotel · wooden chalets and a small pool',
         jungleBreeze: 'Villa Jungle Breeze',
-        jungleBreezeDistance: 'Partner hotel, two minutes on foot',
+        jungleBreezeDistance: 'Partner hotel two minutes on foot · nestled in the greenery',
         galleryTitle: 'Gallery',
         // Internal nav, taken from the source site's anchors
         navPlace: 'The place',
