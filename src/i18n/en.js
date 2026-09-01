@@ -152,7 +152,7 @@ export default {
         simBaseTitle: 'La Maison VEDA — both villas and the shala',
         simBaseNote: 'The base of every retreat, exclusive use, 7 beds. Partner accommodation can only be booked in addition.',
         simOutings: 'Outings and visits',
-        simOutingsNote: 'We organise them without billing them: transport and tickets are paid by the participants.',
+        simOutingsNote: 'We organise them without billing them: transport and tickets are paid on site by the participants. Transport rates are being updated with our drivers — on request for now.',
         simSummary: 'Your summary',
         simTotal: 'Total',
         simPerParticipant: 'That is {amount} per participant',

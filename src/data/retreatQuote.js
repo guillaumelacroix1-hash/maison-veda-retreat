@@ -25,7 +25,7 @@ export const SECTIONS = [
         lignes: [
             { cle: 'chalet1', prix: 75, couchages: 2, fr: 'Chalet 1, le plus petit — 1 lit double + 1 lit simple', en: 'Chalet 1, the smaller — 1 double + 1 single bed' },
             { cle: 'chalet2', prix: 75, couchages: 2, fr: 'Chalet 2, le plus grand — 1 lit double + 1 lit simple', en: 'Chalet 2, the larger — 1 double + 1 single bed' },
-            { cle: 'appoint', prix: 0, couchages: 1, max: 2, surDemande: true,
+            { cle: 'appoint', prix: 15, couchages: 1, max: 2,
               fr: 'Lit d\'appoint — un lit pliant par chalet, 2 au maximum',
               en: 'Extra bed — one folding bed per chalet, 2 maximum' },
         ],
@@ -55,8 +55,8 @@ export const SECTIONS = [
     },
     {
         cle: 'sorties',
-        fr: { nom: 'Sorties que nous organisons', note: 'Transport et cours compris, facturés par personne' },
-        en: { nom: 'Outings we organise', note: 'Transport and lesson included, billed per person' },
+        fr: { nom: 'Sorties que nous organisons', note: 'Transport et cours compris, facturés par personne. Ces tarifs sont en cours d\'actualisation auprès de nos prestataires : ils sont confirmés à la réservation.' },
+        en: { nom: 'Outings we organise', note: 'Transport and lesson included, billed per person. These rates are being updated with our providers: they are confirmed when you book.' },
         unite: 'personne',
         lignes: [
             { cle: 'surf', prix: 25, parPersonne: true, fr: 'Cours de surf — transport et cours compris', en: 'Surf lesson — transport and lesson included' },

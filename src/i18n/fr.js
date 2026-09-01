@@ -152,7 +152,7 @@ export default {
         simBaseTitle: 'La Maison VEDA — les deux villas et le shala',
         simBaseNote: 'Base de toute retraite, privatisation complète, 7 couchages. Les hébergements partenaires ne se réservent qu\'en complément.',
         simOutings: 'Sorties et visites',
-        simOutingsNote: 'Nous les organisons sans les facturer : transport et billets sont réglés par les participants.',
+        simOutingsNote: 'Nous les organisons sans les facturer : transport et billets sont réglés sur place par les participants. Les tarifs de transport sont en cours d\'actualisation auprès de nos chauffeurs — sur demande pour le moment.',
         simSummary: 'Votre récapitulatif',
         simTotal: 'Total',
         simPerParticipant: 'Soit {amount} par participant',
