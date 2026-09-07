@@ -36,7 +36,6 @@ export default function Retraites() {
             <SectionNav
                 items={[
                     { id: 'a-venir', label: t('retreats.navUpcoming') },
-                    { id: 'mini', label: t('retreats.navMini') },
                     { id: 'passees', label: t('retreats.navPast') },
                 ]}
             />
@@ -108,16 +107,6 @@ export default function Retraites() {
                 )}
             </Section>
 
-            <Section
-                id="mini"
-                tone="light"
-                title={t('retreats.miniTitle')}
-                accent={t('retreats.miniAccent')}
-                lead={t('retreats.miniLead')}
-                aside={SRILANKA_MEDIA['yoga-shala'][2]}
-            >
-                <ContentGap id="mini-retreats" className="max-w-3xl" />
-            </Section>
 
             <Section id="passees" title={t('retreats.pastTitle')} accent={t('retreats.pastAccent')} lead={t('retreats.pastLead')}>
                 {past.length > 0 ? (

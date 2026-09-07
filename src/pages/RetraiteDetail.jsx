@@ -4,10 +4,11 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
-import ContentGap from '../components/site/ContentGap'
+import FaqList from '../components/site/FaqList'
 import NotFound from './NotFound'
 import RetraiteSriLanka2027 from './RetraiteSriLanka2027'
 import { getRetreat } from '../data/retreats'
+import { srilanka } from '../data/srilankaContent'
 import { DEPOSIT_RATE } from '../data/site'
 
 /** Retraites disposant d'une page dessinée sur mesure. */
@@ -30,9 +31,12 @@ export default function RetraiteDetail() {
     if (CustomPage) return <CustomPage />
 
     const copy = retreat[lang] ?? retreat.fr
-    const deposit = retreat.pricing?.from
+    const c = srilanka(lang)
+    // Février garde l'acompte déjà encaissé ; les autres retraites suivent
+    // la règle des 30 %.
+    const deposit = retreat.deposit ?? (retreat.pricing?.from
         ? Math.round(retreat.pricing.from * DEPOSIT_RATE)
-        : null
+        : null)
     const isSoldOut = retreat.spotsLeft === 0
 
     const facts = [
@@ -83,12 +87,9 @@ export default function RetraiteDetail() {
 
                 {deposit && (
                     <p className="mt-8 text-sm font-light text-veda-light/60">
-                        {t('retreats.book')} : {deposit} €. L'acompte n'est pas remboursable, mais il est
-                        transférable sur une autre retraite ou cessible à une autre personne.
+                        {t('retreats.book')} : {deposit} €. {t('retreats.depositTerms')}
                     </p>
                 )}
-
-                <ContentGap id="retreat-balance" className="mt-8 max-w-3xl" />
 
                 <div className="mt-10">
                     {isSoldOut ? (
@@ -107,7 +108,20 @@ export default function RetraiteDetail() {
             </Section>
 
             <Section tone="light" title={t('retreats.faq')}>
-                <ContentGap id="faq" className="max-w-3xl" />
+                <div className="space-y-10">
+                    {[
+                        { key: 'travel', label: t('contact.faqTravel') },
+                        { key: 'onSite', label: t('contact.faqOnSite') },
+                        { key: 'practice', label: t('contact.faqPractice') },
+                    ].map((family) => (
+                        <div key={family.key}>
+                            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                                {family.label}
+                            </h3>
+                            <FaqList items={c.contact.faq[family.key]} tone="light" className="max-w-3xl" />
+                        </div>
+                    ))}
+                </div>
             </Section>
         </>
     )

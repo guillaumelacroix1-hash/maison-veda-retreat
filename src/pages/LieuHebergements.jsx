@@ -327,9 +327,13 @@ export default function LieuHebergements() {
 
             {/* Hébergements complémentaires */}
             <Section title={c.retreats.additionalTitle} accent={c.retreats.additionalAccent}>
-                <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">
-                    {c.retreats.additionalText}
-                </p>
+                <div className="max-w-3xl space-y-5">
+                    {c.retreats.additionalText.map((p) => (
+                        <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
+                            {p}
+                        </p>
+                    ))}
+                </div>
 
                 {/* Partenaires en accordéon : la maison reste en vedette, mais
                     toutes leurs photos sont conservées (§4). */}
@@ -341,14 +345,21 @@ export default function LieuHebergements() {
                             title: t('venue.tothupola'),
                             // La distance est ce qu'un organisateur veut savoir en
                             // premier : son groupe sera-t-il éparpillé ?
-                            subtitle: `${t('venue.tothupolaDistance')} · ${SRILANKA_MEDIA.tothupola.length} photos`,
+                            subtitle: `${t('venue.tothupolaDistance')} · ${t('venue.beds', { n: 4 })}`,
                             content: <MediaGallery images={SRILANKA_MEDIA.tothupola} initial={8} />,
                         },
                         {
                             key: 'jungle-breeze',
                             title: t('venue.jungleBreeze'),
-                            subtitle: `${t('venue.jungleBreezeDistance')} · ${SRILANKA_MEDIA['jungle-breeze'].length} photos`,
-                            content: <MediaGallery images={SRILANKA_MEDIA['jungle-breeze']} initial={8} />,
+                            subtitle: `${t('venue.jungleBreezeDistance')} · ${t('venue.beds', { n: 4 })}`,
+                            content: (
+                                <>
+                                    <p className="mb-6 text-sm font-light italic leading-relaxed text-veda-light/60">
+                                        {c.retreats.floatingNote}
+                                    </p>
+                                    <MediaGallery images={SRILANKA_MEDIA['jungle-breeze']} initial={8} />
+                                </>
+                            ),
                         },
                     ]}
                 />

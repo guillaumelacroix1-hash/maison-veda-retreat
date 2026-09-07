@@ -37,6 +37,10 @@ export const RETREATS = [
         guides: ['Aurélie Dutrey (Radha Navjot Kaur)', 'Nathalie Catinaud'],
         // Même visuel que le hero de la page retraite, pour la continuité.
         image: '/visites/IMG_0945.jpg',
+        // Les participants de février ont déjà versé 500 €. Cette retraite garde
+        // donc son acompte en euros ; toutes les suivantes suivent DEPOSIT_RATE,
+        // soit 30 % (décision d'Aurélie du 07/09/2026).
+        deposit: 500,
         pricing: {
             currency: 'EUR',
             from: 1280,

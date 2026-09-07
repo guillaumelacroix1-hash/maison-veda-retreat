@@ -334,16 +334,13 @@ export default function Studio() {
                 </div>
             </Section>
 
-            {/* Le café n'est encore qu'une envie : formulé comme tel, sans
-                rien promettre tant que rien n'est organisé. */}
+            {/* Le café n'est encore qu'une envie. On la formule comme telle,
+                sans horaires ni carte : rien n'est décidé, et c'est voulu. */}
             <Section
                 tone="light"
                 title={t('studio.cafeTitle')}
                 accent={t('studio.cafeAccent')}
-                lead={t('studio.cafeLead')}
-            >
-                <ContentGap id="studio-cafe" className="max-w-3xl" />
-            </Section>
+            />
 
             {/* Appel à l'action final, posé sur une photo du lieu */}
             <Section

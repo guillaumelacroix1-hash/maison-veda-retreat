@@ -25,12 +25,6 @@ export const OWNERS = {
 }
 
 export const CONTENT_GAPS = {
-    'retreat-balance': {
-        fr: 'Conditions de paiement à trancher : la page retraite annonce un acompte de 500 € par virement, un solde au 15 janvier et un remboursement si un remplacement est trouvé. Le cahier des charges prévoit un acompte de 30 % payé en ligne, non remboursable mais transférable. Les deux ne peuvent pas coexister.',
-        en: 'Payment terms to settle: the retreat page announces a €500 deposit by bank transfer, a balance due on 15 January and a refund if a replacement is found. The brief provides for a 30% deposit paid online, non-refundable but transferable. The two cannot coexist.',
-        owner: OWNERS.aurelie,
-        ref: '§6, §12',
-    },
     'studio-schedule': {
         fr: 'Le planning affiché est celui de la semaine d\'ouverture, dicté par Aurélie le 30/08/2026. Il change chaque semaine : mettre à jour WEEK et SCHEDULE dans src/data/studioSchedule.js. Le créneau de 10 h – 11 h 30 est déjà défini et s\'affichera de lui-même dès qu\'un cours y sera inscrit.',
         en: 'The schedule shown is the opening week, dictated by Aurélie on 30/08/2026. It changes every week: update WEEK and SCHEDULE in src/data/studioSchedule.js. The 10–11.30 slot is already defined and will appear on its own as soon as a class is put in it.',
@@ -43,12 +37,6 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelie,
         ref: '§12',
     },
-    'studio-cafe': {
-        fr: 'Le café et le petit-déjeuner au jardin restent à organiser concrètement (horaires, carte, prix). Le site les annonce simplement, sans détail : les clients découvriront sur place.',
-        en: 'The garden café and breakfast still need to be organised in practice (hours, menu, prices). The site simply announces them, without detail: guests will discover on site.',
-        owner: OWNERS.aurelie,
-        ref: '§12',
-    },
     'availability': {
         fr: 'Un organisateur doit pouvoir vérifier les dates libres avant d\'écrire, sans quoi il propose des périodes déjà prises et l\'échange repart de zéro. La source doit être le channel manager Bed24 que Manu met en place : lui seul connaît à la fois les réservations directes et celles venues d\'Airbnb et de Booking.com. Une liste tenue à la main serait fausse dès la première réservation reçue ailleurs. À ajouter au périmètre de Manu : un calendrier de disponibilités affiché ici.',
         en: 'An organiser needs to check open dates before writing, otherwise they propose periods already taken and the exchange starts over. The source has to be the Bed24 channel manager Manu is setting up: only it knows both direct bookings and those coming from Airbnb and Booking.com. A hand-kept list would be wrong the moment a booking lands elsewhere. To add to Manu\'s scope: an availability calendar displayed here.',
@@ -56,8 +44,8 @@ export const CONTENT_GAPS = {
         ref: '§6, §12',
     },
     'around-photos': {
-        fr: 'Deux photos manquent à cette liste. La journée à Unawatuna — pagode japonaise, Jungle Beach, plage et boutiques — n\'a pas de carte faute d\'une photo de la pagode ; elle apparaîtra dès qu\'une image sera déposée. Et la photo d\'observation des baleines ne fait que 275 × 183 pixels : elle est molle dans sa carte, une vraie photo de sortie en mer la remplacerait avantageusement.',
-        en: 'Two photos are missing from this list. The day in Unawatuna — Japanese Pagoda, Jungle Beach, shopping and beach — has no card for want of a photo of the pagoda; it will appear as soon as one is supplied. And the whale watching photo is only 275 × 183 pixels: it looks soft in its card, and a real photo from a boat trip would serve far better.',
+        fr: 'La photo d\'observation des baleines ne fait que 275 × 183 pixels : elle est molle dans sa carte. Une vraie photo de sortie en mer la remplacerait avantageusement. La carte de la journée à Unawatuna, elle, est complète depuis le 07/09/2026.',
+        en: 'The whale watching photo is only 275 × 183 pixels: it looks soft in its card, and a real photo from a boat trip would serve far better. The Unawatuna day card has been complete since 07/09/2026.',
         owner: OWNERS.aurelie,
         ref: '§12',
     },
@@ -73,12 +61,6 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelieClaude,
         ref: '§11, §12',
     },
-    'info-pack': {
-        fr: 'Fusion des deux PDF actuels (Venue Hire Info Pack et Votre retraite à la Maison VEDA) en un seul Info Pack Organisateurs, en français et en anglais.',
-        en: 'Merge of the two current PDFs (Venue Hire Info Pack and Votre retraite à la Maison VEDA) into a single Organisers Info Pack, in French and English.',
-        owner: OWNERS.aurelieClaude,
-        ref: '§7, §12',
-    },
     'media-kit': {
         fr: 'Constitution du kit média : dossier de photos professionnelles envoyé aux organisateurs avec leur devis.',
         en: 'Media kit: folder of professional photos sent to organisers along with their quote.',
@@ -91,41 +73,11 @@ export const CONTENT_GAPS = {
         owner: OWNERS.aurelie,
         ref: '§4',
     },
-    'story-rest': {
-        fr: 'Le récit repris du site s\'arrête à la découverte du Kundalini en Inde. Il manque la suite : comment La Maison VEDA est née au Sri Lanka, l\'installation à Habaraduwa, et le lien avec le studio de St-Simon en Charente.',
-        en: 'The story taken from the site stops at discovering Kundalini in India. The rest is missing: how La Maison VEDA came to be in Sri Lanka, settling in Habaraduwa, and the link with the St-Simon studio in Charente.',
-        owner: OWNERS.aurelieClaude,
-        ref: '§8, §12',
-    },
-    'team': {
-        fr: 'Présentation de l\'équipe : Aurélie, Anna pour le studio, et l\'équipe sri-lankaise qui assure la restauration et le service en chambre. Visages, prénoms et rôles. Le site source ne présente aucune équipe.',
-        en: 'The team: Aurélie, Anna for the studio, and the Sri Lankan team handling catering and room service. Faces, first names and roles. The source site presents no team.',
-        owner: OWNERS.aurelie,
-        ref: '§4, §12',
-    },
     'event-prices': {
         fr: 'Le texte de présentation du kirtan a été écrit ici faute d\'avoir celui de Siri Sadhana Kaur : à lui faire relire avant l\'ouverture des réservations.',
         en: 'The kirtan description was written here for want of Siri Sadhana Kaur\'s own: to be approved by her before bookings open.',
         owner: OWNERS.aurelie,
         ref: '§4, §7',
-    },
-    'values': {
-        fr: 'Les valeurs du lieu. Le site source les évoque en filigrane (petits groupes, tourisme responsable, hospitalité sincère, cuisine végétarienne ayurvédique) mais ne les formule jamais explicitement.',
-        en: 'The values of the house. The source site hints at them (small groups, responsible tourism, sincere hospitality, Ayurvedic vegetarian food) but never states them explicitly.',
-        owner: OWNERS.aurelieClaude,
-        ref: '§4, §12',
-    },
-    'faq': {
-        fr: 'FAQ en trois familles : logistique du voyage (visa, vols, transferts, sécurité, saison), vie sur place (repas, wifi, moustiques, argent, langue), pratique (niveau requis, venir seul·e, âge, matériel).',
-        en: 'FAQ in three families: travel logistics (visa, flights, transfers, safety, season), life on site (meals, wifi, mosquitoes, money, language), practice (level required, coming alone, age, equipment).',
-        owner: OWNERS.aurelieClaude,
-        ref: '§8, §12',
-    },
-    'mini-retreats': {
-        fr: 'Mini-retraites de 2 nuits du studio, animées par Lilie et Anna, 7 participants maximum. Projet issu du brouillon de collaboration, à confirmer avec Anna.',
-        en: 'Two-night studio mini-retreats led by Lilie and Anna, 7 participants maximum. Taken from the collaboration draft, to be confirmed with Anna.',
-        owner: OWNERS.aurelieAnna,
-        ref: '§4, §11',
     },
     'villa-booking': {
         fr: 'Manu met en place la réservation en direct des villas : paiement en ligne, vraisemblablement par Stripe — le prestataire reste à confirmer. Toutes les réservations seront ensuite centralisées dans le channel manager Bed24, qui synchronisera ce site avec Airbnb et Booking.com. En attendant, « réserver en direct » passe par un lien de paiement Revolut.',

@@ -7,13 +7,17 @@ import { CONTENT_GAPS } from '../../data/contentGaps'
  * Rend visible la section 12 du cahier des charges directement dans le site,
  * plutôt que de laisser un blanc ou, pire, un texte inventé (section 8).
  *
- * Pour masquer toutes ces zones d'un coup, par exemple pour une démo client :
- * VITE_HIDE_CONTENT_GAPS=true dans l'environnement de build.
+ * Ces zones sont un outil de travail, pas du contenu : elles nomment nos
+ * prestataires et disent ce qui n'est pas prêt. Elles ne s'affichent donc
+ * qu'en développement. Pour les voir sur un site déployé — une préproduction
+ * que l'on relit à plusieurs, par exemple — poser VITE_SHOW_CONTENT_GAPS=true
+ * dans l'environnement de build.
  */
 export default function ContentGap({ id, className = '' }) {
     const { t, lang, colon } = useI18n()
 
-    if (import.meta.env.VITE_HIDE_CONTENT_GAPS === 'true') return null
+    const visible = import.meta.env.DEV || import.meta.env.VITE_SHOW_CONTENT_GAPS === 'true'
+    if (!visible) return null
 
     const gap = CONTENT_GAPS[id]
     if (!gap) {

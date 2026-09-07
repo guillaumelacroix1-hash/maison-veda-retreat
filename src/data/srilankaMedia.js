@@ -235,6 +235,12 @@ export const SRILANKA_MEDIA = {
         // Le fichier s'appelait japanese-peace-pagoda : c'est en réalité un
         // rituel de Poya devant un stupa, pas la pagode japonaise d'Unawatuna.
         { src: '/srilanka/activites/rituel-poya-temple.jpg', alt: 'Rituel de Poya devant le stupa d\'un temple bouddhiste' },
+        // Photo fournie par Aurélie le 07/09/2026.
+        { src: '/srilanka/activites/japanese-pagoda-unawatuna.jpg', alt: 'La pagode japonaise d\'Unawatuna' },
+    ],
+    // Photo fournie par Aurélie le 07/09/2026, pour la section « Notre équipe ».
+    equipe: [
+        { src: '/srilanka/equipe/aurelie-lukshman.jpg', alt: 'Aurélie et Lukshman, qui veille sur La Maison VEDA' },
     ],
     'galerie': [
         { src: '/srilanka/galerie/img_6564.jpg' },

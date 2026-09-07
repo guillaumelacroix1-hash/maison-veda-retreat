@@ -5,7 +5,6 @@ import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
 import SectionNav from '../components/site/SectionNav'
 import CtaSection from '../components/site/CtaSection'
-import ContentGap from '../components/site/ContentGap'
 import { CONTACT } from '../data/site'
 import { srilanka } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
@@ -56,9 +55,6 @@ export default function NotreHistoire() {
                         </div>
                     )}
                 </div>
-
-                {/* La page source s'arrête au récit : la suite de l'histoire manque. */}
-                <ContentGap id="story-rest" className="mt-16 max-w-3xl" />
             </Section>
 
             <Section
@@ -66,9 +62,15 @@ export default function NotreHistoire() {
                 tone="light"
                 title={t('story.teamTitle')}
                 accent={t('story.teamAccent')}
-                aside={SRILANKA_MEDIA.galerie[1]}
+                aside={SRILANKA_MEDIA.equipe[0]}
             >
-                <ContentGap id="team" className="max-w-3xl" />
+                <div className="max-w-3xl space-y-5">
+                    {c.story.team.map((p) => (
+                        <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-dark/75">
+                            {p}
+                        </p>
+                    ))}
+                </div>
             </Section>
 
             <Section
@@ -78,7 +80,18 @@ export default function NotreHistoire() {
                 aside={SRILANKA_MEDIA.galerie[7]}
                 asidePosition="left"
             >
-                <ContentGap id="values" className="max-w-3xl" />
+                <dl className="max-w-3xl space-y-8">
+                    {c.story.values.map((v) => (
+                        <div key={v.title}>
+                            <dt className="text-sm font-bold uppercase tracking-widest text-veda-gold">
+                                {v.title}
+                            </dt>
+                            <dd className="mt-3 text-base font-light leading-relaxed text-veda-light/70">
+                                {v.text}
+                            </dd>
+                        </div>
+                    ))}
+                </dl>
 
                 <Link
                     to={path('retreats')}

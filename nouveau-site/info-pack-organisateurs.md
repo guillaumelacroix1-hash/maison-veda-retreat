@@ -26,7 +26,7 @@ La Maison VEDA est un lieu de retraite intimiste au bord du lac Koggala, dans le
 - Au bord du lac Koggala, accès privé au lac depuis le jardin
 - Deux villas authentiques : le **Lake Loft** et la **Lake House** — 7 couchages
 - **Yoga shala panoramique** sur le toit, face au lac
-- Hébergements partenaires à deux pas : chalets **Tothupola** (avec piscine) et villas **Jungle Breeze** — capacité totale de 16 couchages
+- Hébergements partenaires à deux pas : chalets **Tothupola** (avec piscine) et villas **Jungle Breeze** — capacité totale de 15 couchages
 - Une interlocutrice sur place au quotidien, en français et en anglais
 
 ## La base « La Maison VEDA » (obligatoire pour toute retraite)
@@ -43,7 +43,7 @@ Privatisation complète des deux villas et du shala. Capacité : **7 couchages**
 
 **Chalets Tothupola** — accès direct par une porte de jardin. Deux chalets en bois construits par des artisans sri-lankais : 1 lit double + 1 lit simple chacun, salle de bain privée, climatisation, piscine dans le jardin avec vue lac (accès piscine réservé aux locataires de Tothupola). **+4 couchages** (total : 11).
 
-**Villas Jungle Breeze** — à 1 minute à pied, propriété rénovée avec goût au bord du lac : 5 chambres doubles, chacune avec terrasse ou balcon privé — dont un appartement flottant sur coques de catamaran et une maison en terre traditionnelle. Cuisine sur place. **Total avec la base et Tothupola : 16 couchages.**
+**Villas Jungle Breeze** — à 1 minute à pied, propriété rénovée avec goût au bord du lac : 5 chambres doubles, chacune avec terrasse ou balcon privé — dont un appartement flottant sur coques de catamaran et une maison en terre traditionnelle. Cuisine sur place. **Total avec la base et Tothupola : 15 couchages.**
 
 *Les hébergements partenaires sont proposés selon leurs disponibilités propres.*
 
@@ -77,9 +77,10 @@ Rien n'est imposé : vous dessinez votre retraite selon votre vision. Tarifs ind
 ## Conditions de réservation
 
 - Base « La Maison VEDA » obligatoire · séjour minimum 5 nuits · usage exclusif du lieu à partir de 7 participants
-- Capacité maximale : 16 couchages, **organisateurs compris** (pensez à inclure votre hébergement dans vos calculs)
-- Acompte : **25 %** pour une réservation à plus de 6 mois · **50 %** entre 3 et 6 mois
-- Annulation gratuite jusqu'à 4 mois avant le séjour ; ensuite l'acompte n'est pas remboursable mais reste **reportable dans les 12 mois**
+- Capacité maximale : 15 couchages, **organisateurs compris** (pensez à inclure votre hébergement dans vos calculs)
+- Acompte : **50 %** à la réservation, dû sous 15 jours pour bloquer les dates
+- Solde : à régler au plus tard **90 jours** avant le début du séjour
+- Annulation gratuite jusqu'à 6 mois avant le séjour. En deçà, l'acompte n'est pas remboursable — sauf si vos dates sont reprises, ou en cas de force majeure
 - Hébergement des organisateurs non inclus · **repas offerts pour 1 à 2 organisateurs**
 
 ## L'organisation, ensemble
@@ -121,7 +122,7 @@ La Maison VEDA is an intimate retreat venue on the shores of Koggala Lake, in th
 - On the shores of Koggala Lake, private lake access from the garden
 - Two authentic villas: the **Lake Loft** and the **Lake House** — 7 beds
 - Panoramic **rooftop yoga shala** facing the lake
-- Partner accommodation steps away: the **Tothupola** chalets (with pool) and the **Jungle Breeze** villas — total capacity 16 beds
+- Partner accommodation steps away: the **Tothupola** chalets (with pool) and the **Jungle Breeze** villas — total capacity 15 beds
 - A daily on-site contact, in French and English
 
 ## The "La Maison VEDA" base (mandatory for any retreat)
@@ -138,7 +139,7 @@ Full privatisation of the two villas and the shala. Capacity: **7 beds**. Minimu
 
 **Tothupola chalets** — direct access through a garden gate. Two wooden chalets built by Sri Lankan artisans: 1 double + 1 single bed each, private bathroom, air conditioning, garden pool with lake view (pool access reserved for Tothupola guests). **+4 beds** (total: 11).
 
-**Jungle Breeze villas** — a 1-minute walk, a tastefully renovated lakeside property: 5 double rooms, each with a private terrace or balcony — including a floating apartment on catamaran hulls and a traditional earth house. On-site kitchen. **Total with the base and Tothupola: 16 beds.**
+**Jungle Breeze villas** — a 1-minute walk, a tastefully renovated lakeside property: 5 double rooms, each with a private terrace or balcony — including a floating apartment on catamaran hulls and a traditional earth house. On-site kitchen. **Total with the base and Tothupola: 15 beds.**
 
 *Partner accommodation is subject to their own availability.*
 
@@ -172,9 +173,10 @@ Nothing is imposed: you design your retreat according to your vision. Indicative
 ## Booking conditions
 
 - "La Maison VEDA" base mandatory · minimum stay 5 nights · exclusive use of the venue from 7 participants
-- Maximum capacity: 16 beds, **organizers included** (remember to include your own accommodation in your calculations)
-- Deposit: **25%** for bookings more than 6 months ahead · **50%** for 3–6 months ahead
-- Free cancellation up to 4 months before the stay; after that the deposit is non-refundable but **transferable within 12 months**
+- Maximum capacity: 15 beds, **organizers included** (remember to include your own accommodation in your calculations)
+- Deposit: **50%** on booking, due within 15 days to hold your dates
+- Balance: due no later than **90 days** before the start of the stay
+- Free cancellation up to 6 months before the stay. Within six months the deposit is non-refundable — unless your dates are taken by someone else, or in a case of force majeure
 - Organizers' accommodation not included · **meals offered for 1–2 organizers**
 
 ## Organising, together

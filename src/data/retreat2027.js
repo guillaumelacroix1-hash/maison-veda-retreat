@@ -116,13 +116,11 @@ export const RETREAT_2027 = {
             singleTitle: 'Chambre single',
             singleDesc: 'Profitez de votre espace privé pour un repos total.',
             cta: 'Réserver ma place',
-            // Conditions telles qu'affichées sur la maquette validée. Elles ne
-            // correspondent pas à la section 6 du cahier des charges (acompte de
-            // 30 % payé en ligne, non remboursable mais transférable) : écart à
-            // trancher avec Aurélie avant mise en ligne.
+            // Exception assumée : les participants de février ont déjà versé
+            // 500 €. Les retraites suivantes suivent la règle des 30 %.
             depositLabel: 'Acompte de 500 €',
             depositTerms: 'par virement. Preuve à envoyer par email pour valider.\nSolde à régler 1 mois avant, le 15 janvier.',
-            cancellation: 'Annulation : remboursement si remplacement possible.',
+            cancellation: 'Annulation : remboursement si votre place est reprise, ou en cas de force majeure.',
         },
 
         villas: {
@@ -357,7 +355,7 @@ export const RETREAT_2027 = {
             cta: 'Book my place',
             depositLabel: '€500 deposit',
             depositTerms: 'by bank transfer. Send us the proof by email to confirm.\nBalance due one month before, on 15 January.',
-            cancellation: 'Cancellation: refunded if a replacement can be found.',
+            cancellation: 'Cancellation: refunded if your place is taken by someone else, or in a case of force majeure.',
         },
 
         villas: {

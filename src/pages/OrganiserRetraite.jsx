@@ -172,9 +172,6 @@ export default function OrganiserRetraite() {
                             </li>
                         ))}
                     </ol>
-                    {/* L'acompte annoncé ici (50 %) contredit la page retraite et le
-                        cahier des charges : voir le ContentGap « retreat-balance ». */}
-                    <ContentGap id="retreat-balance" className="mt-10 max-w-3xl" />
                 </div>
             </Section>
 

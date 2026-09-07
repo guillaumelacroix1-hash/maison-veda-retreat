@@ -163,7 +163,11 @@ export const SRILANKA = {
         retreats: {
             title: 'Retraites',
             additionalTitle: 'Hébergements complémentaires', additionalAccent: 'pendant les retraites',
-            additionalText: 'Pour les groupes plus nombreux ou les préférences variées, nous travaillons avec des hébergements de confiance proches de La Maison VEDA. Les options vont de la chambre en dortoir à la chambre privée, jusqu\'à une luxueuse cabane flottante sur le lac, pour garantir confort et authenticité à chacun.',
+            additionalText: [
+                'La Maison VEDA couche sept personnes. Au-delà, nous ouvrons deux maisons voisines, à une et deux minutes à pied : quatre couchages aux chalets Tothupola, quatre aux villas Jungle Breeze. Sept, onze, quinze — le groupe reste ensemble, et chacun a son lit.',
+                'Nous n\'allons pas au-delà de quinze. Nous organisons des retraites pour des groupes intimistes : c\'est le nombre où chacun reste confortable, et où il y a encore de l\'humain.',
+            ],
+            floatingNote: 'L\'appartement flottant sur coques de catamaran ne fait pas partie des quinze couchages : c\'est une pièce à part, proposée en supplément, sur demande.',
             packCta: 'Télécharger l\'Info Pack Organisateurs (PDF)',
             alaCarteTitle: 'Expériences', alaCarteAccent: 'à la carte',
             alaCarteLead: 'La Maison VEDA ne se limite pas à un hébergement et un shala. Si vous souhaitez enrichir votre programme, nous faisons venir pour vous un professeur ou un praticien : vous choisissez l\'expérience, nous nous occupons de tout. Un service entièrement optionnel, facturé à la carte — y compris lorsque c\'est Lilie ou Anna qui anime la séance.',
@@ -248,10 +252,42 @@ export const SRILANKA = {
             title: 'Notre histoire',
             paragraphs: [
                 'La Maison VEDA est née d\'un chemin de transformation : un retour à l\'essentiel, et l\'appel de vivre en harmonie avec le corps, le mental et l\'âme.',
-                'J\'ai grandi au cœur de la région de Cognac, entourée par la beauté de la campagne française. De l\'extérieur, ma vie semblait réussie : des études à Bordeaux et dix ans dans l\'industrie pharmaceutique. À l\'intérieur, je me sentais déconnectée, un numéro de plus dans un monde où l\'humanité semblait s\'effacer. Le stress a épuisé mon système nerveux et affecté ma santé, ma digestion en particulier.',
-                'Déterminée à reprendre ma vie en main, je suis partie en Inde étudier l\'ayurvéda. Tout a commencé à bouger. J\'ai appris à écouter mon corps, à le nourrir et à le soigner. Découvrir mon intolérance au gluten n\'était qu\'un début : la vraie transformation est venue de la reconnexion à mon souffle, à mon âme et à ma vérité intérieure. À travers les pratiques d\'éveil de la Kundalini, j\'ai puisé dans une énergie plus profonde, qui a ouvert la clarté, l\'équilibre et un profond sentiment de sens.',
+                'J\'ai grandi au cœur de la région de Cognac, entourée par la beauté de la campagne française. De l\'extérieur, ma vie semblait réussie : des études à Bordeaux et dix ans dans l\'industrie pharmaceutique. À l\'intérieur, je me sentais déconnectée, un numéro de plus dans un monde où l\'humanité semblait s\'effacer. Le stress a épuisé mon système nerveux et affecté ma santé, ma digestion en particulier. J\'ai fait un burn-out.',
+                'Déterminée à reprendre ma vie en main, je suis partie en Inde. J\'y ai suivi une formation de professeure de hatha yoga à Rishikesh, dans une école restée fidèle à l\'enseignement traditionnel, puis deux mois d\'ayurvéda en clinique, auprès d\'un médecin passionné. Tout a commencé à bouger. J\'ai appris à écouter mon corps, à le nourrir et à le soigner. Découvrir mon intolérance au gluten n\'était qu\'un début : la vraie transformation est venue de la reconnexion à mon souffle, à mon âme et à ma vérité intérieure.',
+                // La suite du récit, dictée par Aurélie le 07/09/2026. Elle s'insère
+                // avant les deux paragraphes de conclusion, qui referment la page.
+                'Je n\'ai pas choisi le Sri Lanka. Ma compagnie aérienne a fait faillite pendant que j\'étais encore en Inde, il me restait un jour de visa, et il fallait décider dans la journée. Après deux mois passés dans l\'Himalaya, j\'ai eu envie d\'aller vers la mer. C\'est ainsi qu\'on prend les décisions les plus importantes de sa vie : sans savoir qu\'on est en train de les prendre.',
+                'Je suis arrivée fin avril 2019, deux jours après les attentats de Pâques. Nous étions dix dans l\'avion. L\'armée m\'a escortée jusqu\'à mon hôtel à travers une ville vide, et j\'y ai dormi seule. Tout, ce soir-là, me disait de rentrer. J\'ai pris un train vers l\'est, et je n\'ai plus jamais vraiment quitté cette île.',
+                'Ce pays ne se planifie pas, il se propose. J\'ai enseigné le yoga dans l\'hôtel d\'une Italienne à Trincomalee, j\'ai dirigé trois villas au bord d\'une plage, j\'ai lancé une maison coloniale à Ahangama, sur la côte sud — sans avoir rien demandé. Chaque porte s\'ouvrait avant que j\'aie pensé à frapper.',
+                'Puis le monde s\'est arrêté. Nous étions six, d\'abord au bord de la mer à Ahangama, puis dans les terres, dans la jungle, sur des îles creusées à même la rivière. L\'aéroport est resté fermé deux ans, et nous ne sortions qu\'une matinée par semaine. Ailleurs, la liberté était suspendue ; là, quelque chose se déconditionnait. Coupés du monde matérialiste, nous avons bâti une autre vie sur ce que chacun savait faire — le yoga, le reiki, la danse, le corps sous toutes ses formes. Chacun enseignait sa pratique dans le shala, et nous étions une quinzaine à la fin. Nous ne subissions pas ce monde en suspens : nous en inventions un autre, ensemble. De ces années est née une famille spirituelle qui tient encore.',
+                'Le Kundalini est arrivé en 2021, au Mexique, auprès de Gurmukh, élève de Yogi Bhajan. On l\'appelle le yoga de la conscience, et j\'ai compris pourquoi en quelques jours : on y médite beaucoup, on s\'y tient face à soi sans échappatoire, et l\'on change vite. Je n\'avais jamais voulu enseigner. Après ma formation de hatha, je n\'avais presque rien transmis. Le Kundalini ne m\'a pas laissé le choix : on ne reçoit pas un héritage pareil pour le garder. Cela s\'est imposé, et je n\'ai eu qu\'à obéir.',
+                'Il m\'a aussi donné la force d\'une folie — rénover une ferme charentaise du début du siècle, deux cent trente mètres carrés de pierre au bord de l\'eau. On me donnait deux ans ; le lieu était debout en six mois. Je n\'ai pas fait cela seule. Les gens sont venus, les mains se sont tendues, tout s\'est aligné comme si quelqu\'un d\'autre tenait le plan. J\'en garde une gratitude que je ne sais pas dire autrement : c\'était de la magie.',
+                'La Maison VEDA a ouvert là, dans un village de deux cents habitants où personne ne connaissait le yoga, et moins encore le Kundalini. Ils sont venus quand même, par le bouche-à-oreille — le marketing n\'a jamais été mon fort. Pendant deux ans, je les ai vus s\'ouvrir et se transformer sous mes yeux. C\'est la chose la plus émouvante qu\'il me soit arrivé de voir. Aujourd\'hui, Laure y enseigne à son tour.',
+                'Mais l\'île ne m\'avait jamais quittée. Un jour tout s\'est aligné de nouveau, sans plan, sans calcul : d\'un village de Charente à une maison au bord d\'un lac sri-lankais.',
+                'J\'ai construit la villa, et sur son toit un shala ouvert sur l\'eau. On s\'y réveille au chant des oiseaux ; les singes passent, les varans traversent le jardin. Ici tout est vivant, tout le temps. J\'ai besoin de l\'eau pour respirer — pas la mer, trop agitée, trop mobile, mais ce lac immobile en face duquel je me tiens chaque matin.',
                 'Je ne prétends pas que le chemin soit devenu lisse. Les obstacles sont toujours là, les épreuves aussi. Mais ces outils ont changé ma façon de les traverser : les prises de conscience viennent plus vite, je comprends mieux ce qui se joue en moi, et je perds beaucoup moins l\'équilibre quand la vie me secoue.',
                 'C\'est peut-être cela qui a le plus changé — ma manière d\'accueillir les hauts et les bas. Aujourd\'hui, j\'ai le sentiment profond que chaque épreuve me fait grandir. Et c\'est exactement ce que j\'ai envie de transmettre ici.',
+            ],
+            team: [
+                'Nous sommes une toute petite équipe au Sri Lanka, et nous fonctionnons comme une famille.',
+                'Lukshman veille sur la maison. Son travail est irréprochable, et il y a longtemps que je le considère comme quelqu\'un de ma famille.',
+                'Anna et moi sommes les professeures résidentes du studio. Nous partageons la même passion et la même exigence : c\'est une sœur d\'âme.',
+                'Bryan et Mei viennent ponctuellement s\'occuper de la cuisine pendant les retraites. Ce sont des amis, et un peu plus que cela — un oncle et une tante.',
+                'L\'entraide, la bienveillance, le respect : c\'est ce qui nous tient ensemble, et c\'est ce que vous trouverez en arrivant.',
+            ],
+            values: [
+                {
+                    title: 'L\'entraide',
+                    text: 'Je l\'ai apprise pendant ces années au bord de la mer, quand nous étions une quinzaine à enseigner chacun ce que nous savions. Personne ne s\'en est sorti seul, et personne n\'aurait voulu s\'en sortir seul. Rien ici ne se fait autrement.',
+                },
+                {
+                    title: 'La bienveillance',
+                    text: 'C\'est pour cela que les groupes restent petits. On ne prend pas soin de gens qu\'on ne voit pas, et je préfère recevoir peu de monde et le recevoir vraiment.',
+                },
+                {
+                    title: 'Le respect',
+                    text: 'Du vivant d\'abord. Les singes passent, les varans traversent le jardin, les oiseaux nous réveillent : nous ne sommes pas les seuls habitants de ce lieu, et c\'est très bien ainsi.',
+                },
             ],
         },
 
@@ -284,6 +320,7 @@ export const SRILANKA = {
                 'Observation des baleines à Mirissa',
                 'Les pêcheurs sur échasses',
                 'Rituel de Poya au temple bouddhiste',
+                'Journée à Unawatuna — pagode japonaise, Jungle Beach et plage',
             ],
         },
 
@@ -293,7 +330,7 @@ export const SRILANKA = {
             retreatTitle: 'Retraite de yoga à La maison VEDA',
             retreatSteps: [
                 'Envoyez votre demande via le formulaire « Réserver votre lieu de retraite ».',
-                'Versez un acompte de 50 %. Cet acompte, non remboursable, est dû dans les 15 jours pour bloquer votre retraite.',
+                'Versez un acompte de 50 %, dû dans les 15 jours pour bloquer vos dates, puis le solde au plus tard 90 jours avant le début du séjour. L\'annulation est gratuite jusqu\'à 6 mois avant le séjour ; en deçà, l\'acompte n\'est pas remboursable, sauf si vos dates sont reprises ou en cas de force majeure.',
                 'Des questions ? Joignez-nous à tout moment par email ou sur WhatsApp.',
             ],
             rentalTitle: 'Location de vacances à La maison VEDA',
@@ -319,6 +356,94 @@ export const SRILANKA = {
         reviews: { title: 'Avis', cta: 'Voir les avis sur Airbnb' },
 
         contact: {
+            faq: {
+                travel: [
+                    {
+                        q: 'Faut-il un visa ?',
+                        a: 'Oui. Il s\'obtient en ligne sur le site officiel du gouvernement sri-lankais, et la réponse arrive très vite par e-mail. Faites la demande environ un mois avant le départ : en cas d\'erreur de saisie, vous aurez le temps de vous retourner.',
+                    },
+                    {
+                        q: 'Quel vol depuis la France ?',
+                        a: 'Je conseille SriLankan Airlines, en direct de Paris–Charles de Gaulle à Colombo : une dizaine d\'heures de vol.',
+                    },
+                    {
+                        q: 'Combien de route depuis l\'aéroport ?',
+                        a: 'Deux heures et quart entre Colombo et La Maison VEDA. Je peux organiser le transfert, aller comme retour.',
+                    },
+                    {
+                        q: 'Le Sri Lanka, est-ce sûr ?',
+                        a: 'Oui, très. Le pays est nettement plus tranquille que l\'Inde, et j\'y vis une grande partie de l\'année.',
+                    },
+                    {
+                        q: 'Quelle est la bonne saison ?',
+                        a: 'De novembre à avril sur notre côte, au sud de l\'île.',
+                    },
+                    {
+                        q: 'Faut-il des vaccins ?',
+                        a: 'Aucun vaccin n\'est obligatoire pour entrer au Sri Lanka en venant de France. Le certificat de fièvre jaune n\'est exigé que des voyageurs arrivant d\'un pays où la maladie circule, ou ayant transité plus de douze heures dans l\'un de ces pays — il n\'y a pas de fièvre jaune au Sri Lanka. Pour le reste, demandez conseil à votre médecin ou à un centre de vaccinations internationales.',
+                    },
+                ],
+                onSite: [
+                    {
+                        q: 'Comment sont les repas ?',
+                        a: 'Végétariens, ayurvédiques, et entièrement sans gluten — j\'y tiens, je suis moi-même intolérante.',
+                    },
+                    {
+                        q: 'Peut-on boire l\'eau du robinet ?',
+                        a: 'Non. L\'eau potable est fournie sur place, vous n\'avez rien à acheter.',
+                    },
+                    {
+                        q: 'Y a-t-il du wifi ?',
+                        a: 'Oui, et il fonctionne très bien.',
+                    },
+                    {
+                        q: 'Le ménage est-il fait ?',
+                        a: 'Chaque jour. Les draps, le linge de lit et les serviettes de bain sont changés tous les cinq jours.',
+                    },
+                    {
+                        q: 'Y a-t-il beaucoup de moustiques ?',
+                        a: 'Il y en a, mais le moment est court : un quart d\'heure à la tombée de la nuit. Passé ce creux, on les oublie.',
+                    },
+                    {
+                        q: 'Comment gérer l\'argent sur place ?',
+                        a: 'Le change est facile, mais le plus simple reste de retirer sur place, en roupies.',
+                    },
+                    {
+                        q: 'Quelle langue parle-t-on ?',
+                        a: 'Le cingalais et le tamoul. Nous vous accueillons en français et en anglais.',
+                    },
+                    {
+                        q: 'Êtes-vous présente pendant le séjour ?',
+                        a: 'Je suis sur place d\'octobre à mai.',
+                    },
+                    {
+                        q: 'Peut-on faire une lessive ?',
+                        a: 'Oui, c\'est possible à La Maison VEDA.',
+                    },
+                ],
+                practice: [
+                    {
+                        q: 'Faut-il déjà pratiquer le yoga ?',
+                        a: 'Non. Les cours de Kundalini s\'adaptent à chacun : vous pouvez ralentir, faire une pause, reprendre. C\'est à vous de trouver vos limites, et personne ne vous poussera au-delà.',
+                    },
+                    {
+                        q: 'Peut-on venir seule ?',
+                        a: 'Très facilement, et beaucoup le font. Les participants sont le plus souvent des femmes entre trente et soixante ans.',
+                    },
+                    {
+                        q: 'Que faut-il apporter ?',
+                        a: 'Rien pour la pratique : les tapis, les blocs et les bolsters vous attendent sur le shala.',
+                    },
+                    {
+                        q: 'Est-on obligé de tout suivre ?',
+                        a: 'Non. Vous serez invitée à chaque cours et à chaque atelier, mais vous restez libre de vos mouvements, à l\'intérieur de la retraite comme à l\'extérieur.',
+                    },
+                    {
+                        q: 'Le shala est-il réservé au groupe ?',
+                        a: 'Oui, il est privatisé pendant toute la durée de la retraite.',
+                    },
+                ],
+            },
             title: 'Contact',
             addressTitle: 'Nous trouver',
             phoneTitle: 'Téléphone et WhatsApp',
@@ -463,7 +588,11 @@ export const SRILANKA = {
         retreats: {
             title: 'Retreats',
             additionalTitle: 'Additional accommodation', additionalAccent: 'during retreats',
-            additionalText: 'For larger groups or varied preferences, we partner with trusted lodgings near La Maison VEDA. Options range from dorm-style rooms and private bedrooms to a luxurious floating cabin on the lake, ensuring comfort and authenticity for every guest.',
+            additionalText: [
+                'La Maison VEDA sleeps seven. Beyond that we open two neighbouring houses, one and two minutes on foot: four beds at the Tothupola chalets, four at the Jungle Breeze villas. Seven, eleven, fifteen — the group stays together, and everyone has their own bed.',
+                'We do not go beyond fifteen. We host retreats for small, intimate groups: it is the number where everyone stays comfortable, and where the human side survives.',
+            ],
+            floatingNote: 'The floating apartment on catamaran hulls is not part of the fifteen beds: it is a room apart, offered as an extra, on request.',
             packCta: 'Download the Organizers\' Info Pack (PDF)',
             alaCarteTitle: 'À la carte', alaCarteAccent: 'experiences',
             alaCarteLead: 'La Maison VEDA is not just accommodation and a shala. If you want to enrich your programme, we bring in a teacher or practitioner for you: you choose the experience, we take care of everything. An entirely optional service, billed à la carte — including when Lilie or Anna leads the session.',
@@ -541,10 +670,39 @@ export const SRILANKA = {
             title: 'Our Story',
             paragraphs: [
                 'La Maison VEDA was born from a journey of transformation, a return to essence, and a calling to live in harmony with body, mind, and soul.',
-                'I grew up in the heart of the Cognac region, surrounded by the beauty of the French countryside. On the outside, my life seemed successful: studies in Bordeaux and a decade in the pharmaceutical industry. Inside, I felt disconnected, just another number in a world where humanity seemed to fade. The stress drained my nervous system and affected my health, especially my digestion.',
-                'Determined to take my life back, I traveled to India to study Ayurveda. Everything began to shift. I learned to listen to my body, nourish it, and heal it. Discovering my gluten intolerance was only the beginning, the real transformation came from reconnecting with my breath, my soul, and my inner truth. Through Kundalini awakening practices, I tapped into a deeper energy, unlocking clarity, balance, and a profound sense of purpose.',
+                'I grew up in the heart of the Cognac region, surrounded by the beauty of the French countryside. On the outside, my life seemed successful: studies in Bordeaux and a decade in the pharmaceutical industry. Inside, I felt disconnected, just another number in a world where humanity seemed to fade. The stress drained my nervous system and took its toll on my health, my digestion above all. I burned out.',
+                'Determined to take my life back, I left for India. I trained there as a hatha yoga teacher in Rishikesh, at a school that has kept faith with traditional teaching, then spent two months studying Ayurveda in a clinic alongside a doctor who loved his craft. Everything began to shift. I learned to listen to my body, to nourish it and to heal it. Discovering my gluten intolerance was only the beginning: the real transformation came from reconnecting with my breath, my soul and my inner truth.',
+                'I did not choose Sri Lanka. My airline collapsed while I was still in India, I had one day of visa left, and the decision had to be made that same day. After two months in the Himalayas, I wanted to go down towards the sea. That is how we make the most important decisions of our lives: without knowing that we are making them.',
+                'I landed in late April 2019, two days after the Easter bombings. There were ten of us on the plane. The army escorted me to my hotel through an empty city, and I slept there alone. Everything about that evening told me to go home. I took a train east instead, and I have never really left this island since.',
+                'This country cannot be planned, it offers itself. I taught yoga at an Italian woman\'s hotel in Trincomalee, I ran three villas by a beach, I launched a colonial house in Ahangama on the south coast — without ever asking for any of it. Every door opened before I had thought to knock.',
+                'Then the world stopped. There were six of us, first by the sea in Ahangama, then inland, in the jungle, on islands cut into the river. The airport stayed closed for two years, and we went out one morning a week. Elsewhere, freedom was suspended; there, something was becoming unconditioned. Cut off from the material world, we built another life out of what each of us knew how to do — yoga, reiki, dance, the body in all its forms. Each of us taught our own practice in the shala, and by the end there were fifteen of us. We were not enduring that suspended world: we were inventing another one, together. From those years came a spiritual family that holds to this day.',
+                'Kundalini arrived in 2021, in Mexico, with Gurmukh, who studied under Yogi Bhajan. It is called the yoga of awareness, and I understood why within days: you meditate a great deal, you sit with yourself with nowhere to hide, and you change quickly. I had never wanted to teach. After my hatha training I had passed on almost nothing. Kundalini left me no choice: you do not receive an inheritance like that in order to keep it. It settled on me, and all I had to do was obey.',
+                'It also gave me the strength for something mad — restoring a Charente farmhouse from the turn of the last century, two hundred and thirty square metres of stone by the water. People gave me two years; the place was standing in six months. I did not do it alone. People came, hands were offered, everything fell into place as though someone else were holding the plan. I keep a whole gratitude from it that I cannot say any other way: it was magic.',
+                'La Maison VEDA opened there, in a village of two hundred people where nobody knew yoga, and still less Kundalini. They came anyway, by word of mouth — marketing has never been my strong suit. For two years I watched them open and change in front of me. It is the most moving thing I have ever been given to see. Today Laure teaches there in her turn.',
+                'But the island had never left me. One day everything fell into line again, with no plan and no calculation: from a village in the Charente to a house beside a Sri Lankan lake.',
+                'I built the villa, and on its roof a shala open to the water. You wake there to birdsong; monkeys pass through, monitor lizards cross the garden. Everything here is alive, all the time. I need water in order to breathe — not the sea, too restless, too mobile, but this still lake I stand facing every morning.',
                 'I will not pretend the path has become smooth. The obstacles are still there, and so are the trials. But these tools have changed the way I move through them: realisations come faster, I understand better what is at play within me, and I lose my balance far less when life shakes me.',
                 'Perhaps that is what has changed most — the way I welcome the highs and the lows. Today I feel deeply that every challenge helps me grow. And that is exactly what I want to pass on here.',
+            ],
+            team: [
+                'We are a very small team in Sri Lanka, and we work like a family.',
+                'Lukshman watches over the house. His work is faultless, and I have long thought of him as family.',
+                'Anna and I are the studio\'s resident teachers. We share the same passion and the same standards: she is a soul sister.',
+                'Bryan and Mei come in from time to time to run the kitchen during retreats. They are friends, and a little more than that — an uncle and an aunt.',
+            ],
+            values: [
+                {
+                    title: 'Helping one another',
+                    text: 'I learned it during those years by the sea, when fifteen of us each taught what we knew. Nobody came through it alone, and nobody would have wanted to. Nothing here is done any other way.',
+                },
+                {
+                    title: 'Kindness',
+                    text: 'That is why the groups stay small. You cannot look after people you never really see, and I would rather welcome few and welcome them properly.',
+                },
+                {
+                    title: 'Respect',
+                    text: 'For the living, first of all. Monkeys pass through, monitor lizards cross the garden, birds wake us: we are not the only inhabitants of this place, and that is exactly as it should be.',
+                },
             ],
         },
 
@@ -567,6 +725,7 @@ export const SRILANKA = {
                 'Whale Watching in Mirissa',
                 'Stilt fishermen',
                 'Poya ritual at the Buddhist temple',
+                'A day in Unawatuna — Japanese Pagoda, Jungle Beach and the shore',
             ],
         },
 
@@ -576,7 +735,7 @@ export const SRILANKA = {
             retreatTitle: 'Yoga Retreat at La maison VEDA',
             retreatSteps: [
                 'Send your request via the "Book your Yoga retreat venue" contact form.',
-                'Deposit 50%. A non-refundable deposit is due within 15 days to secure your retreat.',
+                'Pay a 50% deposit, due within 15 days to hold your dates, then the balance no later than 90 days before the stay begins. Cancellation is free up to 6 months before the stay; within six months the deposit is non-refundable, unless your dates are taken by someone else or in a case of force majeure.',
                 'Questions? Reach us anytime via email or WhatsApp.',
             ],
             rentalTitle: 'Vacation Rental at La maison VEDA',
@@ -602,6 +761,94 @@ export const SRILANKA = {
         reviews: { title: 'Reviews', cta: 'See the reviews on Airbnb' },
 
         contact: {
+            faq: {
+                travel: [
+                    {
+                        q: 'Do I need a visa?',
+                        a: 'Yes. You apply online on the official Sri Lankan government site, and the answer comes back by email very quickly. Apply about a month before you leave: should you mistype something, you will have time to put it right.',
+                    },
+                    {
+                        q: 'Which flight from Europe?',
+                        a: 'I recommend SriLankan Airlines, direct from Paris–Charles de Gaulle to Colombo: around ten hours in the air.',
+                    },
+                    {
+                        q: 'How far is it from the airport?',
+                        a: 'Two hours and a quarter between Colombo and La Maison VEDA. I can arrange the transfer, both ways.',
+                    },
+                    {
+                        q: 'Is Sri Lanka safe?',
+                        a: 'Yes, very. The country is markedly calmer than India, and I live there most of the year.',
+                    },
+                    {
+                        q: 'When is the good season?',
+                        a: 'November to April on our coast, in the south of the island.',
+                    },
+                    {
+                        q: 'Are vaccinations required?',
+                        a: 'No vaccination is required to enter Sri Lanka from Europe. A yellow fever certificate is only required of travellers arriving from a country where the disease circulates, or who have transited more than twelve hours through one — there is no yellow fever in Sri Lanka. For everything else, ask your doctor or a travel health clinic.',
+                    },
+                ],
+                onSite: [
+                    {
+                        q: 'What are the meals like?',
+                        a: 'Vegetarian, Ayurvedic, and entirely gluten-free — I insist on that, being intolerant myself.',
+                    },
+                    {
+                        q: 'Can I drink the tap water?',
+                        a: 'No. Drinking water is provided on site, there is nothing for you to buy.',
+                    },
+                    {
+                        q: 'Is there wifi?',
+                        a: 'Yes, and it works very well.',
+                    },
+                    {
+                        q: 'Is the room cleaned?',
+                        a: 'Every day. Bed linen and bath towels are changed every five days.',
+                    },
+                    {
+                        q: 'Are there many mosquitoes?',
+                        a: 'There are, but the window is short: a quarter of an hour at nightfall. After that you forget them.',
+                    },
+                    {
+                        q: 'How do I handle money?',
+                        a: 'Changing money is easy, but withdrawing rupees on site is simpler still.',
+                    },
+                    {
+                        q: 'What language is spoken?',
+                        a: 'Sinhala and Tamil. We welcome you in French and English.',
+                    },
+                    {
+                        q: 'Are you there during the stay?',
+                        a: 'I am on site from October to May.',
+                    },
+                    {
+                        q: 'Can I do laundry?',
+                        a: 'Yes, laundry can be done at La Maison VEDA.',
+                    },
+                ],
+                practice: [
+                    {
+                        q: 'Do I need previous yoga experience?',
+                        a: 'No. Kundalini classes adapt to everyone: you can slow down, pause, come back. Finding your own limit is yours to do, and nobody will push you past it.',
+                    },
+                    {
+                        q: 'Can I come on my own?',
+                        a: 'Very easily, and many do. Participants are most often women between thirty and sixty.',
+                    },
+                    {
+                        q: 'What should I bring?',
+                        a: 'Nothing for the practice: mats, blocks and bolsters are waiting for you on the shala.',
+                    },
+                    {
+                        q: 'Do I have to attend everything?',
+                        a: 'No. You will be invited to every class and every workshop, but you remain free to come and go, inside the retreat as outside it.',
+                    },
+                    {
+                        q: 'Is the shala private?',
+                        a: 'Yes, it is reserved for the group for the whole retreat.',
+                    },
+                ],
+            },
             title: 'Contact',
             addressTitle: 'Find us',
             phoneTitle: 'Phone & WhatsApp',

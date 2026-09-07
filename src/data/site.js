@@ -29,7 +29,8 @@ export const SOCIAL = {
     google: null,
 }
 
-/** Section 6 : acompte payé en ligne, non remboursable mais transférable. */
+/** Acompte des participants : 30 %, sauf retraite ayant son propre montant.
+ *  Remboursé si la place est reprise, ou en cas de force majeure. */
 export const DEPOSIT_RATE = 0.3
 
 /** Section 6 : le site annonce un délai de réponse de 48 h (à confirmer, section 11). */

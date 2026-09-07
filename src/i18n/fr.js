@@ -104,7 +104,6 @@ export default {
 
     retreats: {
         navUpcoming: 'À venir',
-        navMini: 'Mini-retraites',
         navPast: 'Passées',
         hostBannerEyebrow: 'Vous êtes professeur ou thérapeute ?',
         hostBannerText: 'La Maison VEDA se loue en exclusivité pour accueillir votre propre retraite : les deux villas, le shala et l\'équipe sur place.',
@@ -112,12 +111,13 @@ export default {
         title: 'Retraites',
         lead: 'Les retraites animées par La Maison VEDA, à Habaraduwa, face au lac de Koggala.',
         upcoming: 'Retraites à venir',
-        miniTitle: 'Mini-retraites', miniAccent: 'du studio',
-        miniLead: 'Deux nuits, sept participants maximum, animées par Lilie et Anna.',
         pastTitle: 'Retraites', pastAccent: 'passées',
         pastLead: 'Ce que les précédentes retraites ont laissé.',
         detailCta: 'Voir la retraite',
         book: 'Réserver, acompte 30 %',
+        // Décision d'Aurélie du 07/09/2026 : l'acompte est remboursé si la
+        // place est reprise, ou en cas de force majeure.
+        depositTerms: "L'acompte n'est pas remboursable, sauf si votre place est reprise par quelqu'un d'autre, ou en cas de force majeure — une pandémie, l'arrêt du transport aérien.",
         programme: 'Programme',
         place: 'Le lieu',
         guides: 'Vos guides',
@@ -241,8 +241,7 @@ export default {
         teachersTitle: 'Les', teachersAccent: 'professeures',
         teachersLead: 'Nous partageons la même passion : transmettre le Kundalini et tout ce qui l\'entoure. Et parce que la découverte fait partie du chemin, nous invitons aussi des thérapeutes et des professeurs certifiés à venir enseigner à La Maison VEDA — leurs expériences transformatrices apparaissent au planning.',
         pricesTitle: 'Tarifs', pricesAccent: 'des cours',
-        cafeTitle: 'Après le cours,', cafeAccent: 'le petit-déjeuner',
-        cafeLead: 'Un café, un thé, un petit-déjeuner sain et sans gluten, à partager au jardin après la pratique.',
+        cafeTitle: 'Et après le cours de yoga,', cafeAccent: 'un café, un petit-déjeuner au jardin ?',
         eventsTitle: 'Les événements', eventsAccent: 'de la saison',
         eventsLead: 'Les ateliers et les professeurs invités, en plus du planning de la semaine — et les retraites privées, pendant lesquelles les cours du studio sont suspendus. Les places sont limitées, la réservation se fait par WhatsApp ou sur Instagram.',
         agendaRetreatKicker: 'Retraite privée',
@@ -264,6 +263,7 @@ export default {
         shala: 'Le Yoga Shala',
         additionalTitle: 'Hébergements complémentaires',
         additionalLead: 'À quelques pas, pour les groupes qui dépassent la capacité de la maison.',
+        beds: '{n} couchages',
         tothupola: 'Chalets Tothupola',
         tothupolaDistance: 'Hôtel partenaire mitoyen · chalets en bois et petite piscine',
         jungleBreeze: 'Villa Jungle Breeze',
