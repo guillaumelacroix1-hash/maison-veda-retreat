@@ -62,14 +62,26 @@ export default function NotreHistoire() {
                 tone="light"
                 title={t('story.teamTitle')}
                 accent={t('story.teamAccent')}
-                aside={SRILANKA_MEDIA.equipe[0]}
             >
-                <div className="max-w-3xl space-y-5">
-                    {c.story.team.map((p) => (
-                        <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-dark/75">
-                            {p}
-                        </p>
-                    ))}
+                <div className="grid gap-10 md:grid-cols-[1.4fr,1fr] md:items-start">
+                    <div className="space-y-5">
+                        {c.story.team.map((p) => (
+                            <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-dark/75">
+                                {p}
+                            </p>
+                        ))}
+                    </div>
+                    <figure className="m-0">
+                        <img
+                            src={SRILANKA_MEDIA.equipe[0].src}
+                            alt={SRILANKA_MEDIA.equipe[0].alt}
+                            loading="lazy"
+                            className="w-full rounded-3xl object-cover"
+                        />
+                        <figcaption className="mt-3 text-sm font-light italic text-veda-dark/55">
+                            {SRILANKA_MEDIA.equipe[0].alt}
+                        </figcaption>
+                    </figure>
                 </div>
             </Section>
 
