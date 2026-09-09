@@ -85,6 +85,11 @@ export default function RetraiteDetail() {
 
             {copy.guidesList && (
                 <Section title={copy.guidesTitle}>
+                    {copy.guidesLead && (
+                        <p className="mb-12 max-w-3xl text-base font-light leading-relaxed text-veda-light/70">
+                            {copy.guidesLead}
+                        </p>
+                    )}
                     <div className="grid gap-12 sm:grid-cols-2">
                         {copy.guidesList.map((g) => (
                             <div key={g.name}>

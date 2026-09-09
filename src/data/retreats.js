@@ -25,13 +25,14 @@ export const RETREATS = [
             duration: '7 jours, 6 nuits',
             summary: 'Kundalini et travail transformationnel, face au lac de Koggala.',
             guidesTitle: 'Celles qui vous accompagnent',
+            guidesLead: 'Nos deux approches visent le même endroit — le système nerveux, les mémoires du subconscient — et l\'atteignent autrement. Par le corps, le souffle et le son d\'un côté ; par la régulation et le travail sur les conditionnements de l\'autre. C\'est de là que vient la force de cette retraite.',
             guidesList: [
                 {
                     name: 'Aurélie Dutrey',
                     spiritualName: 'Radha Navjot Kaur',
                     role: 'Kundalini Yoga',
                     photo: 'lilie-portrait.jpg',
-                    text: 'Fondatrice de La Maison VEDA, en Charente puis au Sri Lanka. Elle enseigne le Kundalini, le yoga de la conscience, et conduit les kriyas de chaque matin.',
+                    text: 'Fondatrice de La Maison VEDA, en Charente puis au Sri Lanka, formée dans la lignée directe de Yogi Bhajan. Elle enseigne le Kundalini, le yoga de la conscience : une pratique puissante, qui transforme vite. On y régule le système nerveux par le corps, la méditation et le chant, et l\'on y travaille les mémoires du subconscient — ce qui se nettoie là se traduit en clarté mentale au quotidien, et en capacité à se mettre en chemin.',
                 },
                 {
                     // Présentation reprise de son propre site, sans superlatif :
@@ -68,13 +69,14 @@ export const RETREATS = [
             duration: '7 days, 6 nights',
             summary: 'Kundalini and transformational work, facing Koggala Lake.',
             guidesTitle: 'Who will guide you',
+            guidesLead: 'Our two approaches reach for the same place — the nervous system, the memories held in the subconscious — and get there differently. Through the body, the breath and sound on one side; through regulation and work on conditioning on the other. That is where this retreat draws its strength.',
             guidesList: [
                 {
                     name: 'Aurélie Dutrey',
                     spiritualName: 'Radha Navjot Kaur',
                     role: 'Kundalini Yoga',
                     photo: 'lilie-portrait.jpg',
-                    text: 'Founder of La Maison VEDA, in the Charente and then in Sri Lanka. She teaches Kundalini, the yoga of awareness, and leads the kriya of each morning.',
+                    text: 'Founder of La Maison VEDA, in the Charente and then in Sri Lanka, trained in the direct lineage of Yogi Bhajan. She teaches Kundalini, the yoga of awareness: a powerful practice that transforms quickly. The nervous system is regulated through the body, meditation and chant, and the memories of the subconscious are worked on — what is cleared there becomes mental clarity in daily life, and the capacity to set out.',
                 },
                 {
                     name: 'Eugénie Besqueut Franz',
