@@ -9,7 +9,7 @@ import NotFound from './NotFound'
 import RetraiteSriLanka2027 from './RetraiteSriLanka2027'
 import { getRetreat } from '../data/retreats'
 import { srilanka } from '../data/srilankaContent'
-import { DEPOSIT_RATE } from '../data/site'
+import { CONTACT, DEPOSIT_RATE } from '../data/site'
 
 /** Retraites disposant d'une page dessinée sur mesure. */
 const CUSTOM_PAGES = {
@@ -67,10 +67,81 @@ export default function RetraiteDetail() {
                 </ul>
             </Section>
 
-            <Section tone="light" title={t('retreats.programme')}>
-                <ContentGap id="retreat-programme" className="max-w-3xl" />
-            </Section>
+            {copy.intention ? (
+                <Section tone="light" title={copy.intentionTitle}>
+                    <div className="max-w-3xl space-y-5">
+                        {copy.intention.map((p) => (
+                            <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-dark/75">
+                                {p}
+                            </p>
+                        ))}
+                    </div>
+                </Section>
+            ) : (
+                <Section tone="light" title={t('retreats.programme')}>
+                    <ContentGap id="retreat-programme" className="max-w-3xl" />
+                </Section>
+            )}
 
+            {copy.guidesList && (
+                <Section title={copy.guidesTitle}>
+                    {copy.guidesLead && (
+                        <p className="mb-12 max-w-3xl text-base font-light leading-relaxed text-veda-light/70">
+                            {copy.guidesLead}
+                        </p>
+                    )}
+                    <div className="grid gap-12 sm:grid-cols-2">
+                        {copy.guidesList.map((g) => (
+                            <div key={g.name}>
+                                <img
+                                    src={`${import.meta.env.BASE_URL}images/professeures/${g.photo}`}
+                                    alt={g.name}
+                                    loading="lazy"
+                                    className="aspect-square w-full max-w-[280px] rounded-3xl object-cover"
+                                />
+                                <h3 className="mt-6 font-heading text-2xl text-veda-light">{g.name}</h3>
+                                {g.spiritualName && (
+                                    <p className="mt-1 text-sm font-light italic text-veda-gold/80">
+                                        {g.spiritualName}
+                                    </p>
+                                )}
+                                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                                    {g.role}
+                                </p>
+                                <p className="mt-4 max-w-md text-base font-light leading-relaxed text-veda-light/70">
+                                    {g.text}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </Section>
+            )}
+
+            {copy.method && (
+                <Section tone="light" title={copy.methodTitle} accent={copy.methodName}>
+                    <div className="max-w-3xl space-y-5">
+                        {copy.method.map((p) => (
+                            <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-dark/75">
+                                {p}
+                            </p>
+                        ))}
+                    </div>
+                </Section>
+            )}
+
+            {retreat.announcement ? (
+                <Section title={t('retreats.soonTitle')}>
+                    <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">
+                        {copy.soon}
+                    </p>
+                    <a
+                        href={CONTACT.whatsappHref}
+                        className="mt-10 inline-block rounded-full bg-veda-gold px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
+                    >
+                        {t('retreats.tellMe')}
+                    </a>
+                </Section>
+            ) : (
             <Section title={t('retreats.pricing')}>
                 {retreat.pricing?.options?.length > 0 && (
                     <ul className="max-w-2xl divide-y divide-white/10 border-y border-white/10">
@@ -106,6 +177,7 @@ export default function RetraiteDetail() {
                     )}
                 </div>
             </Section>
+            )}
 
             <Section tone="light" title={t('retreats.faq')}>
                 <div className="space-y-10">
