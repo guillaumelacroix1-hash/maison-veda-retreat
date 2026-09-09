@@ -275,16 +275,20 @@ export const SRILANKA = {
             ],
             values: [
                 {
-                    title: 'L\'entraide',
-                    text: 'Je l\'ai apprise pendant ces années au bord de la mer, quand nous étions une quinzaine à enseigner chacun ce que nous savions. Personne ne s\'en est sorti seul, et personne n\'aurait voulu s\'en sortir seul. Rien ici ne se fait autrement.',
+                    title: 'Accueillir',
+                    text: 'Nous recevons chacun de la même manière, sans regarder d\'où il vient ni ce qu\'il porte. On laisse son rang à la porte : ici, personne n\'a besoin de se présenter autrement que par sa présence. Une maison n\'accueille vraiment que lorsqu\'on peut y déposer ce que l\'on tient, et y être pleinement soi.',
                 },
                 {
-                    title: 'La bienveillance',
-                    text: 'C\'est pour cela que les groupes restent petits. On ne prend pas soin de gens qu\'on ne voit pas, et je préfère recevoir peu de monde et le recevoir vraiment.',
+                    title: 'L\'entraide et la bienveillance',
+                    text: 'Rien ne pousse seul. Ce que l\'on traverse se traverse mieux entouré, et la bienveillance n\'est pas une politesse : c\'est une attention à ce que l\'autre ne dit pas. Nous veillons les uns sur les autres, simplement, comme cela se fait dans une famille.',
                 },
                 {
-                    title: 'Le respect',
-                    text: 'Du vivant d\'abord. Les singes passent, les varans traversent le jardin, les oiseaux nous réveillent : nous ne sommes pas les seuls habitants de ce lieu, et c\'est très bien ainsi.',
+                    title: 'La transmission',
+                    text: 'Le Kundalini ne m\'appartient pas : je l\'ai reçu, et je le transmets. Aussi juste, aussi transparente et aussi précise que possible, dans le respect de l\'enseignement traditionnel — sans rien y ajouter qui vienne de moi. Un héritage ne se garde pas, il se passe.',
+                },
+                {
+                    title: 'La simplicité et l\'humilité',
+                    text: 'Nous ne fabriquons pas d\'expériences : nous en ouvrons la possibilité. Ce qui se transforme ici se transforme vraiment, et ne doit rien à la mise en scène. La maison est belle, mais son luxe ne lui appartient pas — il est dans le lac, dans la jungle, dans le jour qui se lève. Nous n\'y ajoutons que le silence.',
                 },
             ],
         },
@@ -690,16 +694,20 @@ export const SRILANKA = {
             ],
             values: [
                 {
-                    title: 'Helping one another',
-                    text: 'I learned it during those years by the sea, when fifteen of us each taught what we knew. Nobody came through it alone, and nobody would have wanted to. Nothing here is done any other way.',
+                    title: 'Welcoming',
+                    text: 'We receive each person in the same way, without looking at where they come from or what they carry. Rank is left at the door: here, nobody needs to introduce themselves as anything other than present. A house only truly welcomes when you can set down what you are holding, and be entirely yourself.',
                 },
                 {
-                    title: 'Kindness',
-                    text: 'That is why the groups stay small. You cannot look after people you never really see, and I would rather welcome few and welcome them properly.',
+                    title: 'Helping one another, and kindness',
+                    text: 'Nothing grows alone. What we go through is better gone through surrounded, and kindness is not a courtesy: it is attention to what the other person does not say. We watch over one another, simply, the way it is done in a family.',
                 },
                 {
-                    title: 'Respect',
-                    text: 'For the living, first of all. Monkeys pass through, monitor lizards cross the garden, birds wake us: we are not the only inhabitants of this place, and that is exactly as it should be.',
+                    title: 'Transmission',
+                    text: 'Kundalini is not mine: I received it, and I pass it on. As truly, as transparently and as precisely as I can, in keeping with traditional teaching — adding nothing of my own. An inheritance is not kept, it is handed on.',
+                },
+                {
+                    title: 'Simplicity and humility',
+                    text: 'We do not manufacture experiences: we open the possibility of one. What changes here changes for real, and owes nothing to staging. The house is beautiful, but its luxury is not its own — it lies in the lake, in the jungle, in the day as it rises. All we add is the silence.',
                 },
             ],
         },

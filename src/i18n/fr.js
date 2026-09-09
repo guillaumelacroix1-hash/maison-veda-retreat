@@ -124,6 +124,8 @@ export default {
         pricing: 'Formules et prix',
         options: 'Options',
         extend: 'Prolonger le voyage',
+        soonTitle: 'Bientôt',
+        tellMe: 'Prévenez-moi',
         faq: 'Questions fréquentes',
     },
 

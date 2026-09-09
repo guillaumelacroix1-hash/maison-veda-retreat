@@ -122,6 +122,8 @@ export default {
         pricing: 'Packages and prices',
         options: 'Options',
         extend: 'Extend your trip',
+        soonTitle: 'Coming soon',
+        tellMe: 'Keep me posted',
         faq: 'Frequently asked questions',
     },
 
