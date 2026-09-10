@@ -5,12 +5,52 @@
   "redirects": [
     {
       "source": "/",
-      "has": [{ "type": "host", "value": "2027-retraite.lamaisonveda.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "2027-retraite.lamaisonveda.com"
+        }
+      ],
       "destination": "/fr/retraites/sri-lanka-2027",
       "permanent": false
     }
   ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": ".*\\.vercel\\.app"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "2027-retraite\\.lamaisonveda\\.com"
+        }
+      ],
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
