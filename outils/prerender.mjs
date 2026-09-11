@@ -59,7 +59,12 @@ const gabarit = readFileSync(join(dist, 'index.html'), 'utf8')
 // L'ordre compte : <title> et son contenu d'abord, sinon la première
 // alternative capture la balise ouvrante seule et laisse le titre dans le
 // corps de la page, où il s'affiche en clair au visiteur.
-const BALISES_DE_TETE = /<title\b[^>]*>[\s\S]*?<\/title>|<script type="application\/ld\+json">[\s\S]*?<\/script>|<(?:meta|link)\b[^>]*>/gi
+//
+// Les données structurées restent où React les a mises. Les déplacer ici
+// faisait échouer l'hydratation : le navigateur cherchait le bloc dans la
+// page, ne le trouvait plus, et redessinait tout. Google les lit aussi bien
+// dans le corps que dans l'en-tête.
+const BALISES_DE_TETE = /<title\b[^>]*>[\s\S]*?<\/title>|<(?:meta|link)\b[^>]*>/gi
 
 let ecrites = 0
 const echecs = []
@@ -68,7 +73,11 @@ for (const adresse of adresses) {
     try {
         const rendu = await rendre(adresse)
 
-        const tete = rendu.match(BALISES_DE_TETE) ?? []
+        // React écrit « hrefLang ». Les navigateurs et Google le lisent très
+        // bien, les noms d'attribut étant insensibles à la casse en HTML, mais
+        // les outils d'audit SEO cherchent la forme minuscule et crient au
+        // hreflang manquant. On leur évite la fausse alerte.
+        const tete = (rendu.match(BALISES_DE_TETE) ?? []).map((t) => t.replace(/\bhrefLang=/g, 'hreflang='))
         const corps = rendu.replace(BALISES_DE_TETE, '')
 
         // Le gabarit porte un titre et une description de repli : les garder
