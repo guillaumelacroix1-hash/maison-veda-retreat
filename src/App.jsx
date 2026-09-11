@@ -1,5 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import { LANGS, DEFAULT_LANG, ROUTES } from './routes'
 import SiteLayout from './layouts/SiteLayout'
 import Accueil from './pages/Accueil'
@@ -74,6 +76,23 @@ function App() {
     return (
         <BrowserRouter basename={import.meta.env.BASE_URL}>
             <AppRoutes />
+            {/*
+             * Fréquentation et vitesse réellement ressentie par les visiteurs.
+             *
+             * Posées ici, dans le routeur, pour que chaque changement de page
+             * soit compté : le site ne recharge jamais, un compteur placé plus
+             * haut ne verrait que la première page visitée.
+             *
+             * Les deux mesures se font sans cookie et sans identifiant
+             * personnel : pas de bandeau de consentement à prévoir, ce qui
+             * vaut mieux pour une clientèle européenne.
+             *
+             * Elles vivent hors de <AppRoutes>, qui sert au prérendu : rien de
+             * tout cela n'a de sens dans un HTML figé, et un robot n'a pas à
+             * être compté comme une visite.
+             */}
+            <Analytics />
+            <SpeedInsights />
         </BrowserRouter>
     )
 }
