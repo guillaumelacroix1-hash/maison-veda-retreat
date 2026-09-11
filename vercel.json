@@ -11,7 +11,18 @@
           "value": "2027-retraite.lamaisonveda.com"
         }
       ],
-      "destination": "/fr/retraites/sri-lanka-2027",
+      "destination": "https://srilanka.lamaisonveda.com/fr/retraites/sri-lanka-2027",
+      "permanent": false
+    },
+    {
+      "source": "/:chemin*",
+      "has": [
+        {
+          "type": "host",
+          "value": "2027-retraite.lamaisonveda.com"
+        }
+      ],
+      "destination": "https://srilanka.lamaisonveda.com/:chemin*",
       "permanent": false
     }
   ],
