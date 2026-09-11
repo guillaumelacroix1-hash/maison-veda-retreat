@@ -59,3 +59,24 @@ export const DEPOSIT_RATE = 0.3
 
 /** Section 6 : le site annonce un délai de réponse de 48 h (à confirmer, section 11). */
 export const RESPONSE_HOURS = 48
+
+/**
+ * Adresse publique du site. Sert aux balises canoniques, aux alternatives de
+ * langue, aux images de partage et au plan du site : toutes veulent une URL
+ * absolue, qu'on ne peut pas deviner depuis le navigateur sans risquer de
+ * figer l'adresse d'une preversion.
+ */
+export const SITE_URL = 'https://srilanka.lamaisonveda.com'
+
+/** Image de partage par defaut, quand la page n'en propose pas de plus juste. */
+export const SHARE_IMAGE = '/srilanka/histoire/img_9658-1.jpg'
+
+/** Coordonnees du lieu, pour les donnees structurees et les moteurs locaux. */
+export const GEO = {
+    latitude: 5.9958,
+    longitude: 80.3406,
+    locality: 'Habaraduwa',
+    region: 'Province du Sud',
+    country: 'LK',
+    countryName: 'Sri Lanka',
+}

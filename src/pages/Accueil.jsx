@@ -19,6 +19,7 @@ import { upcomingRetreats } from '../data/retreats'
 import { TRIPS } from '../data/trips'
 import { srilanka } from '../data/srilankaContent'
 import { SOCIAL, CONTACT } from '../data/site'
+import { lieu } from '../data/schema'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 
@@ -37,7 +38,12 @@ export default function Accueil() {
 
     return (
         <>
-            <PageMeta title={t('home.metaTitle')} description={t('home.promise')} />
+            <PageMeta
+                title={t('home.metaTitle')}
+                description={t('home.promise')}
+                image={MEDIA.home}
+                jsonLd={lieu(lang, { description: t('home.promise'), image: MEDIA.home })}
+            />
 
             {/* 1. Hero. L'image s'agrandit et le texte s'efface au défilement,
                    comme sur la page retraite : la profondeur vient du mouvement. */}

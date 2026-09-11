@@ -36,9 +36,8 @@ function PageLoading() {
  * même page, chacune sous sa propre URL, ce qui est ce qu'attendent les
  * moteurs de recherche.
  */
-function App() {
+export function AppRoutes() {
     return (
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
             <Suspense fallback={<PageLoading />}>
                 <Routes>
                     <Route path="/" element={<Navigate to={`/${DEFAULT_LANG}`} replace />} />
@@ -63,6 +62,18 @@ function App() {
                     <Route path="*" element={<Navigate to={`/${DEFAULT_LANG}`} replace />} />
                 </Routes>
             </Suspense>
+    )
+}
+
+/**
+ * L'arbre des routes est exporté à part : le prérendu (outils/prerender.mjs)
+ * le monte dans un routeur statique, hors navigateur, pour figer chaque page
+ * dans le HTML livré.
+ */
+function App() {
+    return (
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
+            <AppRoutes />
         </BrowserRouter>
     )
 }

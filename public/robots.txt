@@ -1,10 +1,12 @@
-# Le site se visite et se lit librement.
+# Le site se visite et se lit librement, robots des moteurs génératifs compris.
 #
-# Les adresses de chantier (*.vercel.app, 2027-retraite.lamaisonveda.com)
-# ne doivent pas remonter dans les résultats de recherche. Ce n'est pas
-# fait ici : un « Disallow » empêcherait de lire la page, donc de voir la
-# consigne, et l'adresse pourrait quand même être indexée si un lien
-# pointe dessus. Le blocage est posé en en-tête HTTP par vercel.json
-# (X-Robots-Tag), qui vaut par hôte et n'atteint pas le domaine définitif.
+# Les adresses de chantier (*.vercel.app, 2027-retraite.lamaisonveda.com) ne
+# doivent pas remonter dans les résultats. Ce n'est pas fait ici : un
+# « Disallow » empêcherait de lire la page, donc de voir la consigne, et
+# l'adresse pourrait quand même être indexée si un lien pointe dessus. Le
+# blocage est posé en en-tête HTTP par vercel.json (X-Robots-Tag), qui vaut
+# par hôte et n'atteint pas le domaine définitif.
 User-agent: *
 Allow: /
+
+Sitemap: https://srilanka.lamaisonveda.com/sitemap.xml

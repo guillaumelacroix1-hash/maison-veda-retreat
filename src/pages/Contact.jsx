@@ -10,6 +10,7 @@ import { srilanka, SRILANKA_ADDRESS } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
 import { CONTACT } from '../data/site'
+import { questions } from '../data/schema'
 
 /** Contact et FAQ. La FAQ est organisée en trois familles (section 4). */
 export default function Contact() {
@@ -18,7 +19,16 @@ export default function Contact() {
 
     return (
         <>
-            <PageMeta title={t('contact.metaTitle')} description={t('contact.lead')} />
+            <PageMeta
+                title={t('contact.metaTitle')}
+                description={t('contact.lead')}
+                image={MEDIA.contact}
+                jsonLd={questions([
+                    ...c.contact.faq.travel,
+                    ...c.contact.faq.onSite,
+                    ...c.contact.faq.practice,
+                ])}
+            />
             <PageHero title={t('contact.title')} lead={t('contact.lead')} image={MEDIA.contact} />
 
             <Section>

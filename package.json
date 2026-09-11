@@ -8,7 +8,7 @@
     "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node outils/sitemap.mjs && node outils/prerender.mjs",
     "preview": "vite preview"
   },
   "keywords": [],
