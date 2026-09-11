@@ -7,7 +7,8 @@
  *
  * Variables d'environnement à définir sur Vercel :
  *   RESEND_API_KEY  clé Resend (jamais dans le dépôt)
- *   FORM_TO         destinataire des demandes
+ *   FORM_TO         destinataire des demandes, plusieurs séparés par une virgule
+ *   FORM_CC         copie, même format, facultatif
  *   FORM_FROM       expéditeur, par défaut l'adresse de test Resend
  *
  * ATTENTION à l'expéditeur : tant que FORM_FROM vaut onboarding@resend.dev,
@@ -72,10 +73,19 @@ export default async function handler(request, response) {
     }
 
     const apiKey = process.env.RESEND_API_KEY
-    const to = process.env.FORM_TO
+    // Plusieurs destinataires se séparent par une virgule, dans l'une ou l'autre
+    // variable : les demandes vont à Aurélie, Guillaume les reçoit en copie.
+    const list = (value) =>
+        String(value ?? '')
+            .split(',')
+            .map((address) => address.trim())
+            .filter(Boolean)
+
+    const to = list(process.env.FORM_TO)
+    const cc = list(process.env.FORM_CC)
     const from = process.env.FORM_FROM || 'La Maison VEDA <onboarding@resend.dev>'
 
-    if (!apiKey || !to) {
+    if (!apiKey || to.length === 0) {
         console.error('RESEND_API_KEY ou FORM_TO manquant dans l\'environnement')
         return response.status(500).json({ error: 'Formulaire non configuré' })
     }
@@ -116,7 +126,8 @@ export default async function handler(request, response) {
             },
             body: JSON.stringify({
                 from,
-                to: [to],
+                to,
+                ...(cc.length > 0 && { cc }),
                 reply_to: data.email,
                 subject: config.subject,
                 html: `<h2 style="font-family:Georgia,serif">${config.subject}</h2><table style="font-family:system-ui,sans-serif;font-size:14px">${rows}</table>`,
