@@ -23,10 +23,34 @@ export const CONTACT = {
 export const SOCIAL = {
     instagram: 'https://www.instagram.com/lamaisonveda/',
     facebook: 'https://www.facebook.com/profile.php?id=100084883996849',
+    // Le profil d'hôte, quand on veut montrer l'ensemble. Pour un hébergement
+    // précis, passer par AIRBNB_LISTINGS ci-dessous : le profil oblige le
+    // visiteur à retrouver lui-même la bonne annonce.
     airbnb: 'https://www.airbnb.fr/users/show/5719526',
-    // Fiche Booking et page Google à renseigner (section 10 du cahier des charges).
+    // Identifiant permanent de la fiche Google (CID), extrait de l'URL Maps.
+    // Préféré au lien share.google, plus court mais susceptible d'expirer, et
+    // à l'URL Maps complète, encombrée de paramètres de suivi.
+    google: 'https://maps.google.com/?cid=16319619559729370211',
+    // Ouvre directement la fenêtre de notation. Vérifié : mène bien à la fiche
+    // du Sri Lanka (0x3ae1…). Un premier lien fourni pointait vers la fiche
+    // française (0x4800…) — les avis seraient partis au mauvais endroit.
+    googleReview: 'https://g.page/r/CWOUL0eG73riEBM/review',
+    // Fiche Booking à renseigner (section 10 du cahier des charges).
     booking: null,
-    google: null,
+}
+
+/**
+ * Les trois annonces Airbnb, en liens publics.
+ *
+ * Aurélie avait d'abord transmis ses liens d'administration
+ * (/hosting/listings/editor/…) : ceux-là ne s'ouvrent que pour elle, un
+ * visiteur tomberait sur une page de connexion. Ce sont les mêmes
+ * identifiants, en adresse publique.
+ */
+export const AIRBNB_LISTINGS = {
+    lakeLoft: 'https://www.airbnb.fr/rooms/1506513371180120663',
+    lakeHouse: 'https://www.airbnb.fr/rooms/1310124745411619011',
+    lesDeuxVillas: 'https://www.airbnb.fr/rooms/1530152472313020610',
 }
 
 /** Acompte des participants : 30 %, sauf retraite ayant son propre montant.

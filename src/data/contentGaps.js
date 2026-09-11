@@ -56,9 +56,9 @@ export const CONTENT_GAPS = {
         ref: '§12',
     },
     'reviews': {
-        fr: 'Sélection des avis Airbnb et Google, et des témoignages de retraites passées. Format d\'affichage retenu : prénom et pays, à confirmer.',
-        en: 'Selection of Airbnb and Google reviews, plus testimonials from past retreats. Display format chosen: first name and country, to be confirmed.',
-        owner: OWNERS.aurelieClaude,
+        fr: 'Les avis Airbnb et Google sont en ligne sur l\'accueil et sur la page Retraites depuis le 09/09/2026. Aucun ne parle des circuits VEDA Travel : il en faudra de vrais, rapportés d\'un voyage, plutôt que d\'y recopier des avis de séjour.',
+        en: 'The Airbnb and Google reviews went live on the home page and the Retreats page on 09/09/2026. None of them are about the VEDA Travel tours: those need real ones, brought back from a trip, rather than stay reviews copied across.',
+        owner: OWNERS.aurelie,
         ref: '§11, §12',
     },
     'media-kit': {

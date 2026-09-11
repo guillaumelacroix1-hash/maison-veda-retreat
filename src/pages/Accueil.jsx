@@ -12,6 +12,7 @@ import TripCard from '../components/site/TripCard'
 import SectionCards from '../components/site/SectionCards'
 import FeatureCard from '../components/site/FeatureCard'
 import Testimonials from '../components/site/Testimonials'
+import { REVIEWS_HOME } from '../data/reviews'
 import ImageSlider from '../components/site/ImageSlider'
 import { NewsletterForm } from '../components/site/Forms'
 import { upcomingRetreats } from '../data/retreats'
@@ -266,7 +267,37 @@ export default function Accueil() {
 
             {/* 7. Avis, avec la mosaïque des hôtes et la visionneuse */}
             <Section tone="light" ornament="right" title={t('home.testimonialsTitle')}>
-                <Testimonials images={SRILANKA_MEDIA.galerie.slice(0, 5)} reviewsUrl={SOCIAL.airbnb} tone="light" />
+                <Testimonials
+                    quotes={REVIEWS_HOME}
+                    images={SRILANKA_MEDIA.galerie.slice(0, 5)}
+                    reviewsUrl={SOCIAL.airbnb}
+                    googleUrl={SOCIAL.google}
+                    tone="light"
+                />
+
+                <div className="mt-14 flex flex-wrap items-baseline gap-x-4 gap-y-2 border-t border-veda-dark/10 pt-8">
+                    <p className="text-base font-light text-veda-dark/70">{t('home.reviewLead')}</p>
+                    <a
+                        href={SOCIAL.googleReview}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-veda-gold transition-colors hover:text-veda-dark"
+                    >
+                        {t('home.reviewCta')} <ArrowRight className="h-4 w-4" />
+                    </a>
+                </div>
+
+                <div className="mt-6 flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                    <p className="text-base font-light text-veda-dark/70">{t('home.instagramLead')}</p>
+                    <a
+                        href={SOCIAL.instagram}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-veda-gold transition-colors hover:text-veda-dark"
+                    >
+                        @lamaisonveda <ArrowRight className="h-4 w-4" />
+                    </a>
+                </div>
             </Section>
 
             {/* 8. Notre histoire + newsletter */}

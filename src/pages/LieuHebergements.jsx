@@ -12,14 +12,29 @@ import Accordion from '../components/site/Accordion'
 import { srilanka, SRILANKA_LINKS } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 import { MEDIA } from '../data/media'
-import { CONTACT, SOCIAL } from '../data/site'
+import { AIRBNB_LISTINGS, CONTACT, SOCIAL } from '../data/site'
 
 /** Bloc d'un hébergement : texte, équipements, galerie. */
-function Lodging({ copy, images, tone = 'dark', facts }) {
+function Lodging({ copy, images, tone = 'dark', facts, airbnbUrl }) {
+    const { t } = useI18n()
     const isLight = tone === 'light'
     return (
         <div className={`border-t py-16 first:border-t-0 first:pt-0 ${isLight ? 'border-veda-dark/10' : 'border-white/10'}`}>
-            <h3 className="font-heading text-3xl md:text-4xl">{copy.name}</h3>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3">
+                <h3 className="font-heading text-3xl md:text-4xl">{copy.name}</h3>
+                {airbnbUrl && (
+                    <a
+                        href={airbnbUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`text-xs font-semibold uppercase tracking-widest transition-colors ${
+                            isLight ? 'text-veda-sand hover:text-veda-dark' : 'text-veda-gold hover:text-white'
+                        }`}
+                    >
+                        {t('venue.seeListing')} →
+                    </a>
+                )}
+            </div>
 
             <div className="mt-6 grid gap-10 lg:grid-cols-2">
                 <div>
@@ -173,11 +188,13 @@ export default function LieuHebergements() {
                 <Lodging
                     copy={c.lodgings.lakeHouse}
                     images={SRILANKA_MEDIA['lake-house']}
+                    airbnbUrl={AIRBNB_LISTINGS.lakeHouse}
                     tone="light"
                 />
                 <Lodging
                     copy={c.lodgings.lakeLoft}
                     images={SRILANKA_MEDIA['lake-loft']}
+                    airbnbUrl={AIRBNB_LISTINGS.lakeLoft}
                     tone="light"
                 />
 
@@ -260,7 +277,7 @@ export default function LieuHebergements() {
             <Section id="reserver" tone="light" title={t('venue.bookCta')}>
                 <div className="grid gap-8 md:grid-cols-3">
                     {c.prices.booking.map((option, index) => {
-                        const href = [SRILANKA_LINKS.revolut, SOCIAL.airbnb, SOCIAL.booking][index]
+                        const href = [SRILANKA_LINKS.revolut, AIRBNB_LISTINGS.lesDeuxVillas, SOCIAL.booking][index]
                         const isPrimary = index === 0
                         return (
                             <article
@@ -422,7 +439,7 @@ export default function LieuHebergements() {
                 accent={t('cta.venueAccent')}
                 lead={t('cta.venueLead')}
                 primary={{ label: t('cta.bookStay'), href: CONTACT.whatsappHref }}
-                secondary={{ label: t('venue.onAirbnb'), href: SOCIAL.airbnb }}
+                secondary={{ label: t('venue.onAirbnb'), href: AIRBNB_LISTINGS.lesDeuxVillas }}
                 image={SRILANKA_MEDIA['lake-house'][2]}
             />
 

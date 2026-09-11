@@ -15,7 +15,7 @@ import ContentGap from './ContentGap'
  * @param {{text: string, author: string, place?: string, source?: string}[]} quotes
  * @param {{src: string, alt?: string}[]} images
  */
-export default function Testimonials({ quotes = [], images = [], reviewsUrl, tone = 'dark' }) {
+export default function Testimonials({ quotes = [], images = [], reviewsUrl, googleUrl, tone = 'dark' }) {
     const { t, lang } = useI18n()
     const [lightbox, setLightbox] = useState(null)
     const isLight = tone === 'light'
@@ -54,12 +54,13 @@ export default function Testimonials({ quotes = [], images = [], reviewsUrl, ton
                     </>
                 )}
 
+                <div className="mt-8 flex flex-wrap gap-3">
                 {reviewsUrl && (
                     <a
                         href={reviewsUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className={`mt-8 inline-flex items-center gap-3 rounded-full border px-8 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
+                        className={`inline-flex items-center gap-3 rounded-full border px-8 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
                             isLight
                                 ? 'border-veda-dark/30 text-veda-dark hover:bg-veda-dark hover:text-veda-light'
                                 : 'border-veda-gold/50 text-veda-gold hover:bg-veda-gold hover:text-veda-dark'
@@ -69,6 +70,22 @@ export default function Testimonials({ quotes = [], images = [], reviewsUrl, ton
                         <ArrowUpRight className="h-4 w-4" />
                     </a>
                 )}
+                {googleUrl && (
+                    <a
+                        href={googleUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`inline-flex items-center gap-3 rounded-full border px-8 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
+                            isLight
+                                ? 'border-veda-dark/30 text-veda-dark hover:bg-veda-dark hover:text-veda-light'
+                                : 'border-veda-gold/50 text-veda-gold hover:bg-veda-gold hover:text-veda-dark'
+                        }`}
+                    >
+                        {t('venue.onGoogle')}
+                        <ArrowUpRight className="h-4 w-4" />
+                    </a>
+                )}
+                </div>
             </div>
 
             {/* Mosaïque des hôtes : la première photo prend deux cases */}

@@ -9,6 +9,8 @@ import CtaSection from '../components/site/CtaSection'
 import RetreatCard from '../components/site/RetreatCard'
 import RetreatFeature from '../components/site/RetreatFeature'
 import ContentGap from '../components/site/ContentGap'
+import Testimonials from '../components/site/Testimonials'
+import { REVIEWS_RETREATS } from '../data/reviews'
 import { NewsletterForm } from '../components/site/Forms'
 import { upcomingRetreats, pastRetreats } from '../data/retreats'
 import { CONTACT } from '../data/site'
@@ -115,9 +117,11 @@ export default function Retraites() {
                             <RetreatCard key={retreat.slug} retreat={retreat} />
                         ))}
                     </div>
-                ) : (
-                    <ContentGap id="reviews" className="max-w-3xl" />
-                )}
+                ) : null}
+
+                <div className="mt-14">
+                    <Testimonials quotes={REVIEWS_RETREATS} />
+                </div>
 
                 <div className="mt-20 border-t border-white/10 pt-14">
                     <h3 className="font-heading text-2xl md:text-3xl">{t('home.newsletterTitle')}</h3>
