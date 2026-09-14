@@ -17,11 +17,11 @@ export const SRILANKA = {
         welcome: {
             title: 'Bienvenue à La maison', titleAccent: 'VEDA Sri Lanka',
             paragraphs: [
-                'Nichée entre la jungle et le lac, sur les rives du lac de Koggala dans le sud du Sri Lanka, La Maison VEDA est un lieu de bien-être dédié au yoga, à la nature et aux expériences authentiques.',
+                'Nichée entre la jungle et le lac, sur les rives du lac de Koggala dans le sud du Sri Lanka, La Maison VEDA est un lieu de bien-être dédié au yoga, à la nature et aux expériences authentiques — à cinq minutes seulement de la plage de Koggala, en tuk-tuk.',
                 'Nous accueillons des retraites de yoga et de bien-être organisées en petits groupes, pour celles et ceux qui souhaitent ralentir, se reconnecter et approfondir leur pratique dans un cadre naturel inspirant.',
                 'La Maison VEDA est aussi ouverte aux voyageurs en quête de vacances conscientes, à la recherche d\'un séjour paisible au plus près de la nature, où la vie s\'écoule doucement et où l\'hospitalité est sincère.',
                 'Enfin, nous accompagnons les organisateurs de retraites, en proposant des expériences sur mesure et des séjours bien-être personnalisés, conçus pour de petits groupes et une approche du tourisme plus humaine et responsable.',
-                'Deux villas au charme authentique, un yoga shala avec une vue imprenable sur le lac, et une cuisine végétarienne inspirée des traditions sri-lankaise et ayurvédique font de La Maison VEDA une véritable maison d\'expériences.',
+                'Deux villas au charme authentique, un yoga shala avec une vue imprenable sur le lac, et une cuisine végétarienne inspirée des traditions sri-lankaises font de La Maison VEDA une véritable maison d\'expériences. La propriétaire est française : ici, on veille à ce que chacun mange bien.',
             ],
         },
 
@@ -388,7 +388,7 @@ export const SRILANKA = {
                 onSite: [
                     {
                         q: 'Comment sont les repas ?',
-                        a: 'Végétariens, ayurvédiques, et entièrement sans gluten — j\'y tiens, je suis moi-même intolérante.',
+                        a: 'Végétariens et entièrement sans gluten — j\'y tiens, je suis moi-même intolérante.',
                     },
                     {
                         q: 'Peut-on boire l\'eau du robinet ?',
@@ -461,11 +461,11 @@ export const SRILANKA = {
         welcome: {
             title: 'Welcome to', titleAccent: 'La maison VEDA Sri Lanka',
             paragraphs: [
-                'Nestled between jungle and lake, on the shores of Koggala Lake in the south of Sri Lanka, La Maison VEDA is a well-being place dedicated to yoga, nature and authentic experiences.',
+                'Nestled between jungle and lake, on the shores of Koggala Lake in the south of Sri Lanka, La Maison VEDA is a well-being place dedicated to yoga, nature and authentic experiences — just five minutes from Koggala beach by tuk-tuk.',
                 'We welcome yoga and well-being retreats, organized in small groups, for those who wish to slow down, reconnect and deepen their practice in an inspiring natural setting.',
                 'La Maison VEDA is also open to travelers seeking conscious holidays, looking for a peaceful stay close to nature, where life flows gently and hospitality is sincere.',
                 'Finally, we support retreat organizers, offering tailor-made experiences and personalized well-being stays, designed for small groups and a more human and responsible approach to tourism.',
-                'Two villas with authentic charm, a yoga shala with breathtaking views over the lake, and a vegetarian cuisine inspired by Sri Lankan and Ayurvedic traditions make La Maison VEDA a true house of experiences.',
+                'Two villas with authentic charm, a yoga shala with breathtaking views over the lake, and a vegetarian cuisine inspired by Sri Lankan traditions make La Maison VEDA a true house of experiences. The owner is French: here, we make sure everyone eats well.',
             ],
         },
 
@@ -797,7 +797,7 @@ export const SRILANKA = {
                 onSite: [
                     {
                         q: 'What are the meals like?',
-                        a: 'Vegetarian, Ayurvedic, and entirely gluten-free — I insist on that, being intolerant myself.',
+                        a: 'Vegetarian and entirely gluten-free — I insist on that, being intolerant myself.',
                     },
                     {
                         q: 'Can I drink the tap water?',
