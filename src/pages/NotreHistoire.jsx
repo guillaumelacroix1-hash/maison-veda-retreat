@@ -3,6 +3,7 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import PhotoPleine from '../components/site/PhotoPleine'
 import SectionNav from '../components/site/SectionNav'
 import CtaSection from '../components/site/CtaSection'
 import { CONTACT } from '../data/site'
@@ -63,25 +64,21 @@ export default function NotreHistoire() {
                 title={t('story.teamTitle')}
                 accent={t('story.teamAccent')}
             >
-                <div className="grid gap-10 md:grid-cols-[1.4fr,1fr] md:items-start">
-                    <div className="space-y-5">
+                <div className="grid gap-10 md:grid-cols-[1.4fr,1fr]">
+                    <div className="flex flex-col justify-center space-y-5">
                         {c.story.team.map((p) => (
                             <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-dark/75">
                                 {p}
                             </p>
                         ))}
                     </div>
-                    <figure className="m-0">
-                        <img
-                            src={SRILANKA_MEDIA.equipe[0].src}
-                            alt={SRILANKA_MEDIA.equipe[0].alt}
-                            loading="lazy"
-                            className="w-full rounded-3xl object-cover"
-                        />
-                        <figcaption className="mt-3 text-sm font-light italic text-veda-dark/55">
-                            {SRILANKA_MEDIA.equipe[0].alt}
-                        </figcaption>
-                    </figure>
+                    {/* À hauteur naturelle, le portrait dépassait le texte et laissait
+                        un vide sous les paragraphes. */}
+                    <PhotoPleine
+                        image={SRILANKA_MEDIA.equipe[0]}
+                        legende={SRILANKA_MEDIA.equipe[0].alt}
+                        hauteurMin="min-h-[380px]"
+                    />
                 </div>
             </Section>
 

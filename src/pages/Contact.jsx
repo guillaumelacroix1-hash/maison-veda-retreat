@@ -4,7 +4,7 @@ import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
 import CtaSection from '../components/site/CtaSection'
-import FaqList from '../components/site/FaqList'
+import FaqColonnes from '../components/site/FaqColonnes'
 import { Form, Field, TextareaField } from '../components/site/Forms'
 import { srilanka, SRILANKA_ADDRESS } from '../data/srilankaContent'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
@@ -115,20 +115,14 @@ export default function Contact() {
             </Section>
 
             <Section tone="light" ornament="left" title={t('contact.faqTitle')} accent={t('contact.faqAccent')}>
-                <div className="space-y-10">
-                    {[
-                        { key: 'travel', label: t('contact.faqTravel') },
-                        { key: 'onSite', label: t('contact.faqOnSite') },
-                        { key: 'practice', label: t('contact.faqPractice') },
-                    ].map((family) => (
-                        <div key={family.key}>
-                            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                                {family.label}
-                            </h3>
-                            <FaqList items={c.contact.faq[family.key]} tone="light" className="max-w-3xl" />
-                        </div>
-                    ))}
-                </div>
+                <FaqColonnes
+                    tone="light"
+                    familles={[
+                        { key: 'travel', label: t('contact.faqTravel'), items: c.contact.faq.travel },
+                        { key: 'onSite', label: t('contact.faqOnSite'), items: c.contact.faq.onSite },
+                        { key: 'practice', label: t('contact.faqPractice'), items: c.contact.faq.practice },
+                    ]}
+                />
             </Section>
 
             <CtaSection

@@ -6,8 +6,8 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import Section from '../components/site/Section'
 import CtaSection from '../components/site/CtaSection'
-import RetreatCard from '../components/site/RetreatCard'
-import RetreatFeature from '../components/site/RetreatFeature'
+import RetreatGrid from '../components/site/RetreatGrid'
+import PhotoPleine from '../components/site/PhotoPleine'
 import TripCard from '../components/site/TripCard'
 import SectionCards from '../components/site/SectionCards'
 import FeatureCard from '../components/site/FeatureCard'
@@ -148,17 +148,7 @@ export default function Accueil() {
                 title={t('home.upcomingTitle')}
                 lead={t('home.upcomingLead')}
             >
-                {/* Une seule retraite programmée : elle occupe toute la largeur plutôt
-                    que de flotter seule dans une grille de trois colonnes. */}
-                {upcoming.length === 1 ? (
-                    <RetreatFeature retreat={upcoming[0]} />
-                ) : (
-                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        {upcoming.map((retreat) => (
-                            <RetreatCard key={retreat.slug} retreat={retreat} />
-                        ))}
-                    </div>
-                )}
+                <RetreatGrid retreats={upcoming} />
                 <Link
                     to={path('retreats')}
                     className="mt-12 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-veda-gold transition-colors hover:text-white"
@@ -271,11 +261,11 @@ export default function Accueil() {
                 </Link>
             </Section>
 
-            {/* 7. Avis, avec la mosaïque des hôtes et la visionneuse */}
+            {/* 7. Avis et photos des hôtes, en bandes qui défilent */}
             <Section tone="light" ornament="right" title={t('home.testimonialsTitle')}>
                 <Testimonials
                     quotes={REVIEWS_HOME}
-                    images={SRILANKA_MEDIA.galerie.slice(0, 5)}
+                    images={SRILANKA_MEDIA.galerie}
                     reviewsUrl={SOCIAL.airbnb}
                     googleUrl={SOCIAL.google}
                     tone="light"
@@ -308,8 +298,9 @@ export default function Accueil() {
 
             {/* 8. Notre histoire + newsletter */}
             <Section eyebrow={t('nav.story')} title={t('home.storyTitle')}>
-                <div className="grid gap-12 lg:grid-cols-[1.4fr,1fr] lg:items-start">
-                    <div className="space-y-5">
+                <div className="grid gap-12 lg:grid-cols-[1.4fr,1fr]">
+                    <div className="flex flex-col justify-center">
+                        <div className="space-y-5">
                         <p className="text-lg font-light italic leading-relaxed text-veda-gold">
                             {c.story.paragraphs[0]}
                         </p>
@@ -322,21 +313,12 @@ export default function Accueil() {
                         >
                             {t('common.learnMore')} <ArrowRight className="h-4 w-4" />
                         </Link>
+                        </div>
                     </div>
 
-                    {SRILANKA_MEDIA.histoire?.[1] && (
-                        <div className="relative">
-                            <div className="aspect-[4/5] overflow-hidden rounded-3xl">
-                                <img
-                                    src={SRILANKA_MEDIA.histoire[1].src}
-                                    alt={SRILANKA_MEDIA.histoire[1].alt || ''}
-                                    loading="lazy"
-                                    className="h-full w-full object-cover"
-                                />
-                            </div>
-                            <div className="pointer-events-none absolute inset-0 -z-10 hidden translate-x-5 translate-y-5 rounded-3xl border border-veda-gold/50 sm:block" />
-                        </div>
-                    )}
+                    {/* La photo suit la hauteur du texte : en portrait fixe, elle
+                        descendait bien plus bas et laissait un vide sous le lien. */}
+                    <PhotoPleine image={SRILANKA_MEDIA.histoire?.[1]} hauteurMin="min-h-[360px]" />
                 </div>
 
                 <div className="mt-20 border-t border-white/10 pt-14">

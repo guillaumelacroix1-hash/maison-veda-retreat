@@ -7,7 +7,8 @@ import Section from '../components/site/Section'
 import SectionNav from '../components/site/SectionNav'
 import CtaSection from '../components/site/CtaSection'
 import RetreatCard from '../components/site/RetreatCard'
-import RetreatFeature from '../components/site/RetreatFeature'
+import RetreatGrid from '../components/site/RetreatGrid'
+import PhotoPleine from '../components/site/PhotoPleine'
 import ContentGap from '../components/site/ContentGap'
 import Testimonials from '../components/site/Testimonials'
 import { REVIEWS_RETREATS } from '../data/reviews'
@@ -70,8 +71,8 @@ export default function Retraites() {
 
             {/* Introduction reprise de la page source, avec une image pour l'habiller */}
             <Section id="a-venir" title={t('retreats.upcoming')}>
-                <div className="mb-16 grid items-start gap-12 lg:grid-cols-[1.2fr,1fr]">
-                    <div className="space-y-4">
+                <div className="mb-16 grid gap-12 lg:grid-cols-[1.2fr,1fr]">
+                    <div className="flex flex-col justify-center space-y-4">
                         {c.retreats.upcomingText.map((p) => (
                             <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
                                 {p}
@@ -79,34 +80,12 @@ export default function Retraites() {
                         ))}
                     </div>
 
-                    {SRILANKA_MEDIA.nav?.[1] && (
-                        <div className="relative">
-                            {/* Format paysage : en portrait, l'image dictait la hauteur
-                                de la ligne et creusait un vide sous le titre. */}
-                            <div className="aspect-[4/3] overflow-hidden rounded-3xl">
-                                <img
-                                    src={SRILANKA_MEDIA.nav[1].src}
-                                    alt={SRILANKA_MEDIA.nav[1].alt || ''}
-                                    loading="lazy"
-                                    style={{ objectPosition: SRILANKA_MEDIA.nav[1].position }}
-                                    className="h-full w-full object-cover"
-                                />
-                            </div>
-                            <div className="pointer-events-none absolute inset-0 -z-10 hidden translate-x-5 -translate-y-5 rounded-3xl border border-veda-gold/50 sm:block" />
-                        </div>
-                    )}
+                    {/* Même en paysage, la photo dépassait les deux paragraphes et
+                        creusait un vide sous eux : elle suit désormais leur hauteur. */}
+                    <PhotoPleine image={SRILANKA_MEDIA.nav?.[1]} hauteurMin="min-h-[300px]" />
                 </div>
 
-                {/* Une seule retraite : pleine largeur, comme sur l'accueil. */}
-                {upcoming.length === 1 ? (
-                    <RetreatFeature retreat={upcoming[0]} />
-                ) : (
-                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        {upcoming.map((retreat) => (
-                            <RetreatCard key={retreat.slug} retreat={retreat} />
-                        ))}
-                    </div>
-                )}
+                <RetreatGrid retreats={upcoming} />
             </Section>
 
 
@@ -120,7 +99,7 @@ export default function Retraites() {
                 ) : null}
 
                 <div className="mt-14">
-                    <Testimonials quotes={REVIEWS_RETREATS} />
+                    <Testimonials quotes={REVIEWS_RETREATS} images={SRILANKA_MEDIA['yoga-shala']} />
                 </div>
 
                 <div className="mt-20 border-t border-white/10 pt-14">

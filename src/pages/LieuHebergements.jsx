@@ -3,6 +3,7 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import PhotoPleine from '../components/site/PhotoPleine'
 import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
@@ -97,6 +98,19 @@ function Lodging({ copy, images, tone = 'dark', facts, airbnbUrl }) {
 }
 
 /** Le lieu et les hébergements, sur une seule page (section 4 du cahier des charges). */
+/**
+ * Élargit la première carte d'activité pour que la dernière rangée soit
+ * pleine, sur deux colonnes comme sur trois, quel que soit le nombre
+ * d'activités. Classes écrites en entier pour que Tailwind les trouve.
+ */
+function largeurPremiereCarte(total) {
+    const aCombler2 = (2 - (total % 2)) % 2
+    const aCombler3 = (3 - (total % 3)) % 3
+    const tablette = aCombler2 ? 'sm:col-span-2' : ''
+    const ecran = ['lg:col-span-1', 'lg:col-span-2', 'lg:col-span-3'][aCombler3]
+    return `${tablette} ${ecran}`
+}
+
 export default function LieuHebergements() {
     const { t, lang } = useI18n()
     const c = srilanka(lang)
@@ -144,16 +158,9 @@ export default function LieuHebergements() {
                         </div>
                     </div>
 
-                    {SRILANKA_MEDIA.nav?.[4] && (
-                        <div className="hidden overflow-hidden rounded-3xl lg:block">
-                            <img
-                                src={SRILANKA_MEDIA.nav[4].src}
-                                alt={SRILANKA_MEDIA.nav[4].alt || ''}
-                                loading="lazy"
-                                className="h-full w-full object-cover"
-                            />
-                        </div>
-                    )}
+                    {/* La photo suit la hauteur des deux colonnes de texte ; à sa
+                        hauteur naturelle, elle les dépassait et creusait un vide. */}
+                    <PhotoPleine image={SRILANKA_MEDIA.nav?.[4]} className="hidden lg:flex" />
                 </div>
 
                 {/* Bandeau de chiffres clés : la page annonce ce qu'elle est en un coup d'œil */}
@@ -344,12 +351,20 @@ export default function LieuHebergements() {
 
             {/* Hébergements complémentaires */}
             <Section title={c.retreats.additionalTitle} accent={c.retreats.additionalAccent}>
-                <div className="max-w-3xl space-y-5">
-                    {c.retreats.additionalText.map((p) => (
-                        <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
-                            {p}
-                        </p>
-                    ))}
+                {/* Les deux maisons partenaires en photos, en face de leur
+                    présentation : le texte seul laissait la moitié droite vide. */}
+                <div className="grid gap-12 lg:grid-cols-[1.2fr,1fr] lg:gap-16">
+                    <div className="flex flex-col justify-center space-y-5">
+                        {c.retreats.additionalText.map((p) => (
+                            <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
+                                {p}
+                            </p>
+                        ))}
+                    </div>
+                    <div className="hidden gap-4 lg:flex">
+                        <PhotoPleine image={SRILANKA_MEDIA.tothupola?.[0]} className="flex-1" hauteurMin="min-h-[260px]" />
+                        <PhotoPleine image={SRILANKA_MEDIA['jungle-breeze']?.[0]} className="flex-1" hauteurMin="min-h-[260px]" />
+                    </div>
                 </div>
 
                 {/* Partenaires en accordéon : la maison reste en vedette, mais
@@ -401,12 +416,20 @@ export default function LieuHebergements() {
                     </div>
                 </div>
 
-                <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {/* Rangées de hauteur fixe, et une première carte élargie juste ce
+                    qu'il faut pour que la dernière rangée soit pleine, sur deux
+                    comme sur trois colonnes : onze activités laissaient une case vide. */}
+                <ul className="mt-14 grid auto-rows-[240px] gap-5 sm:grid-cols-2 lg:auto-rows-[250px] lg:grid-cols-3">
                     {c.around.activities.map((label, index) => {
                         const image = SRILANKA_MEDIA.activites[index]
                         return (
-                            <li key={label} className="group relative overflow-hidden rounded-2xl">
-                                <div className="aspect-[4/3] overflow-hidden bg-veda-dark">
+                            <li
+                                key={label}
+                                className={`group relative overflow-hidden rounded-2xl ${
+                                    index === 0 ? largeurPremiereCarte(c.around.activities.length) : ''
+                                }`}
+                            >
+                                <div className="h-full overflow-hidden bg-veda-dark">
                                     {image && (
                                         <img
                                             src={image.src}

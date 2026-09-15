@@ -15,8 +15,10 @@ export default function Section({
     /** Photo d'ambiance en fond de section : { src, alt }. */
     background,
     /**
-     * Photo posée en face du contenu : { src, alt }.
+     * Photo posée en face du contenu : { src, alt }, ou une liste de photos.
      * Évite les sections où le texte occupe une moitié et l'autre reste vide.
+     * Un texte long (un itinéraire jour par jour) en reçoit plusieurs, qui se
+     * partagent sa hauteur.
      */
     aside,
     /** Position de cette photo. */
@@ -91,15 +93,22 @@ export default function Section({
                 )}
                 {aside ? (
                     <div
-                        className={`grid gap-12 lg:items-start ${
+                        className={`grid gap-12 lg:gap-16 ${
                             asidePosition === 'left'
                                 ? 'lg:grid-cols-[1fr,1.3fr]'
                                 : 'lg:grid-cols-[1.3fr,1fr]'
                         }`}
                     >
-                        {asidePosition === 'left' && <AsideImage image={aside} />}
-                        <div>{children}</div>
-                        {asidePosition === 'right' && <AsideImage image={aside} />}
+                        {asidePosition === 'left' && <AsideImages images={aside} />}
+                        {/* Centré en hauteur : si la photo dépasse le texte, le blanc se
+                            partage au-dessus et en dessous au lieu de s'amasser en bas.
+                            Le contenu passe par un bloc intermédiaire : posé directement
+                            dans la colonne flexible, un bouton s'étirait sur toute sa
+                            largeur. */}
+                        <div className="flex flex-col justify-center">
+                            <div>{children}</div>
+                        </div>
+                        {asidePosition === 'right' && <AsideImages images={aside} />}
                     </div>
                 ) : (
                     children
@@ -110,28 +119,32 @@ export default function Section({
 }
 
 /**
- * Photo d'accompagnement, masquée sur petit écran où elle n'apporterait rien.
+ * Photos d'accompagnement, masquées sur petit écran où elles n'apporteraient rien.
  *
- * Elle est collante et de proportion fixe : sur une section courte elle reste
- * en regard du texte, sur une section longue (un itinéraire jour par jour) elle
- * suit le défilement au lieu de s'étirer démesurément.
+ * Elles prennent la hauteur du texte d'en face au lieu d'avoir une proportion
+ * fixe. Plafonnée à 380 pixels, l'ancienne photo laissait un vide sous elle
+ * dès que le texte s'allongeait, et un vide sous le texte dès qu'il était
+ * court : l'audit des sections relevait les deux sur une dizaine de pages.
+ *
+ * Plusieurs photos se partagent la hauteur à parts égales, chacune gardant une
+ * hauteur minimale pour ne jamais devenir un bandeau.
  */
-function AsideImage({ image }) {
+function AsideImages({ images }) {
+    const liste = (Array.isArray(images) ? images : [images]).filter(Boolean)
+
     return (
-        <div
-            className="hidden lg:block"
-            style={{ position: 'sticky', top: 'calc(var(--header-h, 84px) + 2rem)' }}
-        >
-            {/* Format paysage et hauteur bornée : une image en portrait dépassait
-                largement les contenus courts et recréait du vide sous le texte. */}
-            <div className="aspect-[4/3] max-h-[380px] overflow-hidden rounded-3xl">
-                <img
-                    src={image.src}
-                    alt={image.alt || ''}
-                    loading="lazy"
-                    className="h-full w-full object-cover"
-                />
-            </div>
+        <div className="hidden flex-col gap-5 lg:flex">
+            {liste.map((image) => (
+                <div key={image.src} className="relative min-h-[300px] flex-1 overflow-hidden rounded-3xl">
+                    <img
+                        src={image.src}
+                        alt={image.alt || ''}
+                        loading="lazy"
+                        className="absolute inset-0 h-full w-full object-cover"
+                        style={image.position ? { objectPosition: image.position } : undefined}
+                    />
+                </div>
+            ))}
         </div>
     )
 }

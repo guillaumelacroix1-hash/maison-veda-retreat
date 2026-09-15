@@ -86,8 +86,10 @@ const Gallery = () => {
                     </p>
                 </div>
 
-                {/* Image Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[250px]">
+                {/* Grille d'images. Le remplissage dense ramène les petites
+                    photos dans les cases laissées libres par les grandes : sans
+                    lui, quatre cases restaient vides sur les vingt premières photos. */}
+                <div className="grid grid-cols-2 md:grid-cols-4 md:grid-flow-row-dense gap-4 auto-rows-[250px]">
                     {displayedImages.map((src, index) => {
                         const isLarge = index === 0 || index === 5;
                         const isWide = index === 2 || index === 7;

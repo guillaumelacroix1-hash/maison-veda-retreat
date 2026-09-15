@@ -7,6 +7,7 @@ import SectionNav from '../components/site/SectionNav'
 import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
+import PhotoPleine from '../components/site/PhotoPleine'
 import WeeklySchedule from '../components/site/WeeklySchedule'
 import EventList from '../components/site/EventList'
 import { srilanka } from '../data/srilankaContent'
@@ -140,6 +141,13 @@ export default function Studio() {
                 eyebrow={t('studio.philosophyEyebrow')}
                 title={t('studio.philosophyTitle')}
                 accent={t('studio.philosophyAccent')}
+                aside={{
+                    src: '/images/professeures/lilie-shala-blanc.jpg',
+                    alt: lang === 'en' ? 'Aurélie seated on the shala' : 'Aurélie assise sur le shala',
+                    // Portrait posé dans un cadre en largeur : cadré plus bas, le
+                    // recadrage coupait la tête.
+                    position: 'center 8%',
+                }}
             >
                 <div className="max-w-3xl space-y-5">
                     {t('studio.philosophyParagraphs').map((p) => (
@@ -273,7 +281,8 @@ export default function Studio() {
                 {/* Une professeure par bande, photo d'un côté et récit de l'autre,
                     en alternance : leurs textes n'ont pas la même longueur, deux
                     colonnes côte à côte laisseraient un grand vide sous la plus
-                    courte. La photo reste visible pendant la lecture (sticky). */}
+                    courte. La photo suit la hauteur du récit : elle reste en regard
+                    pendant toute la lecture, sans laisser de vide sous elle. */}
                 <div className="space-y-20">
                     {TEACHERS.map((teacher, index) => {
                         const copy = teacher[lang] ?? teacher.fr
@@ -287,29 +296,25 @@ export default function Studio() {
                                 // inverser les pistes en même temps. Sans ça, la photo
                                 // de droite héritait de la piste large et sortait 50 %
                                 // plus grosse que celle de gauche.
-                                className={`grid items-start gap-10 md:gap-14 ${
+                                className={`grid gap-10 md:gap-14 ${
                                     photoRight
                                         ? 'md:grid-cols-[1fr,minmax(0,380px)]'
                                         : 'md:grid-cols-[minmax(0,380px),1fr]'
                                 }`}
                             >
-                                <div
-                                    // En dessous de md la grille se replie sur une seule
-                                    // colonne : sans limite, un portrait 4/5 en pleine
-                                    // largeur devient plus haut que l'écran.
-                                    className={`max-w-[320px] overflow-hidden rounded-3xl md:max-w-none md:sticky md:top-40 ${photoRight ? 'md:order-2' : ''}`}
-                                >
-                                    <img
-                                        src={teacher.photo}
-                                        alt={teacher.name}
-                                        loading="lazy"
-                                        className="aspect-[4/5] w-full object-cover transition-transform duration-700 hover:scale-105"
-                                    />
-                                </div>
+                                {/* Le portrait prend la hauteur du récit d'en face. Collant et
+                                    de hauteur fixe, il laissait une colonne vide sous lui dès
+                                    que la biographie s'allongeait. Sur téléphone, où la grille
+                                    se replie, sa largeur reste bornée. */}
+                                <PhotoPleine
+                                    image={{ src: teacher.photo, alt: teacher.name, position: 'center 25%' }}
+                                    hauteurMin="min-h-[400px]"
+                                    className={`max-w-[320px] md:max-w-none ${photoRight ? 'md:order-2' : ''}`}
+                                />
 
                                 {/* La ligne de texte reste lisible : au-delà d'environ
                                     75 signes, l'œil perd le début de la ligne suivante. */}
-                                <div className="max-w-3xl">
+                                <div className="flex max-w-3xl flex-col justify-center">
                                     <h3 className="font-heading text-3xl">{teacher.name}</h3>
                                     {teacher.spiritualName && (
                                         <p className="mt-1 font-heading text-xl italic text-veda-gold">
@@ -335,45 +340,27 @@ export default function Studio() {
             </Section>
 
             {/* Le café n'est encore qu'une envie. On la formule comme telle,
-                sans horaires ni carte : rien n'est décidé, et c'est voulu. */}
-            <Section
-                tone="light"
-                title={t('studio.cafeTitle')}
-                accent={t('studio.cafeAccent')}
-            />
-
-            {/* Appel à l'action final, posé sur une photo du lieu */}
-            <Section
-                title={t('studio.bookTitle')}
-                lead={t('studio.bookLead')}
-                background={SRILANKA_MEDIA.nav?.[3]}
-            >
-                <div className="flex flex-wrap gap-5">
-                    <a
-                        href={CONTACT.whatsappHref}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-3 rounded-full bg-veda-gold px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
-                    >
-                        <MessageCircle className="h-4 w-4" />
-                        {t('studio.bookCta')}
-                    </a>
-                    <a
-                        href={SOCIAL.instagram}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-3 rounded-full border border-white/50 px-10 py-3.5 text-sm font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-white/10"
-                    >
-                        Instagram
-                    </a>
+                sans horaires ni carte : rien n'est décidé, et c'est voulu.
+                Seule, la question faisait une section réduite à son titre ; le
+                jardin en face lui donne un décor sans rien promettre de plus. */}
+            <Section tone="light">
+                <div className="grid items-center gap-10 md:grid-cols-[1fr,1.1fr] md:gap-16">
+                    <PhotoPleine image={SRILANKA_MEDIA.nav?.[0]} hauteurMin="min-h-[300px]" />
+                    <h2 className="font-heading text-4xl leading-tight text-balance md:text-5xl">
+                        {t('studio.cafeTitle')} <span className="italic text-veda-gold">{t('studio.cafeAccent')}</span>
+                    </h2>
                 </div>
             </Section>
 
+            {/* Un seul appel à l'action en fin de page. Un bandeau « Rejoignez-nous
+                sur le tapis » le précédait, avec les deux mêmes boutons : on garde
+                le bandeau commun à tout le site, et sa phrase à lui, plus complète
+                puisqu'elle dit où le planning est publié. */}
             <CtaSection
                 eyebrow={t('cta.eyebrow')}
                 title={t('cta.studioTitle')}
                 accent={t('cta.studioAccent')}
-                lead={t('cta.studioLead')}
+                lead={t('studio.bookLead')}
                 primary={{ label: t('studio.bookCta'), href: CONTACT.whatsappHref }}
                 secondary={{ label: 'Instagram', href: SOCIAL.instagram }}
                 image={SRILANKA_MEDIA['yoga-shala'][6]}

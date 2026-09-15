@@ -2,8 +2,14 @@ import { Link } from 'react-router-dom'
 import { CalendarDays, MapPin, ArrowRight } from 'lucide-react'
 import { useI18n } from '../../i18n'
 
-/** Carte d'une retraite dans un listing (accueil et page Retraites). */
-export default function RetreatCard({ retreat }) {
+/**
+ * Carte d'une retraite dans un listing (accueil et page Retraites).
+ *
+ * `large` : la carte occupe une demi-largeur au lieu d'un tiers. L'image passe
+ * alors en format plus allongé, sans quoi elle ferait deux fois la hauteur du
+ * texte.
+ */
+export default function RetreatCard({ retreat, large = false }) {
     const { t, lang, path } = useI18n()
     const copy = retreat[lang] ?? retreat.fr
     const to = path('retreat', { slug: retreat.slug })
@@ -12,7 +18,7 @@ export default function RetreatCard({ retreat }) {
     return (
         <article className="group overflow-hidden rounded-3xl border border-veda-gold/20 bg-white/[0.03] transition-colors duration-500 hover:border-veda-gold/60">
             <Link to={to} className="block">
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className={`aspect-[4/3] overflow-hidden ${large ? 'lg:aspect-[16/9]' : ''}`}>
                     <img
                         src={retreat.image}
                         alt=""

@@ -4,13 +4,30 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
-import FaqList from '../components/site/FaqList'
+import FaqColonnes from '../components/site/FaqColonnes'
+import PhotoPleine from '../components/site/PhotoPleine'
+import ContentGap from '../components/site/ContentGap'
 import NotFound from './NotFound'
 import RetraiteSriLanka2027 from './RetraiteSriLanka2027'
 import { getRetreat } from '../data/retreats'
 import { srilanka } from '../data/srilankaContent'
 import { CONTACT, DEPOSIT_RATE } from '../data/site'
 import { retraite as schemaRetraite } from '../data/schema'
+
+/**
+ * Photos posées en face des textes longs de la fiche. Toutes nos retraites se
+ * tiennent sur le même shala : ces images valent pour chacune d'elles.
+ */
+const PHOTOS_RETRAITE = {
+    intention: {
+        src: '/srilanka/yoga-shala/img_1288.jpg',
+        alt: { fr: 'Séance de Kundalini sur le shala, bras levés', en: 'Kundalini class on the shala, arms raised' },
+    },
+    methode: {
+        src: '/srilanka/yoga-shala/img_9651.jpg',
+        alt: { fr: 'Relaxation aux bols chantants sur le shala', en: 'Singing bowl relaxation on the shala' },
+    },
+}
 
 /** Retraites disposant d'une page dessinée sur mesure. */
 const CUSTOM_PAGES = {
@@ -32,6 +49,7 @@ export default function RetraiteDetail() {
     if (CustomPage) return <CustomPage />
 
     const copy = retreat[lang] ?? retreat.fr
+    const photo = (cle) => ({ src: PHOTOS_RETRAITE[cle].src, alt: PHOTOS_RETRAITE[cle].alt[lang] ?? PHOTOS_RETRAITE[cle].alt.fr })
     const c = srilanka(lang)
     // Février garde l'acompte déjà encaissé ; les autres retraites suivent
     // la règle des 30 %.
@@ -74,7 +92,7 @@ export default function RetraiteDetail() {
             </Section>
 
             {copy.intention ? (
-                <Section tone="light" title={copy.intentionTitle}>
+                <Section tone="light" title={copy.intentionTitle} aside={photo('intention')}>
                     <div className="max-w-3xl space-y-5">
                         {copy.intention.map((p) => (
                             <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-dark/75">
@@ -96,35 +114,52 @@ export default function RetraiteDetail() {
                             {copy.guidesLead}
                         </p>
                     )}
-                    <div className="grid gap-12 sm:grid-cols-2">
+                    {/* Chaque intervenante dans une carte, portrait à gauche. Les deux
+                        cartes prennent la même hauteur et le portrait suit celle du
+                        texte : des vignettes de 280 pixels posées au-dessus de récits
+                        de longueurs différentes laissaient un vide sous le plus court. */}
+                    <div className="grid gap-6 lg:grid-cols-2">
                         {copy.guidesList.map((g) => (
-                            <div key={g.name}>
-                                <img
-                                    src={`${import.meta.env.BASE_URL}images/professeures/${g.photo}`}
-                                    alt={g.name}
-                                    loading="lazy"
-                                    className="aspect-square w-full max-w-[280px] rounded-3xl object-cover"
+                            <article
+                                key={g.name}
+                                className="grid gap-6 rounded-3xl border border-white/10 bg-white/[0.03] p-5 sm:grid-cols-[minmax(0,0.8fr),1fr] sm:p-6"
+                            >
+                                <PhotoPleine
+                                    image={{
+                                        src: `${import.meta.env.BASE_URL}images/professeures/${g.photo}`,
+                                        alt: g.name,
+                                        position: 'center 20%',
+                                    }}
+                                    hauteurMin="min-h-[280px]"
                                 />
-                                <h3 className="mt-6 font-heading text-2xl text-veda-light">{g.name}</h3>
-                                {g.spiritualName && (
-                                    <p className="mt-1 text-sm font-light italic text-veda-gold/80">
-                                        {g.spiritualName}
+                                <div className="flex flex-col justify-center py-2 sm:pr-2">
+                                    <h3 className="font-heading text-2xl text-veda-light">{g.name}</h3>
+                                    {g.spiritualName && (
+                                        <p className="mt-1 text-sm font-light italic text-veda-gold/80">
+                                            {g.spiritualName}
+                                        </p>
+                                    )}
+                                    <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                                        {g.role}
                                     </p>
-                                )}
-                                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                                    {g.role}
-                                </p>
-                                <p className="mt-4 max-w-md text-base font-light leading-relaxed text-veda-light/70">
-                                    {g.text}
-                                </p>
-                            </div>
+                                    <p className="mt-4 text-base font-light leading-relaxed text-veda-light/70">
+                                        {g.text}
+                                    </p>
+                                </div>
+                            </article>
                         ))}
                     </div>
                 </Section>
             )}
 
             {copy.method && (
-                <Section tone="light" title={copy.methodTitle} accent={copy.methodName}>
+                <Section
+                    tone="light"
+                    title={copy.methodTitle}
+                    accent={copy.methodName}
+                    aside={photo('methode')}
+                    asidePosition="left"
+                >
                     <div className="max-w-3xl space-y-5">
                         {copy.method.map((p) => (
                             <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-dark/75">
@@ -136,16 +171,21 @@ export default function RetraiteDetail() {
             )}
 
             {retreat.announcement ? (
-                <Section title={t('retreats.soonTitle')}>
-                    <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">
-                        {copy.soon}
-                    </p>
-                    <a
-                        href={CONTACT.whatsappHref}
-                        className="mt-10 inline-block rounded-full bg-veda-gold px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
-                    >
-                        {t('retreats.tellMe')}
-                    </a>
+                // Une phrase et un bouton : centrés, ils forment un appel ; alignés
+                // à gauche, ils laissaient les deux tiers de la section vides.
+                <Section>
+                    <div className="mx-auto max-w-2xl text-center">
+                        <h2 className="font-heading text-4xl leading-tight text-balance md:text-6xl">
+                            {t('retreats.soonTitle')}
+                        </h2>
+                        <p className="mt-6 text-lg font-light leading-relaxed text-veda-light/70">{copy.soon}</p>
+                        <a
+                            href={CONTACT.whatsappHref}
+                            className="mt-10 inline-block rounded-full bg-veda-gold px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
+                        >
+                            {t('retreats.tellMe')}
+                        </a>
+                    </div>
                 </Section>
             ) : (
             <Section title={t('retreats.pricing')}>
@@ -186,20 +226,14 @@ export default function RetraiteDetail() {
             )}
 
             <Section tone="light" title={t('retreats.faq')}>
-                <div className="space-y-10">
-                    {[
-                        { key: 'travel', label: t('contact.faqTravel') },
-                        { key: 'onSite', label: t('contact.faqOnSite') },
-                        { key: 'practice', label: t('contact.faqPractice') },
-                    ].map((family) => (
-                        <div key={family.key}>
-                            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                                {family.label}
-                            </h3>
-                            <FaqList items={c.contact.faq[family.key]} tone="light" className="max-w-3xl" />
-                        </div>
-                    ))}
-                </div>
+                <FaqColonnes
+                    tone="light"
+                    familles={[
+                        { key: 'travel', label: t('contact.faqTravel'), items: c.contact.faq.travel },
+                        { key: 'onSite', label: t('contact.faqOnSite'), items: c.contact.faq.onSite },
+                        { key: 'practice', label: t('contact.faqPractice'), items: c.contact.faq.practice },
+                    ]}
+                />
             </Section>
         </>
     )

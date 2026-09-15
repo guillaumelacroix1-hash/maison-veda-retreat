@@ -8,6 +8,8 @@ import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import TripCard from '../components/site/TripCard'
 import MediaGallery from '../components/site/MediaGallery'
+import Testimonials from '../components/site/Testimonials'
+import PhotoPleine from '../components/site/PhotoPleine'
 import SectionNav from '../components/site/SectionNav'
 import { Form, Field, TextareaField } from '../components/site/Forms'
 import { TRIPS } from '../data/trips'
@@ -91,7 +93,15 @@ export default function VedaTravel() {
             {/* Pour les organisateurs de retraites : ici, on ne parle que du
                 circuit qui prolonge la retraite. Le lieu, les capacités et les
                 expériences à la carte vivent sur « Organiser votre retraite ». */}
-            <Section id="organisateurs" ornament="left" title={c.agenciesTitle} accent={c.agenciesAccent}>
+            {/* Un groupe en fin de retraite en face du texte : seul, il laissait
+                la moitié droite de la section vide. */}
+            <Section
+                id="organisateurs"
+                ornament="left"
+                title={c.agenciesTitle}
+                accent={c.agenciesAccent}
+                aside={SRILANKA_MEDIA.nav?.[5]}
+            >
                 <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">{c.agenciesText}</p>
 
                 <ul className="mt-10 grid max-w-4xl gap-3.5">
@@ -125,17 +135,23 @@ export default function VedaTravel() {
 
             {/* Pour les voyageurs individuels */}
             <Section id="particuliers" tone="light" title={c.individualTitle} accent={c.individualAccent}>
-                <p className="max-w-3xl text-base font-light leading-relaxed text-veda-dark/70">{c.individualText}</p>
-                <ul className="mt-8 grid max-w-3xl gap-3">
-                    {c.individual.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-dark/80">
-                            <Check className="mt-0.5 h-4 w-4 shrink-0 text-veda-gold" />
-                            {item}
-                        </li>
-                    ))}
-                </ul>
+                {/* Les photos de nos voyageurs en carré, à côté du texte : posées
+                    dessous en bandeau, elles laissaient la moitié droite vide. */}
+                <div className="grid gap-12 lg:grid-cols-[1.1fr,1fr] lg:items-center lg:gap-16">
+                    <div>
+                        <p className="text-base font-light leading-relaxed text-veda-dark/70">{c.individualText}</p>
+                        <ul className="mt-8 grid gap-3">
+                            {c.individual.map((item) => (
+                                <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-dark/80">
+                                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-veda-gold" />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
-                <MediaGallery images={SRILANKA_MEDIA['veda-travel']} initial={4} className="mt-12" />
+                    <MediaGallery images={SRILANKA_MEDIA['veda-travel']} initial={4} colonnes={2} tone="light" />
+                </div>
 
                 <ContentGap id="travel-photos" className="mt-10 max-w-3xl" />
             </Section>
@@ -193,39 +209,55 @@ export default function VedaTravel() {
                 lead={t('travel.customLead')}
                 background={SRILANKA_MEDIA['veda-travel']?.[3]}
             >
-                {/* Introduction au formulaire de devis. L'Info Pack ne vit pas ici :
-                    il concerne la location du lieu, pas les voyages. */}
-                <div className="mb-14 max-w-3xl rounded-3xl border border-white/10 bg-veda-dark/60 p-8 backdrop-blur-md">
-                    <h3 className="font-heading text-2xl">{c.brochureTitle}</h3>
-                    <p className="mt-3 text-sm font-light leading-relaxed text-veda-light/70">
-                        {c.brochureText}
-                    </p>
-                </div>
-
-                <div className="max-w-2xl rounded-3xl border border-white/10 bg-veda-dark/60 p-8 backdrop-blur-md md:p-12">
-                    <Form formType="quote-travel" submitLabel={t('common.quote')}>
-                        <div className="grid gap-6 sm:grid-cols-2">
-                            <Field label={t('contact.fields.name')} name="name" required />
-                            <Field label={t('contact.fields.email')} name="email" type="email" required />
-                            <Field label={t('contact.fields.dates')} name="dates" />
-                            <Field label={t('contact.fields.groupSize')} name="groupSize" type="number" required />
-                            <TextareaField
-                                label={t('contact.fields.message')}
-                                name="message"
-                                className="sm:col-span-2"
-                                placeholder={t('travel.customPlaceholder')}
-                            />
+                {/* L'introduction et une photo d'un côté, le formulaire de l'autre :
+                    empilés à gauche, ils laissaient toute la moitié droite vide.
+                    L'Info Pack ne vit pas ici : il concerne la location du lieu,
+                    pas les voyages. */}
+                <div className="grid gap-8 lg:grid-cols-[1fr,1.25fr] lg:gap-10">
+                    <div className="flex flex-col gap-6">
+                        <div className="rounded-3xl border border-white/10 bg-veda-dark/60 p-8 backdrop-blur-md">
+                            <h3 className="font-heading text-2xl">{c.brochureTitle}</h3>
+                            <p className="mt-3 text-sm font-light leading-relaxed text-veda-light/70">
+                                {c.brochureText}
+                            </p>
                         </div>
-                    </Form>
+                        <PhotoPleine
+                            image={SRILANKA_MEDIA['veda-travel']?.[1]}
+                            className="hidden flex-1 lg:flex"
+                            hauteurMin="min-h-[240px]"
+                        />
+                    </div>
+
+                    <div className="rounded-3xl border border-white/10 bg-veda-dark/60 p-8 backdrop-blur-md md:p-12">
+                        <Form formType="quote-travel" submitLabel={t('common.quote')}>
+                            <div className="grid gap-6 sm:grid-cols-2">
+                                <Field label={t('contact.fields.name')} name="name" required />
+                                <Field label={t('contact.fields.email')} name="email" type="email" required />
+                                <Field label={t('contact.fields.dates')} name="dates" />
+                                <Field label={t('contact.fields.groupSize')} name="groupSize" type="number" required />
+                                <TextareaField
+                                    label={t('contact.fields.message')}
+                                    name="message"
+                                    className="sm:col-span-2"
+                                    placeholder={t('travel.customPlaceholder')}
+                                />
+                            </div>
+                        </Form>
+                    </div>
                 </div>
             </Section>
 
-            <Section
-                title={t('travel.testimonialsTitle')}
-                accent={t('travel.testimonialsAccent')}
-                aside={SRILANKA_MEDIA['veda-travel']?.[0]}
-            >
-                <ContentGap id="reviews" className="max-w-3xl" />
+            {/* Aucun avis de voyageur n'est encore rapatrié : la bande ne montre
+                pour l'instant que leurs photos. Les avis s'y mêleront d'eux-mêmes
+                le jour où on les passera à `quotes`. */}
+            <Section title={t('travel.testimonialsTitle')} accent={t('travel.testimonialsAccent')}>
+                <Testimonials
+                    images={[
+                        ...(SRILANKA_MEDIA['veda-travel'] ?? []),
+                        ...TRIPS.map((trip) => ({ src: trip.image, alt: (trip[lang] ?? trip.fr).name })),
+                    ]}
+                />
+                <ContentGap id="reviews" className="mt-10 max-w-3xl" />
             </Section>
 
             <CtaSection

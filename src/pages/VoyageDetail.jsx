@@ -4,8 +4,9 @@ import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
+import { NOTES_INTERNES_VISIBLES } from '../components/site/ContentGap'
 import NotFound from './NotFound'
-import { getTrip } from '../data/trips'
+import { getTrip, TRIPS } from '../data/trips'
 import { SRILANKA_MEDIA } from '../data/srilankaMedia'
 
 /** Ligne « libellé, valeur » du bandeau de faits. */
@@ -33,6 +34,23 @@ export default function VoyageDetail() {
     const copy = trip[lang] ?? trip.fr
     const pending = lang === 'en' ? trip.pendingEn : trip.pendingFr
 
+    // Le programme jour par jour court sur plus d'un écran : une seule photo en
+    // face laissait tout le reste de la colonne vide. On en pose une par tranche
+    // de quatre jours, sans doublon : la photo du voyage, nos voyageurs, puis les
+    // photos des autres circuits. Les photos de voyage viennent en dernier, deux
+    // d'entre elles montrant, comme le Grand Tour, des pêcheurs sur échasses.
+    const [nosVoyageurs, ...autresPhotosDeVoyage] = SRILANKA_MEDIA['veda-travel'] ?? []
+    const photosDuVoyage = [
+        { src: trip.image, alt: copy.name },
+        nosVoyageurs,
+        ...TRIPS.filter((autre) => autre.slug !== trip.slug).map((autre) => ({
+            src: autre.image,
+            alt: (autre[lang] ?? autre.fr).name,
+        })),
+        ...autresPhotosDeVoyage,
+    ].filter((photo, i, liste) => photo?.src && liste.findIndex((p) => p?.src === photo.src) === i)
+    const nombreDePhotos = Math.min(4, Math.max(1, Math.ceil(copy.days.length / 4)))
+
     return (
         <>
             <PageMeta title={`${copy.name}, ${copy.subtitle}`} description={copy.intro} />
@@ -52,38 +70,44 @@ export default function VoyageDetail() {
                     {t('travel.allTrips')}
                 </Link>
 
-                <p className="max-w-3xl text-lg font-light leading-relaxed text-veda-light/80">
-                    {copy.intro}
-                </p>
+                {/* Le récit et l'itinéraire à gauche, les faits dans une carte à
+                    droite : l'introduction seule laissait la moitié droite vide,
+                    et les quatre faits s'étalaient dessous sur deux colonnes. */}
+                <div className="grid gap-12 lg:grid-cols-[1.5fr,1fr] lg:gap-16">
+                    <div>
+                        <p className="text-lg font-light leading-relaxed text-veda-light/80">{copy.intro}</p>
 
-                <div className="mt-16 grid gap-10 sm:grid-cols-2">
-                    <Fact icon={Clock} label={t('travel.duration')} value={copy.duration} />
-                    <Fact icon={MapPin} label={t('travel.journey')} value={copy.journey} />
-                    <Fact icon={Users} label={t('travel.forWhom')} value={copy.group} />
-                    <Fact icon={Wallet} label={t('travel.price')} value={copy.price} />
-                </div>
+                        <div className="mt-12 border-t border-white/10 pt-10">
+                            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                                {t('travel.route')}
+                            </p>
+                            <p className="mt-3 text-base font-light leading-relaxed text-veda-light/80">
+                                {copy.route}
+                            </p>
+                        </div>
 
-                <div className="mt-12 border-t border-white/10 pt-10">
-                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                        {t('travel.route')}
-                    </p>
-                    <p className="mt-3 max-w-3xl text-base font-light leading-relaxed text-veda-light/80">
-                        {copy.route}
-                    </p>
-                </div>
-
-                {copy.rhythm && (
-                    <div className="mt-10 border-t border-white/10 pt-10">
-                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                            {t('travel.rhythm')}
-                        </p>
-                        <p className="mt-3 max-w-3xl text-base font-light leading-relaxed text-veda-light/80">
-                            {copy.rhythm}
-                        </p>
+                        {copy.rhythm && (
+                            <div className="mt-10 border-t border-white/10 pt-10">
+                                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                                    {t('travel.rhythm')}
+                                </p>
+                                <p className="mt-3 text-base font-light leading-relaxed text-veda-light/80">
+                                    {copy.rhythm}
+                                </p>
+                            </div>
+                        )}
                     </div>
-                )}
 
-                {pending && (
+                    <div className="grid content-center gap-8 rounded-3xl border border-veda-gold/20 bg-white/[0.03] p-8">
+                        <Fact icon={Clock} label={t('travel.duration')} value={copy.duration} />
+                        <Fact icon={MapPin} label={t('travel.journey')} value={copy.journey} />
+                        <Fact icon={Users} label={t('travel.forWhom')} value={copy.group} />
+                        <Fact icon={Wallet} label={t('travel.price')} value={copy.price} />
+                    </div>
+                </div>
+
+                {/* Note de travail : jamais sur le site publié. */}
+                {pending && NOTES_INTERNES_VISIBLES && (
                     <p className="mt-12 flex max-w-3xl items-start gap-3 rounded-2xl border border-dashed border-veda-gold/40 bg-veda-gold/5 p-6 text-sm font-light leading-relaxed text-veda-light/70">
                         <Info className="mt-0.5 h-4 w-4 shrink-0 text-veda-gold" />
                         <span>
@@ -98,7 +122,7 @@ export default function VoyageDetail() {
             <Section
                 tone="light"
                 title={t('travel.itinerary')}
-                aside={{ src: trip.image, alt: copy.name }}
+                aside={photosDuVoyage.slice(0, nombreDePhotos)}
             >
                 <ol className="max-w-3xl space-y-10">
                     {copy.days.map((day, index) => (

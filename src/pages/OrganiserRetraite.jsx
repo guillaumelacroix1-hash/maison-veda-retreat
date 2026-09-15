@@ -8,6 +8,8 @@ import SectionNav from '../components/site/SectionNav'
 import CtaSection from '../components/site/CtaSection'
 import ContentGap from '../components/site/ContentGap'
 import MediaGallery from '../components/site/MediaGallery'
+import PhotoPleine from '../components/site/PhotoPleine'
+import SaisonDisponibilites from '../components/site/SaisonDisponibilites'
 import Accordion from '../components/site/Accordion'
 import RetreatSimulator from '../components/site/RetreatSimulator'
 import { Form, Field, TextareaField } from '../components/site/Forms'
@@ -92,12 +94,17 @@ export default function OrganiserRetraite() {
 
             {/* Argumentaire repris de la page source */}
             <Section id="le-lieu-pro" title={c.groups.title} accent={c.groups.titleAccent}>
-                <div className="max-w-3xl space-y-5">
-                    {c.groups.paragraphs.map((p) => (
-                        <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
-                            {p}
-                        </p>
-                    ))}
+                {/* Le cercle de fin de retraite en face : sans photo, les trois
+                    paragraphes laissaient toute la moitié droite vide. */}
+                <div className="grid gap-12 lg:grid-cols-[1.3fr,1fr] lg:gap-16">
+                    <div className="flex flex-col justify-center space-y-5">
+                        {c.groups.paragraphs.map((p) => (
+                            <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
+                                {p}
+                            </p>
+                        ))}
+                    </div>
+                    <PhotoPleine image={SRILANKA_MEDIA['yoga-shala']?.[0]} className="hidden lg:flex" />
                 </div>
 
                 {/* Les trois encarts de capacité qui vivaient ici répétaient
@@ -155,10 +162,21 @@ export default function OrganiserRetraite() {
             </Section>
 
             {/* Hébergements complémentaires et démarche de réservation */}
-            <Section id="comment" title={c.retreats.additionalTitle} accent={c.retreats.additionalAccent}>
-                <p className="max-w-3xl text-base font-light leading-relaxed text-veda-light/70">
-                    {c.retreats.additionalText}
-                </p>
+            <Section
+                id="comment"
+                title={c.retreats.additionalTitle}
+                accent={c.retreats.additionalAccent}
+                aside={[SRILANKA_MEDIA.tothupola?.[0], SRILANKA_MEDIA['jungle-breeze']?.[0]]}
+            >
+                {/* Deux paragraphes. Rendus d'un bloc dans un seul <p>, ils se
+                    collaient sans espace : « chacun a son lit.Nous n'allons ». */}
+                <div className="space-y-5">
+                    {c.retreats.additionalText.map((p) => (
+                        <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-light/70">
+                            {p}
+                        </p>
+                    ))}
+                </div>
 
                 <div className="mt-14 border-t border-white/10 pt-12">
                     <h2 className="font-heading text-2xl md:text-3xl">{c.howToBook.retreatTitle}</h2>
@@ -215,35 +233,53 @@ export default function OrganiserRetraite() {
                 title={t('host.availabilityTitle')}
                 accent={t('host.availabilityAccent')}
                 lead={t('host.availabilityLead')}
-                aside={SRILANKA_MEDIA['lake-house'][10]}
             >
-                <ContentGap id="availability" className="max-w-3xl" />
+                <SaisonDisponibilites />
+                <ContentGap id="availability" className="mt-10 max-w-3xl" />
             </Section>
 
             <Section title={t('host.packTitle')} accent={t('host.packAccent')} lead={t('host.packLead')}>
-                {/* Couverture du pack fusionné */}
-                <img
-                    src={`${import.meta.env.BASE_URL}docs/info-pack-cover.jpg`}
-                    alt={t('host.packTitle')}
-                    loading="lazy"
-                    className="mb-10 w-full max-w-[15rem] rounded-2xl border border-veda-gold/20 shadow-premium"
-                />
+                {/* La couverture d'un côté, le sommaire de l'autre. Seule, une
+                    vignette de 240 pixels flottait dans une section vide ; le
+                    sommaire dit en plus ce qu'on s'apprête à télécharger. */}
+                <div className="grid items-center gap-12 md:grid-cols-[auto,1fr] lg:gap-20">
+                    <img
+                        src={`${import.meta.env.BASE_URL}docs/info-pack-cover.jpg`}
+                        alt={t('host.packTitle')}
+                        loading="lazy"
+                        className="w-full max-w-[16rem] -rotate-2 rounded-2xl border border-veda-gold/20 shadow-premium md:max-w-[19rem]"
+                    />
 
-                {/* Un seul document : le lieu, les capacités, les tarifs et les conditions. */}
-                <a
-                    href={SRILANKA_LINKS.infoPackPdf[lang]}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-3 rounded-full bg-veda-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
-                >
-                    <Download className="h-4 w-4" />
-                    {c.retreats.packCta}
-                </a>
+                    <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                            {t('host.packContentsTitle')}
+                        </p>
+                        <ul className="mt-6 grid gap-x-10 gap-y-3 sm:grid-cols-2">
+                            {t('host.packContents').map((item) => (
+                                <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-light/80">
+                                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-veda-gold" />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
 
-                <p className="mt-10 max-w-2xl text-sm font-light leading-relaxed text-veda-light/60">
-                    {t('host.mediaKit')}
-                </p>
-                <ContentGap id="media-kit" className="mt-6 max-w-3xl" />
+                        {/* Un seul document : le lieu, les capacités, les tarifs et les conditions. */}
+                        <a
+                            href={SRILANKA_LINKS.infoPackPdf[lang]}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="mt-10 inline-flex items-center gap-3 rounded-full bg-veda-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
+                        >
+                            <Download className="h-4 w-4" />
+                            {c.retreats.packCta}
+                        </a>
+
+                        <p className="mt-8 max-w-2xl text-sm font-light leading-relaxed text-veda-light/60">
+                            {t('host.mediaKit')}
+                        </p>
+                        <ContentGap id="media-kit" className="mt-6 max-w-3xl" />
+                    </div>
+                </div>
             </Section>
 
             {/* Champs repris du formulaire « Book Your Yoga Retreat Venue » de la source.
@@ -268,7 +304,7 @@ export default function OrganiserRetraite() {
                 lead={t('host.formLead')}
                 background={SRILANKA_MEDIA['lake-loft']?.[0]}
             >
-                <div className="grid gap-12 lg:grid-cols-[1.4fr,1fr] lg:items-start">
+                <div className="grid gap-12 lg:grid-cols-[1.4fr,1fr]">
                 <div className="rounded-3xl border border-white/10 bg-veda-dark/60 p-8 backdrop-blur-md md:p-12">
                     <Form formType="quote-venue" submitLabel={t('common.quote')}>
                         <div className="grid gap-6 sm:grid-cols-2">
@@ -299,7 +335,9 @@ export default function OrganiserRetraite() {
                     </Form>
                 </div>
 
-                    {/* Colonne de réassurance : la moitié droite restait vide */}
+                    {/* Colonne de réassurance, puis le shala vide qui attend le groupe :
+                        la carte seule s'arrêtait à mi-hauteur du formulaire. */}
+                    <div className="flex flex-col gap-6">
                     <aside className="space-y-8 rounded-3xl border border-veda-gold/20 bg-veda-dark/40 p-8 backdrop-blur-md">
                         <div>
                             <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
@@ -329,6 +367,12 @@ export default function OrganiserRetraite() {
                             </a>
                         </div>
                     </aside>
+                    <PhotoPleine
+                        image={SRILANKA_MEDIA['yoga-shala']?.[16]}
+                        className="hidden flex-1 lg:flex"
+                        hauteurMin="min-h-[240px]"
+                    />
+                    </div>
                 </div>
             </Section>
 
