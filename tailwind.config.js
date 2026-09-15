@@ -9,7 +9,9 @@ export default {
             colors: {
                 veda: {
                     dark: '#002d2c',
-                    gold: '#b99b64',
+                    // Deux teintes selon le fond, par la variable --veda-gold
+                    // (src/index.css). Les opacités (/20, /50…) restent possibles.
+                    gold: 'rgb(var(--veda-gold) / <alpha-value>)',
                     sand: '#b49174',
                     light: '#f5f5f5',
                     cream: '#fdfbf7', // paper-cream, fond des sections claires

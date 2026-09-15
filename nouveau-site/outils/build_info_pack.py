@@ -42,6 +42,9 @@ SABLE = colors.HexColor('#b49174')
 CREME = colors.HexColor('#fdfbf7')
 GRIS = colors.HexColor('#4a4a4a')
 IVOIRE = colors.HexColor('#f4eee3')
+# Doré clair, celui du site sur les fonds sombres : sur le vert de la couverture,
+# le doré des pages intérieures manquait d'éclat.
+OR_CLAIR = colors.HexColor('#f4d7a2')
 
 
 def enregistrer_polices():
@@ -255,7 +258,7 @@ def couverture(canvas, doc, langue):
     canvas.drawImage(photo_de_couverture(), 0, 0, width=L, height=H)
 
     # Filet doré intérieur, comme un passe-partout.
-    canvas.setStrokeColor(OR)
+    canvas.setStrokeColor(OR_CLAIR)
     canvas.setStrokeAlpha(0.55)
     canvas.setLineWidth(0.6)
     canvas.rect(9 * mm, 9 * mm, L - 18 * mm, H - 18 * mm, stroke=1, fill=0)
@@ -268,30 +271,30 @@ def couverture(canvas, doc, langue):
         canvas.drawImage(str(LOGO), centre - largeur_logo / 2, H - 22 * mm - hauteur_logo,
                          width=largeur_logo, height=hauteur_logo, mask='auto')
 
-    texte_espace(canvas, t['surtitre'], centre, 95 * mm, 'Inter-SemiBold', 7.5, 2.2, OR)
+    texte_espace(canvas, t['surtitre'], centre, 95 * mm, 'Inter-SemiBold', 7.5, 2.2, OR_CLAIR)
 
     canvas.setFillColor(IVOIRE)
     canvas.setFont('PlayfairDisplay-Regular', 36)
     canvas.drawCentredString(centre, 78 * mm, t['titre'])
-    canvas.setFillColor(OR)
+    canvas.setFillColor(OR_CLAIR)
     canvas.setFont('PlayfairDisplay-RegularItalic', 30)
     canvas.drawCentredString(centre, 65 * mm, t['accent'])
 
-    canvas.setStrokeColor(OR)
+    canvas.setStrokeColor(OR_CLAIR)
     canvas.setLineWidth(0.8)
     canvas.line(centre - 8 * mm, 54 * mm, centre + 8 * mm, 54 * mm)
 
     canvas.setFillColor(IVOIRE)
     canvas.setFont('PlayfairDisplay-RegularItalic', 13)
     canvas.drawCentredString(centre, 43 * mm, t['citation'])
-    texte_espace(canvas, t['signature'], centre, 36 * mm, 'Inter-Medium', 6.8, 1.6, SABLE)
+    texte_espace(canvas, t['signature'], centre, 36 * mm, 'Inter-Medium', 6.8, 1.6, OR_CLAIR)
 
-    canvas.setStrokeColor(OR)
+    canvas.setStrokeColor(OR_CLAIR)
     canvas.setStrokeAlpha(0.45)
     canvas.setLineWidth(0.4)
     canvas.line(20 * mm, 22 * mm, L - 20 * mm, 22 * mm)
     canvas.setStrokeAlpha(1)
-    canvas.setFillColor(SABLE)
+    canvas.setFillColor(OR_CLAIR)
     canvas.setFont('Inter-Regular', 7.5)
     canvas.drawString(20 * mm, 16 * mm, f"{t['saison']} {saison_en_cours()}")
     canvas.drawRightString(L - 20 * mm, 16 * mm, 'srilanka.lamaisonveda.com')

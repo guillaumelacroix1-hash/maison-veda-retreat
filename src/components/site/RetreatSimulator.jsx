@@ -152,7 +152,7 @@ export default function RetreatSimulator() {
                 <div className="rounded-2xl border border-veda-dark/10 bg-white p-6 shadow-card">
                     <label className="flex cursor-pointer items-start gap-4">
                         <input type="checkbox" checked={pension} onChange={(e) => setPension(e.target.checked)}
-                               className="mt-1 h-5 w-5 shrink-0 accent-[#b99b64]" />
+                               className="mt-1 h-5 w-5 shrink-0 accent-veda-gold" />
                         <span>
                             <span className="font-heading text-lg text-veda-dark">{t('host.simBoard')}</span>
                             <span className="mt-1 block text-sm font-light leading-relaxed text-veda-dark/60">

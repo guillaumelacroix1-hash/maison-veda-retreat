@@ -16,11 +16,23 @@ const Logo = ({ className = "h-14 w-auto animate-fade-in", fill = "currentColor"
 
     return (
         <div className={`flex items-center gap-2 sm:gap-3 ${className}`}>
-            {/* Sri Yantra */}
-            <img
-                src={getImageUrl('/icon-logo-final/logo-lili-maison-veda-bigger.svg')}
-                alt="La Maison Veda"
-                className="h-full w-auto"
+            {/* Le yantra, teint par la couleur du texte. Le fichier SVG porte son
+                doré en dur, qu'une image ne laisse pas changer : posé en masque,
+                il prend le doré du thème, comme le nom à côté de lui. */}
+            <span
+                aria-hidden="true"
+                className="block h-full shrink-0 bg-current"
+                style={{
+                    aspectRatio: '687.7 / 716.99',
+                    WebkitMaskImage: `url(${getImageUrl('/icon-logo-final/logo-lili-maison-veda-bigger.svg')})`,
+                    maskImage: `url(${getImageUrl('/icon-logo-final/logo-lili-maison-veda-bigger.svg')})`,
+                    WebkitMaskSize: 'contain',
+                    maskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    maskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskPosition: 'center',
+                }}
             />
 
             <div className="flex flex-col justify-center leading-none">
