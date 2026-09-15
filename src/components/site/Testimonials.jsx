@@ -132,12 +132,12 @@ export default function Testimonials({ quotes = [], images = [], reviewsUrl, goo
             <div className="mx-[calc(50%-50vw)]">
                 <div className="hidden space-y-5 md:block">
                     {bandesBureau.map((suite, k) => (
-                        <Bande key={k} suite={suite} sens={k % 2 ? -1 : 1} hauteur="h-[420px]" {...communs} />
+                        <Bande key={k} suite={suite} sens={k % 2 ? -1 : 1} hauteur={HAUTEURS.bureau} {...communs} />
                     ))}
                 </div>
                 <div className="md:hidden">
                     {bandeMobile.map((suite, k) => (
-                        <Bande key={k} suite={suite} sens={1} hauteur="h-[480px]" {...communs} />
+                        <Bande key={k} suite={suite} sens={1} hauteur={HAUTEURS.mobile} {...communs} />
                     ))}
                 </div>
             </div>
@@ -244,30 +244,31 @@ function Bande({ suite, sens, hauteur, anime, pause, styles, libelles, onOuvrir 
         >
             <ul
                 ref={piste}
-                className={`flex w-max ${hauteur} ${actif ? 'animate-defilement group-hover/bande:[animation-play-state:paused]' : ''}`}
+                className={`flex w-max ${actif ? 'animate-defilement group-hover/bande:[animation-play-state:paused]' : ''}`}
                 style={
                     actif
                         ? {
+                              height: hauteur,
                               animationDuration: `${duree}s`,
                               animationDirection: sens < 0 ? 'reverse' : 'normal',
                               ...((pause || !enVue) && { animationPlayState: 'paused' }),
                           }
-                        : undefined
+                        : { height: hauteur }
                 }
             >
                 {suite.map((el, k) => (
-                    <Element key={k} el={el} cache={el.repetition > 0} charger={charger} styles={styles} libelles={libelles} onOuvrir={onOuvrir} />
+                    <Element key={k} el={el} cache={el.repetition > 0} charger={charger} hauteur={hauteur} styles={styles} libelles={libelles} onOuvrir={onOuvrir} />
                 ))}
                 {anime &&
                     suite.map((el, k) => (
-                        <Element key={`miroir-${k}`} el={el} cache charger={charger} styles={styles} libelles={libelles} onOuvrir={onOuvrir} />
+                        <Element key={`miroir-${k}`} el={el} cache charger={charger} hauteur={hauteur} styles={styles} libelles={libelles} onOuvrir={onOuvrir} />
                     ))}
             </ul>
         </div>
     )
 }
 
-function Element({ el, cache, charger, styles, libelles, onOuvrir }) {
+function Element({ el, cache, charger, hauteur, styles, libelles, onOuvrir }) {
     // Les copies servent la boucle, pas la lecture : ni lecteur d'écran, ni
     // tabulation ne doivent les rencontrer une seconde fois.
     const masque = cache ? { 'aria-hidden': true, inert: true } : {}
@@ -299,13 +300,16 @@ function Element({ el, cache, charger, styles, libelles, onOuvrir }) {
 
     const { img, index } = el
     return (
-        <li className="shrink-0" style={{ marginRight: GOUTTIERE }} {...masque}>
+        // Largeur fixée d'après la proportion et la hauteur de la bande. Déduite
+        // de la seule proportion CSS, elle dépendait du navigateur : certains
+        // réservaient à la vignette la largeur réelle du fichier, 1 000 pixels,
+        // pour une photo affichée sur 315, et des vides s'ouvraient dans la bande.
+        <li className="shrink-0" style={{ width: Math.round(hauteur * proportion(img.src)), marginRight: GOUTTIERE }} {...masque}>
             <button
                 type="button"
                 onClick={() => onOuvrir(index)}
                 aria-label={libelles.agrandir}
-                className={`group/photo relative block h-full overflow-hidden rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-veda-gold ${styles.vignette}`}
-                style={{ aspectRatio: proportion(img.src) }}
+                className={`group/photo relative block h-full w-full overflow-hidden rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-veda-gold ${styles.vignette}`}
             >
                 <img
                     src={img.src}
