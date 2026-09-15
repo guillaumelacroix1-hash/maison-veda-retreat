@@ -39,12 +39,13 @@ export default function OrganiserRetraite() {
 
             <SectionNav
                 items={[
+                    { id: 'info-pack', label: t('host.navPack') },
+                    { id: 'simulateur', label: t('host.navSimulator') },
                     { id: 'le-lieu-pro', label: t('host.navVenue') },
                     { id: 'shala-pro', label: t('host.navShala') },
                     { id: 'comment', label: t('host.navHow') },
                     { id: 'a-la-carte', label: t('host.navAlaCarte') },
                     { id: 'dispos', label: t('host.navAvailability') },
-                    { id: 'simulateur', label: t('host.navSimulator') },
                     { id: 'devis', label: t('host.navQuote') },
                     // Retour visible vers l'autre versant des retraites.
                     { to: path('retreats'), label: t('nav.retreatsChild') },
@@ -91,6 +92,78 @@ export default function OrganiserRetraite() {
                     </div>
                 </div>
             </div>
+
+            {/* L'Info Pack et le simulateur viennent juste après l'essentiel : ce
+                sont les deux outils qu'un organisateur cherche pour chiffrer son
+                projet. Plus bas, en fin de page, on les manquait. Le détail du
+                lieu suit. */}
+            <Section
+                id="info-pack"
+                title={t('host.packTitle')}
+                accent={t('host.packAccent')}
+                lead={t('host.packLead')}
+            >
+                {/* La couverture d'un côté, le sommaire de l'autre. Seule, une
+                    vignette de 240 pixels flottait dans une section vide ; le
+                    sommaire dit en plus ce qu'on s'apprête à télécharger. */}
+                <div className="grid items-center gap-12 md:grid-cols-[auto,1fr] lg:gap-20">
+                    {/* La couverture est tirée du PDF lui-même par le générateur
+                        (nouveau-site/outils/build_info_pack.py), une par langue :
+                        l'ancienne image, faite à part, ne ressemblait plus au
+                        document téléchargé. */}
+                    <img
+                        src={`${import.meta.env.BASE_URL}docs/info-pack-cover-${lang}.jpg`}
+                        width="794"
+                        height="1123"
+                        alt={t('host.packTitle')}
+                        loading="lazy"
+                        className="w-full max-w-[16rem] -rotate-2 rounded-2xl border border-veda-gold/20 shadow-premium md:max-w-[19rem]"
+                    />
+
+                    <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                            {t('host.packContentsTitle')}
+                        </p>
+                        <ul className="mt-6 grid gap-x-10 gap-y-3 sm:grid-cols-2">
+                            {t('host.packContents').map((item) => (
+                                <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-light/80">
+                                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-veda-gold" />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+
+                        {/* Un seul document : le lieu, les capacités, les tarifs et les conditions. */}
+                        <a
+                            href={SRILANKA_LINKS.infoPackPdf[lang]}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="mt-10 inline-flex items-center gap-3 rounded-full bg-veda-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
+                        >
+                            <Download className="h-4 w-4" />
+                            {c.retreats.packCta}
+                        </a>
+
+                        <p className="mt-8 max-w-2xl text-sm font-light leading-relaxed text-veda-light/60">
+                            {t('host.mediaKit')}
+                        </p>
+                        <ContentGap id="media-kit" className="mt-6 max-w-3xl" />
+                    </div>
+                </div>
+            </Section>
+
+            {/* On compose avant de demander. L'adresse e-mail n'est jamais exigée
+                pour regarder ; le formulaire de devis reste en bas de page, et le
+                récapitulatif y renvoie. */}
+            <Section
+                id="simulateur"
+                tone="light"
+                title={t('host.simTitle')}
+                accent={t('host.simAccent')}
+                lead={t('host.simLead')}
+            >
+                <RetreatSimulator />
+            </Section>
 
             {/* Argumentaire repris de la page source */}
             <Section id="le-lieu-pro" title={c.groups.title} accent={c.groups.titleAccent}>
@@ -238,65 +311,9 @@ export default function OrganiserRetraite() {
                 <ContentGap id="availability" className="mt-10 max-w-3xl" />
             </Section>
 
-            <Section title={t('host.packTitle')} accent={t('host.packAccent')} lead={t('host.packLead')}>
-                {/* La couverture d'un côté, le sommaire de l'autre. Seule, une
-                    vignette de 240 pixels flottait dans une section vide ; le
-                    sommaire dit en plus ce qu'on s'apprête à télécharger. */}
-                <div className="grid items-center gap-12 md:grid-cols-[auto,1fr] lg:gap-20">
-                    <img
-                        src={`${import.meta.env.BASE_URL}docs/info-pack-cover.jpg`}
-                        alt={t('host.packTitle')}
-                        loading="lazy"
-                        className="w-full max-w-[16rem] -rotate-2 rounded-2xl border border-veda-gold/20 shadow-premium md:max-w-[19rem]"
-                    />
-
-                    <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
-                            {t('host.packContentsTitle')}
-                        </p>
-                        <ul className="mt-6 grid gap-x-10 gap-y-3 sm:grid-cols-2">
-                            {t('host.packContents').map((item) => (
-                                <li key={item} className="flex items-start gap-3 text-sm font-light leading-relaxed text-veda-light/80">
-                                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-veda-gold" />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-
-                        {/* Un seul document : le lieu, les capacités, les tarifs et les conditions. */}
-                        <a
-                            href={SRILANKA_LINKS.infoPackPdf[lang]}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="mt-10 inline-flex items-center gap-3 rounded-full bg-veda-gold px-8 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
-                        >
-                            <Download className="h-4 w-4" />
-                            {c.retreats.packCta}
-                        </a>
-
-                        <p className="mt-8 max-w-2xl text-sm font-light leading-relaxed text-veda-light/60">
-                            {t('host.mediaKit')}
-                        </p>
-                        <ContentGap id="media-kit" className="mt-6 max-w-3xl" />
-                    </div>
-                </div>
-            </Section>
-
             {/* Champs repris du formulaire « Book Your Yoga Retreat Venue » de la source.
                 Section sombre sur photo : le formulaire n'est plus un bloc posé
                 sur du crème, il fait corps avec la page. */}
-            {/* Le simulateur juste avant le formulaire : on compose, puis on
-                demande. L'adresse e-mail n'est jamais exigée pour regarder. */}
-            <Section
-                id="simulateur"
-                tone="light"
-                title={t('host.simTitle')}
-                accent={t('host.simAccent')}
-                lead={t('host.simLead')}
-            >
-                <RetreatSimulator />
-            </Section>
-
             <Section
                 id="devis"
                 title={c.venueForm.title}

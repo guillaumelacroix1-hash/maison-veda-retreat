@@ -139,6 +139,8 @@ export default {
         navAlaCarte: 'À la carte',
         navAvailability: 'Disponibilités',
         navSimulator: 'Simulateur',
+        navPack: 'Info Pack',
+        simQuoteLink: 'Ou demander un devis détaillé',
         navQuote: 'Devis',
         simTitle: 'Composez', simAccent: 'votre retraite',
         simLead: 'Choisissez vos hébergements, vos repas et vos expériences : le total se met à jour à mesure. Rien à remplir, rien à envoyer — regardez d\'abord, écrivez-nous ensuite si le projet vous parle.',

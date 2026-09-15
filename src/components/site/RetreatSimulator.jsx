@@ -211,6 +211,14 @@ export default function RetreatSimulator() {
                     <p className="mt-3 text-center text-xs font-light leading-relaxed text-veda-dark/45">
                         {t('host.simDisclaimer')}
                     </p>
+                    {/* Le formulaire de devis vit en bas de page : sans ce lien, qui
+                        préfère écrire que passer par WhatsApp devait le chercher. */}
+                    <a
+                        href="#devis"
+                        className="mt-4 block text-center text-xs font-semibold uppercase tracking-widest text-veda-gold transition-colors duration-300 hover:text-veda-dark"
+                    >
+                        {t('host.simQuoteLink')}
+                    </a>
                 </div>
             </div>
         </div>

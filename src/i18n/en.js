@@ -137,6 +137,8 @@ export default {
         navAlaCarte: 'À la carte',
         navAvailability: 'Availability',
         navSimulator: 'Simulator',
+        navPack: 'Info Pack',
+        simQuoteLink: 'Or request a detailed quote',
         navQuote: 'Quote',
         simTitle: 'Build', simAccent: 'your retreat',
         simLead: 'Choose your accommodation, meals and experiences: the total updates as you go. Nothing to fill in, nothing to send — look first, write to us afterwards if the project speaks to you.',
