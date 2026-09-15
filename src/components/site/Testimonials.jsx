@@ -102,6 +102,8 @@ export default function Testimonials({ quotes = [], images = [], reviewsUrl, goo
         carte: clair ? 'border-veda-dark/10 bg-white shadow-card' : 'border-white/10 bg-white/[0.05]',
         corps: clair ? 'text-veda-dark/75' : 'text-veda-light/75',
         attenue: clair ? 'text-veda-dark/50' : 'text-veda-light/50',
+        // Fond d'une vignette avant que sa photo n'arrive : jamais un trou.
+        vignette: clair ? 'bg-veda-dark/[0.06]' : 'bg-white/[0.06]',
     }
 
     const total = quotes.length + images.length
@@ -189,6 +191,24 @@ function Bande({ suite, sens, hauteur, anime, pause, styles, libelles, onOuvrir 
     const piste = useRef(null)
     const [duree, setDuree] = useState(0)
     const [enVue, setEnVue] = useState(false)
+    const [charger, setCharger] = useState(false)
+
+    // Les photos se chargent toutes dès que la bande approche de l'écran.
+    // Le chargement différé du navigateur ne suffit pas : il se décide sur la
+    // position des images, et l'animation les déplace sans qu'il le sache.
+    // Les photos entrées dans l'écran en glissant restaient donc vides.
+    useEffect(() => {
+        const approche = new IntersectionObserver(
+            ([e]) => {
+                if (!e.isIntersecting) return
+                setCharger(true)
+                approche.disconnect()
+            },
+            { rootMargin: '800px 0px' },
+        )
+        approche.observe(cadre.current)
+        return () => approche.disconnect()
+    }, [])
 
     useEffect(() => {
         if (!anime) return
@@ -236,18 +256,18 @@ function Bande({ suite, sens, hauteur, anime, pause, styles, libelles, onOuvrir 
                 }
             >
                 {suite.map((el, k) => (
-                    <Element key={k} el={el} cache={el.repetition > 0} styles={styles} libelles={libelles} onOuvrir={onOuvrir} />
+                    <Element key={k} el={el} cache={el.repetition > 0} charger={charger} styles={styles} libelles={libelles} onOuvrir={onOuvrir} />
                 ))}
                 {anime &&
                     suite.map((el, k) => (
-                        <Element key={`miroir-${k}`} el={el} cache styles={styles} libelles={libelles} onOuvrir={onOuvrir} />
+                        <Element key={`miroir-${k}`} el={el} cache charger={charger} styles={styles} libelles={libelles} onOuvrir={onOuvrir} />
                     ))}
             </ul>
         </div>
     )
 }
 
-function Element({ el, cache, styles, libelles, onOuvrir }) {
+function Element({ el, cache, charger, styles, libelles, onOuvrir }) {
     // Les copies servent la boucle, pas la lecture : ni lecteur d'écran, ni
     // tabulation ne doivent les rencontrer une seconde fois.
     const masque = cache ? { 'aria-hidden': true, inert: true } : {}
@@ -284,13 +304,13 @@ function Element({ el, cache, styles, libelles, onOuvrir }) {
                 type="button"
                 onClick={() => onOuvrir(index)}
                 aria-label={libelles.agrandir}
-                className="group/photo relative block h-full overflow-hidden rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-veda-gold"
+                className={`group/photo relative block h-full overflow-hidden rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-veda-gold ${styles.vignette}`}
                 style={{ aspectRatio: proportion(img.src) }}
             >
                 <img
                     src={img.src}
                     alt={img.alt || ''}
-                    loading="lazy"
+                    loading={charger ? 'eager' : 'lazy'}
                     decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover/photo:scale-105"
                     style={img.position ? { objectPosition: img.position } : undefined}
