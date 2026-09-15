@@ -1,120 +1,304 @@
-import { useState } from 'react'
-import { Quote, ArrowUpRight, Expand } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { Quote, ArrowUpRight, Expand, Pause, Play } from 'lucide-react'
 import { useI18n } from '../../i18n'
 import Lightbox from './Lightbox'
-import ContentGap from './ContentGap'
+import PROPORTIONS from '../../data/proportionsImages.json'
 
 /**
- * Bloc témoignages : les avis d'un côté, les photos des hôtes de l'autre.
+ * Témoignages et photos mêlés, en bandes qui défilent.
  *
- * Les avis réels ne sont pas encore rapatriés depuis Airbnb et Google. Tant
- * qu'il n'y en a pas, la partie citations affiche le renvoi vers la plateforme
- * et déclare le contenu manquant, plutôt que d'inventer des avis. Les photos,
- * elles, existent et sont cliquables.
+ * Remplace l'ancienne mise en page en deux colonnes : les avis empilés à
+ * gauche descendaient bien plus bas que la mosaïque de photos à droite, et
+ * cinq photos dans une grille de trois laissaient une case vide. Ici tout
+ * tient sur la largeur de l'écran, sans trou, quel que soit le nombre d'avis.
+ *
+ * Deux bandes en sens contraire sur grand écran, une seule sur téléphone : la
+ * largeur d'un avis y est limitée, il lui faut la hauteur d'une bande entière.
+ *
+ * Le défilement s'arrête au survol, quand la bande sort de l'écran, et sur
+ * demande par le bouton de pause, qu'un contenu qui bouge plus de cinq
+ * secondes doit offrir. Pour qui a demandé moins d'animations à son système,
+ * rien ne bouge : la bande se parcourt à la main.
  *
  * @param {{text: string, author: string, place?: string, source?: string}[]} quotes
- * @param {{src: string, alt?: string}[]} images
+ * @param {{src: string, alt?: string, position?: string}[]} images
  */
+
+/** Pixels parcourus par seconde : on lit un avis en passant, sans attendre. */
+const VITESSE = 34
+
+/** Un jeu d'éléments doit couvrir les plus grands écrans, sinon la boucle se voit. */
+const LARGEUR_MIN_JEU = 2800
+
+/** Hauteur d'une bande, en pixels, sur téléphone puis au-delà. */
+const HAUTEURS = { mobile: 480, bureau: 420 }
+
+/** Écart entre deux éléments, en pixels. */
+const GOUTTIERE = 20
+
+const proportion = (src) => PROPORTIONS[src] ?? PROPORTIONS[encodeURI(src)] ?? 0.8
+
+/** Plus l'avis est long, plus sa carte est large : aucun texte n'est jamais coupé. */
+const largeurAvis = (texte) => Math.round(Math.min(540, Math.max(340, 110 + texte.length * 0.8)))
+
+/**
+ * Un avis court est composé plus grand, comme une citation mise en avant :
+ * à taille égale, il laissait un grand blanc entre le texte et la signature,
+ * toutes les cartes d'une bande ayant la même hauteur. Les classes sont
+ * écrites en entier pour que Tailwind les trouve.
+ */
+const tailleAvis = (texte) =>
+    texte.length <= 200 ? 'md:text-[19px]' : texte.length <= 300 ? 'md:text-[17px]' : 'md:text-[15px]'
+
+/**
+ * Répartit avis et photos en bandes, sur le rythme d'une page de magazine :
+ * un avis, puis deux photos.
+ */
+function composer(quotes, images, nombre) {
+    const bandes = Array.from({ length: nombre }, () => ({ avis: [], photos: [] }))
+    quotes.forEach((q, k) => bandes[k % nombre].avis.push({ genre: 'avis', q }))
+    images.forEach((img, k) => bandes[k % nombre].photos.push({ genre: 'photo', img, index: k }))
+
+    return bandes
+        .map(({ avis, photos }) => {
+            const suite = []
+            while (avis.length || photos.length) {
+                if (avis.length) suite.push(avis.shift())
+                if (photos.length) suite.push(photos.shift())
+                if (photos.length) suite.push(photos.shift())
+            }
+            return suite
+        })
+        .filter((suite) => suite.length)
+}
+
+/** Répète une bande trop courte jusqu'à couvrir un grand écran. */
+function etendre(suite, hauteur) {
+    const largeur = suite.reduce(
+        (total, el) =>
+            total + GOUTTIERE + (el.genre === 'avis' ? largeurAvis(el.q.text) : hauteur * proportion(el.img.src)),
+        0,
+    )
+    const fois = Math.max(1, Math.ceil(LARGEUR_MIN_JEU / Math.max(largeur, 1)))
+    return Array.from({ length: fois }, (_, n) => suite.map((el) => ({ ...el, repetition: n }))).flat()
+}
+
 export default function Testimonials({ quotes = [], images = [], reviewsUrl, googleUrl, tone = 'dark' }) {
     const { t, lang } = useI18n()
-    const [lightbox, setLightbox] = useState(null)
-    const isLight = tone === 'light'
+    const [visionneuse, setVisionneuse] = useState(null)
+    const [pause, setPause] = useState(false)
+    // Rien ne bouge avant que la page soit active dans le navigateur : le HTML
+    // figé à la construction montre chaque avis une seule fois, sans doublon.
+    const [anime, setAnime] = useState(false)
 
-    const card = isLight ? 'border-veda-dark/10 bg-white shadow-card' : 'border-white/10 bg-white/[0.04]'
-    const body = isLight ? 'text-veda-dark/70' : 'text-veda-light/70'
-    const muted = isLight ? 'text-veda-dark/50' : 'text-veda-light/50'
+    useEffect(() => {
+        setAnime(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+    }, [])
+
+    if (!quotes.length && !images.length) return null
+
+    const clair = tone === 'light'
+    const styles = {
+        carte: clair ? 'border-veda-dark/10 bg-white shadow-card' : 'border-white/10 bg-white/[0.05]',
+        corps: clair ? 'text-veda-dark/75' : 'text-veda-light/75',
+        attenue: clair ? 'text-veda-dark/50' : 'text-veda-light/50',
+    }
+
+    const total = quotes.length + images.length
+    const bandesBureau = composer(quotes, images, total >= 10 ? 2 : 1).map((s) => etendre(s, HAUTEURS.bureau))
+    const bandeMobile = composer(quotes, images, 1).map((s) => etendre(s, HAUTEURS.mobile))
+
+    const libelles =
+        lang === 'en'
+            ? { pause: 'Pause the scrolling', reprendre: 'Resume the scrolling', agrandir: 'Enlarge the photo' }
+            : { pause: 'Mettre en pause le défilement', reprendre: 'Reprendre le défilement', agrandir: 'Agrandir la photo' }
+
+    const lien = `inline-flex items-center gap-3 rounded-full border px-8 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
+        clair
+            ? 'border-veda-dark/30 text-veda-dark hover:bg-veda-dark hover:text-veda-light'
+            : 'border-veda-gold/50 text-veda-gold hover:bg-veda-gold hover:text-veda-dark'
+    }`
+
+    const communs = { anime, pause, styles, libelles, onOuvrir: setVisionneuse }
 
     return (
-        <div className="grid gap-12 lg:grid-cols-[1fr,1.1fr] lg:items-start">
-            <div>
-                {quotes.length > 0 ? (
-                    <ul className="space-y-6">
-                        {quotes.map((q) => (
-                            <li key={q.text.slice(0, 40)} className={`rounded-3xl border p-8 ${card}`}>
-                                <Quote className="h-6 w-6 text-veda-gold" />
-                                <p className={`mt-5 text-base font-light italic leading-relaxed ${body}`}>
-                                    « {q.text} »
-                                </p>
-                                <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-veda-gold">
-                                    {q.author}
-                                    {q.place && <span className={`ml-2 font-light normal-case tracking-normal ${muted}`}>{q.place}</span>}
-                                </p>
-                                {q.source && <p className={`mt-1 text-xs font-light ${muted}`}>{q.source}</p>}
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <>
-                        <p className={`text-lg font-light leading-relaxed ${body}`}>
-                            {lang === 'en'
-                                ? 'La Maison VEDA has been welcoming travellers for years. Their reviews are on Airbnb, where the house is rated by its guests.'
-                                : 'La Maison VEDA accueille des voyageurs depuis des années. Leurs avis sont sur Airbnb, où la maison est notée par ses hôtes.'}
-                        </p>
-                        <ContentGap id="reviews" className="mt-8" />
-                    </>
-                )}
-
-                <div className="mt-8 flex flex-wrap gap-3">
-                {reviewsUrl && (
-                    <a
-                        href={reviewsUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={`inline-flex items-center gap-3 rounded-full border px-8 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
-                            isLight
-                                ? 'border-veda-dark/30 text-veda-dark hover:bg-veda-dark hover:text-veda-light'
-                                : 'border-veda-gold/50 text-veda-gold hover:bg-veda-gold hover:text-veda-dark'
-                        }`}
-                    >
-                        {t('venue.onAirbnb')}
-                        <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                )}
-                {googleUrl && (
-                    <a
-                        href={googleUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={`inline-flex items-center gap-3 rounded-full border px-8 py-3.5 text-xs font-bold uppercase tracking-widest transition-colors duration-300 ${
-                            isLight
-                                ? 'border-veda-dark/30 text-veda-dark hover:bg-veda-dark hover:text-veda-light'
-                                : 'border-veda-gold/50 text-veda-gold hover:bg-veda-gold hover:text-veda-dark'
-                        }`}
-                    >
-                        {t('venue.onGoogle')}
-                        <ArrowUpRight className="h-4 w-4" />
-                    </a>
-                )}
+        <div>
+            {/* Pleine largeur d'écran, au-delà du conteneur de la section. Par
+                les marges et non par une transformation : une transformation
+                ferait de ce bloc le repère des éléments fixés, et la visionneuse
+                s'ouvrirait coincée dedans. */}
+            <div className="mx-[calc(50%-50vw)]">
+                <div className="hidden space-y-5 md:block">
+                    {bandesBureau.map((suite, k) => (
+                        <Bande key={k} suite={suite} sens={k % 2 ? -1 : 1} hauteur="h-[420px]" {...communs} />
+                    ))}
+                </div>
+                <div className="md:hidden">
+                    {bandeMobile.map((suite, k) => (
+                        <Bande key={k} suite={suite} sens={1} hauteur="h-[480px]" {...communs} />
+                    ))}
                 </div>
             </div>
 
-            {/* Mosaïque des hôtes : la première photo prend deux cases */}
-            {images.length > 0 && (
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                    {images.slice(0, 5).map((image, i) => (
-                        <button
-                            key={image.src}
-                            type="button"
-                            onClick={() => setLightbox(i)}
-                            className={`group relative overflow-hidden rounded-2xl ${
-                                i === 0 ? 'col-span-2 row-span-2 aspect-square' : 'aspect-square'
-                            }`}
-                        >
-                            <img
-                                src={image.src}
-                                alt={image.alt || ''}
-                                loading="lazy"
-                                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                            />
-                            <span className="absolute inset-0 flex items-center justify-center bg-veda-dark/0 transition-colors duration-300 group-hover:bg-veda-dark/25">
-                                <Expand className="h-5 w-5 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                            </span>
-                        </button>
-                    ))}
+            <div className="mt-10 flex flex-wrap items-center justify-between gap-4">
+                <div className="flex flex-wrap gap-3">
+                    {reviewsUrl && (
+                        <a href={reviewsUrl} target="_blank" rel="noreferrer" className={lien}>
+                            {t('venue.onAirbnb')}
+                            <ArrowUpRight className="h-4 w-4" />
+                        </a>
+                    )}
+                    {googleUrl && (
+                        <a href={googleUrl} target="_blank" rel="noreferrer" className={lien}>
+                            {t('venue.onGoogle')}
+                            <ArrowUpRight className="h-4 w-4" />
+                        </a>
+                    )}
                 </div>
-            )}
 
-            <Lightbox images={images} index={lightbox} onClose={() => setLightbox(null)} onChange={setLightbox} />
+                {anime && (
+                    <button
+                        type="button"
+                        onClick={() => setPause(!pause)}
+                        aria-pressed={pause}
+                        aria-label={pause ? libelles.reprendre : libelles.pause}
+                        title={pause ? libelles.reprendre : libelles.pause}
+                        className={`flex h-11 w-11 items-center justify-center rounded-full border transition-colors duration-300 ${
+                            clair
+                                ? 'border-veda-dark/20 text-veda-dark/70 hover:border-veda-dark/50 hover:text-veda-dark'
+                                : 'border-white/20 text-veda-light/70 hover:border-white/50 hover:text-veda-light'
+                        }`}
+                    >
+                        {pause ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+                    </button>
+                )}
+            </div>
+
+            <Lightbox images={images} index={visionneuse} onClose={() => setVisionneuse(null)} onChange={setVisionneuse} />
         </div>
+    )
+}
+
+/**
+ * Une bande. Le jeu d'éléments est rendu deux fois de suite, le second en
+ * miroir invisible aux lecteurs d'écran et au clavier : l'animation glisse
+ * d'une moitié et revient au départ sans que la couture se voie.
+ */
+function Bande({ suite, sens, hauteur, anime, pause, styles, libelles, onOuvrir }) {
+    const cadre = useRef(null)
+    const piste = useRef(null)
+    const [duree, setDuree] = useState(0)
+    const [enVue, setEnVue] = useState(false)
+
+    useEffect(() => {
+        if (!anime) return
+        const el = piste.current
+
+        // La durée suit la longueur réelle de la bande : même vitesse de lecture
+        // pour une bande de six éléments que pour une de vingt.
+        const mesurer = () => {
+            if (el.scrollWidth) setDuree(el.scrollWidth / 2 / VITESSE)
+        }
+        mesurer()
+        const taille = new ResizeObserver(mesurer)
+        taille.observe(el)
+
+        // Hors de l'écran, inutile de faire travailler le processeur.
+        const vue = new IntersectionObserver(([e]) => setEnVue(e.isIntersecting), { rootMargin: '150px' })
+        vue.observe(cadre.current)
+
+        return () => {
+            taille.disconnect()
+            vue.disconnect()
+        }
+    }, [anime])
+
+    const actif = anime && duree > 0
+    const fondu = 'linear-gradient(to right, transparent, #000 5%, #000 95%, transparent)'
+
+    return (
+        <div
+            ref={cadre}
+            className={`group/bande ${anime ? 'overflow-hidden' : 'overflow-x-auto'}`}
+            style={{ maskImage: fondu, WebkitMaskImage: fondu }}
+        >
+            <ul
+                ref={piste}
+                className={`flex w-max ${hauteur} ${actif ? 'animate-defilement group-hover/bande:[animation-play-state:paused]' : ''}`}
+                style={
+                    actif
+                        ? {
+                              animationDuration: `${duree}s`,
+                              animationDirection: sens < 0 ? 'reverse' : 'normal',
+                              ...((pause || !enVue) && { animationPlayState: 'paused' }),
+                          }
+                        : undefined
+                }
+            >
+                {suite.map((el, k) => (
+                    <Element key={k} el={el} cache={el.repetition > 0} styles={styles} libelles={libelles} onOuvrir={onOuvrir} />
+                ))}
+                {anime &&
+                    suite.map((el, k) => (
+                        <Element key={`miroir-${k}`} el={el} cache styles={styles} libelles={libelles} onOuvrir={onOuvrir} />
+                    ))}
+            </ul>
+        </div>
+    )
+}
+
+function Element({ el, cache, styles, libelles, onOuvrir }) {
+    // Les copies servent la boucle, pas la lecture : ni lecteur d'écran, ni
+    // tabulation ne doivent les rencontrer une seconde fois.
+    const masque = cache ? { 'aria-hidden': true, inert: true } : {}
+
+    if (el.genre === 'avis') {
+        const { q } = el
+        return (
+            <li className="flex shrink-0" style={{ marginRight: GOUTTIERE }} {...masque}>
+                <figure
+                    className={`flex h-full flex-col rounded-3xl border p-6 md:p-8 ${styles.carte}`}
+                    style={{ width: `min(${largeurAvis(q.text)}px, 84vw)` }}
+                >
+                    <Quote className="h-6 w-6 shrink-0 text-veda-gold" aria-hidden="true" />
+                    <blockquote className={`mt-4 flex-1 overflow-hidden text-sm font-light italic leading-relaxed ${tailleAvis(q.text)} ${styles.corps}`}>
+                        <p>« {q.text} »</p>
+                    </blockquote>
+                    <figcaption className="mt-5 shrink-0">
+                        <p className="text-xs font-semibold uppercase tracking-widest text-veda-gold">{q.author}</p>
+                        {(q.place || q.source) && (
+                            <p className={`mt-1 text-xs font-light ${styles.attenue}`}>
+                                {[q.place, q.source].filter(Boolean).join(' · ')}
+                            </p>
+                        )}
+                    </figcaption>
+                </figure>
+            </li>
+        )
+    }
+
+    const { img, index } = el
+    return (
+        <li className="shrink-0" style={{ marginRight: GOUTTIERE }} {...masque}>
+            <button
+                type="button"
+                onClick={() => onOuvrir(index)}
+                aria-label={libelles.agrandir}
+                className="group/photo relative block h-full overflow-hidden rounded-3xl focus:outline-none focus-visible:ring-2 focus-visible:ring-veda-gold"
+                style={{ aspectRatio: proportion(img.src) }}
+            >
+                <img
+                    src={img.src}
+                    alt={img.alt || ''}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover/photo:scale-105"
+                    style={img.position ? { objectPosition: img.position } : undefined}
+                />
+                <span className="absolute inset-0 flex items-center justify-center bg-veda-dark/0 transition-colors duration-300 group-hover/photo:bg-veda-dark/25">
+                    <Expand className="h-5 w-5 text-white opacity-0 transition-opacity duration-300 group-hover/photo:opacity-100" />
+                </span>
+            </button>
+        </li>
     )
 }
