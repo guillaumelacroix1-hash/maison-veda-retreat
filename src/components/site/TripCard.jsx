@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Clock, MapPin, ArrowRight } from 'lucide-react'
 import { useI18n } from '../../i18n'
+import { NOTES_INTERNES_VISIBLES } from './ContentGap'
 
 /**
  * Carte d'un voyage type VEDA Travel.
@@ -55,7 +56,9 @@ export default function TripCard({ trip, tone = 'dark' }) {
                         {copy.intro}
                     </p>
 
-                    {pending && (
+                    {/* Note de travail (« à confirmer par Aurélie ») : elle
+                        s'affichait sur le site publié, sur chaque carte. */}
+                    {pending && NOTES_INTERNES_VISIBLES && (
                         <p className={`mt-5 text-xs font-light ${pendingTone}`}>
                             {t('travel.toConfirm')}{colon}{pending}
                         </p>

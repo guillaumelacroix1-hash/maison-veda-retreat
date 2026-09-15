@@ -2,6 +2,15 @@ import { useI18n } from '../../i18n'
 import { CONTENT_GAPS } from '../../data/contentGaps'
 
 /**
+ * Les notes de travail (contenus manquants, points à confirmer) ne se montrent
+ * qu'en développement, ou sur une préproduction qui le demande par
+ * VITE_SHOW_CONTENT_GAPS=true. Partagé avec les autres composants qui en
+ * affichent, pour qu'aucune note n'échappe à la règle.
+ */
+export const NOTES_INTERNES_VISIBLES =
+    import.meta.env.DEV || import.meta.env.VITE_SHOW_CONTENT_GAPS === 'true'
+
+/**
  * Marque à l'écran un contenu qui reste à fournir, avec son responsable.
  *
  * Rend visible la section 12 du cahier des charges directement dans le site,
@@ -16,8 +25,7 @@ import { CONTENT_GAPS } from '../../data/contentGaps'
 export default function ContentGap({ id, className = '' }) {
     const { t, lang, colon } = useI18n()
 
-    const visible = import.meta.env.DEV || import.meta.env.VITE_SHOW_CONTENT_GAPS === 'true'
-    if (!visible) return null
+    if (!NOTES_INTERNES_VISIBLES) return null
 
     const gap = CONTENT_GAPS[id]
     if (!gap) {
