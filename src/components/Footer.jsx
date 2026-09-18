@@ -62,7 +62,7 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-veda-light/40 font-light">
-                    <p>2027 © La Maison VEDA – Tous droits réservés.</p>
+                    <p>2027 © La maison VEDA – Tous droits réservés.</p>
                     <p>Conçu pour une expérience digitale premium.</p>
                 </div>
             </div>

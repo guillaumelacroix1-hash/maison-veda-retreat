@@ -5,7 +5,7 @@ import { Plus } from 'lucide-react'
  * Liste repliable.
  *
  * Sert aux hébergements partenaires, que le cahier des charges veut en second
- * plan derrière les villas de La Maison VEDA, tout en conservant leurs photos.
+ * plan derrière les villas de La maison VEDA, tout en conservant leurs photos.
  * Replié, chaque partenaire tient sur une ligne ; déplié, il montre tout.
  *
  * @param {{key: string, title: string, subtitle?: string, content: ReactNode}[]} items

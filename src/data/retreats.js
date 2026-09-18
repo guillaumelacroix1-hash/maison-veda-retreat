@@ -32,12 +32,12 @@ export const RETREATS = [
                     spiritualName: 'Radha Navjot Kaur',
                     role: 'Kundalini Yoga',
                     photo: 'lilie-portrait.jpg',
-                    text: 'Fondatrice de La Maison VEDA, en Charente puis au Sri Lanka, formée dans la lignée directe de Yogi Bhajan. Elle enseigne le Kundalini, le yoga de la conscience : une pratique puissante, qui transforme vite. On y régule le système nerveux par le corps, la méditation et le chant, et l\'on y travaille les mémoires du subconscient — ce qui se nettoie là se traduit en clarté mentale au quotidien, et en capacité à se mettre en chemin.',
+                    text: 'Fondatrice de La maison VEDA, en Charente puis au Sri Lanka, formée dans la lignée directe de Yogi Bhajan. Elle enseigne le Kundalini, le yoga de la conscience : une pratique puissante, qui transforme vite. On y régule le système nerveux par le corps, la méditation et le chant, et l\'on y travaille les mémoires du subconscient — ce qui se nettoie là se traduit en clarté mentale au quotidien, et en capacité à se mettre en chemin.',
                 },
                 {
                     // Présentation reprise de son propre site, sans superlatif :
                     // les formulations comme « la seule école de France » seraient
-                    // ici affirmées par La Maison VEDA, pas par elle.
+                    // ici affirmées par La maison VEDA, pas par elle.
                     name: 'Eugénie Besqueut Franz',
                     role: 'Transformation holistique',
                     photo: 'eugenie-portrait.jpg',
@@ -90,7 +90,7 @@ export const RETREATS = [
                     spiritualName: 'Radha Navjot Kaur',
                     role: 'Kundalini Yoga',
                     photo: 'lilie-portrait.jpg',
-                    text: 'Founder of La Maison VEDA, in the Charente and then in Sri Lanka, trained in the direct lineage of Yogi Bhajan. She teaches Kundalini, the yoga of awareness: a powerful practice that transforms quickly. The nervous system is regulated through the body, meditation and chant, and the memories of the subconscious are worked on — what is cleared there becomes mental clarity in daily life, and the capacity to set out.',
+                    text: 'Founder of La maison VEDA, in the Charente and then in Sri Lanka, trained in the direct lineage of Yogi Bhajan. She teaches Kundalini, the yoga of awareness: a powerful practice that transforms quickly. The nervous system is regulated through the body, meditation and chant, and the memories of the subconscious are worked on — what is cleared there becomes mental clarity in daily life, and the capacity to set out.',
                 },
                 {
                     name: 'Eugénie Besqueut Franz',
@@ -171,7 +171,7 @@ export const RETREATS = [
             from: 1280,
             options: [
                 { fr: 'Chambre partagée (2, 3 ou 4 personnes)', en: 'Shared room (2, 3 or 4 people)', price: 1280 },
-                // La Maison VEDA n'a pas de chambre individuelle : le supplément
+                // La maison VEDA n'a pas de chambre individuelle : le supplément
                 // paie une chambre à côté, à Tothupola ou à Jungle Breeze.
                 {
                     fr: 'Supplément chambre individuelle, à Tothupola ou Jungle Breeze',

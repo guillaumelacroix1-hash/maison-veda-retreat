@@ -31,7 +31,7 @@ export default function RetreatSimulator() {
 
     const calcul = useMemo(() => {
         const lignes = [{
-            nom: lang === 'en' ? 'La Maison VEDA, both villas and the shala' : 'La Maison VEDA, les deux villas et le shala',
+            nom: lang === 'en' ? 'La maison VEDA, both villas and the shala' : 'La maison VEDA, les deux villas et le shala',
             detail: `${nuits} × ${BASE.prix} €`, total: BASE.prix * nuits,
         }]
         let couchages = BASE.couchages

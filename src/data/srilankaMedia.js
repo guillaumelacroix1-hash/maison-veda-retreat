@@ -33,7 +33,7 @@ export const SRILANKA_MEDIA = {
     /**
      * Hébergements partenaires, à quelques pas de la maison. Le cahier des
      * charges demande de conserver toutes leurs photos, en second plan derrière
-     * les villas de La Maison VEDA.
+     * les villas de La maison VEDA.
      */
     'tothupola': [
         { src: '/images/carousels/tothupola/IMG_1491.JPG' },
@@ -240,7 +240,7 @@ export const SRILANKA_MEDIA = {
     ],
     // Photo fournie par Aurélie le 07/09/2026, pour la section « Notre équipe ».
     equipe: [
-        { src: '/srilanka/equipe/aurelie-lukshman.jpg', alt: 'Aurélie et Lukshman, qui veille sur La Maison VEDA' },
+        { src: '/srilanka/equipe/aurelie-lukshman.jpg', alt: 'Aurélie et Lukshman, qui veille sur La maison VEDA' },
     ],
     'galerie': [
         { src: '/srilanka/galerie/img_6564.jpg' },

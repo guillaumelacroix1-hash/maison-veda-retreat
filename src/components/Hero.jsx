@@ -36,7 +36,7 @@ export default function Hero() {
 
                 <img
                     src={`${import.meta.env.BASE_URL}visites/IMG_0945.jpg`}
-                    alt="Retraite Sri Lanka La Maison Veda"
+                    alt="Retraite Sri Lanka La maison VEDA"
                     className="w-full h-full object-cover object-center"
                     fetchPriority="high"
                     loading="eager"

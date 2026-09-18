@@ -33,8 +33,8 @@ export default function PageMeta({ title, description, image, type = 'website', 
     }, [lang])
 
     const absolu = (chemin) => (chemin?.startsWith('http') ? chemin : `${SITE_URL}${chemin ?? ''}`)
-    const nomDuSite = 'La Maison VEDA Sri Lanka'
-    const titreComplet = title ? `${title} | La Maison VEDA` : nomDuSite
+    const nomDuSite = 'La maison VEDA Sri Lanka'
+    const titreComplet = title ? `${title} | La maison VEDA` : nomDuSite
     const canonique = absolu(pathname)
     const visuel = absolu(image || SHARE_IMAGE)
 

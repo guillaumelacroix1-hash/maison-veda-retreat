@@ -172,7 +172,7 @@ export const RETREAT_2027 = {
         gallery: {
             title: 'Découvrez',
             titleAccent: 'l\'expérience',
-            lead: 'Plongez dans l\'univers de La Maison VEDA, entre retraite paisible au bord du lac et découvertes inoubliables au Sri Lanka.',
+            lead: 'Plongez dans l\'univers de La maison VEDA, entre retraite paisible au bord du lac et découvertes inoubliables au Sri Lanka.',
             imageAlt: 'Galerie',
         },
 
@@ -407,7 +407,7 @@ export const RETREAT_2027 = {
         gallery: {
             title: 'Discover',
             titleAccent: 'the experience',
-            lead: 'Step into the world of La Maison VEDA, between a peaceful retreat by the lake and unforgettable discoveries across Sri Lanka.',
+            lead: 'Step into the world of La maison VEDA, between a peaceful retreat by the lake and unforgettable discoveries across Sri Lanka.',
             imageAlt: 'Gallery',
         },
 

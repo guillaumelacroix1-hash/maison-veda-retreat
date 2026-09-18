@@ -38,7 +38,7 @@ export function lieu(lang, { description, image } = {}) {
         '@context': 'https://schema.org',
         '@type': ['LodgingBusiness', 'HealthAndBeautyBusiness'],
         '@id': `${SITE_URL}/#lieu`,
-        name: 'La Maison VEDA Sri Lanka',
+        name: 'La maison VEDA Sri Lanka',
         url: `${SITE_URL}/${lang}`,
         description,
         image: image ? absolu(image) : undefined,
@@ -79,11 +79,11 @@ export function retraite(donnees, lang, url) {
         image: donnees.image ? absolu(donnees.image) : undefined,
         location: {
             '@type': 'Place',
-            name: 'La Maison VEDA Sri Lanka',
+            name: 'La maison VEDA Sri Lanka',
             address: ADRESSE,
             geo: COORDONNEES,
         },
-        organizer: { '@type': 'Organization', name: 'La Maison VEDA', url: SITE_URL },
+        organizer: { '@type': 'Organization', name: 'La maison VEDA', url: SITE_URL },
         performer: (copie.guidesList ?? []).map((g) => ({ '@type': 'Person', name: g.name })),
         // Une retraite annoncée sans tarif n'en déclare pas : mieux vaut aucune
         // offre qu'une offre à zéro euro, que les moteurs afficheraient.
