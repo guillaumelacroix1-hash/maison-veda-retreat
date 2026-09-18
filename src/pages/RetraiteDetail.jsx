@@ -27,6 +27,18 @@ const PHOTOS_RETRAITE = {
         src: '/srilanka/yoga-shala/img_9651.jpg',
         alt: { fr: 'Relaxation aux bols chantants sur le shala', en: 'Singing bowl relaxation on the shala' },
     },
+    // Quand l'intention se prolonge par le parcours jour par jour, le texte
+    // s'allonge : ces photos rejoignent la première et se partagent sa hauteur.
+    parcours: [
+        {
+            src: '/srilanka/nav/eb72a713-56a3-4d18-a631-9563e78c7c12.jpg',
+            alt: { fr: 'Le jardin et le hamac, au bord du lac', en: 'The garden and the hammock, by the lake' },
+        },
+        {
+            src: '/srilanka/nav/6ac6fabf-9afd-4169-8884-6a4508a71375.jpg',
+            alt: { fr: 'Pirogues sur une plage du sud du Sri Lanka', en: 'Outrigger canoes on a beach in southern Sri Lanka' },
+        },
+    ],
 }
 
 /** Retraites disposant d'une page dessinée sur mesure. */
@@ -49,7 +61,8 @@ export default function RetraiteDetail() {
     if (CustomPage) return <CustomPage />
 
     const copy = retreat[lang] ?? retreat.fr
-    const photo = (cle) => ({ src: PHOTOS_RETRAITE[cle].src, alt: PHOTOS_RETRAITE[cle].alt[lang] ?? PHOTOS_RETRAITE[cle].alt.fr })
+    const traduire = (image) => ({ src: image.src, alt: image.alt[lang] ?? image.alt.fr })
+    const photo = (cle) => traduire(PHOTOS_RETRAITE[cle])
     const c = srilanka(lang)
     // Février garde l'acompte déjà encaissé ; les autres retraites suivent
     // la règle des 30 %.
@@ -92,7 +105,13 @@ export default function RetraiteDetail() {
             </Section>
 
             {copy.intention ? (
-                <Section tone="light" title={copy.intentionTitle} aside={photo('intention')}>
+                <Section
+                    tone="light"
+                    title={copy.intentionTitle}
+                    aside={copy.journey
+                        ? [photo('intention'), ...PHOTOS_RETRAITE.parcours.map(traduire)]
+                        : photo('intention')}
+                >
                     <div className="max-w-3xl space-y-5">
                         {copy.intention.map((p) => (
                             <p key={p.slice(0, 40)} className="text-base font-light leading-relaxed text-veda-dark/75">
@@ -100,6 +119,38 @@ export default function RetraiteDetail() {
                             </p>
                         ))}
                     </div>
+
+                    {/* Le parcours jour par jour prolonge l'intention dans la même
+                        section : posé dans une section à part, il aurait mis deux
+                        fonds de même couleur bout à bout. */}
+                    {copy.journey && (
+                        <div className="mt-16 max-w-3xl">
+                            <h3 className="font-heading text-3xl text-veda-dark md:text-4xl">{copy.journeyTitle}</h3>
+                            {copy.journeyLead && (
+                                <p className="mt-5 text-base font-light leading-relaxed text-veda-dark/75">
+                                    {copy.journeyLead}
+                                </p>
+                            )}
+                            <ol className="mt-10 divide-y divide-veda-dark/10 border-y border-veda-dark/10">
+                                {copy.journey.map((d) => (
+                                    <li key={d.day} className="grid gap-2 py-6 sm:grid-cols-[9rem,1fr] sm:gap-8">
+                                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">
+                                            {d.day}
+                                            <span className="mt-1 block text-sm font-light normal-case tracking-normal text-veda-dark/50">
+                                                {d.date}
+                                            </span>
+                                        </p>
+                                        <div>
+                                            <h4 className="font-heading text-2xl text-veda-dark">{d.title}</h4>
+                                            <p className="mt-2 text-base font-light leading-relaxed text-veda-dark/75">
+                                                {d.text}
+                                            </p>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ol>
+                        </div>
+                    )}
                 </Section>
             ) : (
                 <Section tone="light" title={t('retreats.programme')}>
