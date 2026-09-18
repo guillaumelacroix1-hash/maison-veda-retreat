@@ -2,7 +2,8 @@
  * Les deux professeures du Maison VEDA Lake Studio.
  *
  * Les deux textes viennent de leurs autrices. Celui d'Aurélie a été accordé avec
- * « Notre histoire » le 18/09/2026, ses professeurs de Kundalini nommés par elle ;
+ * « Notre histoire » le 18/09/2026, à la première personne comme celui d'Anna,
+ * ses professeurs de Kundalini nommés par elle (sans lieux de formation) ;
  * celui d'Anna est le sien, écrit
  * en anglais et traduit fidèlement. Règle « zéro invention » (section 8 du
  * cahier des charges) : ne rien ajouter à leur parcours sans leur accord.
@@ -21,21 +22,21 @@ export const TEACHERS = [
         fr: {
             role: 'Fondatrice et professeure de Kundalini Yoga',
             bio: [
-                'Aurélie, Radha Navjot Kaur, est la fondatrice de La maison VEDA, studio de yoga et centre de retraites à Saint-Simon en Charente et à Habaraduwa, dans le sud du Sri Lanka.',
-                'Un jour, son corps l\'a obligée à s\'arrêter. Elle est partie en Inde, s\'est formée à l\'ayurvéda et a appris à écouter son corps. Puis le Kundalini a tout transformé : il a réaligné son système nerveux, nettoyé son subconscient, et réveillé en elle une joie qu\'elle ne connaissait plus.',
-                'Elle s\'est formée auprès de deux femmes de la lignée directe de Yogi Bhajan : Gurmukh Kaur Khalsa, au Golden Bridge aux États-Unis, et Sat Atma Kaur, dans les Cévennes. Deux guerrières spirituelles, comme elle aime les appeler, qu\'elle admire profondément. Elle a suivi son niveau 2 avec Shiv Charan Singh, de l\'école Karam Kriya, à l\'ashram Guru Ram Das au Portugal, et puise aussi son inspiration auprès de Fiona Raymond et Tonie Nooyens, qui enseignent au Sri Lanka. Aujourd\'hui encore, elle continue de se former, avec passion.',
-                'Elle est également certifiée en Hatha yoga (Aryoga, Rishikesh, Inde) et thérapeute ayurvédique, formée à la clinique Ayuskama de Dharamshala.',
-                'Au studio, elle enseigne le Kundalini et la méditation, et anime les séances de Rebirth Kriya.',
+                'Je suis la fondatrice de La maison VEDA, studio de yoga et centre de retraites à Saint-Simon, en Charente, et à Habaraduwa, dans le sud du Sri Lanka.',
+                'Un jour, mon corps m\'a obligée à m\'arrêter. Je suis partie en Inde, je me suis formée à l\'ayurvéda et j\'ai appris à écouter mon corps. Puis le Kundalini a tout transformé : il a réaligné mon système nerveux, nettoyé mon subconscient, et réveillé en moi une joie que je ne connaissais plus.',
+                'Je me suis formée auprès de deux femmes de la lignée directe de Yogi Bhajan : Gurmukh Kaur Khalsa, au Golden Bridge aux États-Unis, et Sat Atma Kaur, dans les Cévennes. Deux guerrières spirituelles, comme j\'aime les appeler, que j\'admire profondément. J\'ai suivi mon niveau 2 avec Shiv Charan Singh, de l\'école Karam Kriya, et je puise aussi mon inspiration auprès de Fiona Raymond et Tonie Nooyens, qui enseignent au Sri Lanka. Aujourd\'hui encore, je continue de me former, avec passion.',
+                'Je suis également certifiée en Hatha yoga (Aryoga, Rishikesh, Inde) et thérapeute ayurvédique, formée à la clinique Ayuskama de Dharamshala.',
+                'Au studio, j\'enseigne le Kundalini et la méditation, et j\'anime les séances de Rebirth Kriya.',
             ],
         },
         en: {
             role: 'Founder and Kundalini Yoga teacher',
             bio: [
-                'Aurélie, Radha Navjot Kaur, is the founder of La maison VEDA, a yoga studio and retreat centre in Saint-Simon, Charente, and in Habaraduwa, southern Sri Lanka.',
-                'One day, her body forced her to stop. She left for India, trained in Ayurveda and learned to listen to her body. Then Kundalini changed everything: it realigned her nervous system, cleansed her subconscious, and awakened a joy in her she no longer knew.',
-                'She trained with two women from Yogi Bhajan\'s direct lineage: Gurmukh Kaur Khalsa, at Golden Bridge in the United States, and Sat Atma Kaur, in the Cévennes. Two spiritual warriors, as she likes to call them, whom she deeply admires. She took her Level 2 with Shiv Charan Singh of the Karam Kriya School, at the Guru Ram Das Ashram in Portugal, and draws inspiration too from Fiona Raymond and Tonie Nooyens, who teach in Sri Lanka. Still today, she keeps training, with passion.',
-                'She is also certified in Hatha yoga (Aryoga, Rishikesh, India) and trained as an Ayurvedic therapist at the Ayuskama clinic in Dharamshala.',
-                'At the studio she teaches Kundalini and meditation, and leads the Rebirth Kriya sessions.',
+                'I am the founder of La maison VEDA, a yoga studio and retreat centre in Saint-Simon, Charente, and in Habaraduwa, southern Sri Lanka.',
+                'One day, my body forced me to stop. I left for India, trained in Ayurveda and learned to listen to my body. Then Kundalini changed everything: it realigned my nervous system, cleansed my subconscious, and awakened a joy in me I no longer knew.',
+                'I trained with two women from Yogi Bhajan\'s direct lineage: Gurmukh Kaur Khalsa, at Golden Bridge in the United States, and Sat Atma Kaur, in the Cévennes. Two spiritual warriors, as I like to call them, whom I deeply admire. I took my Level 2 with Shiv Charan Singh of the Karam Kriya School, and I also draw inspiration from Fiona Raymond and Tonie Nooyens, who teach in Sri Lanka. Still today, I keep training, with passion.',
+                'I am also certified in Hatha yoga (Aryoga, Rishikesh, India) and trained as an Ayurvedic therapist at the Ayuskama clinic in Dharamshala.',
+                'At the studio, I teach Kundalini and meditation, and I lead the Rebirth Kriya sessions.',
             ],
         },
     },
