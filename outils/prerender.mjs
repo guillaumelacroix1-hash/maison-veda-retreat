@@ -28,13 +28,19 @@ const { LANGS, buildPath } = await import(`file://${racine}/src/routes.js`)
 const { RETREATS } = await import(`file://${racine}/src/data/retreats.js`)
 const { TRIPS } = await import(`file://${racine}/src/data/trips.js`)
 
-/** Les pages à figer : celles qu'un moteur a une raison de lire. */
+/**
+ * Les pages à figer : toutes celles qui existent. Depuis que les adresses
+ * inconnues répondent 404 (vercel.json), une page non figée n'existerait plus
+ * pour le serveur : c'est pourquoi les pages de réservation, hors plan du site
+ * et hors index, sont figées elles aussi.
+ */
 const adresses = []
 for (const lang of LANGS) {
     for (const cle of ['home', 'retreats', 'host', 'studio', 'venue', 'travel', 'story', 'contact']) {
         adresses.push(buildPath(cle, lang))
     }
     RETREATS.forEach((r) => adresses.push(buildPath('retreat', lang, { slug: r.slug })))
+    RETREATS.forEach((r) => adresses.push(buildPath('book', lang, { slug: r.slug })))
     TRIPS.forEach((t) => adresses.push(buildPath('trip', lang, { slug: t.slug })))
 }
 
@@ -69,31 +75,39 @@ const BALISES_DE_TETE = /<title\b[^>]*>[\s\S]*?<\/title>|<(?:meta|link)\b[^>]*>/
 let ecrites = 0
 const echecs = []
 
+/** Le HTML complet d'une adresse : le gabarit, sa tête et son corps figés. */
+async function figer(adresse, { introuvable = false } = {}) {
+    const rendu = await rendre(adresse)
+
+    // React écrit « hrefLang ». Les navigateurs et Google le lisent très
+    // bien, les noms d'attribut étant insensibles à la casse en HTML, mais
+    // les outils d'audit SEO cherchent la forme minuscule et crient au
+    // hreflang manquant. On leur évite la fausse alerte.
+    let tete = (rendu.match(BALISES_DE_TETE) ?? []).map((t) => t.replace(/\bhrefLang=/g, 'hreflang='))
+    const corps = rendu.replace(BALISES_DE_TETE, '')
+
+    // La page d'erreur répond à toutes les adresses inconnues : une adresse
+    // de référence ou des équivalents de langue y seraient faux.
+    if (introuvable) tete = tete.filter((t) => !/rel="(canonical|alternate)"|property="og:url"/i.test(t))
+
+    // Le gabarit porte un titre et une description de repli : les garder
+    // donnerait deux titres concurrents dans la même page.
+    let page = gabarit
+    if (tete.some((t) => /^<title/i.test(t))) page = page.replace(/\s*<title>[\s\S]*?<\/title>/i, '')
+    if (tete.some((t) => /name="description"/i.test(t))) {
+        page = page.replace(/\s*<meta name="description"[^>]*>/i, '')
+    }
+
+    const langue = adresse.split('/')[1]
+    return page
+        .replace('<html lang="fr">', `<html lang="${langue}">`)
+        .replace('</head>', `    ${tete.join('\n    ')}\n</head>`)
+        .replace('<div id="root"></div>', `<div id="root"${introuvable ? ' data-introuvable' : ''}>${corps}</div>`)
+}
+
 for (const adresse of adresses) {
     try {
-        const rendu = await rendre(adresse)
-
-        // React écrit « hrefLang ». Les navigateurs et Google le lisent très
-        // bien, les noms d'attribut étant insensibles à la casse en HTML, mais
-        // les outils d'audit SEO cherchent la forme minuscule et crient au
-        // hreflang manquant. On leur évite la fausse alerte.
-        const tete = (rendu.match(BALISES_DE_TETE) ?? []).map((t) => t.replace(/\bhrefLang=/g, 'hreflang='))
-        const corps = rendu.replace(BALISES_DE_TETE, '')
-
-        // Le gabarit porte un titre et une description de repli : les garder
-        // donnerait deux titres concurrents dans la même page.
-        let page = gabarit
-        if (tete.some((t) => /^<title/i.test(t))) page = page.replace(/\s*<title>[\s\S]*?<\/title>/i, '')
-        if (tete.some((t) => /name="description"/i.test(t))) {
-            page = page.replace(/\s*<meta name="description"[^>]*>/i, '')
-        }
-
-        const langue = adresse.split('/')[1]
-        page = page
-            .replace('<html lang="fr">', `<html lang="${langue}">`)
-            .replace('</head>', `    ${tete.join('\n    ')}\n</head>`)
-            .replace('<div id="root"></div>', `<div id="root">${corps}</div>`)
-
+        const page = await figer(adresse)
         const dossier = join(dist, adresse)
         mkdirSync(dossier, { recursive: true })
         writeFileSync(join(dossier, 'index.html'), page, 'utf8')
@@ -101,6 +115,15 @@ for (const adresse of adresses) {
     } catch (erreur) {
         echecs.push(`${adresse} : ${erreur.message}`)
     }
+}
+
+// La page d'erreur. Vercel la sert avec le statut 404 pour toute adresse sans
+// fichier : un moteur comprend que la page n'existe pas, au lieu d'indexer
+// une copie de l'accueil sous une adresse fantaisiste.
+try {
+    writeFileSync(join(dist, '404.html'), await figer('/fr/page-introuvable', { introuvable: true }), 'utf8')
+} catch (erreur) {
+    echecs.push(`404.html : ${erreur.message}`)
 }
 
 if (existsSync(sortieSsr)) rmSync(sortieSsr, { recursive: true, force: true })

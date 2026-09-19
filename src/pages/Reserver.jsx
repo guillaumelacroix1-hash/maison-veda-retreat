@@ -85,7 +85,9 @@ export default function Reserver() {
 
     return (
         <>
-            <PageMeta title={`${t('common.book')}, ${copy.title}`} />
+            {/* Hors index : un formulaire n'a rien à dire à un moteur, et il
+                ferait doublon avec la fiche de la retraite. */}
+            <PageMeta title={`${t('common.book')}, ${copy.title}`} noindex />
 
             <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-32">
                 <div className="pointer-events-none absolute left-10 top-1/4 h-64 w-64 rounded-full bg-veda-gold/5 blur-[100px]" />

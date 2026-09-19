@@ -7,7 +7,7 @@ export default function NotFound() {
 
     return (
         <>
-            <PageMeta title="404" />
+            <PageMeta title={lang === 'en' ? 'Page not found' : 'Page introuvable'} noindex />
             <section className="flex min-h-[70vh] items-center justify-center px-6 pt-32 text-center">
                 <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-veda-gold">404</p>
