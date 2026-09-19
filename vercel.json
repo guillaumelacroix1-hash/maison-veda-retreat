@@ -27,6 +27,17 @@
       "permanent": false
     },
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "maison-veda-retreat.vercel.app"
+        }
+      ],
+      "destination": "https://srilanka.lamaisonveda.com/fr",
+      "permanent": true
+    },
+    {
       "source": "/:chemin*",
       "has": [
         {

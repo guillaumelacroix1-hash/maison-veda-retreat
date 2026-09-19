@@ -41,7 +41,6 @@ export default function Accueil() {
             <PageMeta
                 title={t('home.metaTitle')}
                 description={t('home.promise')}
-                image={MEDIA.home}
                 jsonLd={lieu(lang, { description: t('home.promise'), image: MEDIA.home })}
             />
 
