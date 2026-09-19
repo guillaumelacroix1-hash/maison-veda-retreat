@@ -7,9 +7,11 @@ import { retreatContent } from '../data/retreat2027'
 const getImageUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}?v=2`;
 
 // Vignettes : la miniature de 320 pixels fabriquée à la construction
-// (outils/optimiser-images.mjs), 20 Ko au lieu de 600. Le serveur de
-// développement ne l'a pas : il garde la photo entière.
-const miniature = (url) => (import.meta.env.DEV ? url : url.replace(/\.(jpe?g|png)(\?|$)/i, '.mini.jpg$2'));
+// (outils/optimiser-images.mjs), 20 Ko au lieu de 600. Elle n'existe que pour
+// les photos des carrousels, et pas sur le serveur de développement : ailleurs,
+// la vignette garde la photo entière.
+const miniature = (url) =>
+    import.meta.env.DEV || !url.includes('/images/carousels/') ? url : url.replace(/\.(jpe?g|png)(\?|$)/i, '.mini.jpg$2');
 
 const lakeHouseImages = [
     getImageUrl("/images/carousels/maison-veda/lake-house/17134a43-830c-4499-bba1-31e71e48208f.jpg"),
