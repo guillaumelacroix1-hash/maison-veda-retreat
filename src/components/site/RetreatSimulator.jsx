@@ -73,12 +73,12 @@ export default function RetreatSimulator() {
     const manquants = aLoger - calcul.couchages
 
     const Champ = ({ label, valeur, onChange, min }) => (
-        <div>
-            <label className="block text-xs font-semibold uppercase tracking-[0.15em] text-veda-gold">{label}</label>
+        <label className="block">
+            <span className="block text-xs font-semibold uppercase tracking-[0.15em] text-veda-gold">{label}</span>
             <input type="number" min={min} value={valeur}
                    onChange={(e) => onChange(Math.max(min, Number(e.target.value) || min))}
                    className="mt-2 w-full rounded-xl border border-veda-dark/15 bg-white px-4 py-3 font-heading text-2xl text-veda-dark focus:border-veda-gold focus:outline-none" />
-        </div>
+        </label>
     )
 
     const Compteur = ({ ligne, unite }) => {

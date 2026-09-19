@@ -20,17 +20,17 @@ export default function Tarifs() {
     )
 
     return (
-        <section className="py-24 md:py-32 px-6 bg-[#fdfbf7] text-veda-dark relative overflow-hidden">
+        <section className="py-24 md:py-32 px-6 bg-veda-cream text-veda-dark relative overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center max-w-3xl mx-auto mb-20">
-                    <motion.h3
+                    <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
+                        className="font-heading text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
                     >
                         {c.eyebrow}
-                    </motion.h3>
+                    </motion.p>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export default function Tarifs() {
                             <div className="p-4 bg-veda-gold/5 rounded-full text-veda-gold mb-6 inline-flex">
                                 <Calendar className="w-8 h-8" />
                             </div>
-                            <h4 className="text-xl font-heading mb-3">{c.datesTitle}</h4>
+                            <h3 className="text-xl font-heading mb-3">{c.datesTitle}</h3>
                             <p className="font-medium text-veda-dark mb-2">{c.datesValue}</p>
                             <p className="text-sm text-veda-dark/60 whitespace-pre-line">{c.datesDetail}</p>
                         </div>
@@ -74,7 +74,7 @@ export default function Tarifs() {
                             <div className="p-4 bg-veda-gold/5 rounded-full text-veda-gold mb-6 inline-flex">
                                 <Plane className="w-8 h-8" />
                             </div>
-                            <h4 className="text-xl font-heading mb-3">{c.transportTitle}</h4>
+                            <h3 className="text-xl font-heading mb-3">{c.transportTitle}</h3>
                             <p className="text-sm text-veda-dark/70 leading-relaxed">
                                 {c.transportDesc}
                             </p>
@@ -84,7 +84,7 @@ export default function Tarifs() {
                             <div className="p-4 bg-veda-gold/5 rounded-full text-veda-gold mb-6 inline-flex">
                                 <Check className="w-8 h-8" />
                             </div>
-                            <h4 className="text-xl font-heading mb-4">{c.includedTitle}</h4>
+                            <h3 className="text-xl font-heading mb-4">{c.includedTitle}</h3>
                             <ul className="space-y-2 text-sm text-veda-dark/80 inline-block text-left">
                                 {c.included.map((item, i) => (
                                     <li key={i} className="flex items-start justify-center gap-2">
@@ -109,7 +109,7 @@ export default function Tarifs() {
                                 {c.sharedBadge}
                             </div>
 
-                            <h4 className="text-3xl font-heading mb-3 mt-4">{c.sharedTitle}</h4>
+                            <h3 className="text-3xl font-heading mb-3 mt-4">{c.sharedTitle}</h3>
                             <p className="text-sm text-veda-dark/60 mb-10 font-light">{c.sharedDesc}</p>
 
                             <div className="flex items-baseline gap-2 mb-10 justify-center">
@@ -130,7 +130,7 @@ export default function Tarifs() {
                                 {c.singleBadge}
                             </div>
 
-                            <h4 className="text-3xl font-heading mb-3 mt-4 text-veda-gold">{c.singleTitle}</h4>
+                            <h3 className="text-3xl font-heading mb-3 mt-4 text-veda-gold">{c.singleTitle}</h3>
                             <p className="text-sm text-veda-light/60 mb-10 font-light">{c.singleDesc}</p>
 
                             <div className="flex items-baseline gap-2 mb-10 justify-center">

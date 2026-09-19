@@ -14,14 +14,14 @@ export default function FAQ() {
         <section className="py-24 md:py-32 px-6 bg-white text-veda-dark relative">
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-16">
-                    <motion.h3
+                    <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
+                        className="font-heading text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
                     >
                         {c.eyebrow}
-                    </motion.h3>
+                    </motion.p>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -43,7 +43,7 @@ export default function FAQ() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.05 }}
-                                className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${isOpen ? 'border-veda-gold bg-[#fdfbf7]' : 'border-gray-200'}`}
+                                className={`border rounded-2xl overflow-hidden transition-colors duration-300 ${isOpen ? 'border-veda-gold bg-veda-cream' : 'border-gray-200'}`}
                             >
                                 <button
                                     onClick={() => setOpenIndex(isOpen ? null : index)}

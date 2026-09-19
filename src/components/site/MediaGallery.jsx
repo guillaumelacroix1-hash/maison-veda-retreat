@@ -24,6 +24,7 @@ import Lightbox from './Lightbox'
  */
 export default function MediaGallery({ images, initial = 8, colonnes = 4, tone = 'dark', className = '' }) {
     const { lang } = useI18n()
+    const agrandir = lang === 'en' ? 'Enlarge the photo' : 'Agrandir la photo'
     const [expanded, setExpanded] = useState(false)
     const [current, setCurrent] = useState(null)
 
@@ -56,6 +57,7 @@ export default function MediaGallery({ images, initial = 8, colonnes = 4, tone =
                         key={image.src}
                         type="button"
                         onClick={() => setCurrent(index)}
+                        aria-label={image.alt ? `${agrandir} : ${image.alt}` : agrandir}
                         className={`group relative overflow-hidden rounded-xl focus:outline-none focus:ring-2 focus:ring-veda-gold ${largeurFinDeRangee(
                             index,
                             shown.length,

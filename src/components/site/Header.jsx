@@ -119,7 +119,7 @@ export default function Header() {
             }`}
         >
             <div className="mx-auto flex max-w-container items-center justify-between px-4 sm:px-6">
-                <Link to={path('home')} className="block shrink-0" aria-label={t('common.brand')}>
+                <Link to={path('home')} className="block shrink-0" aria-label={`${t('common.brand')} ${t('common.brandSub')}`}>
                     <Logo
                         className="h-8 w-auto text-veda-gold transition-transform duration-500 hover:scale-105 md:h-12"
                         fill="currentColor"

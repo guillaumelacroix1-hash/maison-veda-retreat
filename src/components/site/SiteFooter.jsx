@@ -110,7 +110,7 @@ export default function SiteFooter() {
                     </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs font-light text-veda-light/40 md:flex-row">
+                <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs font-light text-veda-light/60 md:flex-row">
                     <p>{year} {t('footer.rights')}</p>
                     <p>{t('common.location')}</p>
                 </div>

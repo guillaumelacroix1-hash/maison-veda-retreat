@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { ChevronLeft, ChevronRight, Expand } from 'lucide-react'
 import Lightbox from './Lightbox'
+import { useI18n } from '../../i18n'
 
 /**
  * Carrousel d'images défilable, avec ouverture en plein écran.
@@ -12,6 +13,8 @@ import Lightbox from './Lightbox'
  * @param {'wide'|'square'|'portrait'} ratio  proportion des vignettes
  */
 export default function ImageSlider({ images, ratio = 'wide', className = '', tone = 'dark' }) {
+    const { lang } = useI18n()
+    const agrandir = lang === 'en' ? 'Enlarge the photo' : 'Agrandir la photo'
     const trackRef = useRef(null)
     const [index, setIndex] = useState(0)
     const [lightbox, setLightbox] = useState(null)
@@ -58,6 +61,7 @@ export default function ImageSlider({ images, ratio = 'wide', className = '', to
                         key={image.src}
                         type="button"
                         onClick={() => setLightbox(i)}
+                        aria-label={image.alt ? `${agrandir} : ${image.alt}` : agrandir}
                         className={`group relative w-[85%] shrink-0 snap-start overflow-hidden rounded-3xl sm:w-[55%] lg:w-[40%] ${aspect}`}
                     >
                         <img
@@ -93,19 +97,24 @@ export default function ImageSlider({ images, ratio = 'wide', className = '', to
                     <ChevronRight className="h-5 w-5" />
                 </button>
 
-                <div className="flex gap-1.5">
+                <div className="flex">
                     {images.map((image, i) => (
                         <button
                             key={image.src}
                             type="button"
                             onClick={() => scrollTo(i)}
                             aria-label={`Image ${i + 1}`}
-                            className={`h-1.5 rounded-full transition-all duration-300 ${
-                                i === index
-                                    ? 'w-6 bg-veda-gold'
-                                    : tone === 'light' ? 'w-1.5 bg-veda-dark/20' : 'w-1.5 bg-white/25'
-                            }`}
-                        />
+                            aria-current={i === index ? 'true' : undefined}
+                            className="flex h-6 min-w-6 items-center justify-center px-0.5"
+                        >
+                            <span
+                                className={`block h-1.5 rounded-full transition-all duration-300 ${
+                                    i === index
+                                        ? 'w-6 bg-veda-gold'
+                                        : tone === 'light' ? 'w-1.5 bg-veda-dark/20' : 'w-1.5 bg-white/25'
+                                }`}
+                            />
+                        </button>
                     ))}
                 </div>
             </div>
