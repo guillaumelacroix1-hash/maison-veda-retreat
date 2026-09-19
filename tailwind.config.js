@@ -35,19 +35,6 @@ export default {
             maxWidth: {
                 container: '80rem',
             },
-            // Bande défilante des témoignages. Le jeu d'éléments est rendu deux
-            // fois de suite : glisser de la moitié ramène exactement au point de
-            // départ, et la boucle ne se voit pas. La durée réelle est calculée
-            // par le composant, d'après la longueur de la bande.
-            keyframes: {
-                defilement: {
-                    from: { transform: 'translate3d(0, 0, 0)' },
-                    to: { transform: 'translate3d(-50%, 0, 0)' },
-                },
-            },
-            animation: {
-                defilement: 'defilement 80s linear infinite',
-            },
         },
     },
     plugins: [],
