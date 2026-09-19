@@ -31,16 +31,16 @@
 
 /* Le doré de la marque, en deux teintes.
    Claire (#F4D7A2) sur les fonds sombres, où l'ancien doré manquait d'éclat.
-   L'ancienne (#B99B64) sur les fonds crème et blancs, où la teinte claire,
-   à peine plus foncée que le fond, deviendrait illisible. Toute classe
-   veda-gold prend ainsi la teinte du fond sur lequel elle se trouve ; un
-   bloc sombre posé dans une zone claire retrouve la teinte claire. */
+   Plus soutenue (#CCB790) sur les fonds crème et blancs, où la teinte claire,
+   à peine plus foncée que le fond, disparaîtrait. Toute classe veda-gold
+   prend ainsi la teinte du fond sur lequel elle se trouve ; un bloc sombre
+   posé dans une zone claire retrouve la teinte claire. */
 :root {
   --veda-gold: 244 215 162;
 }
 .bg-veda-cream,
 .bg-white {
-  --veda-gold: 185 155 100;
+  --veda-gold: 204 183 144;
 }
 .bg-veda-dark {
   --veda-gold: 244 215 162;
