@@ -1,10 +1,15 @@
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { X } from 'lucide-react'
 import { useI18n } from '../i18n'
 import { retreatContent } from '../data/retreat2027'
 
 const getImageUrl = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}?v=2`;
+
+// Vignettes : la miniature de 320 pixels fabriquée à la construction
+// (outils/optimiser-images.mjs), 20 Ko au lieu de 600. Le serveur de
+// développement ne l'a pas : il garde la photo entière.
+const miniature = (url) => (import.meta.env.DEV ? url : url.replace(/\.(jpe?g|png)(\?|$)/i, '.mini.jpg$2'));
 
 const lakeHouseImages = [
     getImageUrl("/images/carousels/maison-veda/lake-house/17134a43-830c-4499-bba1-31e71e48208f.jpg"),
@@ -80,10 +85,21 @@ const tothupolaImages = [
     getImageUrl("/images/carousels/tothupola/IMG_1537.JPG"),
 ];
 
-const ImageSlider = ({ images, initialDelay = 0, onImageClick }) => {
+const ImageSlider = ({ images, nom, initialDelay = 0, onImageClick }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const cadre = useRef(null);
+    const [visible, setVisible] = useState(false);
+
+    // Le défilement automatique ne tourne que si le carrousel est à l'écran :
+    // hors de vue, il téléchargeait une grande photo toutes les quatre secondes.
+    useEffect(() => {
+        const vue = new IntersectionObserver(([e]) => setVisible(e.isIntersecting), { rootMargin: '200px 0px' });
+        vue.observe(cadre.current);
+        return () => vue.disconnect();
+    }, []);
 
     useEffect(() => {
+        if (!visible) return undefined;
         let timer;
         const startInterval = () => {
             timer = setInterval(() => {
@@ -97,10 +113,10 @@ const ImageSlider = ({ images, initialDelay = 0, onImageClick }) => {
             clearTimeout(timeout);
             if (timer) clearInterval(timer);
         };
-    }, [images.length, initialDelay]);
+    }, [images.length, initialDelay, visible]);
 
     return (
-        <div className="w-full">
+        <div className="w-full" ref={cadre}>
             <div
                 className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4 group cursor-zoom-in"
                 onClick={() => onImageClick(images[currentIndex], currentIndex)}
@@ -114,7 +130,9 @@ const ImageSlider = ({ images, initialDelay = 0, onImageClick }) => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.8, ease: "easeInOut" }}
                         className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                        alt="Villa"
+                        alt={nom ? `${nom}, photo ${currentIndex + 1}` : ''}
+                        loading="lazy"
+                        decoding="async"
                     />
                 </AnimatePresence>
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none" />
@@ -125,11 +143,14 @@ const ImageSlider = ({ images, initialDelay = 0, onImageClick }) => {
                 {images.map((img, idx) => (
                     <button
                         key={idx}
+                        type="button"
                         onClick={() => setCurrentIndex(idx)}
+                        aria-label={nom ? `${nom}, photo ${idx + 1}` : `Photo ${idx + 1}`}
+                        aria-current={currentIndex === idx ? 'true' : undefined}
                         className={`relative w-20 h-16 sm:w-24 sm:h-20 flex-shrink-0 rounded-lg overflow-hidden transition-all duration-300 ${currentIndex === idx ? 'ring-2 ring-veda-gold ring-offset-2 ring-offset-veda-dark opacity-100 scale-105' : 'opacity-50 hover:opacity-100'
                             }`}
                     >
-                        <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
+                        <img src={miniature(img)} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     </button>
                 ))}
             </div>
@@ -193,14 +214,14 @@ export default function Villas() {
 
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                     <div className="max-w-2xl">
-                        <motion.h3
+                        <motion.p
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
+                            className="font-heading text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
                         >
                             {c.eyebrow}
-                        </motion.h3>
+                        </motion.p>
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -266,12 +287,12 @@ export default function Villas() {
                         transition={{ duration: 0.8 }}
                     >
                         <div className="mb-6">
-                            <h4 className="text-4xl font-heading mb-2">{c.lodgings[0].prefix} <span className="text-veda-gold">{c.lodgings[0].name}</span></h4>
+                            <h3 className="text-4xl font-heading mb-2">{c.lodgings[0].prefix} <span className="text-veda-gold">{c.lodgings[0].name}</span></h3>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
                                 {c.lodgings[0].desc}
                             </p>
                         </div>
-                        <ImageSlider images={lakeHouseImages} initialDelay={0} onImageClick={(url, idx) => handleImageClick(url, lakeHouseImages, idx)} />
+                        <ImageSlider images={lakeHouseImages} nom={c.lodgings[0].name} initialDelay={0} onImageClick={(url, idx) => handleImageClick(url, lakeHouseImages, idx)} />
                     </motion.div>
 
                     {/* Lake Loft */}
@@ -283,12 +304,12 @@ export default function Villas() {
                         className="lg:mt-24"
                     >
                         <div className="mb-6">
-                            <h4 className="text-4xl font-heading mb-2">{c.lodgings[1].prefix} <span className="text-veda-gold">{c.lodgings[1].name}</span></h4>
+                            <h3 className="text-4xl font-heading mb-2">{c.lodgings[1].prefix} <span className="text-veda-gold">{c.lodgings[1].name}</span></h3>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
                                 {c.lodgings[1].desc}
                             </p>
                         </div>
-                        <ImageSlider images={lakeLoftImages} initialDelay={2000} onImageClick={(url, idx) => handleImageClick(url, lakeLoftImages, idx)} />
+                        <ImageSlider images={lakeLoftImages} nom={c.lodgings[1].name} initialDelay={2000} onImageClick={(url, idx) => handleImageClick(url, lakeLoftImages, idx)} />
                     </motion.div>
 
                     {/* Jungle Breeze */}
@@ -299,12 +320,12 @@ export default function Villas() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
                         <div className="mb-6 text-left">
-                            <h4 className="text-4xl font-heading mb-2">{c.lodgings[2].prefix} <span className="text-veda-gold">{c.lodgings[2].name}</span></h4>
+                            <h3 className="text-4xl font-heading mb-2">{c.lodgings[2].prefix} <span className="text-veda-gold">{c.lodgings[2].name}</span></h3>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
                                 {c.lodgings[2].desc}
                             </p>
                         </div>
-                        <ImageSlider images={jungleBreezeImages} initialDelay={4000} onImageClick={(url, idx) => handleImageClick(url, jungleBreezeImages, idx)} />
+                        <ImageSlider images={jungleBreezeImages} nom={c.lodgings[2].name} initialDelay={4000} onImageClick={(url, idx) => handleImageClick(url, jungleBreezeImages, idx)} />
                     </motion.div>
                     
                     {/* Tothupola */}
@@ -316,12 +337,12 @@ export default function Villas() {
                         className="lg:mt-24"
                     >
                         <div className="mb-6 text-left">
-                            <h4 className="text-4xl font-heading mb-2">{c.lodgings[3].prefix} <span className="text-veda-gold">{c.lodgings[3].name}</span></h4>
+                            <h3 className="text-4xl font-heading mb-2">{c.lodgings[3].prefix} <span className="text-veda-gold">{c.lodgings[3].name}</span></h3>
                             <p className="text-veda-light/70 font-light text-sm line-clamp-2">
                                 {c.lodgings[3].desc}
                             </p>
                         </div>
-                        <ImageSlider images={tothupolaImages} initialDelay={6000} onImageClick={(url, idx) => handleImageClick(url, tothupolaImages, idx)} />
+                        <ImageSlider images={tothupolaImages} nom={c.lodgings[3].name} initialDelay={6000} onImageClick={(url, idx) => handleImageClick(url, tothupolaImages, idx)} />
                     </motion.div>
 
                 </div>

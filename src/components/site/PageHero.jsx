@@ -12,6 +12,7 @@ export default function PageHero({ eyebrow, title, accent, lead, image }) {
                         alt=""
                         className="absolute inset-0 h-full w-full object-cover opacity-40"
                         loading="eager"
+                        fetchPriority="high"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-veda-dark via-veda-dark/70 to-veda-dark/30" />
                 </>

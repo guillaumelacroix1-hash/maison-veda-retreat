@@ -21,7 +21,7 @@ export default function FinalCTA() {
                         transition={{ duration: 1 }}
                         className="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] shadow-2xl group"
                     >
-                        <img
+                        <img loading="lazy" decoding="async"
                             src={aurelieNatImg}
                             alt="Aurélie et Nathalie - Vos hôtes"
                             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -29,7 +29,7 @@ export default function FinalCTA() {
                         <div className="absolute inset-0 bg-gradient-to-t from-veda-dark via-transparent to-transparent opacity-80 mix-blend-multiply pointer-events-none"></div>
 
                         <div className="absolute bottom-0 left-0 w-full p-8 sm:p-12 z-10">
-                            <h4 className="text-3xl font-heading text-veda-gold drop-shadow-md">{c.hostsTitle}</h4>
+                            <p className="text-3xl font-heading text-veda-gold drop-shadow-md">{c.hostsTitle}</p>
                             <p className="text-white/80 font-light mt-2 drop-shadow-sm">{c.hostsSubtitle}</p>
                         </div>
                     </motion.div>
@@ -43,9 +43,9 @@ export default function FinalCTA() {
                         className="flex flex-col space-y-8"
                     >
                         <div>
-                            <h3 className="text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase">
+                            <p className="font-heading text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase">
                                 {c.eyebrow}
-                            </h3>
+                            </p>
                             <h2 className="text-5xl sm:text-6xl md:text-7xl font-heading leading-tight mb-8">
                                 {c.title} <span className="italic text-veda-gold block">{c.titleAccent}</span>
                             </h2>

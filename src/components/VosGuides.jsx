@@ -17,7 +17,7 @@ function Guide({ person, labels }) {
 
     return (
         <div className="pl-6 border-l-4 border-veda-gold">
-            <h4 className="text-2xl font-heading mb-4 text-white">{person.name}</h4>
+            <h3 className="text-2xl font-heading mb-4 text-white">{person.name}</h3>
             <div className="text-veda-light/80 leading-relaxed font-light text-sm sm:text-base space-y-3">
                 <p>{person.intro}</p>
 
@@ -72,9 +72,9 @@ export default function VosGuides() {
                             viewport={{ once: true, margin: '-100px' }}
                             transition={{ duration: 0.8 }}
                         >
-                            <h3 className="text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase">
+                            <p className="font-heading text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase">
                                 {c.eyebrow}
-                            </h3>
+                            </p>
                             <h2 className="text-5xl md:text-7xl font-heading mb-12 leading-[1.1]">
                                 {c.titleStart} <span className="italic text-veda-gold">{c.titleAccent1}</span>
                                 <br />
@@ -122,7 +122,7 @@ export default function VosGuides() {
                                                 }`}
                                             />
                                             <div className="overflow-hidden rounded-xl bg-veda-dark shadow-2xl relative z-10">
-                                                <img
+                                                <img loading="lazy" decoding="async"
                                                     src={photo.src}
                                                     alt={person.name}
                                                     className="w-full h-auto aspect-[3/4] object-cover object-center grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-700 hover:scale-105"

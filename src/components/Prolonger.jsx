@@ -14,7 +14,7 @@ export default function Prolonger() {
         <section className="py-24 md:py-32 px-6 bg-veda-dark text-veda-light relative z-10 overflow-hidden">
             {/* Background Texture Overlay */}
             <div className="absolute inset-0 z-0 opacity-10 pointer-events-none mix-blend-overlay">
-                <img
+                <img loading="lazy" decoding="async"
                     src={`${import.meta.env.BASE_URL}new_image/ahangama-railway-nirbana-sri-lanka-1367x2048.jpeg`}
                     alt="Sri Lanka texture"
                     className="w-full h-full object-cover grayscale"
@@ -23,14 +23,14 @@ export default function Prolonger() {
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-20">
-                    <motion.h3
+                    <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
+                        className="font-heading text-veda-gold text-xs sm:text-sm font-semibold tracking-[0.2em] mb-4 uppercase"
                     >
                         {c.eyebrow}
-                    </motion.h3>
+                    </motion.p>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -63,7 +63,7 @@ export default function Prolonger() {
                     >
                         {/* Background Image */}
                         <div className="absolute inset-0 z-0">
-                            <img
+                            <img loading="lazy" decoding="async"
                                 src={`${import.meta.env.BASE_URL}new_image/IMG_1494.jpeg`}
                                 alt="Plage du sud Sri Lanka"
                                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -78,7 +78,7 @@ export default function Prolonger() {
                             <div className="w-12 h-12 rounded-full bg-veda-gold/20 backdrop-blur-md flex items-center justify-center mb-6 text-veda-gold border border-veda-gold/30">
                                 <Palmtree className="w-5 h-5" />
                             </div>
-                            <h4 className="text-3xl font-heading text-white mb-4 drop-shadow-lg">{c.chillTitle}</h4>
+                            <h3 className="text-3xl font-heading text-white mb-4 drop-shadow-lg">{c.chillTitle}</h3>
                             <p className="text-white/80 font-light text-sm sm:text-base leading-relaxed drop-shadow-md">
                                 {c.chillDesc}
                             </p>
@@ -95,7 +95,7 @@ export default function Prolonger() {
                     >
                         {/* Background Image */}
                         <div className="absolute inset-0 z-0">
-                            <img
+                            <img loading="lazy" decoding="async"
                                 src={`${import.meta.env.BASE_URL}minivan.jpg`}
                                 alt="Tourisme Sri Lanka Safari"
                                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -110,7 +110,7 @@ export default function Prolonger() {
                             <div className="w-12 h-12 rounded-full bg-veda-gold/20 backdrop-blur-md flex items-center justify-center mb-6 text-veda-gold border border-veda-gold/30">
                                 <Bus className="w-5 h-5" />
                             </div>
-                            <h4 className="text-3xl font-heading text-white mb-4 drop-shadow-lg">{c.tourTitle}</h4>
+                            <h3 className="text-3xl font-heading text-white mb-4 drop-shadow-lg">{c.tourTitle}</h3>
                             <p className="text-white/80 font-light text-sm sm:text-base leading-relaxed drop-shadow-md">
                                 {c.tourDesc}
                             </p>
