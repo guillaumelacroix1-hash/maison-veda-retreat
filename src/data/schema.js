@@ -99,6 +99,18 @@ export function retraite(donnees, lang, url) {
     }
 }
 
+/**
+ * Une réponse écrite sur plusieurs lignes devient une suite de phrases : le
+ * retour à la ligne, visible sur la page, disparaît dans les données.
+ */
+const enPhrases = (texte) =>
+    String(texte)
+        .split(/\n+/)
+        .map((ligne) => ligne.trim())
+        .filter(Boolean)
+        .map((ligne) => (/[.!?…:]$/.test(ligne) ? ligne : `${ligne}.`))
+        .join(' ')
+
 /** Les questions fréquentes, telles qu'elles s'affichent sur la page. */
 export function questions(items) {
     if (!items?.length) return null
@@ -108,8 +120,49 @@ export function questions(items) {
         mainEntity: items.map((q) => ({
             '@type': 'Question',
             name: q.question ?? q.q,
-            acceptedAnswer: { '@type': 'Answer', text: q.answer ?? q.a },
+            acceptedAnswer: { '@type': 'Answer', text: enPhrases(q.answer ?? q.a) },
         })),
+    }
+}
+
+/**
+ * La description d'une retraite dans les résultats : quoi, quand, où, et le
+ * tarif s'il est fixé. Le seul résumé de la fiche tenait en une soixantaine
+ * de signes, et Google le complétait à sa façon.
+ */
+export function descriptionRetraite(donnees, lang) {
+    const copie = donnees[lang] ?? donnees.fr
+    const dates = lang === 'fr' ? copie.dates.charAt(0).toLowerCase() + copie.dates.slice(1) : copie.dates
+    const phrases = [`${copie.title}, ${dates}, ${copie.location}.`, copie.summary]
+    const prix = donnees.pricing?.from
+    if (prix) {
+        const montant = new Intl.NumberFormat(lang === 'en' ? 'en-GB' : 'fr-FR', {
+            style: 'currency',
+            currency: donnees.pricing.currency ?? 'EUR',
+            maximumFractionDigits: 0,
+        }).format(prix)
+        phrases.push(lang === 'en' ? `From ${montant}.` : `À partir de ${montant}.`)
+    }
+    return phrases.filter(Boolean).join(' ')
+}
+
+/**
+ * Un circuit VEDA Travel. Pas d'offre déclarée : les tarifs des circuits sont
+ * encore « à confirmer », et une donnée fausse coûte plus cher que l'absence
+ * de donnée.
+ */
+export function voyage(donnees, lang, url) {
+    const copie = donnees[lang] ?? donnees.fr
+    return {
+        '@context': 'https://schema.org',
+        '@type': 'TouristTrip',
+        '@id': absolu(url),
+        name: copie.name,
+        description: copie.intro,
+        url: absolu(url),
+        image: donnees.image ? absolu(donnees.image) : undefined,
+        inLanguage: lang,
+        provider: { '@type': 'Organization', name: 'La maison VEDA', url: SITE_URL },
     }
 }
 

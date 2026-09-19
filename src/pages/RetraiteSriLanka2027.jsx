@@ -11,6 +11,8 @@ import PageMeta from '../components/site/PageMeta'
 import SectionNav from '../components/site/SectionNav'
 import { useI18n } from '../i18n'
 import { getRetreat } from '../data/retreats'
+import { retreatContent } from '../data/retreat2027'
+import { retraite as schemaRetraite, questions, descriptionRetraite } from '../data/schema'
 
 /**
  * Page de la retraite Hatha & Kundalini, 7 au 13 février 2027.
@@ -24,7 +26,7 @@ import { getRetreat } from '../data/retreats'
  * Elles passeront par le dictionnaire i18n au moment de la version anglaise.
  */
 export default function RetraiteSriLanka2027() {
-    const { t, lang } = useI18n()
+    const { t, lang, path } = useI18n()
     const retreat = getRetreat('sri-lanka-2027')
     const copy = retreat[lang] ?? retreat.fr
 
@@ -40,7 +42,18 @@ export default function RetraiteSriLanka2027() {
 
     return (
         <>
-            <PageMeta title={`${copy.title}, ${copy.dates}`} description={copy.summary} />
+            {/* La retraite phare : ses dates, son lieu et son tarif doivent se lire
+                sans ambiguïté, par Google comme par les moteurs génératifs. */}
+            <PageMeta
+                title={`${copy.title}, ${copy.dates}`}
+                description={descriptionRetraite(retreat, lang)}
+                type="article"
+                fil={copy.title}
+                jsonLd={[
+                    schemaRetraite(retreat, lang, path('retreat', { slug: retreat.slug })),
+                    questions(retreatContent(lang).faq.items),
+                ]}
+            />
 
             <div id="accueil"><Hero /></div>
 

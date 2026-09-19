@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { Clock, MapPin, Users, Wallet, Check, X, ArrowLeft, Info } from 'lucide-react'
 import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
+import { voyage } from '../data/schema'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
 import { NOTES_INTERNES_VISIBLES } from '../components/site/ContentGap'
@@ -53,7 +54,12 @@ export default function VoyageDetail() {
 
     return (
         <>
-            <PageMeta title={`${copy.name}, ${copy.subtitle}`} description={copy.intro} />
+            <PageMeta
+                title={`${copy.name}, ${copy.subtitle}`}
+                description={copy.intro}
+                fil={copy.name}
+                jsonLd={voyage(trip, lang, path('trip', { slug: trip.slug }))}
+            />
             <PageHero
                 eyebrow={t('nav.travel')}
                 title={copy.name}

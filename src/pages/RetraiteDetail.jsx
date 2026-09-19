@@ -12,7 +12,7 @@ import RetraiteSriLanka2027 from './RetraiteSriLanka2027'
 import { getRetreat } from '../data/retreats'
 import { srilanka } from '../data/srilankaContent'
 import { CONTACT, DEPOSIT_RATE } from '../data/site'
-import { retraite as schemaRetraite } from '../data/schema'
+import { retraite as schemaRetraite, descriptionRetraite } from '../data/schema'
 
 /**
  * Photos posées en face des textes longs de la fiche. Toutes nos retraites se
@@ -82,8 +82,9 @@ export default function RetraiteDetail() {
         <>
             <PageMeta
                 title={`${copy.title}, ${copy.dates}`}
-                description={copy.summary}
+                description={descriptionRetraite(retreat, lang)}
                 type="article"
+                fil={copy.title}
                 jsonLd={schemaRetraite(retreat, lang, path('retreat', { slug: retreat.slug }))}
             />
             <PageHero

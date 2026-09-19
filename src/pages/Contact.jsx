@@ -21,7 +21,7 @@ export default function Contact() {
         <>
             <PageMeta
                 title={t('contact.metaTitle')}
-                description={t('contact.lead')}
+                description={t('contact.metaDescription')}
                 image={MEDIA.contact}
                 jsonLd={questions([
                     ...c.contact.faq.travel,

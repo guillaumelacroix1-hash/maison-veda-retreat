@@ -361,6 +361,7 @@ export default {
 
     contact: {
         metaTitle: 'Contact et questions fréquentes',
+        metaDescription: "Une question sur une retraite, un séjour au bord du lac de Koggala ou l'organisation de votre propre retraite ? Écrivez-nous, nous répondons sous 48 heures.",
         title: 'Contact',
         lead: 'Une question ? Nous répondons sous 48 h.',
         formTitle: 'Nous écrire',

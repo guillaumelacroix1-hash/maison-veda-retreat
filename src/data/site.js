@@ -69,7 +69,7 @@ export const RESPONSE_HOURS = 48
 export const SITE_URL = 'https://srilanka.lamaisonveda.com'
 
 /** Image de partage par defaut, quand la page n'en propose pas de plus juste. */
-export const SHARE_IMAGE = '/srilanka/histoire/img_9658-1.jpg'
+export const SHARE_IMAGE = '/partage/la-maison-veda-sri-lanka.jpg'
 
 /** Coordonnees du lieu, pour les donnees structurees et les moteurs locaux. */
 export const GEO = {

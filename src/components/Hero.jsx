@@ -63,7 +63,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.4 }}
                     className="text-7xl md:text-[7rem] leading-[1.1] mb-6 font-heading"
                 >
-                    {c.title}
+                    {c.title}{' '}
                     <br />
                     <span className="font-heading italic font-light text-veda-gold drop-shadow-lg">{c.accent}</span>
                 </motion.h1>

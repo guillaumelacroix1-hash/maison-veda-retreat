@@ -1,6 +1,7 @@
 import { MessageCircle, Check, Bed, Users, Maximize } from 'lucide-react'
 import { useI18n } from '../i18n'
 import PageMeta from '../components/site/PageMeta'
+import { lieu } from '../data/schema'
 import PageHero from '../components/site/PageHero'
 import Section from '../components/site/Section'
 import PhotoPleine from '../components/site/PhotoPleine'
@@ -117,7 +118,11 @@ export default function LieuHebergements() {
 
     return (
         <>
-            <PageMeta title={t('venue.metaTitle')} description={c.welcome.paragraphs[0]} />
+            <PageMeta
+                title={t('venue.metaTitle')}
+                description={c.welcome.paragraphs[0]}
+                jsonLd={lieu(lang, { description: c.welcome.paragraphs[0], image: MEDIA.venue })}
+            />
             <PageHero
                 eyebrow={c.tagline}
                 title={t('venue.title')}

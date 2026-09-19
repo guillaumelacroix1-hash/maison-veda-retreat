@@ -357,6 +357,7 @@ export default {
 
     contact: {
         metaTitle: 'Contact and FAQ',
+        metaDescription: 'A question about a retreat, a stay by Koggala Lake or hosting your own retreat? Write to us, we reply within 48 hours.',
         title: 'Contact',
         lead: 'A question? We reply within 48 hours.',
         formTitle: 'Write to us',
