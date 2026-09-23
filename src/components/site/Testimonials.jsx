@@ -37,12 +37,14 @@ const VITESSE_LECTURE = 150
 const ACCELERATION = 350
 
 /**
- * Sur téléphone, deux photos au plus entre deux avis. Toutes les photos
- * passaient d'abord : sur la page des retraites, il fallait jusqu'à 3 600
- * pixels de photos pour atteindre l'avis suivant. Toutes restent dans la
- * visionneuse, qu'on ouvre en touchant une photo.
+ * Une photo au plus entre deux avis. Toutes les photos passaient d'abord, et
+ * la bande se lisait comme une galerie où un avis surgissait de temps en
+ * temps : sur la page des retraites, il fallait jusqu'à 3 600 pixels de photos
+ * pour atteindre l'avis suivant. Ce sont les avis qu'on vient lire ici ; les
+ * photos écartées restent dans la visionneuse, qu'on ouvre en touchant l'une
+ * d'elles.
  */
-const PHOTOS_ENTRE_AVIS_MOBILE = 2
+const PHOTOS_ENTRE_AVIS = 1
 
 /** Temps d'arrêt sur un avis selon sa longueur, en millisecondes : de quoi le lire sans se presser. */
 const tempsDeLecture = (lettres) => Math.min(12000, Math.max(5000, 1500 + lettres * 30))
@@ -148,8 +150,8 @@ export default function Testimonials({ quotes = [], images = [], reviewsUrl, goo
     }
 
     const total = quotes.length + images.length
-    const bandesBureau = composer(quotes, images, total >= 10 ? 2 : 1).map((s) => etendre(s, HAUTEURS.bureau))
-    const bandeMobile = composer(quotes, images, 1, PHOTOS_ENTRE_AVIS_MOBILE).map((s) => etendre(s, HAUTEURS.mobile))
+    const bandesBureau = composer(quotes, images, total >= 10 ? 2 : 1, PHOTOS_ENTRE_AVIS).map((s) => etendre(s, HAUTEURS.bureau))
+    const bandeMobile = composer(quotes, images, 1, PHOTOS_ENTRE_AVIS).map((s) => etendre(s, HAUTEURS.mobile))
 
     const avecAvis = quotes.length > 0
     const libelles =
