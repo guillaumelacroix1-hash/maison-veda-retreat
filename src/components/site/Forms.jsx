@@ -127,7 +127,7 @@ export function NewsletterForm() {
     }
 
     return (
-        <div className="w-full max-w-md">
+        <div className="mx-auto w-full max-w-md">
             <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
                 <label className="sr-only" htmlFor="newsletter-email">
                     {t('home.newsletterPlaceholder')}

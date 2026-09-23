@@ -102,7 +102,7 @@ export default function Retraites() {
                     <Testimonials quotes={REVIEWS_RETREATS} images={SRILANKA_MEDIA['yoga-shala']} />
                 </div>
 
-                <div className="mt-20 border-t border-white/10 pt-14">
+                <div className="mt-20 border-t border-white/10 pt-14 text-center">
                     <h3 className="font-heading text-2xl md:text-3xl">{t('home.newsletterTitle')}</h3>
                     <div className="mt-7">
                         <NewsletterForm />

@@ -107,13 +107,18 @@ function composer(quotes, images, nombre, photosParAvis = Infinity) {
         .filter((suite) => suite.length)
 }
 
-/** Répète une bande trop courte jusqu'à couvrir un grand écran. */
-function etendre(suite, hauteur) {
-    const largeur = suite.reduce(
+/** Largeur d'une suite d'éléments, avant qu'elle ne soit posée dans la page. */
+function largeurDeLaSuite(suite, hauteur) {
+    return suite.reduce(
         (total, el) =>
             total + GOUTTIERE + (el.genre === 'avis' ? largeurAvis(el.q.text) : hauteur * proportion(el.img.src)),
         0,
     )
+}
+
+/** Répète une bande trop courte jusqu'à couvrir un grand écran. */
+function etendre(suite, hauteur) {
+    const largeur = largeurDeLaSuite(suite, hauteur)
     const fois = Math.max(1, Math.ceil(LARGEUR_MIN_JEU / Math.max(largeur, 1)))
     return Array.from({ length: fois }, (_, n) => suite.map((el) => ({ ...el, repetition: n }))).flat()
 }
@@ -149,8 +154,17 @@ export default function Testimonials({ quotes = [], images = [], reviewsUrl, goo
         vignette: clair ? 'bg-veda-dark/[0.06]' : 'bg-white/[0.06]',
     }
 
-    const total = quotes.length + images.length
-    const bandesBureau = composer(quotes, images, total >= 10 ? 2 : 1, PHOTOS_ENTRE_AVIS).map((s) => etendre(s, HAUTEURS.bureau))
+    // Deux bandes en sens contraire sur grand écran, mais seulement si chacune
+    // est assez longue pour couvrir l'écran sans se répéter. Avec une photo
+    // entre deux avis, la matière ne suffit plus toujours : partagée en deux,
+    // elle revenait au bout de 1 600 pixels et le même avis, la même photo
+    // s'affichaient deux fois côte à côte. Une bande unique reprend alors tout.
+    const deux = composer(quotes, images, 2, PHOTOS_ENTRE_AVIS)
+    const bandesBureau = (
+        deux.length === 2 && deux.every((s) => largeurDeLaSuite(s, HAUTEURS.bureau) >= LARGEUR_MIN_JEU)
+            ? deux
+            : composer(quotes, images, 1, PHOTOS_ENTRE_AVIS)
+    ).map((s) => etendre(s, HAUTEURS.bureau))
     const bandeMobile = composer(quotes, images, 1, PHOTOS_ENTRE_AVIS).map((s) => etendre(s, HAUTEURS.mobile))
 
     const avecAvis = quotes.length > 0
