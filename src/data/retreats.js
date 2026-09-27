@@ -41,11 +41,11 @@ export const RETREATS = [
                     name: 'Eugénie Besqueut Franz',
                     role: 'Transformation holistique',
                     photo: 'eugenie-portrait.jpg',
-                    text: 'Coach et formatrice, fondatrice de la Maison de Coaching Holistique. Elle a créé la Neurosagesse, une approche qui réunit les sagesses ancestrales, la psychologie et les neurosciences. Elle apporte ici la régulation du système nerveux et le travail sur le subconscient.',
+                    text: 'Coach et formatrice, fondatrice de la Maison de Coaching Holistique et du Spirit Gateway Institute. Elle a créé la Neurosagesse, une approche qui réunit les sagesses ancestrales, la psychologie et les neurosciences, et accompagne depuis plus de dix ans la transformation profonde. Elle apporte ici la régulation du système nerveux, le travail sur le subconscient, les constellations et les soins collectifs.',
                 },
             ],
             journeyTitle: 'Cinq journées',
-            journeyLead: 'Chaque journée porte une grande thématique, et tient sur trois temps : une pratique de Kundalini, une pratique avec Eugénie, une découverte au dehors, au contact du vivant. Au lever, les rituels ayurvédiques ; tout au long du jour, des tisanes infusées. Le planning, lui, reste ouvert : nous le construirons avec le vivant, et il vous sera remis à votre arrivée.',
+            journeyLead: 'Chaque journée porte une grande thématique, et tient sur trois temps : une pratique de Kundalini, une pratique avec Eugénie, une expérience en lien avec le vivant. Au lever, les rituels ayurvédiques ; tout au long du jour, des tisanes infusées. Le planning, lui, reste ouvert : nous le construirons avec le vivant, et il vous sera remis à votre arrivée.',
             // Les thèmes arrêtés avec Eugénie le 17 septembre 2026. Seul ce qui est
             // décidé figure ici : kriyas, lieux et séances restent des pistes du
             // document de travail, que le vivant confirmera sur place.
@@ -61,7 +61,7 @@ export const RETREATS = [
             intentionTitle: 'Notre intention',
             intention: [
                 'Tejas, en sanskrit, désigne l\'éclat intérieur — la luminosité née du feu, de la clarté et de la vitalité.',
-                'Ce n\'est pas une collection d\'exercices. C\'est un parcours de cinq journées pleines, entre l\'eau qui ouvre la semaine et le feu qui la referme. Deux fils le traversent de bout en bout : le système nerveux, et les mémoires du subconscient.',
+                'On ne vient pas cocher une liste d\'expériences : ce qu\'on vient chercher, c\'est ce que l\'expérience fait traverser, et le ressenti qu\'elle laisse. Un parcours de cinq journées pleines, entre l\'eau qui ouvre la semaine et le feu qui la referme. Deux fils le traversent de bout en bout : le système nerveux, et les mémoires du subconscient.',
                 'Le feu ne brûle pas dans le vide. Ici, la jungle, le lac, l\'océan ne sont pas le décor : ils sont ce qui le nourrit. Les pratiques ne se déroulent pas toutes sur un tapis, et c\'est le vivant qui dessinera chaque journée.',
                 'Nous serons deux à vous accompagner sur ce chemin.',
             ],
@@ -96,11 +96,11 @@ export const RETREATS = [
                     name: 'Eugénie Besqueut Franz',
                     role: 'Holistic transformation',
                     photo: 'eugenie-portrait.jpg',
-                    text: 'Coach and trainer, founder of the Maison de Coaching Holistique. She created Neurosagesse, an approach bringing together ancestral wisdom, psychology and neuroscience. Here she guides nervous system regulation and work on the subconscious.',
+                    text: 'Coach and trainer, founder of the Maison de Coaching Holistique and of the Spirit Gateway Institute. She created Neurosagesse, an approach bringing together ancestral wisdom, psychology and neuroscience, and has guided deep transformation for more than ten years. Here she brings nervous system regulation, work on the subconscious, constellations and collective healing sessions.',
                 },
             ],
             journeyTitle: 'Five days',
-            journeyLead: 'Each day carries a theme of its own, and rests on three moments: a Kundalini practice, a practice with Eugénie, and a discovery outdoors, in contact with the living world. At dawn, the Ayurvedic rituals; all day long, herbal infusions. The schedule itself stays open: we will build it with what is alive around us, and hand it to you when you arrive.',
+            journeyLead: 'Each day carries a theme of its own, and rests on three moments: a Kundalini practice, a practice with Eugénie, and an experience in connection with the living world. At dawn, the Ayurvedic rituals; all day long, herbal infusions. The schedule itself stays open: we will build it with what is alive around us, and hand it to you when you arrive.',
             journey: [
                 { day: 'Arrival', date: 'Sunday 21 March, afternoon', title: 'The opening ceremony', text: 'Crossing the threshold. You arrive with the road still in your body; the water carries it away, and the week can begin.' },
                 { day: 'Day 1', date: 'Monday 22 March', title: 'Grounding & safety', text: 'The ground beneath your feet. First, a concrete sense of stability settles into the body: from there, and not before, everything else becomes possible.' },
@@ -113,7 +113,7 @@ export const RETREATS = [
             intentionTitle: 'Our intention',
             intention: [
                 'Tejas, in Sanskrit, is inner radiance — the luminosity born of fire, clarity and vitality.',
-                'This is not a collection of exercises. It is a path of five full days, between the water that opens the week and the fire that closes it. Two threads run through it from beginning to end: the nervous system, and the memories held in the subconscious.',
+                'You do not come to tick off a list of experiences: what you come for is what the experience takes you through, and the feeling it leaves. A path of five full days, between the water that opens the week and the fire that closes it. Two threads run through it from beginning to end: the nervous system, and the memories held in the subconscious.',
                 'Fire does not burn in a void. Here the jungle, the lake and the ocean are not scenery: they are what feeds it. Not every practice happens on a mat, and it is the living world that will shape each day.',
                 'Two of us will walk this path with you.',
             ],
