@@ -395,7 +395,7 @@ export const SRILANKA = {
                         a: 'Végétariens et entièrement sans gluten — j\'y tiens, je suis moi-même intolérante.',
                     },
                     {
-                        q: 'Peut-on boire l\'eau du robinet ?',
+                        q: 'L\'eau du robinet est-elle potable ?',
                         a: 'Non. L\'eau potable est fournie sur place, vous n\'avez rien à acheter.',
                     },
                     {
@@ -408,14 +408,14 @@ export const SRILANKA = {
                     },
                     {
                         q: 'Y a-t-il beaucoup de moustiques ?',
-                        a: 'Il y en a, mais le moment est court : un quart d\'heure à la tombée de la nuit. Passé ce creux, on les oublie.',
+                        a: 'Il y en a, mais le moment est court : un quart d\'heure à la tombée de la nuit. Passé ce creux, ils se font oublier.',
                     },
                     {
                         q: 'Comment gérer l\'argent sur place ?',
                         a: 'Le change est facile, mais le plus simple reste de retirer sur place, en roupies.',
                     },
                     {
-                        q: 'Quelle langue parle-t-on ?',
+                        q: 'Quelle langue est parlée sur place ?',
                         a: 'Le cingalais et le tamoul. Nous vous accueillons en français et en anglais.',
                     },
                     {
@@ -423,7 +423,7 @@ export const SRILANKA = {
                         a: 'Je suis sur place d\'octobre à mai.',
                     },
                     {
-                        q: 'Peut-on faire une lessive ?',
+                        q: 'Est-il possible de faire une lessive ?',
                         a: 'Oui, c\'est possible à La maison VEDA.',
                     },
                 ],
@@ -433,7 +433,7 @@ export const SRILANKA = {
                         a: 'Non. Les cours de Kundalini s\'adaptent à chacun : vous pouvez ralentir, faire une pause, reprendre. C\'est à vous de trouver vos limites, et personne ne vous poussera au-delà.',
                     },
                     {
-                        q: 'Peut-on venir seule ?',
+                        q: 'Est-il possible de venir seule ?',
                         a: 'Très facilement, et beaucoup le font. Les participants sont le plus souvent des femmes entre trente et soixante ans.',
                     },
                     {
@@ -441,7 +441,7 @@ export const SRILANKA = {
                         a: 'Rien pour la pratique : les tapis, les blocs et les bolsters vous attendent sur le shala.',
                     },
                     {
-                        q: 'Est-on obligé de tout suivre ?',
+                        q: 'Faut-il tout suivre ?',
                         a: 'Non. Vous serez invitée à chaque cours et à chaque atelier, mais vous restez libre de vos mouvements, à l\'intérieur de la retraite comme à l\'extérieur.',
                     },
                     {

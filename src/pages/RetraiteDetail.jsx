@@ -108,7 +108,9 @@ export default function RetraiteDetail() {
                 image={retreat.image}
             />
 
-            <Section>
+            {/* Les repères suivent le bandeau sans marge haute : le bas du bandeau
+                en porte déjà une, et les deux cumulées creusaient un vide. */}
+            <Section className="!pt-0">
                 <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
                     {facts.map(({ icon: Icon, value }) => (
                         <li key={value} className="flex items-start gap-3 text-sm font-light text-veda-light/70">
@@ -181,9 +183,8 @@ export default function RetraiteDetail() {
                         </p>
                     )}
                     {/* Chaque intervenante dans une carte, portrait à gauche. Les deux
-                        cartes prennent la même hauteur et le portrait suit celle du
-                        texte : des vignettes de 280 pixels posées au-dessus de récits
-                        de longueurs différentes laissaient un vide sous le plus court. */}
+                        cartes prennent la même hauteur ; le portrait, carré, reste
+                        entier en haut de la carte plutôt que d'être étiré et zoomé. */}
                     <div className="grid gap-6 lg:grid-cols-2">
                         {copy.guidesList.map((g) => (
                             <article
@@ -194,9 +195,12 @@ export default function RetraiteDetail() {
                                     image={{
                                         src: `${import.meta.env.BASE_URL}images/professeures/${g.photo}`,
                                         alt: g.name,
-                                        position: 'center 20%',
+                                        position: 'center 30%',
                                     }}
-                                    hauteurMin="min-h-[280px]"
+                                    // Les portraits sont carrés : un cadre carré les montre entiers.
+                                    // Étirés à la hauteur du texte, ils étaient recadrés et zoomés.
+                                    hauteurMin="aspect-square"
+                                    className="self-start"
                                 />
                                 <div className="flex flex-col justify-center py-2 sm:pr-2">
                                     <h3 className="font-heading text-2xl text-veda-light">{g.name}</h3>

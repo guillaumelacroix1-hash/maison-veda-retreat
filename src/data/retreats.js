@@ -22,7 +22,7 @@ export const RETREATS = [
             dates: 'Du 21 au 27 mars 2027',
             datesDetail: 'Du dimanche 21 mars au samedi 27 mars 2027',
             duration: '5 jours pleins, 6 nuits',
-            summary: 'Kundalini et travail transformationnel, face au lac de Koggala.',
+            summary: 'Kundalini et cheminement transformationnel, face au lac de Koggala.',
             guidesTitle: 'Celles qui vous accompagnent',
             guidesLead: 'Nos deux approches visent le même endroit — le système nerveux, les mémoires du subconscient — et l\'atteignent autrement. Par le corps, le souffle et le son d\'un côté ; par la régulation et le travail sur les conditionnements de l\'autre. C\'est de là que vient la force de cette retraite.',
             guidesList: [
@@ -31,7 +31,7 @@ export const RETREATS = [
                     spiritualName: 'Radha Navjot Kaur',
                     role: 'Kundalini Yoga',
                     photo: 'lilie-portrait.jpg',
-                    text: 'Fondatrice de La maison VEDA, en Charente puis au Sri Lanka, formée dans la lignée directe de Yogi Bhajan. Elle enseigne le Kundalini, le yoga de la conscience : une pratique puissante, qui transforme vite. On y régule le système nerveux par le corps, la méditation et le chant, et l\'on y travaille les mémoires du subconscient — ce qui se nettoie là se traduit en clarté mentale au quotidien, et en capacité à se mettre en chemin.',
+                    text: 'Fondatrice de La maison VEDA, en Charente puis au Sri Lanka, formée dans la lignée directe de Yogi Bhajan. Elle enseigne le Kundalini, le yoga de la conscience : une pratique puissante, qui transforme vite. Le système nerveux s\'y régule par le corps, la méditation et le chant, et les mémoires du subconscient s\'y travaillent — ce qui se nettoie là se traduit en clarté mentale au quotidien, et en capacité à se mettre en chemin.',
                 },
                 {
                     // Présentation reprise de son propre site, sans superlatif :
@@ -49,13 +49,13 @@ export const RETREATS = [
             // décidé figure ici : kriyas, lieux et séances restent des pistes du
             // document de travail, que le vivant confirmera sur place.
             journey: [
-                { day: 'Arrivée', date: 'Dimanche 21 mars, l\'après-midi', title: 'La cérémonie d\'ouverture', text: 'Passer le seuil. On arrive avec la route encore dans le corps ; l\'eau l\'emporte, et la semaine peut commencer.' },
-                { day: 'Jour 1', date: 'Lundi 22 mars', title: 'Ancrage & sécurité', text: 'Le sol sous les pieds. Installer d\'abord, dans le corps, une sensation concrète de stabilité : c\'est à partir d\'elle, et pas avant, que le reste devient possible.' },
-                { day: 'Jour 2', date: 'Mardi 23 mars', title: 'Énergie vitale', text: 'Rendre à l\'énergie son mouvement. Un regard attentif sur le système nerveux, puis le pardon, qui délie ce qui retenait l\'élan.' },
-                { day: 'Jour 3', date: 'Mercredi 24 mars', title: 'Pouvoir créateur', text: 'S\'autoriser à recevoir, et à créer. L\'abondance et la manifestation : passer d\'une énergie de l\'effort à une vie qui accueille ce qui vient.' },
-                { day: 'Jour 4', date: 'Jeudi 25 mars', title: 'L\'Unité', text: 'Se tenir à sa propre hauteur, et se laisser voir. L\'amour de soi, jusque dans le reflet du miroir.' },
-                { day: 'Jour 5', date: 'Vendredi 26 mars', title: 'Intégration', text: 'Se déposer. Laisser la semaine prendre racine, et préparer ce qu\'on emporte : une pratique simple, qu\'on tiendra vraiment une fois rentré.' },
-                { day: 'Départ', date: 'Samedi 27 mars, vers midi', title: 'La cérémonie de clôture', text: 'Rendre grâce. Ce qui a été traversé et ne sert plus est confié au feu ; le reste, on l\'emporte.' },
+                { day: 'Arrivée', date: 'Dimanche 21 mars, l\'après-midi', title: 'La cérémonie d\'ouverture', text: 'Passer le seuil. La route est encore dans le corps, avec ses fatigues et le bruit du monde laissé derrière. L\'eau accueille, lave, dénoue. Le souffle ralentit, et quelque chose, tout au fond, murmure enfin : me voici.' },
+                { day: 'Jour 1', date: 'Lundi 22 mars', title: 'Ancrage & sécurité', text: 'Sentir la terre sous ses pieds, chaude, patiente, solide. Avant toute chose, retrouver dans le corps cette sécurité que la vie a parfois fait oublier. C\'est d\'elle que tout le reste peut naître : ce qui se sent en sécurité ose enfin s\'ouvrir.' },
+                { day: 'Jour 2', date: 'Mardi 23 mars', title: 'Énergie vitale', text: 'Laisser l\'énergie reprendre son cours, comme une rivière longtemps retenue. Écouter le système nerveux avec tendresse, puis s\'avancer vers le pardon, celui qui libère bien plus qu\'il n\'excuse. Ce qui était noué se délie, et l\'élan revient.' },
+                { day: 'Jour 3', date: 'Mercredi 24 mars', title: 'Pouvoir créateur', text: 'Oser recevoir. Quitter peu à peu une vie arrachée à l\'effort pour une vie qui accueille. L\'abondance et la manifestation : sentir que le désir n\'est pas une faute, et que ce qui est appelé du cœur sait trouver son chemin.' },
+                { day: 'Jour 4', date: 'Jeudi 25 mars', title: 'L\'Unité', text: 'Se tenir à sa juste hauteur, sans se grandir ni se diminuer, et se laisser enfin regarder. L\'amour de soi, jusque dans le reflet du miroir : soutenir son propre regard, et y trouver de la douceur là où, si longtemps, il n\'y avait que du jugement.' },
+                { day: 'Jour 5', date: 'Vendredi 26 mars', title: 'Intégration', text: 'Se déposer. Laisser la semaine descendre lentement dans le corps, comme une pluie que la terre boit. Choisir ce qui rentrera avec soi : une pratique simple et fidèle, assez légère pour être tenue chaque matin, assez profonde pour garder la flamme vivante.' },
+                { day: 'Départ', date: 'Samedi 27 mars, vers midi', title: 'La cérémonie de clôture', text: 'Rendre grâce. Confier au feu ce qui a été traversé et ne sert plus, et le regarder se consumer, sans regret. Puis repartir le cœur allégé, avec en soi cet éclat qui ne demande plus qu\'à rayonner : Tejas.' },
             ],
             intentionTitle: 'Notre intention',
             intention: [
@@ -116,7 +116,7 @@ export const RETREATS = [
             dates: '21 to 27 March 2027',
             datesDetail: 'From Sunday 21 to Saturday 27 March 2027',
             duration: '5 full days, 6 nights',
-            summary: 'Kundalini and transformational work, facing Koggala Lake.',
+            summary: 'Kundalini and a transformational journey, facing Koggala Lake.',
             guidesTitle: 'Who will guide you',
             guidesLead: 'Our two approaches reach for the same place — the nervous system, the memories held in the subconscious — and get there differently. Through the body, the breath and sound on one side; through regulation and work on conditioning on the other. That is where this retreat draws its strength.',
             guidesList: [
@@ -137,13 +137,13 @@ export const RETREATS = [
             journeyTitle: 'Five days',
             journeyLead: 'Each day carries a theme of its own, and rests on three moments: a Kundalini practice, a practice with Eugénie, and an experience in connection with the living world. At dawn, the Ayurvedic rituals; all day long, herbal infusions. The schedule itself stays open: we will build it with what is alive around us, and hand it to you when you arrive.',
             journey: [
-                { day: 'Arrival', date: 'Sunday 21 March, afternoon', title: 'The opening ceremony', text: 'Crossing the threshold. You arrive with the road still in your body; the water carries it away, and the week can begin.' },
-                { day: 'Day 1', date: 'Monday 22 March', title: 'Grounding & safety', text: 'The ground beneath your feet. First, a concrete sense of stability settles into the body: from there, and not before, everything else becomes possible.' },
-                { day: 'Day 2', date: 'Tuesday 23 March', title: 'Vital energy', text: 'Giving energy back its movement. A careful look at the nervous system, then forgiveness, which loosens what was holding the momentum back.' },
-                { day: 'Day 3', date: 'Wednesday 24 March', title: 'Creative power', text: 'Allowing yourself to receive, and to create. Abundance and manifestation: moving from an energy of effort to a life that welcomes what comes.' },
-                { day: 'Day 4', date: 'Thursday 25 March', title: 'Unity', text: 'Standing at your own height, and letting yourself be seen. Self-love, all the way into the reflection in the mirror.' },
-                { day: 'Day 5', date: 'Friday 26 March', title: 'Integration', text: 'Setting yourself down. Letting the week take root, and preparing what you carry home: a simple practice you will truly keep.' },
-                { day: 'Departure', date: 'Saturday 27 March, around noon', title: 'The closing ceremony', text: 'Giving thanks. What has been crossed and no longer serves is given to the fire; the rest, you carry with you.' },
+                { day: 'Arrival', date: 'Sunday 21 March, afternoon', title: 'The opening ceremony', text: 'Crossing the threshold. The road is still in your body, with its weariness and the noise of the world left behind. The water welcomes, washes, unknots. Your breath slows, and something deep within finally whispers: here I am.' },
+                { day: 'Day 1', date: 'Monday 22 March', title: 'Grounding & safety', text: 'Feeling the earth beneath your feet, warm, patient, solid. Before anything else, finding again in the body the safety that life has sometimes made you forget. Everything else can be born from it: what feels safe at last dares to open.' },
+                { day: 'Day 2', date: 'Tuesday 23 March', title: 'Vital energy', text: 'Letting energy flow again, like a river held back for too long. Listening to the nervous system with tenderness, then stepping towards forgiveness, the kind that frees far more than it excuses. What was knotted comes loose, and the momentum returns.' },
+                { day: 'Day 3', date: 'Wednesday 24 March', title: 'Creative power', text: 'Daring to receive. Slowly leaving a life wrung out of effort for a life that welcomes. Abundance and manifestation: feeling that desire is not a fault, and that what the heart calls for knows how to find its way.' },
+                { day: 'Day 4', date: 'Thursday 25 March', title: 'Unity', text: 'Standing at your true height, neither inflated nor diminished, and finally letting yourself be seen. Self-love, all the way into the reflection in the mirror: holding your own gaze, and finding gentleness where, for so long, there was only judgement.' },
+                { day: 'Day 5', date: 'Friday 26 March', title: 'Integration', text: 'Setting yourself down. Letting the week sink slowly into the body, like rain the earth drinks in. Choosing what comes home with you: a simple, faithful practice, light enough to keep every morning, deep enough to keep the flame alive.' },
+                { day: 'Departure', date: 'Saturday 27 March, around noon', title: 'The closing ceremony', text: 'Giving thanks. Entrusting to the fire what has been crossed and no longer serves, and watching it burn away, without regret. Then leaving with a lighter heart, carrying the radiance that now only asks to shine: Tejas.' },
             ],
             intentionTitle: 'Our intention',
             intention: [
