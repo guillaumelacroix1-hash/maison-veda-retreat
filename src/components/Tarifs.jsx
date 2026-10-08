@@ -4,15 +4,26 @@ import { Link } from 'react-router-dom'
 import { useI18n } from '../i18n'
 import { retreatContent } from '../data/retreat2027'
 
-export default function Tarifs() {
-    const { path, lang } = useI18n()
-    const c = retreatContent(lang).tarifs
-    const bookPath = path('book', { slug: 'sri-lanka-2027' })
+/** Un prix en grands chiffres : « 1 » puis le reste, resserré. */
+const Prix = ({ value }) => {
+    const chiffres = String(value)
+    return <>{chiffres[0]}<span className="tracking-tight">{chiffres.slice(1)}</span></>
+}
 
-    /** Conditions de paiement, identiques sur les deux formules. */
-    const terms = (tone) => (
+/**
+ * La présentation des tarifs de la retraite de février, reprise telle quelle
+ * par les autres retraites : sans argument, elle affiche février ; une autre
+ * retraite passe ses textes, ses deux prix et son slug.
+ */
+export default function Tarifs({ content, slug = 'sri-lanka-2027', prices = { shared: 1280, single: 1480 } }) {
+    const { path, lang } = useI18n()
+    const c = content ?? retreatContent(lang).tarifs
+    const bookPath = path('book', { slug })
+
+    /** Conditions de paiement ; l'acompte peut différer d'une formule à l'autre. */
+    const terms = (tone, label = c.depositLabel) => (
         <p className={`text-xs mt-4 font-light leading-relaxed ${tone}`}>
-            <span className="font-medium">{c.depositLabel}</span>{' '}
+            <span className="font-medium">{label}</span>{' '}
             <span className="whitespace-pre-line">{c.depositTerms}</span>
             <br />
             <span className="italic">{c.cancellation}</span>
@@ -113,7 +124,7 @@ export default function Tarifs() {
                             <p className="text-sm text-veda-dark/60 mb-10 font-light">{c.sharedDesc}</p>
 
                             <div className="flex items-baseline gap-2 mb-10 justify-center">
-                                <span className="text-6xl font-heading text-veda-gold">1<span className="tracking-tight">280</span></span>
+                                <span className="text-6xl font-heading text-veda-gold"><Prix value={prices.shared} /></span>
                                 <span className="text-2xl font-medium">€</span>
                             </div>
 
@@ -121,7 +132,7 @@ export default function Tarifs() {
                                 <Link to={bookPath} className="block text-center w-full py-4 bg-veda-dark group-hover:bg-black text-veda-light font-medium tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-md">
                                     {c.cta}
                                 </Link>
-                                {terms('text-veda-dark/60')}
+                                {terms('text-veda-dark/60', c.sharedDepositLabel)}
                             </div>
                         </div>
 
@@ -134,7 +145,7 @@ export default function Tarifs() {
                             <p className="text-sm text-veda-light/60 mb-10 font-light">{c.singleDesc}</p>
 
                             <div className="flex items-baseline gap-2 mb-10 justify-center">
-                                <span className="text-6xl font-heading text-white">1<span className="tracking-tight">480</span></span>
+                                <span className="text-6xl font-heading text-white"><Prix value={prices.single} /></span>
                                 <span className="text-2xl font-medium text-veda-gold">€</span>
                             </div>
 
@@ -142,7 +153,7 @@ export default function Tarifs() {
                                 <Link to={bookPath} className="block text-center w-full py-4 bg-veda-gold group-hover:bg-white text-veda-dark font-bold tracking-widest uppercase transition-colors duration-300 rounded-full text-sm shadow-lg">
                                     {c.cta}
                                 </Link>
-                                {terms('text-veda-gold/80')}
+                                {terms('text-veda-gold/80', c.singleDepositLabel)}
                             </div>
                         </div>
                     </motion.div>

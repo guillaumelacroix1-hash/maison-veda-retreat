@@ -7,6 +7,7 @@ import Section from '../components/site/Section'
 import FaqColonnes from '../components/site/FaqColonnes'
 import PhotoPleine from '../components/site/PhotoPleine'
 import ContentGap from '../components/site/ContentGap'
+import Tarifs from '../components/Tarifs'
 import NotFound from './NotFound'
 import RetraiteSriLanka2027 from './RetraiteSriLanka2027'
 import { getRetreat } from '../data/retreats'
@@ -70,6 +71,19 @@ export default function RetraiteDetail() {
         ? Math.round(retreat.pricing.from * DEPOSIT_RATE)
         : null)
     const isSoldOut = retreat.spotsLeft === 0
+
+    const tarifs = retreat.pricing?.options?.length > 0 && (
+        <ul className="max-w-2xl divide-y divide-white/10 border-y border-white/10">
+            {retreat.pricing.options.map((option) => (
+                <li key={option.fr} className="flex items-baseline justify-between gap-6 py-5">
+                    <span className="text-sm font-light text-veda-light/80">
+                        {option[lang] ?? option.fr}
+                    </span>
+                    <span className="font-heading text-xl text-veda-gold">{option.price} €</span>
+                </li>
+            ))}
+        </ul>
+    )
 
     const facts = [
         { icon: CalendarDays, value: copy.datesDetail ?? copy.dates },
@@ -231,6 +245,9 @@ export default function RetraiteDetail() {
                             {t('retreats.soonTitle')}
                         </h2>
                         <p className="mt-6 text-lg font-light leading-relaxed text-veda-light/70">{copy.soon}</p>
+                        {/* Une retraite annoncée peut déjà afficher ses tarifs, avant
+                            que le bouton de réservation n'ouvre les inscriptions. */}
+                        {tarifs && <div className="mx-auto mt-10 max-w-md text-left">{tarifs}</div>}
                         <a
                             href={CONTACT.whatsappHref}
                             className="mt-10 inline-block rounded-full bg-veda-gold px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-veda-dark transition-colors duration-300 hover:bg-white"
@@ -239,20 +256,17 @@ export default function RetraiteDetail() {
                         </a>
                     </div>
                 </Section>
+            ) : copy.tarifs ? (
+                <div id="tarifs">
+                    <Tarifs
+                        content={copy.tarifs}
+                        slug={retreat.slug}
+                        prices={{ shared: retreat.pricing.options[0].price, single: retreat.pricing.options[1].price }}
+                    />
+                </div>
             ) : (
             <Section title={t('retreats.pricing')}>
-                {retreat.pricing?.options?.length > 0 && (
-                    <ul className="max-w-2xl divide-y divide-white/10 border-y border-white/10">
-                        {retreat.pricing.options.map((option) => (
-                            <li key={option.fr} className="flex items-baseline justify-between gap-6 py-5">
-                                <span className="text-sm font-light text-veda-light/80">
-                                    {option[lang] ?? option.fr}
-                                </span>
-                                <span className="font-heading text-xl text-veda-gold">{option.price} €</span>
-                            </li>
-                        ))}
-                    </ul>
-                )}
+                {tarifs}
 
                 {deposit && (
                     <p className="mt-8 text-sm font-light text-veda-light/60">
